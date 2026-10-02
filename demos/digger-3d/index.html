@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIGGER 3D</title>
+  <script type="module" crossorigin src="./assets/index-DVbVzRiH.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CVOUzaVu.css">
+</head>
+<body>
+  <div id="app">
+    <div id="scene-container"></div>
+    <div id="fx-layer"></div>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-block"><span class="hud-label">SCORE</span><span id="hud-score">000000</span></div>
+      <div class="hud-block"><span class="hud-label">HIGH</span><span id="hud-high">0</span></div>
+      <div class="hud-block"><span class="hud-label">LEVEL</span><span id="hud-level">1</span></div>
+      <div class="hud-block"><span class="hud-label">LIVES</span><span id="hud-lives"></span></div>
+      <div class="hud-block hud-weapon"><span class="hud-label">WEAPON</span><div id="weapon-bar"><div id="weapon-fill"></div></div></div>
+      <div class="hud-block hud-bonus hidden" id="hud-bonus"><span class="hud-label">BONUS</span><div id="bonus-bar"><div id="bonus-fill"></div></div></div>
+    </div>
+
+    <!-- transient banner -->
+    <div id="banner"></div>
+
+    <!-- TITLE -->
+    <div id="screen-title" class="screen">
+      <h1 class="logo">DIGGER<span class="logo3d">3D</span></h1>
+      <p class="tagline">AN EXCAVATION ADVENTURE &mdash; INSPIRED BY THE 1983 ARCADE CLASSIC</p>
+      <div class="menu">
+        <button id="opt-start" class="menu-btn big">START GAME</button>
+        <div class="menu-row">
+          <button id="opt-crt" class="menu-btn">CRT FILTER: ON</button>
+          <button id="opt-quality" class="menu-btn">QUALITY: HIGH</button>
+          <button id="opt-sound" class="menu-btn">SOUND: ON</button>
+        </div>
+        <div class="menu-row">
+          <button id="opt-help" class="menu-btn">CONTROLS: SHOW</button>
+          <button id="opt-tests" class="menu-btn">RUN SELF-TESTS</button>
+        </div>
+        <div id="controls-panel">
+          <p>ARROWS / WASD — drive &amp; dig · hold into earth to excavate</p>
+          <p>SPACE / F — fire bolt · walk into a resting bag to shove it</p>
+          <p>P — pause · M — mute · ` — debug overlay · ENTER — start</p>
+          <p class="muted">Collect every emerald or eliminate the full spawn quota.
+          Bags dropped 3+ rows burst into collectible gold.
+          Find the cherry for BONUS MODE — touch enemies, don't get touched.</p>
+        </div>
+        <p class="seed muted">seed 0xD166E2 · every play is the same world, a different run</p>
+      </div>
+    </div>
+
+    <!-- PAUSE -->
+    <div id="screen-pause" class="screen hidden">
+      <h1 class="logo small">PAUSED</h1>
+      <div class="menu">
+        <button id="btn-resume" class="menu-btn big">RESUME</button>
+        <button id="btn-restart" class="menu-btn">RESTART GAME</button>
+      </div>
+    </div>
+
+    <!-- GAME OVER -->
+    <div id="screen-gameover" class="screen hidden">
+      <h1 class="logo small red">GAME OVER</h1>
+      <div class="stats">
+        <p>FINAL SCORE <span id="go-score">0</span></p>
+        <p>LEVEL REACHED <span id="go-level">1</span></p>
+        <p>HIGH SCORE <span id="go-high">0</span></p>
+      </div>
+      <div class="menu">
+        <button id="btn-go-title" class="menu-btn big">CONTINUE</button>
+      </div>
+    </div>
+
+    <!-- SELF TESTS -->
+    <div id="screen-tests" class="screen hidden">
+      <h1 class="logo small">SELF-TESTS</h1>
+      <div id="test-summary">running…</div>
+      <ul id="test-list"></ul>
+      <div class="menu">
+        <button id="btn-tests-back" class="menu-btn">BACK (ENTER)</button>
+      </div>
+    </div>
+
+    <div id="crt"></div>
+  </div>
+</body>
+</html>

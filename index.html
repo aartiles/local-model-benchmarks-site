@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Playable static demos produced during local model benchmark runs.">
+    <title>Local Model Benchmarks</title>
+    <style>
+      :root { color-scheme: light dark; font-family: ui-sans-serif, system-ui, sans-serif; }
+      body { max-width: 900px; margin: 0 auto; padding: 3rem 1.25rem; line-height: 1.6; }
+      h1 { font-size: clamp(2rem, 6vw, 3.75rem); line-height: 1.05; letter-spacing: -0.04em; }
+      a { color: #5b8cff; }
+      .intro { max-width: 680px; font-size: 1.15rem; }
+      .card { border: 1px solid #8885; border-radius: 1rem; padding: 1.25rem; margin: 1rem 0; }
+      footer { margin-top: 3rem; color: #888; font-size: .9rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Local model benchmark demos</p>
+      <h1>Playable challenges built with models running on local hardware.</h1>
+      <p class="intro">Explore static browser builds produced during local model runs. Each demo is an artifact to play, not a standardized performance score.</p>
+      <section class="card">
+        <h2>Playable demos</h2>
+        <p>Published static builds are available in the <a href="./demos/">demo index</a>.</p>
+        <ul>
+          <li><a href="./demos/digger-arcade/">Digger Arcade</a></li>
+          <li><a href="./demos/digger-3d/">Digger 3D</a></li>
+          <li><a href="./demos/pagoda-garden/">Voxel Pagoda Garden</a></li>
+          <li><a href="./demos/whiteout-protocol/">Whiteout Protocol</a></li>
+          <li><a href="./demos/whiteout-protocol-tensorfold/">Whiteout Protocol · TensorFold build</a></li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>About this site</h2>
+        <p>This public site serves reviewed static demos only. It does not host model checkpoints, raw run logs, or benchmark data.</p>
+      </section>
+    </main>
+    <footer>These playable artifacts do not replace controlled, workload-specific benchmark measurements.</footer>
+  </body>
+</html>
