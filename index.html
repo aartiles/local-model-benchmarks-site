@@ -22,10 +22,10 @@
           <p class="run-date">02 October 2026</p>
           <p class="run-kind">Agentic game · 3D baseball</p>
           <h1 id="page-title">Hardball 3D</h1>
-          <p class="run__summary">A three-inning arcade baseball game with batting, pitching, fielding AI and base running. The final build and recorded game checks completed.</p>
+          <p class="run__summary">A three-inning arcade baseball game with batting, pitching, fielding AI and base running. The build checks completed; the visual presentation is acceptable, but baseball rule fidelity is inconsistent.</p>
           <div class="action-links">
             <a href="./demos/hardball-3d/">Open playable build <span aria-hidden="true">↗</span></a>
-            <a href="./runs/hardball-3d/#session">Agent session counters <span aria-hidden="true">→</span></a>
+            <a href="./runs/hardball-3d/#inference">Inference measurements <span aria-hidden="true">→</span></a>
           </div>
         </section>
         <figure class="screenshot">
@@ -39,15 +39,27 @@
           <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
           <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
           <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
-          <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">2.6 bpw · format unrecorded</span></li>
-          <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi · version unrecorded</span></li>
+          <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+          <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.1.0 · MLX 0.32.3</span></li>
           <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
+          <li class="chip"><span class="chip__key">Context</span><span class="chip__value">131,072 tokens</span></li>
         </ul>
       </section>
-      <section class="home-dimensions" aria-labelledby="session-title">
+      <section class="home-dimensions" id="inference" aria-labelledby="inference-title">
+        <header class="performance__head">
+          <h2 id="inference-title">Inference measurements</h2>
+          <p>130 successful Pi responses matched Sushi runtime records. Prefill includes cache reuse; TTFT was not logged.</p>
+        </header>
+        <ul class="chip-list">
+          <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">33.95 tok/s</span></li>
+          <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">413.6 tok/s</span></li>
+          <li class="chip"><span class="chip__key">MTP acceptance · aggregate</span><span class="chip__value chip__value--metric">72.93%</span></li>
+        </ul>
+      </section>
+      <section class="home-dimensions" id="session" aria-labelledby="session-title">
         <header class="performance__head">
           <h2 id="session-title">Agent session counters</h2>
-          <p>Pi usage metadata; per-request inference timings were not retained.</p>
+          <p>Agent-wide usage totals from Pi; these are separate from the runtime measurements above.</p>
         </header>
         <ul class="chip-list">
           <li class="chip"><span class="chip__key">Session elapsed</span><span class="chip__value chip__value--metric">1 h 30 min</span></li>

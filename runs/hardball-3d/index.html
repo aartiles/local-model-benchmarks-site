@@ -13,7 +13,7 @@
   <body>
     <header class="masthead shell">
       <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
-      <nav aria-label="Main navigation"><a href="../../demos/">All runs <span aria-hidden="true">→</span></a></nav>
+      <nav aria-label="Main navigation"><a href="../../">All runs <span aria-hidden="true">↑</span></a></nav>
     </header>
     <main>
       <section class="intro shell" aria-labelledby="page-title">
@@ -38,13 +38,22 @@
               <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
               <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
               <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
-              <li class="chip"><span class="chip__key">Quantization label</span><span class="chip__value">2.6 bpw · format unrecorded</span></li>
-              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi · version unrecorded</span></li>
+              <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.1.0 · MLX 0.32.3</span></li>
               <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
+              <li class="chip"><span class="chip__key">Context</span><span class="chip__value">131,072 tokens</span></li>
+            </ul>
+          </section>
+          <section class="performance" id="inference" aria-label="Hardball 3D inference measurements">
+            <header class="performance__head"><h2>Inference measurements</h2><p>130 successful Pi responses matched one-to-one with Sushi runtime summaries by fresh, cached and output token counts. Prefill includes cache reuse; MTP acceptance is accepted/drafted tokens. TTFT was not logged.</p></header>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">33.95 tok/s</span></li>
+              <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">413.6 tok/s</span></li>
+              <li class="chip"><span class="chip__key">MTP acceptance · aggregate</span><span class="chip__value chip__value--metric">72.93%</span></li>
             </ul>
           </section>
           <section class="performance" id="session" aria-label="Hardball 3D agent session counters">
-            <header class="performance__head"><h2>Agent session counters</h2><p>Aggregate usage counters from Pi. They are not inference throughput measurements.</p></header>
+            <header class="performance__head"><h2>Agent session counters</h2><p>Aggregate Pi usage totals; these are separate from the runtime measurements above.</p></header>
             <ul class="chip-list">
               <li class="chip"><span class="chip__key">Session elapsed</span><span class="chip__value chip__value--metric">1 h 30 min 2 s</span></li>
               <li class="chip"><span class="chip__key">Model responses</span><span class="chip__value chip__value--metric">130</span></li>
@@ -64,14 +73,16 @@
                   <li>Pi coding agent at medium thinking level.</li>
                   <li>Successful session provider ID: <code>sushi</code>. The provider model ID was <code>Qwen3.8-Flash-Next-Sushi-2.6bpw</code>.</li>
                   <li>A preceding session used provider ID <code>mlx-sushi</code> and recorded four failed requests with zero token usage; those are excluded from the successful session counters.</li>
-                  <li>Exact Sushi version/build, quantization format, server options, context and output limits, and model-loading state were not retained.</li>
+                  <li>The matching engine log identifies Sushi 1.1.0 with MLX 0.32.3, EXL3 K=2.625 bpw, and a 131,072-token context. Other server options and output limits were not retained.</li>
                 </ul>
               </section>
               <section>
                 <h3>Build and task checks</h3>
                 <p>The final Vite build completed with a reported 549 KB JavaScript bundle across 13 modules. Three headless autopilot games reached game over and restart returned the game to its ready state. A focused runner-on-third scenario recorded a score at 4.17 simulated seconds. The real HUD and camera director completed a 3,600-frame DOM-stub smoke run without exceptions. The local development server returned HTTP 200 for the page and its application modules.</p>
+                <h3 class="detail-label">Qualitative assessment</h3>
+                <p>The visual presentation is acceptable, but gameplay does not consistently follow baseball rules. The completed build and smoke checks do not validate baseball rule fidelity.</p>
                 <h3 class="detail-label">Limits</h3>
-                <p>Per-request decode and prefill rates, TTFT, MTP acceptance, and peak memory were not recorded. The session duration includes coding, tools and checks; it is not model-generation time. This is one interactive coding-agent run, not a repeated fixed-task benchmark. Checks are transcribed from the session log and were not rerun while archiving.</p>
+                <p>The Pi usage signatures match 130 Sushi runtime summaries by fresh input, cached input and output token counts. Those engine records provide per-request prefill/decode rates and MTP accepted/drafted token counters. The runtime log does not record request-start-to-first-token latency, and Pi event gaps include tool calls, coding and waiting, so TTFT cannot be reconstructed. Peak system memory was not sampled. Session duration includes coding, tools and checks; it is not model-generation time. This is one interactive coding-agent run, not a repeated fixed-task benchmark. Checks are transcribed from the session log and were not rerun while archiving.</p>
               </section>
             </div>
           </details>
@@ -81,6 +92,6 @@
         <p>The public record excludes the original prompt, Pi transcript, server logs and local paths. The recipe is a partial reconstruction from session metadata.</p>
       </section>
     </main>
-    <footer class="shell"><a href="../../demos/">Run archive</a> · <a href="../../">Home</a></footer>
+    <footer class="shell"><a href="../../">All runs</a></footer>
   </body>
 </html>
