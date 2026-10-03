@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hardball 3D run sheet: Qwen 3.8 Flash Next, Sushi, Pi session counters, checks and limits.">
+    <title>Hardball 3D run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../../demos/">All runs <span aria-hidden="true">→</span></a></nav>
+    </header>
+    <main>
+      <section class="intro shell" aria-labelledby="page-title">
+        <p class="run-date">02 October 2026</p>
+        <p class="run-kind">Agentic game · 3D baseball</p>
+        <h1 id="page-title">Hardball 3D</h1>
+        <p class="intro__copy">A three-inning arcade baseball game with batting, pitching, fielding AI, base running and restart behavior. The final build and recorded game checks completed.</p>
+        <div class="action-links">
+          <a href="../../demos/hardball-3d/">Open playable build <span aria-hidden="true">↗</span></a>
+          <a href="../../demos/hardball-3d/LICENSE-THREEJS.txt">Three.js license notice</a>
+        </div>
+      </section>
+      <article class="run-sheet shell">
+        <div class="run__record">
+          <section class="dimensions" aria-label="Hardball 3D run dimensions">
+            <h2>Run dimensions</h2>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+              <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+              <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+              <li class="chip"><span class="chip__key">Quantization label</span><span class="chip__value">2.6 bpw · format unrecorded</span></li>
+              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi · version unrecorded</span></li>
+              <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
+            </ul>
+          </section>
+          <section class="performance" id="session" aria-label="Hardball 3D agent session counters">
+            <header class="performance__head"><h2>Agent session counters</h2><p>Aggregate usage counters from Pi. They are not inference throughput measurements.</p></header>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Session elapsed</span><span class="chip__value chip__value--metric">1 h 30 min 2 s</span></li>
+              <li class="chip"><span class="chip__key">Model responses</span><span class="chip__value chip__value--metric">130</span></li>
+              <li class="chip"><span class="chip__key">Tool calls</span><span class="chip__value chip__value--metric">133</span></li>
+              <li class="chip"><span class="chip__key">Context compactions</span><span class="chip__value chip__value--metric">2</span></li>
+              <li class="chip"><span class="chip__key">Fresh input</span><span class="chip__value chip__value--metric">259,165 tokens</span></li>
+              <li class="chip"><span class="chip__key">Cached input</span><span class="chip__value chip__value--metric">8,079,060 tokens</span></li>
+              <li class="chip"><span class="chip__key">Output</span><span class="chip__value chip__value--metric">148,981 tokens</span></li>
+            </ul>
+          </section>
+          <details open>
+            <summary>Setup, checks &amp; limits</summary>
+            <div class="details-grid">
+              <section>
+                <h3>Recorded setup</h3>
+                <ul>
+                  <li>Pi coding agent at medium thinking level.</li>
+                  <li>Successful session provider ID: <code>sushi</code>. The provider model ID was <code>Qwen3.8-Flash-Next-Sushi-2.6bpw</code>.</li>
+                  <li>A preceding session used provider ID <code>mlx-sushi</code> and recorded four failed requests with zero token usage; those are excluded from the successful session counters.</li>
+                  <li>Exact Sushi version/build, quantization format, server options, context and output limits, and model-loading state were not retained.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Build and task checks</h3>
+                <p>The final Vite build completed with a reported 549 KB JavaScript bundle across 13 modules. Three headless autopilot games reached game over and restart returned the game to its ready state. A focused runner-on-third scenario recorded a score at 4.17 simulated seconds. The real HUD and camera director completed a 3,600-frame DOM-stub smoke run without exceptions. The local development server returned HTTP 200 for the page and its application modules.</p>
+                <h3 class="detail-label">Limits</h3>
+                <p>Per-request decode and prefill rates, TTFT, MTP acceptance, and peak memory were not recorded. The session duration includes coding, tools and checks; it is not model-generation time. This is one interactive coding-agent run, not a repeated fixed-task benchmark. Checks are transcribed from the session log and were not rerun while archiving.</p>
+              </section>
+            </div>
+          </details>
+        </div>
+      </article>
+      <section class="site-note shell" aria-label="Run scope">
+        <p>The public record excludes the original prompt, Pi transcript, server logs and local paths. The recipe is a partial reconstruction from session metadata.</p>
+      </section>
+    </main>
+    <footer class="shell"><a href="../../demos/">Run archive</a> · <a href="../../">Home</a></footer>
+  </body>
+</html>

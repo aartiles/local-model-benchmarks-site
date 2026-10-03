@@ -1,137 +1,15 @@
 <!doctype html>
-<!-- Hallmark · pre-emit critique: P5 H5 E4 S5 R4 V4 · genre: editorial · structure: catalogue index · theme: Grid / ultramarine · contrast: pass (40–41) · honest: pass (46) · tokens: pass (48) · responsive: pass (34, 49–52) -->
+<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · theme: Grid / ultramarine · vertical rules removed at user request -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Run details for five local model builds: hardware, engines, configuration, inference rates and verification notes.">
-    <title>Run sheets · Local Model Benchmarks</title>
+    <meta name="description" content="Playable builds and concise run summaries for local model coding-agent experiments.">
+    <title>Run archive · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        color-scheme: light;
-        --color-paper: oklch(99% 0.003 255);
-        --color-paper-2: oklch(97.2% 0.004 255);
-        --color-paper-3: oklch(94.5% 0.006 255);
-        --color-ink: oklch(16% 0.01 255);
-        --color-ink-2: oklch(28% 0.012 255);
-        --color-muted: oklch(43% 0.012 255);
-        --color-rule: oklch(88% 0.008 255);
-        --color-accent: oklch(45% 0.19 264);
-        --color-accent-ink: oklch(99% 0.003 255);
-        --color-focus: oklch(45% 0.19 264);
-        --font-family: "Archivo", Arial, sans-serif;
-        --space-3xs: 0.25rem;
-        --space-2xs: 0.5rem;
-        --space-xs: 0.75rem;
-        --space-sm: 1rem;
-        --space-md: 1.5rem;
-        --space-lg: 2rem;
-        --space-xl: 3rem;
-        --space-2xl: 4.5rem;
-        --space-3xl: 7rem;
-        --text-xs: 0.75rem;
-        --text-sm: 0.875rem;
-        --text-md: 1.125rem;
-        --text-lg: 1.375rem;
-        --text-xl: 1.75rem;
-        --text-2xl: 2.25rem;
-        --tracking-label: 0.09em;
-        --shell: 78rem;
-      }
-      *, *::before, *::after { box-sizing: border-box; }
-      html, body { overflow-x: clip; }
-      html { scroll-behavior: smooth; }
-      body {
-        margin: 0;
-        background-color: var(--color-paper);
-        background-image: repeating-linear-gradient(to right, var(--color-rule) 0 1px, transparent 1px calc(100% / 12));
-        color: var(--color-ink-2);
-        font-family: var(--font-family);
-        font-size: 1rem;
-        line-height: 1.55;
-      }
-      a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
-      a:hover { text-decoration-thickness: 2px; }
-      a:focus-visible, summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
-      a:active, summary:active { color: var(--color-ink); }
-      .shell { width: min(100%, var(--shell)); margin-inline: auto; padding-inline: clamp(var(--space-sm), 4vw, var(--space-2xl)); }
-      .masthead { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); min-height: 5rem; border-bottom: 1px solid var(--color-ink); }
-      .wordmark { color: var(--color-ink); font-size: var(--text-xs); font-weight: 700; letter-spacing: var(--tracking-label); line-height: 1.25; text-decoration: none; white-space: nowrap; }
-      .wordmark__mark { display: inline-block; width: 0.55rem; height: 0.55rem; margin-inline-end: var(--space-2xs); background: var(--color-accent); vertical-align: 0.05em; }
-      .masthead nav a { display: inline-block; font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-label); text-decoration: none; text-transform: uppercase; white-space: nowrap; }
-      main { padding-block-end: var(--space-2xl); }
-      .intro { padding-block: var(--space-2xl) var(--space-xl); }
-      .eyebrow, .run-date, .run-kind, .metric-label, .meta-grid dt, .run-stats dt, .detail-label, .footer-label {
-        color: var(--color-muted); font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-label); line-height: 1.35; text-transform: uppercase;
-      }
-      .eyebrow { margin-block-end: var(--space-sm); }
-      h1, h2, h3, p { margin-block-start: 0; }
-      h1 { max-width: 12ch; margin-block-end: var(--space-md); color: var(--color-ink); font-size: clamp(3rem, 7vw, 5.75rem); font-weight: 800; letter-spacing: -0.055em; line-height: 0.94; overflow-wrap: anywhere; min-width: 0; text-transform: lowercase; }
-      .intro__copy { max-width: 58ch; margin-block-end: var(--space-lg); font-size: var(--text-md); }
-      .plate { background: var(--color-accent); color: var(--color-accent-ink); }
-      .plate__inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); padding-block: var(--space-md); }
-      .plate p { margin: 0; font-size: var(--text-sm); font-weight: 600; }
-      .plate strong { color: var(--color-accent-ink); }
-      .run-list { padding-block-start: var(--space-xl); }
-      .run { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); border-top: 2px solid var(--color-ink); padding-block: var(--space-lg) var(--space-2xl); scroll-margin-block-start: var(--space-md); }
-      .run__identity { min-width: 0; }
-      .run-date { margin-block-end: var(--space-2xs); }
-      .run-kind { margin-block-end: var(--space-sm); color: var(--color-accent); }
-      .run__title { margin-block-end: var(--space-xs); color: var(--color-ink); font-size: clamp(var(--text-xl), 3vw, 2.5rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1.02; overflow-wrap: anywhere; min-width: 0; }
-      .run__summary { max-width: 42ch; margin-block-end: var(--space-md); font-size: var(--text-sm); }
-      .play-link { display: inline-block; font-size: var(--text-sm); font-weight: 700; white-space: nowrap; }
-      .asset-note { margin-block: var(--space-sm) 0; font-size: var(--text-xs); }
-      .asset-note a { white-space: nowrap; }
-      .run__record { min-width: 0; }
-      .meta-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-sm) var(--space-md); border-top: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule); margin: 0; padding-block: var(--space-md); }
-      .meta-grid div, .run-stats div { min-width: 0; }
-      .meta-grid dt, .run-stats dt { margin-block-end: var(--space-3xs); }
-      .meta-grid dd, .run-stats dd { margin: 0; color: var(--color-ink); font-size: var(--text-sm); font-weight: 600; overflow-wrap: anywhere; }
-      .performance { padding-block: var(--space-md); }
-      .performance__head { display: block; margin-block-end: var(--space-sm); }
-      .performance__head h3 { margin-block-end: var(--space-3xs); color: var(--color-ink); font-size: var(--text-md); font-weight: 700; }
-      .performance__head p { max-width: 56ch; margin: 0; color: var(--color-muted); font-size: var(--text-xs); }
-      .metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-rule); border-left: 1px solid var(--color-rule); }
-      .metric { min-width: 0; border-right: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule); padding: var(--space-sm); }
-      .metric__value { display: block; margin-block-end: var(--space-2xs); color: var(--color-ink); font-size: clamp(var(--text-lg), 3vw, var(--text-xl)); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; overflow-wrap: anywhere; }
-      .metric-label { display: block; font-size: 0.68rem; }
-      .run-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md) var(--space-sm); border-top: 1px solid var(--color-rule); margin: 0; padding-block: var(--space-md); }
-      details { border-top: 1px solid var(--color-ink); margin-block-start: var(--space-xs); }
-      summary { display: inline-block; max-width: 100%; padding-block: var(--space-sm); color: var(--color-accent); cursor: pointer; font-size: var(--text-sm); font-weight: 700; white-space: nowrap; }
-      summary:hover { text-decoration: underline; text-underline-offset: 0.22em; }
-      summary:active { color: var(--color-ink); }
-      .details-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-md); border-top: 1px solid var(--color-rule); padding-block: var(--space-md); }
-      .details-grid h3 { margin-block-end: var(--space-xs); color: var(--color-ink); font-size: var(--text-sm); font-weight: 700; }
-      .detail-label { margin-block: var(--space-md) var(--space-2xs); }
-      .details-grid ul { margin: 0; padding-inline-start: var(--space-md); }
-      .details-grid li, .details-grid p { margin-block-end: var(--space-xs); font-size: var(--text-sm); }
-      .details-grid li:last-child, .details-grid p:last-child { margin-block-end: 0; }
-      .details-grid strong { color: var(--color-ink); font-weight: 700; }
-      .site-note { border-top: 2px solid var(--color-ink); margin-block-start: var(--space-lg); padding-block-start: var(--space-md); }
-      .site-note h2 { margin-block-end: var(--space-xs); color: var(--color-ink); font-size: var(--text-sm); font-weight: 700; }
-      .site-note p { max-width: 68ch; margin: 0; font-size: var(--text-sm); }
-      footer { border-top: 1px solid var(--color-rule); padding-block: var(--space-md) var(--space-xl); color: var(--color-muted); font-size: var(--text-xs); }
-      @media (min-width: 36rem) {
-        .meta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .run-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      }
-      @media (min-width: 48rem) {
-        .masthead { min-height: 5.5rem; }
-        .intro { padding-block: var(--space-3xl) var(--space-xl); }
-        .plate__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: baseline; }
-        .run { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-xl); padding-block: var(--space-xl) var(--space-2xl); }
-        .meta-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .details-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl); }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
-        *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
-      }
-    </style>
+    <link rel="stylesheet" href="../runs/runs.css">
   </head>
   <body>
     <header class="masthead shell">
@@ -140,72 +18,43 @@
     </header>
     <main>
       <section class="intro shell" aria-labelledby="page-title">
-        <p class="eyebrow">Run sheets · Apple M5 Pro · 64 GB unified memory</p>
-        <h1 id="page-title">Five builds.<br>Full run notes.</h1>
-        <p class="intro__copy">Each record identifies the model, quantization, engine, harness, machine and challenge, then reports the measurements and checks documented for that run. Open a build to play it; expand a run sheet for configuration and caveats.</p>
+        <p class="eyebrow">Run archive · Apple M5 Pro · 64 GB unified memory</p>
+        <h1 id="page-title">Playable builds and run sheets.</h1>
+        <p class="intro__copy">Each entry keeps its original run description, key stack dimensions and selected measurements. Open the build or its detailed run sheet for the complete setup, checks and limits.</p>
       </section>
-      <aside class="plate" aria-label="Measurement scope">
-        <div class="plate__inner shell">
-          <p>Individual interactive coding-agent sessions</p>
-          <p>Different workloads and settings; no fixed-suite score</p>
-        </div>
-      </aside>
-      <section class="run-list shell" aria-label="Playable builds and run records">
-        <article class="run" id="digger-3d">
+      <section class="run-list shell" aria-label="Archived runs">
+        <article class="run" id="hardball-3d">
           <header class="run__identity">
             <p class="run-date">02 October 2026</p>
-            <p class="run-kind">Agentic game · isometric 3D</p>
-            <h2 class="run__title">Digger 3D</h2>
-            <p class="run__summary">A deterministic, grid-based Digger game with an isometric Three.js presentation. The report marks the challenge complete.</p>
-            <a class="play-link" href="./digger-3d/">Open playable build <span aria-hidden="true">↗</span></a>
-            <p class="asset-note"><a href="./digger-3d/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+            <p class="run-kind">Agentic game · 3D baseball</p>
+            <h2 class="run__title">Hardball 3D</h2>
+            <p class="run__summary">A three-inning arcade baseball game with batting, pitching, fielding AI and base running. The final build and recorded game checks completed.</p>
+            <div class="action-links">
+              <a href="./hardball-3d/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="../runs/hardball-3d/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="./hardball-3d/LICENSE-THREEJS.txt">Three.js license notice</a></p>
           </header>
           <div class="run__record">
-            <dl class="meta-grid">
-              <div><dt>Model</dt><dd>Qwen3.8 Flash Next Sushi · EXL3 2.625 bpw</dd></div>
-              <div><dt>Engine</dt><dd>Sushi 1.1.0 · MLX 0.32.3</dd></div>
-              <div><dt>Harness</dt><dd>Pi coding agent</dd></div>
-              <div><dt>Hardware</dt><dd>Apple M5 Pro · 64 GB · macOS 26.6.2</dd></div>
-              <div><dt>Context</dt><dd>131,072 tokens</dd></div>
-              <div><dt>Decode setup</dt><dd>KV8 · MTP depth 6 · PLD</dd></div>
-            </dl>
-            <section class="performance" aria-label="Digger 3D inference measurements">
-              <header class="performance__head"><h3>Inference measurements</h3><p>Rates are from matched requests in this run. Prefill includes cache reuse.</p></header>
-              <div class="metric-grid">
-                <div class="metric"><span class="metric__value">35.99</span><span class="metric-label">Output-weighted decode · tok/s</span></div>
-                <div class="metric"><span class="metric__value">39.45</span><span class="metric-label">Median decode · tok/s</span></div>
-                <div class="metric"><span class="metric__value">456.15</span><span class="metric-label">Median prefill · tok/s</span></div>
-                <div class="metric"><span class="metric__value">73.48%</span><span class="metric-label">MTP acceptance</span></div>
-              </div>
+            <section class="dimensions" aria-label="Hardball 3D run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization label</span><span class="chip__value">2.6 bpw · format unrecorded</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi · version unrecorded</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
+              </ul>
             </section>
-            <dl class="run-stats">
-              <div><dt>Session elapsed</dt><dd>1 h 57 min 50.969 s</dd></div>
-              <div><dt>Matched requests</dt><dd>128 / 128</dd></div>
-              <div><dt>Tool calls</dt><dd>171</dd></div>
-              <div><dt>Compactions</dt><dd>2</dd></div>
-            </dl>
-            <details>
-              <summary>Setup, checks &amp; limits</summary>
-              <div class="details-grid">
-                <section>
-                  <h3>Recorded setup</h3>
-                  <ul>
-                    <li>Prefill chunk: 512 tokens; output limit: 16,384 tokens; temperature: 0.</li>
-                    <li>The engine and model were warm before the session; load time is excluded.</li>
-                    <li>Maximum prompt context: 113,288 tokens. Output: 194,071 tokens.</li>
-                    <li>Fresh / cached input: 502,196 / 7,582,258 tokens; cached-input share: 93.79%.</li>
-                    <li>MTP accepted 90,036 of 122,523 drafted tokens. Decode range: 27.9–60.8 tok/s; weighted rate uses total output tokens divided by summed request decode time.</li>
-                  </ul>
-                </section>
-                <section>
-                  <h3>Build and task checks</h3>
-                  <p>TypeScript check and Vite build passed; the reported JavaScript bundle was 574.65 kB (149.53 kB gzip). All 28 self-tests passed. Five levels passed connectivity, emerald-access and bag-support checks. Playwright captures completed with no reported console errors.</p>
-                  <p>The visual review described the isometric presentation as coherent, with some elements that could use more contrast.</p>
-                  <h3 class="detail-label">Limits</h3>
-                  <p>TTFT and peak process/system memory were not recorded. Prefill is not a cold-prefill measurement. This is one interactive challenge, not a repeated fixed-task score; archived checks are transcribed from the run report and were not rerun for this page.</p>
-                </section>
-              </div>
-            </details>
+            <section class="performance" aria-label="Hardball 3D agent session counters">
+              <header class="performance__head"><h3>Agent session counters</h3><p>Pi usage metadata; per-request inference timings were not retained.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Session elapsed</span><span class="chip__value chip__value--metric">1 h 30 min</span></li>
+                <li class="chip"><span class="chip__key">Model responses</span><span class="chip__value chip__value--metric">130</span></li>
+                <li class="chip"><span class="chip__key">Output tokens</span><span class="chip__value chip__value--metric">148,981</span></li>
+              </ul>
+            </section>
           </div>
         </article>
 
@@ -215,53 +64,66 @@
             <p class="run-kind">Agentic game · arcade</p>
             <h2 class="run__title">Digger Arcade</h2>
             <p class="run__summary">A playable Digger arcade game with five boards. The recorded session completed the build and its documented game checks.</p>
-            <a class="play-link" href="./digger-arcade/">Open playable build <span aria-hidden="true">↗</span></a>
+            <div class="action-links">
+              <a href="./digger-arcade/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="../runs/digger-arcade/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
           </header>
           <div class="run__record">
-            <dl class="meta-grid">
-              <div><dt>Model</dt><dd>Qwen3.8 Flash Next Sushi · EXL3 2.625 bpw</dd></div>
-              <div><dt>Engine</dt><dd>Sushi 1.1.0 · MLX 0.32.3</dd></div>
-              <div><dt>Harness</dt><dd>Pi coding agent</dd></div>
-              <div><dt>Hardware</dt><dd>Apple M5 Pro · 64 GB unified memory</dd></div>
-              <div><dt>Context</dt><dd>131,072 tokens</dd></div>
-              <div><dt>Decode setup</dt><dd>KV8 · MTP depth 6 · PLD</dd></div>
-            </dl>
-            <section class="performance" aria-label="Digger Arcade inference measurements">
-              <header class="performance__head"><h3>Inference measurements</h3><p>Rates are from matched requests in this run. Prefill includes cached processing.</p></header>
-              <div class="metric-grid">
-                <div class="metric"><span class="metric__value">34.62</span><span class="metric-label">Output-weighted decode · tok/s</span></div>
-                <div class="metric"><span class="metric__value">37.15</span><span class="metric-label">Median decode · tok/s</span></div>
-                <div class="metric"><span class="metric__value">418.95</span><span class="metric-label">Median prefill · tok/s</span></div>
-                <div class="metric"><span class="metric__value">69.03%</span><span class="metric-label">MTP acceptance</span></div>
-              </div>
+            <section class="dimensions" aria-label="Digger Arcade run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.1.0 · MLX 0.32.3</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              </ul>
             </section>
-            <dl class="run-stats">
-              <div><dt>Session elapsed</dt><dd>2 h 41 min 42.591 s</dd></div>
-              <div><dt>Matched requests</dt><dd>244</dd></div>
-              <div><dt>Tool calls</dt><dd>259</dd></div>
-              <div><dt>Compactions</dt><dd>3</dd></div>
-            </dl>
-            <details>
-              <summary>Setup, checks &amp; limits</summary>
-              <div class="details-grid">
-                <section>
-                  <h3>Recorded setup</h3>
-                  <ul>
-                    <li>Prefill chunk: 512 tokens; output limit: 16,384 tokens; temperature: 0.</li>
-                    <li>The engine was loaded before the session; model-loading time is excluded.</li>
-                    <li>Maximum prompt context: 113,993 tokens. Output: 215,690 tokens.</li>
-                    <li>Fresh / cached input: 909,749 / 16,415,483 tokens; cached-input share: 94.75%.</li>
-                    <li>MTP accepted 80,808 of 117,057 drafted tokens. Decode range: 26.6–53.3 tok/s; prefill mean: 409.59 tok/s.</li>
-                  </ul>
-                </section>
-                <section>
-                  <h3>Build and task checks</h3>
-                  <p>TypeScript check and Vite build passed. All 22 self-tests passed in headless and browser runs. A 14,400-frame smoke run traversed five boards; all levels passed connectivity and floating-bag validation. No console errors or warnings were reported in the checked states.</p>
-                  <h3 class="detail-label">Limits</h3>
-                  <p>TTFT and peak process/system RAM were not recorded. Prefill includes cached processing and is not a cold-prefill measurement. This is one interactive challenge; the reported checks were not rerun while archiving.</p>
-                </section>
-              </div>
-            </details>
+            <section class="performance" aria-label="Digger Arcade performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Values are from this run; prefill includes cached processing.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">34.62 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">418.95 tok/s</span></li>
+                <li class="chip"><span class="chip__key">MTP acceptance</span><span class="chip__value chip__value--metric">69.03%</span></li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="run" id="digger-3d">
+          <header class="run__identity">
+            <p class="run-date">02 October 2026</p>
+            <p class="run-kind">Agentic game · isometric 3D</p>
+            <h2 class="run__title">Digger 3D</h2>
+            <p class="run__summary">A deterministic, grid-based Digger game with an isometric Three.js presentation. The report marks the challenge complete.</p>
+            <div class="action-links">
+              <a href="./digger-3d/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="../runs/digger-3d/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="./digger-3d/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </header>
+          <div class="run__record">
+            <section class="dimensions" aria-label="Digger 3D run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.1.0 · MLX 0.32.3</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              </ul>
+            </section>
+            <section class="performance" aria-label="Digger 3D performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Values are from this run; prefill includes cache reuse.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">35.99 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">456.15 tok/s</span></li>
+                <li class="chip"><span class="chip__key">MTP acceptance</span><span class="chip__value chip__value--metric">73.48%</span></li>
+              </ul>
+            </section>
           </div>
         </article>
 
@@ -271,53 +133,32 @@
             <p class="run-kind">Agentic game · browser FPS</p>
             <h2 class="run__title">Whiteout Protocol · Sushi</h2>
             <p class="run__summary">A long-horizon browser FPS project. The production build passed; a 60-second gameplay bot reached wave three.</p>
-            <a class="play-link" href="./whiteout-protocol/">Open playable build <span aria-hidden="true">↗</span></a>
+            <div class="action-links">
+              <a href="./whiteout-protocol/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="../runs/whiteout-protocol-sushi/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
             <p class="asset-note"><a href="./whiteout-protocol/LICENSE-THREEJS.txt">Three.js license notice</a></p>
           </header>
           <div class="run__record">
-            <dl class="meta-grid">
-              <div><dt>Model</dt><dd>Qwen3.8 Flash Next Sushi · EXL3 2.625 bpw</dd></div>
-              <div><dt>Engine</dt><dd>Sushi 1.0.5</dd></div>
-              <div><dt>Harness</dt><dd>Pi coding agent</dd></div>
-              <div><dt>Hardware</dt><dd>Apple M5 Pro · 64 GB unified memory</dd></div>
-              <div><dt>Context</dt><dd>131,072 tokens</dd></div>
-              <div><dt>Decode setup</dt><dd>KV8 · MTP depth 6 · PLD</dd></div>
-            </dl>
-            <section class="performance" aria-label="Whiteout Protocol Sushi inference measurements">
-              <header class="performance__head"><h3>Inference measurements</h3><p>The warm server was ready before the run. Prefill was measured after the first restored-cache request.</p></header>
-              <div class="metric-grid">
-                <div class="metric"><span class="metric__value">38.66</span><span class="metric-label">Output-weighted decode · tok/s</span></div>
-                <div class="metric"><span class="metric__value">418.65</span><span class="metric-label">Median prefill · tok/s</span></div>
-                <div class="metric"><span class="metric__value">64.89%</span><span class="metric-label">Mean MTP acceptance</span></div>
-                <div class="metric"><span class="metric__value">95.17%</span><span class="metric-label">Server-side cache hit ratio</span></div>
-              </div>
+            <section class="dimensions" aria-label="Whiteout Protocol Sushi run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.0.5</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              </ul>
             </section>
-            <dl class="run-stats">
-              <div><dt>Session elapsed</dt><dd>3 h 04 min 25 s</dd></div>
-              <div><dt>API requests</dt><dd>254</dd></div>
-              <div><dt>Tool calls</dt><dd>294</dd></div>
-              <div><dt>Compactions</dt><dd>3</dd></div>
-            </dl>
-            <details>
-              <summary>Setup, checks &amp; limits</summary>
-              <div class="details-grid">
-                <section>
-                  <h3>Recorded setup</h3>
-                  <ul>
-                    <li>Temperature: 0. Model loading is excluded; server was warm.</li>
-                    <li>Maximum prompt context: 114,598 tokens. Output: 248,463 tokens.</li>
-                    <li>Fresh / cached input: 936,455 / 18,454,158 tokens; cache hit ratio: 95.17%.</li>
-                    <li>The run report records the archived JavaScript and CSS bundles matching the source build byte for byte.</li>
-                  </ul>
-                </section>
-                <section>
-                  <h3>Build and task checks</h3>
-                  <p>Production build and preview passed; JavaScript bundle: 625,358 bytes (about 166 KB gzip, as reported). A 60-second gameplay bot exercised combat, damage, death and redeploy through wave three. Recoil was byte-identical across two page loads. Final runtime checks reported zero console errors, warnings or exceptions.</p>
-                  <h3 class="detail-label">Limits</h3>
-                  <p>No cold-prefill comparison or total host-memory peak was recorded. The prefill result follows a restored-cache request. This is a single interactive agent run, not a fixed task-suite score.</p>
-                </section>
-              </div>
-            </details>
+            <section class="performance" aria-label="Whiteout Protocol Sushi performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Warm server. Prefill follows the first restored-cache request.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">38.66 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">418.65 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Cache hit ratio</span><span class="chip__value chip__value--metric">95.17%</span></li>
+              </ul>
+            </section>
           </div>
         </article>
 
@@ -327,53 +168,32 @@
             <p class="run-kind">Agentic game · browser FPS</p>
             <h2 class="run__title">Whiteout Protocol · TensorFold</h2>
             <p class="run__summary">A separate Whiteout build from a Qwen3.8 27B verifier/drafter run. A backend outage is recorded separately from active elapsed time.</p>
-            <a class="play-link" href="./whiteout-protocol-tensorfold/">Open playable build <span aria-hidden="true">↗</span></a>
+            <div class="action-links">
+              <a href="./whiteout-protocol-tensorfold/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="../runs/whiteout-protocol-tensorfold/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
             <p class="asset-note"><a href="./whiteout-protocol-tensorfold/LICENSE-THREEJS.txt">Three.js license notice</a></p>
           </header>
           <div class="run__record">
-            <dl class="meta-grid">
-              <div><dt>Verifier</dt><dd>Qwen3.8 27B · MLX-Serve · 4-bit</dd></div>
-              <div><dt>Drafter</dt><dd>Qwen3.8 27B DFlash2 · Q4</dd></div>
-              <div><dt>Engine</dt><dd>TensorFold 0.3.6.3 · source commit 1911880</dd></div>
-              <div><dt>Harness</dt><dd>Pi coding agent</dd></div>
-              <div><dt>Hardware</dt><dd>Apple M5 Pro · 64 GB unified memory</dd></div>
-              <div><dt>Context</dt><dd>131,072 tokens</dd></div>
-            </dl>
-            <section class="performance" aria-label="Whiteout Protocol TensorFold inference measurements">
-              <header class="performance__head"><h3>Inference measurements</h3><p>This is a different model/engine stack and a separate run from the Sushi build.</p></header>
-              <div class="metric-grid">
-                <div class="metric"><span class="metric__value">22.9</span><span class="metric-label">Median decode · tok/s</span></div>
-                <div class="metric"><span class="metric__value">7.8 s</span><span class="metric-label">Median cached TTFT</span></div>
-                <div class="metric"><span class="metric__value">218.9 s</span><span class="metric-label">Longest cold prefill observed</span></div>
-                <div class="metric"><span class="metric__value">6.23 GiB</span><span class="metric-label">Peak KV checkpoint</span></div>
-              </div>
+            <section class="dimensions" aria-label="Whiteout Protocol TensorFold run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoints</span><span class="chip__value">27B verifier · 27B DFlash2 drafter</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">4-bit verifier · Q4 drafter</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">TensorFold 0.3.6.3 · MLX-Serve</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              </ul>
             </section>
-            <dl class="run-stats">
-              <div><dt>Elapsed incl. outage</dt><dd>14 h 09 min 37 s</dd></div>
-              <div><dt>Outage</dt><dd>7 h 08 min 38 s</dd></div>
-              <div><dt>Elapsed excl. outage</dt><dd>7 h 00 min 59 s</dd></div>
-              <div><dt>Tool calls</dt><dd>368</dd></div>
-            </dl>
-            <details>
-              <summary>Setup, checks &amp; limits</summary>
-              <div class="details-grid">
-                <section>
-                  <h3>Recorded setup</h3>
-                  <ul>
-                    <li>Maximum response: 16,384 tokens; xhigh reasoning effort; 2 GiB prompt cache; no MLX cache.</li>
-                    <li>Five context compactions. 273 successful requests were retained after the backend relaunch.</li>
-                    <li>Decode: 17.0 tok/s p10, 22.9 median, 35.8 p90, 59.3 peak. Cached TTFT: 20.9 s p90.</li>
-                    <li>Resident model weights: about 20 GiB. Four backend errors occurred before relaunch and none after.</li>
-                  </ul>
-                </section>
-                <section>
-                  <h3>Build and task checks</h3>
-                  <p>Production build passed; JavaScript bundle: 623,624 bytes (165,179 bytes gzip). A 75-second smoke test reported zero console errors. Aim-down-sights self-tests passed at FOV 75, 65 and 55 with zero-pixel offset. Gameplay checks covered combat, wave clear, wave two and restart; two post-feedback browser runs completed menu-to-game.</p>
-                  <h3 class="detail-label">Limits</h3>
-                  <p>Total wall time includes the backend outage and is not model execution time. The effective elapsed value subtracts the recorded outage. This is one interactive run with a different stack and outage history; do not treat its rates as a controlled comparison with Sushi.</p>
-                </section>
-              </div>
-            </details>
+            <section class="performance" aria-label="Whiteout Protocol TensorFold performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Different model/runtime stack; review the outage and cache details in the run sheet.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · median</span><span class="chip__value chip__value--metric">22.9 tok/s</span></li>
+                <li class="chip"><span class="chip__key">TTFT · cached median</span><span class="chip__value chip__value--metric">7.8 s</span></li>
+                <li class="chip"><span class="chip__key">Peak KV checkpoint</span><span class="chip__value chip__value--metric">6.23 GiB</span></li>
+              </ul>
+            </section>
           </div>
         </article>
 
@@ -383,61 +203,40 @@
             <p class="run-kind">Agentic scene · voxel garden</p>
             <h2 class="run__title">Voxel Pagoda Garden</h2>
             <p class="run__summary">A single-file voxel garden challenge. The recorded artifact contains 23,896 voxels across 71 InstancedMesh instances.</p>
-            <a class="play-link" href="./pagoda-garden/">Open playable build <span aria-hidden="true">↗</span></a>
+            <div class="action-links">
+              <a href="./pagoda-garden/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="../runs/pagoda-garden/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
             <p class="asset-note">Three.js 0.160.0 and OrbitControls load from unpkg; internet access is required.</p>
           </header>
           <div class="run__record">
-            <dl class="meta-grid">
-              <div><dt>Model</dt><dd>Qwen3.8 Flash Next Sushi · EXL3 2.625 bpw</dd></div>
-              <div><dt>Engine</dt><dd>Sushi 1.0.5</dd></div>
-              <div><dt>Harness</dt><dd>Pi coding agent · medium thinking level</dd></div>
-              <div><dt>Hardware</dt><dd>Apple M5 Pro · 64 GB unified memory</dd></div>
-              <div><dt>Context</dt><dd>131,072 tokens</dd></div>
-              <div><dt>Decode setup</dt><dd>KV8 · MTP depth 6 · PLD</dd></div>
-            </dl>
-            <section class="performance" aria-label="Voxel Pagoda Garden inference measurements">
-              <header class="performance__head"><h3>Inference measurements</h3><p>Warm server; model-loading time is excluded.</p></header>
-              <div class="metric-grid">
-                <div class="metric"><span class="metric__value">44.63</span><span class="metric-label">Output-weighted decode · tok/s</span></div>
-                <div class="metric"><span class="metric__value">334.2</span><span class="metric-label">Median prefill · tok/s</span></div>
-                <div class="metric"><span class="metric__value">72.17%</span><span class="metric-label">Mean MTP acceptance</span></div>
-                <div class="metric"><span class="metric__value">90.23%</span><span class="metric-label">Prefix-cache reuse</span></div>
-              </div>
+            <section class="dimensions" aria-label="Voxel Pagoda Garden run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.0.5</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
+              </ul>
             </section>
-            <dl class="run-stats">
-              <div><dt>Session elapsed</dt><dd>571 s</dd></div>
-              <div><dt>Model requests</dt><dd>13</dd></div>
-              <div><dt>Tool calls</dt><dd>12</dd></div>
-              <div><dt>Compactions</dt><dd>0</dd></div>
-            </dl>
-            <details>
-              <summary>Setup, checks &amp; limits</summary>
-              <div class="details-grid">
-                <section>
-                  <h3>Recorded setup</h3>
-                  <ul>
-                    <li>Prefill chunk: 512 tokens; output limit: 16,384 tokens; temperature: 0.</li>
-                    <li>Prefix cache: one entry, 1 GB memory and 20 GB disk. The recorded recipe skipped the conservative memory preflight; this is a run detail, not a recommendation.</li>
-                    <li>Final prompt context: 20,269 tokens. Output: 17,982 tokens. Prefix-cache reuse: 185,875 of 206,004 presented input tokens.</li>
-                    <li>Decode range: 35.3–60.1 tok/s. Prefill range: 15.4–630.9 tok/s. MTP acceptance range: 53.6–83.3%.</li>
-                  </ul>
-                </section>
-                <section>
-                  <h3>Artifact checks</h3>
-                  <p>The archived HTML artifact is 23,045 bytes. The run recorded 77 scene objects. Checks were a JavaScript syntax check and a headless stub that advanced five animation frames.</p>
-                  <h3 class="detail-label">Limits</h3>
-                  <p>These checks do not amount to full browser or gameplay validation. The build loads Three.js and OrbitControls from unpkg, so it needs an internet connection. This is one single-file challenge, not a repeated fixed-task score.</p>
-                </section>
-              </div>
-            </details>
+            <section class="performance" aria-label="Voxel Pagoda Garden performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Warm server; model-loading time is excluded.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">44.63 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">334.2 tok/s</span></li>
+                <li class="chip"><span class="chip__key">MTP acceptance · mean</span><span class="chip__value chip__value--metric">72.17%</span></li>
+              </ul>
+            </section>
           </div>
         </article>
       </section>
       <section class="site-note shell" aria-labelledby="scope-title">
         <h2 id="scope-title">Measurement scope</h2>
-        <p>Each entry is one interactive agent run. Hardware, model and engine settings, warm/cold cache conditions and workload checks vary. Decode and prefill figures are presented with the definitions and limits reported for that run; they are not a standardized ranking. The public archive contains selected summaries and static builds, not prompts, transcripts, raw server logs or model files.</p>
+        <p>Each entry is one interactive agent run. Hardware, model/engine settings, cache conditions and workload checks vary. Rates are not a standardized cross-challenge ranking; open each run sheet for its definitions and caveats.</p>
       </section>
     </main>
-    <footer class="shell">Local Model Benchmarks · Run window: 29 September—02 October 2026 · <a href="../">Home</a></footer>
+    <footer class="shell">Local Model Benchmarks · Run window: 29 September—02 October 2026</footer>
   </body>
 </html>

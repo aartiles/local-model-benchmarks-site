@@ -1,0 +1,91 @@
+<!doctype html>
+<!-- Vertical rules removed at user request. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Voxel Pagoda Garden run sheet: model stack, inference measurements, setup, checks and limits.">
+    <title>Voxel Pagoda Garden run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../../demos/">All runs <span aria-hidden="true">→</span></a></nav>
+    </header>
+    <main>
+      <section class="intro shell" aria-labelledby="page-title">
+        <p class="run-date">29 September 2026</p>
+        <p class="run-kind">Agentic scene · voxel garden</p>
+        <h1 id="page-title">Voxel Pagoda Garden</h1>
+        <p class="intro__copy">A single-file voxel garden challenge. The recorded artifact contains 23,896 voxels across 71 InstancedMesh instances.</p>
+        <div class="action-links">
+          <a href="../../demos/pagoda-garden/">Open playable build <span aria-hidden="true">↗</span></a>
+          <a href="#inference">Inference measurements <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+      <figure class="screenshot run-screenshot">
+        <img class="screenshot__image" src="../../assets/screenshots/pagoda-garden-gameplay.jpg" width="1600" height="828" loading="lazy" decoding="async" alt="Voxel Pagoda Garden with the pagoda, cherry trees and orbit controls visible">
+        <figcaption>Voxel Pagoda Garden · gameplay screenshot</figcaption>
+      </figure>
+      <article class="run-sheet shell">
+        <div class="run__record">
+          <section class="dimensions" aria-label="Voxel Pagoda Garden run dimensions">
+            <h2>Run dimensions</h2>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+              <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+              <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+              <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.0.5</span></li>
+              <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
+              <li class="chip"><span class="chip__key">Context</span><span class="chip__value">131,072 tokens</span></li>
+            </ul>
+          </section>
+          <section class="performance" id="inference" aria-label="Voxel Pagoda Garden inference measurements">
+            <header class="performance__head"><h2>Inference measurements</h2><p>Warm server. Model-loading time is excluded.</p></header>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">44.63 tok/s</span></li>
+              <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">334.2 tok/s</span></li>
+              <li class="chip"><span class="chip__key">MTP acceptance · mean</span><span class="chip__value chip__value--metric">72.17%</span></li>
+              <li class="chip"><span class="chip__key">Prefix-cache reuse</span><span class="chip__value chip__value--metric">90.23%</span></li>
+            </ul>
+          </section>
+          <dl class="session-data">
+            <div><dt>Session elapsed</dt><dd>9 min 31 s</dd></div>
+            <div><dt>Model requests</dt><dd>13</dd></div>
+            <div><dt>Tool calls</dt><dd>12</dd></div>
+            <div><dt>Output tokens</dt><dd>17,982</dd></div>
+          </dl>
+          <details open>
+            <summary>Setup, checks &amp; limits</summary>
+            <div class="details-grid">
+              <section>
+                <h3>Recorded setup</h3>
+                <ul>
+                  <li>Sushi 1.0.5 with Qwen 3.8 Flash Next EXL3 at 2.625 bpw; Pi coding agent at medium thinking level.</li>
+                  <li>131,072-token context, KV8, MTP depth 6, PLD and 512-token prefill chunks.</li>
+                  <li>Prefix cache: one entry, 1 GB memory and 20 GB disk. Output limit 16,384; temperature 0.</li>
+                  <li>Warm server; model-loading time is excluded. No context compactions; final prompt context was 20,269 tokens.</li>
+                  <li>185,875 of 206,004 presented input tokens were reused from prefix cache. Prefill ranged 15.4–630.9 tok/s, with a 334.2 tok/s median.</li>
+                  <li>MTP acceptance ranged 53.6–83.3%, with a 72.17% mean.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Artifact and recorded checks</h3>
+                <p>The delivered HTML file was 23,045 bytes. The report counted 23,896 voxels, 71 InstancedMesh instances and 77 scene objects. Recorded checks were a JavaScript syntax check and a headless stub run that completed five animation frames.</p>
+                <h3 class="detail-label">Limits</h3>
+                <p>These checks do not establish full browser rendering, interaction or gameplay quality. Three.js 0.160.0 and OrbitControls load from unpkg at runtime, so the demo needs an internet connection. The source recipe skipped its conservative memory preflight; this result is not a general recommendation for other hardware. This is one interactive challenge, not a repeated fixed-task score.</p>
+              </section>
+            </div>
+          </details>
+        </div>
+      </article>
+      <section class="site-note shell" aria-label="Run scope"><p>The public record excludes the original prompt, local model path, server command, Pi session and server logs.</p></section>
+    </main>
+    <footer class="shell"><a href="../../demos/">Run archive</a> · <a href="../../">Home</a></footer>
+  </body>
+</html>

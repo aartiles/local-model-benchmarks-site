@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HardBall 3D — Arcade Baseball</title>
+  <script type="module" crossorigin src="./assets/index-CBT0NZ7G.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D75PMpde.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="game-canvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <div id="scoreboard">
+        <div class="sb-row">
+          <span class="sb-name away">BLUE</span>
+          <span class="sb-runs" id="sb-away">0</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-name home">RED</span>
+          <span class="sb-runs" id="sb-home">0</span>
+        </div>
+        <div id="sb-info">
+          <span id="sb-inning">TOP 1</span>
+          <span id="sb-count">B:0 S:0 O:0</span>
+        </div>
+        <div id="sb-bases">
+          <div class="base-dot" id="base-3"></div>
+          <div class="base-dot" id="base-2"></div>
+          <div class="base-dot" id="base-1"></div>
+          <div class="base-dot home-dot" id="base-home"></div>
+        </div>
+      </div>
+
+      <div id="pitch-panel" class="hidden">
+        <div class="pp-title">PITCH</div>
+        <div class="pp-opt" id="pp-1"><b>1</b> FASTBALL</div>
+        <div class="pp-opt" id="pp-2"><b>2</b> CHANGEUP</div>
+        <div class="pp-opt" id="pp-3"><b>3</b> CURVE</div>
+        <div class="pp-hint">WASD aim · SPACE throw</div>
+      </div>
+
+      <div id="bat-panel">
+        <div id="bat-crosshair"><div id="bat-dot"></div></div>
+        <div class="bp-hint">WASD aim · SPACE swing · R restart</div>
+      </div>
+
+      <div id="message"></div>
+      <div id="sub-message"></div>
+    </div>
+
+    <!-- Title screen -->
+    <div id="title-screen">
+      <div class="title-box">
+        <h1>HARDBALL <span>3D</span></h1>
+        <h2>ARCADE BASEBALL</h2>
+        <div class="title-controls">
+          <div><b>BATTING</b> — WASD / arrows: aim · SPACE: swing</div>
+          <div><b>PITCHING</b> — WASD: location · 1/2/3: pitch · SPACE: throw</div>
+          <div><b>R</b> — restart game at any time</div>
+        </div>
+        <div class="press-start">PRESS SPACE TO PLAY</div>
+      </div>
+    </div>
+
+    <!-- Inning break / game over -->
+    <div id="overlay-screen" class="hidden">
+      <div class="title-box">
+        <h1 id="overlay-title">END OF INNING</h1>
+        <h2 id="overlay-score">BLUE 0 — RED 0</h2>
+        <div class="press-start" id="overlay-hint">PRESS SPACE TO CONTINUE</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

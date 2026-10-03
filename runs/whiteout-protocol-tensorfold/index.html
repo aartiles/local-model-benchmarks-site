@@ -1,0 +1,92 @@
+<!doctype html>
+<!-- Vertical rules removed at user request. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Whiteout Protocol TensorFold run sheet: model stack, inference measurements, setup, checks and limits.">
+    <title>Whiteout Protocol · TensorFold run sheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../../demos/">All runs <span aria-hidden="true">→</span></a></nav>
+    </header>
+    <main>
+      <section class="intro shell" aria-labelledby="page-title">
+        <p class="run-date">29–30 September 2026</p>
+        <p class="run-kind">Agentic game · browser FPS</p>
+        <h1 id="page-title">Whiteout Protocol · TensorFold</h1>
+        <p class="intro__copy">A separate Whiteout build from a Qwen 3.8 27B verifier/drafter run. The recorded report separates active elapsed time from a backend outage.</p>
+        <div class="action-links">
+          <a href="../../demos/whiteout-protocol-tensorfold/">Open playable build <span aria-hidden="true">↗</span></a>
+          <a href="#inference">Inference measurements <span aria-hidden="true">↓</span></a>
+          <a href="../../demos/whiteout-protocol-tensorfold/LICENSE-THREEJS.txt">Three.js license notice</a>
+        </div>
+      </section>
+      <figure class="screenshot run-screenshot">
+        <img class="screenshot__image" src="../../assets/screenshots/whiteout-protocol-tensorfold-gameplay.jpg" width="1600" height="826" loading="lazy" decoding="async" alt="Whiteout Protocol TensorFold scene with the weapon, snowy arena and pause prompt visible">
+        <figcaption>Whiteout Protocol · TensorFold · gameplay screenshot</figcaption>
+      </figure>
+      <article class="run-sheet shell">
+        <div class="run__record">
+          <section class="dimensions" aria-label="Whiteout Protocol TensorFold run dimensions">
+            <h2>Run dimensions</h2>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+              <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+              <li class="chip"><span class="chip__key">Checkpoints</span><span class="chip__value">27B verifier · 27B DFlash2 drafter</span></li>
+              <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">4-bit verifier · Q4 drafter</span></li>
+              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">TensorFold 0.3.6.3 · MLX-Serve</span></li>
+              <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              <li class="chip"><span class="chip__key">Context</span><span class="chip__value">131,072 tokens</span></li>
+            </ul>
+          </section>
+          <section class="performance" id="inference" aria-label="Whiteout Protocol TensorFold inference measurements">
+            <header class="performance__head"><h2>Inference measurements</h2><p>Successful post-relaunch requests retained in the report; cache and outage details affect interpretation.</p></header>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Decode · median</span><span class="chip__value chip__value--metric">22.9 tok/s</span></li>
+              <li class="chip"><span class="chip__key">Decode · p10 / p90</span><span class="chip__value chip__value--metric">17.0 / 35.8 tok/s</span></li>
+              <li class="chip"><span class="chip__key">TTFT · cached median</span><span class="chip__value chip__value--metric">7.8 s</span></li>
+              <li class="chip"><span class="chip__key">Peak KV checkpoint</span><span class="chip__value chip__value--metric">6.23 GiB</span></li>
+            </ul>
+          </section>
+          <dl class="session-data">
+            <div><dt>Wall time</dt><dd>14 h 09 min 37 s</dd></div>
+            <div><dt>Active elapsed</dt><dd>7 h 00 min 59 s</dd></div>
+            <div><dt>Requests retained</dt><dd>273</dd></div>
+            <div><dt>Tool calls</dt><dd>368</dd></div>
+          </dl>
+          <details open>
+            <summary>Setup, checks &amp; limits</summary>
+            <div class="details-grid">
+              <section>
+                <h3>Recorded setup</h3>
+                <ul>
+                  <li>TensorFold 0.3.6.3, source commit <code>1911880</code>; MLX-Serve verifier and DFlash2 drafter.</li>
+                  <li>131,072-token context, 16,384-token maximum response and xhigh reasoning effort.</li>
+                  <li>2 GiB prompt cache; MLX cache disabled.</li>
+                  <li>Verifier: Qwen 3.8 27B, 4-bit. Drafter: Qwen 3.8 27B DFlash2, Q4.</li>
+                  <li>Five context compactions. The run recorded four backend errors before a durable server relaunch and none afterward.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Build and task checks</h3>
+                <p>The production build passed. The JavaScript bundle was 623,624 bytes (165,179 bytes gzip). A 75-second smoke test reported no console errors. Aim-down-sights checks at FOV 75, 65 and 55 passed with zero-pixel offset.</p>
+                <p>Gameplay checks covered deployment, combat, seven kills, wave clear, score tally, wave two and restart. Two post-feedback browser runs completed the menu-to-game transition without console errors.</p>
+                <h3 class="detail-label">Limits</h3>
+                <p>Wall time includes a 7 h 08 min 38 s backend outage; it is not model execution time. Active elapsed is the reported wall time excluding that outage. The first-to-final interval, outage accounting and retained post-relaunch request count are reported separately. This is one interactive coding-agent run, not a fixed task-suite score. Model, runtime and outage history differ from the Sushi baseline.</p>
+              </section>
+            </div>
+          </details>
+        </div>
+      </article>
+      <section class="site-note shell" aria-label="Run scope"><p>The public record excludes the original prompt, session transcript, server logs, prompt fingerprint and local paths.</p></section>
+    </main>
+    <footer class="shell"><a href="../../demos/">Run archive</a> · <a href="../../">Home</a></footer>
+  </body>
+</html>

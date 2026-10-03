@@ -1,0 +1,92 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · theme: Grid / ultramarine · vertical rules removed at user request -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Digger Arcade run sheet: model stack, inference measurements, setup, checks and limits.">
+    <title>Digger Arcade run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../../demos/">All runs <span aria-hidden="true">→</span></a></nav>
+    </header>
+    <main>
+      <section class="intro shell" aria-labelledby="page-title">
+        <p class="run-date">01 October 2026</p>
+        <p class="run-kind">Agentic game · arcade</p>
+        <h1 id="page-title">Digger Arcade</h1>
+        <p class="intro__copy">A playable Digger arcade game with five boards. The recorded session completed the build and its documented game checks.</p>
+        <div class="action-links">
+          <a href="../../demos/digger-arcade/">Open playable build <span aria-hidden="true">↗</span></a>
+          <a href="#inference">Inference measurements <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+      <figure class="screenshot run-screenshot">
+        <img class="screenshot__image" src="../../assets/screenshots/digger-arcade-gameplay.jpg" width="1600" height="1150" loading="lazy" decoding="async" alt="Digger Arcade gameplay on level one, showing the player, enemies, gems and score HUD">
+        <figcaption>Digger Arcade · gameplay screenshot</figcaption>
+      </figure>
+      <article class="run shell">
+        <div class="run__record">
+          <section class="dimensions" aria-label="Digger Arcade run dimensions">
+            <h2>Run dimensions</h2>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+              <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+              <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+              <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.1.0 · MLX 0.32.3</span></li>
+              <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              <li class="chip"><span class="chip__key">Context</span><span class="chip__value">131,072 tokens</span></li>
+            </ul>
+          </section>
+          <section class="performance" id="inference" aria-label="Digger Arcade inference measurements">
+            <header class="performance__head"><h2>Inference measurements</h2><p>Rates are from matched requests in this run. Prefill includes cached processing and is not a cold-prefill measurement.</p></header>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">34.62 tok/s</span></li>
+              <li class="chip"><span class="chip__key">Decode · median</span><span class="chip__value chip__value--metric">37.15 tok/s</span></li>
+              <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">418.95 tok/s</span></li>
+              <li class="chip"><span class="chip__key">MTP acceptance</span><span class="chip__value chip__value--metric">69.03%</span></li>
+            </ul>
+          </section>
+          <dl class="session-data">
+            <div><dt>Session elapsed</dt><dd>2 h 41 min 43 s</dd></div>
+            <div><dt>Matched requests</dt><dd>244</dd></div>
+            <div><dt>Tool calls</dt><dd>259</dd></div>
+            <div><dt>Context compactions</dt><dd>3</dd></div>
+          </dl>
+          <details open>
+            <summary>Setup, checks &amp; limits</summary>
+            <div class="details-grid">
+              <section>
+                <h3>Recorded setup</h3>
+                <ul>
+                  <li>KV8, MTP depth 6, PLD, prefill chunk 512 tokens, 16,384-token output limit and temperature 0.</li>
+                  <li>The engine was loaded before the session; model-loading time is excluded.</li>
+                  <li>Maximum prompt context: 113,993 tokens. Output: 215,690 tokens.</li>
+                  <li>Fresh / cached input: 909,749 / 16,415,483 tokens; cached-input share: 94.75%.</li>
+                  <li>MTP accepted 80,808 of 117,057 drafted tokens. Decode range: 26.6–53.3 tok/s; prefill mean: 409.59 tok/s.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Build and task checks</h3>
+                <p>TypeScript check and Vite build passed. All 22 self-tests passed in headless and browser runs. A 14,400-frame smoke run traversed all five boards; every level passed connectivity and floating-bag validation. No console errors or warnings were reported in the checked states.</p>
+                <h3 class="detail-label">Limits</h3>
+                <p>TTFT and peak process/system RAM were not recorded. Prefill includes cached processing and is not a cold-prefill measurement. This is one interactive challenge; the reported checks were not rerun while archiving.</p>
+              </section>
+            </div>
+          </details>
+        </div>
+      </article>
+      <section class="site-note shell" aria-label="Run scope">
+        <p>This is one interactive coding-agent run, not a repeated fixed-task benchmark score.</p>
+      </section>
+    </main>
+    <footer class="shell"><a href="../../demos/">Run archive</a> · <a href="../../">Home</a></footer>
+  </body>
+</html>

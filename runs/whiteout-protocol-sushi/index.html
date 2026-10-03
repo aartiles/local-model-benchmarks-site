@@ -1,0 +1,90 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · theme: Grid / ultramarine · vertical rules removed at user request -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Whiteout Protocol Sushi run sheet: model stack, inference measurements, setup, checks and limits.">
+    <title>Whiteout Protocol · Sushi run sheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../../demos/">All runs <span aria-hidden="true">→</span></a></nav>
+    </header>
+    <main>
+      <section class="intro shell" aria-labelledby="page-title">
+        <p class="run-date">29 September 2026</p>
+        <p class="run-kind">Agentic game · browser FPS</p>
+        <h1 id="page-title">Whiteout Protocol · Sushi</h1>
+        <p class="intro__copy">A long-horizon browser FPS project. The production build passed; a 60-second gameplay bot reached wave three.</p>
+        <div class="action-links">
+          <a href="../../demos/whiteout-protocol/">Open playable build <span aria-hidden="true">↗</span></a>
+          <a href="#inference">Inference measurements <span aria-hidden="true">↓</span></a>
+          <a href="../../demos/whiteout-protocol/LICENSE-THREEJS.txt">Three.js license notice</a>
+        </div>
+      </section>
+      <figure class="screenshot run-screenshot">
+        <img class="screenshot__image" src="../../assets/screenshots/whiteout-protocol-sushi-gameplay.jpg" width="1600" height="820" loading="lazy" decoding="async" alt="Whiteout Protocol Sushi gameplay during wave one, with hostiles and the player HUD visible">
+        <figcaption>Whiteout Protocol · Sushi · gameplay screenshot</figcaption>
+      </figure>
+      <article class="run-sheet shell">
+        <div class="run__record">
+          <section class="dimensions" aria-label="Whiteout Protocol Sushi run dimensions">
+            <h2>Run dimensions</h2>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+              <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+              <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+              <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.0.5</span></li>
+              <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              <li class="chip"><span class="chip__key">Context</span><span class="chip__value">131,072 tokens</span></li>
+            </ul>
+          </section>
+          <section class="performance" id="inference" aria-label="Whiteout Protocol Sushi inference measurements">
+            <header class="performance__head"><h2>Inference measurements</h2><p>Warm server. Prefill was measured after the first restored-cache request.</p></header>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">38.66 tok/s</span></li>
+              <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">418.65 tok/s</span></li>
+              <li class="chip"><span class="chip__key">MTP acceptance · mean</span><span class="chip__value chip__value--metric">64.89%</span></li>
+              <li class="chip"><span class="chip__key">Server cache hit ratio</span><span class="chip__value chip__value--metric">95.17%</span></li>
+            </ul>
+          </section>
+          <dl class="session-data">
+            <div><dt>Session elapsed</dt><dd>3 h 04 min 25 s</dd></div>
+            <div><dt>API requests</dt><dd>254</dd></div>
+            <div><dt>Tool calls</dt><dd>294</dd></div>
+            <div><dt>Context compactions</dt><dd>3</dd></div>
+          </dl>
+          <details open>
+            <summary>Setup, checks &amp; limits</summary>
+            <div class="details-grid">
+              <section>
+                <h3>Recorded setup</h3>
+                <ul>
+                  <li>KV8, MTP depth 6, PLD, 131,072-token context and temperature 0.</li>
+                  <li>The model server was warm before the run; model-loading time is excluded.</li>
+                  <li>Maximum prompt context: 114,598 tokens. Output: 248,463 tokens.</li>
+                  <li>Fresh / cached input: 936,455 / 18,454,158 tokens; server-side cache hit ratio: 95.17%.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Build and task checks</h3>
+                <p>The production build and preview passed. The JavaScript bundle is 625,358 bytes (about 166 KB gzip, as reported). A 60-second gameplay bot exercised combat, damage, death and redeploy through wave three. Recoil was byte-identical across two page loads. Final runtime checks reported zero console errors, warnings or exceptions.</p>
+                <h3 class="detail-label">Limits</h3>
+                <p>No cold-prefill comparison or total host-memory peak was recorded. The prefill result follows a restored-cache request. This is one interactive agent run, not a fixed task-suite score.</p>
+              </section>
+            </div>
+          </details>
+        </div>
+      </article>
+      <section class="site-note shell" aria-label="Run scope"><p>The JSON contains aggregate measurements only; the original prompt, prompt fingerprint, session transcript and server logs are not part of the public record.</p></section>
+    </main>
+    <footer class="shell"><a href="../../demos/">Run archive</a> · <a href="../../">Home</a></footer>
+  </body>
+</html>
