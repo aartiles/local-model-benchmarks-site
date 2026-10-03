@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b151a" />
+    <meta name="description" content="A low-poly arcade baseball game under the lights." />
+    <title>Hardball 3D — Night League</title>
+    <script type="module" crossorigin src="./assets/index-BRbY4u8i.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DlJo0dVe.css">
+  </head>
+  <body>
+    <main id="game" aria-label="Hardball 3D baseball game">
+      <canvas id="field" aria-label="Three-dimensional baseball field"></canvas>
+
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="scanline" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span></div>
+          <div>
+            <div class="eyebrow">Night League · Est. 1986</div>
+            <div class="brand-name">HARDBALL <span>3D</span></div>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="live-indicator"><i></i><span>EXHIBITION</span></div>
+          <button id="sound-toggle" class="icon-button" type="button" aria-label="Toggle sound" title="Sound on/off">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Zm12.5-2.5a6 6 0 0 1 0 9m2.5-11.5a9.5 9.5 0 0 1 0 14" /></svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="scorebug" aria-label="Game scoreboard">
+        <div class="score-main">
+          <div class="team-score away">
+            <span class="team-dot"></span>
+            <span class="team-name">VISITORS</span>
+            <strong id="away-score">0</strong>
+          </div>
+          <div class="inning-cell">
+            <span class="micro-label">INNING</span>
+            <strong id="inning-label">TOP 1</strong>
+          </div>
+          <div class="team-score home">
+            <span class="team-dot"></span>
+            <span class="team-name">HOME</span>
+            <strong id="home-score">0</strong>
+          </div>
+        </div>
+        <div class="score-details">
+          <div class="count-group"><span class="micro-label">BALLS</span><div id="balls-lights" class="lights"></div></div>
+          <div class="count-group"><span class="micro-label">STRIKES</span><div id="strikes-lights" class="lights strike-lights"></div></div>
+          <div class="count-group"><span class="micro-label">OUTS</span><div id="outs-lights" class="lights out-lights"></div></div>
+          <div class="base-diamond" aria-label="Base runners">
+            <i class="base second" id="base-second"></i><i class="base third" id="base-third"></i>
+            <i class="base first" id="base-first"></i><i class="base home" id="base-home"></i>
+          </div>
+        </div>
+      </section>
+
+      <div class="situation-tag"><span class="situation-pip"></span><span id="situation">READY AT THE PLATE</span></div>
+
+      <div id="aim-reticle" class="aim-reticle" aria-hidden="true"><span></span></div>
+      <div id="pitch-track" class="pitch-track" aria-hidden="true"><span></span><i id="pitch-marker"></i></div>
+
+      <div class="bottom-left">
+        <div class="play-by-play"><span class="pbp-icon">◈</span><span id="play-call">The park is yours.</span></div>
+        <div class="controls-hint" id="controls-hint">
+          <span><kbd>←</kbd><kbd>→</kbd> AIM</span><b></b><span><kbd>SPACE</kbd> SWING</span>
+        </div>
+      </div>
+
+      <div class="right-rail">
+        <div class="rail-card">
+          <span class="micro-label">PITCH</span>
+          <strong id="pitch-type">FASTBALL</strong>
+          <div class="pitch-options"><span data-pitch="1" class="selected">01</span><span data-pitch="2">02</span><span data-pitch="3">03</span></div>
+          <div class="pitch-names"><span>HEAT</span><span>CHANGE</span><span>CURVE</span></div>
+        </div>
+        <div class="wind-readout"><span class="micro-label">WIND</span><strong>↗ 4 <small>MPH</small></strong></div>
+      </div>
+
+      <div id="callout" class="callout" aria-live="polite"><span class="callout-rule"></span><strong id="callout-text"></strong><span id="callout-sub"></span></div>
+
+      <div id="title-screen" class="title-screen">
+        <div class="title-orbit orbit-one"></div><div class="title-orbit orbit-two"></div>
+        <div class="title-content">
+          <div class="title-kicker"><span></span> THE LIGHTS ARE ON <span></span></div>
+          <h1>HARDBALL<br /><em>3D</em></h1>
+          <div class="title-subtitle">A NIGHT AT THE OLD BALLPARK</div>
+          <p>One inning. Two sides. Make every pitch count.</p>
+          <button id="play-button" class="play-button" type="button"><span>PLAY BALL</span><b>↗</b></button>
+          <div class="title-controls"><span><kbd>SPACE</kbd> SWING / PITCH</span><span><kbd>← →</kbd> AIM</span><span><kbd>R</kbd> RESTART</span></div>
+        </div>
+        <div class="title-footer"><span>HARDWOOD PARK · HOME OF THE NIGHT OWLS</span><span>© NIGHT LEAGUE</span></div>
+      </div>
+
+      <div id="final-screen" class="final-screen" hidden>
+        <div class="final-card">
+          <div class="eyebrow">THE FINAL</div>
+          <h2 id="final-title">BALLGAME.</h2>
+          <div class="final-score"><div><span>VISITORS</span><strong id="final-away">0</strong></div><i>—</i><div><span>HOME</span><strong id="final-home">0</strong></div></div>
+          <button id="again-button" class="play-button" type="button"><span>RUN IT BACK</span><b>↻</b></button>
+          <p>Press <kbd>R</kbd> to start a new game</p>
+        </div>
+      </div>
+
+      <div class="corner-note">HARDWOOD PARK <span>•</span> 07:42 PM</div>
+    </main>
+  </body>
+</html>

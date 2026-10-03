@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hardball 3D challenge brief and side-by-side cloud baseline and local model runs.">
+    <title>Hardball 3D challenge · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../runs/runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../../">All runs <span aria-hidden="true">↑</span></a><a href="../">Challenges</a></nav>
+    </header>
+    <main class="shell challenge-page">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Workload · Agentic coding · Revision 1</p>
+        <h1 id="page-title">Hardball 3D</h1>
+        <p class="intro__copy">A one-shot coding challenge to build a complete, playable 3D arcade baseball game. The prompt asks for at least one full inning, with the player batting in the top half and pitching in the bottom half.</p>
+        <div class="action-links">
+          <a href="#runs">Compare the recorded runs <span aria-hidden="true">↓</span></a>
+          <a href="../../demos/hardball-3d-gpt-6-luna-codex/">Open GPT-6 Luna build <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="challenge-spec" aria-labelledby="brief-title">
+        <h2 id="brief-title">Challenge brief</h2>
+        <p>Each attempt starts from a project scaffold and must deliver the full game loop: pitching, batting and timing, ball movement, fielding, base running, outs and scoring, inning changes, visible feedback, and restart without reloading. The game should use procedural Three.js geometry and work in a modern desktop browser.</p>
+        <ul>
+          <li>Control the swing and make timing affect contact.</li>
+          <li>Show AI fielders moving to retrieve and return the ball.</li>
+          <li>Track runners, occupied bases, outs, and score.</li>
+          <li>Complete both halves of an inning and show the result.</li>
+          <li>Keep the game restartable from the browser.</li>
+          <li>Avoid external engines, game assets, and backend services.</li>
+        </ul>
+        <p class="asset-note">The two retained prompt files were byte-identical. The full prompt and project transcripts are not published; project scaffolds and harness configurations may still differ.</p>
+      </section>
+
+      <section class="challenge-section" id="runs" aria-labelledby="runs-title">
+        <header class="challenge-section__head">
+          <h2 id="runs-title">Recorded runs</h2>
+          <p>One cloud baseline and one local run. Each card links to its own run sheet and generated build.</p>
+        </header>
+        <div class="compare-grid">
+          <article class="compare-card" aria-labelledby="baseline-title">
+            <header class="compare-card__head">
+              <p class="eyebrow"><span class="baseline-pill">Cloud baseline</span> · 03 October 2026</p>
+              <h3 id="baseline-title">GPT-6 Luna</h3>
+              <p>OpenAI Codex · xhigh reasoning · one-shot</p>
+            </header>
+            <figure class="screenshot">
+              <img class="screenshot__image" src="../../assets/screenshots/hardball-3d-gpt-6-luna-codex-gameplay.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Luna Hardball 3D gameplay from the batter's view">
+              <figcaption>GPT-6 Luna · gameplay capture</figcaption>
+            </figure>
+            <p class="compare-card__summary">A one-inning game build with a successful Vite production build recorded. No independent gameplay test report was retained.</p>
+            <div class="action-links">
+              <a href="../../demos/hardball-3d-gpt-6-luna-codex/">Play GPT-6 Luna build <span aria-hidden="true">↗</span></a>
+              <a href="../../runs/hardball-3d-gpt-6-luna-codex/">Baseline run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="../../demos/hardball-3d-gpt-6-luna-codex/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </article>
+
+          <article class="compare-card" aria-labelledby="local-title">
+            <header class="compare-card__head">
+              <p class="eyebrow">Local run · 02 October 2026</p>
+              <h3 id="local-title">Qwen 3.8 Flash Next</h3>
+              <p>Sushi 1.1.0 · Pi coding agent · M5 Pro</p>
+            </header>
+            <figure class="screenshot">
+              <img class="screenshot__image" src="../../assets/screenshots/hardball-3d-gameplay.jpg" width="1600" height="814" loading="lazy" decoding="async" alt="Qwen 3.8 Flash Next Hardball 3D gameplay on the baseball field">
+              <figcaption>Qwen 3.8 Flash Next · gameplay</figcaption>
+            </figure>
+            <p class="compare-card__summary">A three-inning game build with recorded headless game checks. The run sheet notes acceptable visuals and inconsistent baseball rule behavior.</p>
+            <div class="action-links">
+              <a href="../../demos/hardball-3d/">Play local build <span aria-hidden="true">↗</span></a>
+              <a href="../../runs/hardball-3d/">Local run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="../../demos/hardball-3d/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="comparison-note" aria-labelledby="reading-title">
+        <h2 id="reading-title">How to read the comparison</h2>
+        <ul>
+          <li>Judge the generated games against the shared task: complete game loop, baseball rule behavior, visual clarity, and restartability.</li>
+          <li>There is no numeric quality score yet. The run sheets show which checks were actually recorded for each attempt.</li>
+          <li>The cloud task's cumulative token totals and end-to-end rate include repeated context, reasoning, tool calls, and waiting. They are not directly comparable with local per-request decode or prefill rates.</li>
+        </ul>
+        <p>New model attempts for this prompt belong on this page, with a separate immutable run sheet and build link for each execution.</p>
+      </section>
+    </main>
+    <footer class="shell"><a href="../">Challenges</a> · <a href="../../">All runs</a></footer>
+  </body>
+</html>

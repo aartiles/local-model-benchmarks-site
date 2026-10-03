@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Shared coding challenges that group cloud baselines and local model runs by workload.">
+    <title>Challenges · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../runs/runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../">All runs <span aria-hidden="true">↑</span></a><a href="./" aria-current="page">Challenges</a></nav>
+    </header>
+    <main class="shell challenge-page">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Workload index</p>
+        <h1 id="page-title">Challenges</h1>
+        <p class="intro__copy">Each page groups runs that attempted the same task. Cloud baselines and local configurations stay distinct, with the generated artifacts and run records linked side by side.</p>
+      </section>
+      <section class="challenge-section" aria-labelledby="current-title">
+        <header class="challenge-section__head">
+          <h2 id="current-title">Current comparisons</h2>
+          <p>Runs are compared by their task results first. Runtime speed measurements remain attached to each run and keep their own definitions.</p>
+        </header>
+        <article class="compare-card">
+          <header class="compare-card__head">
+            <p class="eyebrow">Agentic coding · 3D baseball</p>
+            <h3>Hardball 3D</h3>
+            <p>One-shot game-building challenge · two recorded runs</p>
+          </header>
+          <p class="compare-card__summary">Build a playable 3D arcade baseball game with batting, pitching, fielding, base running, scoring, a complete inning, and restart behavior.</p>
+          <ul class="chip-list" aria-label="Hardball 3D comparison runs">
+            <li class="chip"><span class="chip__key">Cloud baseline</span><span class="chip__value">GPT-6 Luna · Codex · xhigh</span></li>
+            <li class="chip"><span class="chip__key">Local</span><span class="chip__value">Qwen 3.8 Flash Next · Sushi · Pi</span></li>
+          </ul>
+          <div class="action-links">
+            <a href="./hardball-3d/">Open challenge comparison <span aria-hidden="true">→</span></a>
+            <a href="../demos/hardball-3d-gpt-6-luna-codex/">Play cloud baseline <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="shell"><a href="../">All runs</a></footer>
+  </body>
+</html>
