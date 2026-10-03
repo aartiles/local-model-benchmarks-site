@@ -1,11 +1,11 @@
 <!doctype html>
-<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · theme: Grid / ultramarine · vertical rules removed at user request -->
+<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · theme: Grid / ultramarine · current feature retained above the run archive -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Digger Arcade: a playable local-model build with run dimensions and inference measurements.">
-    <title>Digger Arcade · Local Model Benchmarks</title>
+    <meta name="description" content="Playable builds and run summaries from local model coding-agent benchmarks.">
+    <title>Local Model Benchmarks · Digger Arcade</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
   <body>
     <header class="masthead shell">
       <a class="wordmark" href="./"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
-      <nav aria-label="Main navigation"><a href="./demos/">All runs <span aria-hidden="true">→</span></a></nav>
+      <nav aria-label="Main navigation"><a href="#run-archive">All runs <span aria-hidden="true">↓</span></a></nav>
     </header>
     <main class="shell" id="digger-arcade">
       <div class="home-feature">
@@ -45,7 +45,193 @@
           <li class="chip"><span class="chip__key">Context</span><span class="chip__value">131,072 tokens</span></li>
         </ul>
       </section>
+
+      <section class="intro" id="run-archive" aria-labelledby="archive-title">
+        <p class="eyebrow">Run archive · Apple M5 Pro · 64 GB unified memory</p>
+        <h2 class="run__title" id="archive-title">Other runs</h2>
+        <p class="intro__copy">The remaining playable builds and run sheets, with their recorded setup and selected measurements.</p>
+      </section>
+      <section class="run-list" aria-label="Archived runs">
+        <article class="run" id="hardball-3d">
+          <header class="run__identity">
+            <p class="run-date">02 October 2026</p>
+            <p class="run-kind">Agentic game · 3D baseball</p>
+            <h2 class="run__title">Hardball 3D</h2>
+            <p class="run__summary">A three-inning arcade baseball game with batting, pitching, fielding AI and base running. The final build and recorded game checks completed.</p>
+            <div class="action-links">
+              <a href="./demos/hardball-3d/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="./runs/hardball-3d/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="./demos/hardball-3d/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </header>
+          <div class="run__record">
+            <section class="dimensions" aria-label="Hardball 3D run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization label</span><span class="chip__value">2.6 bpw · format unrecorded</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi · version unrecorded</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
+              </ul>
+            </section>
+            <section class="performance" aria-label="Hardball 3D agent session counters">
+              <header class="performance__head"><h3>Agent session counters</h3><p>Pi usage metadata; per-request inference timings were not retained.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Session elapsed</span><span class="chip__value chip__value--metric">1 h 30 min</span></li>
+                <li class="chip"><span class="chip__key">Model responses</span><span class="chip__value chip__value--metric">130</span></li>
+                <li class="chip"><span class="chip__key">Output tokens</span><span class="chip__value chip__value--metric">148,981</span></li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="run" id="digger-3d">
+          <header class="run__identity">
+            <p class="run-date">02 October 2026</p>
+            <p class="run-kind">Agentic game · isometric 3D</p>
+            <h2 class="run__title">Digger 3D</h2>
+            <p class="run__summary">A deterministic, grid-based Digger game with an isometric Three.js presentation. The report marks the challenge complete.</p>
+            <div class="action-links">
+              <a href="./demos/digger-3d/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="./runs/digger-3d/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="./demos/digger-3d/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </header>
+          <div class="run__record">
+            <section class="dimensions" aria-label="Digger 3D run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.1.0 · MLX 0.32.3</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              </ul>
+            </section>
+            <section class="performance" aria-label="Digger 3D performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Values are from this run; prefill includes cache reuse.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">35.99 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">456.15 tok/s</span></li>
+                <li class="chip"><span class="chip__key">MTP acceptance</span><span class="chip__value chip__value--metric">73.48%</span></li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="run" id="whiteout-sushi">
+          <header class="run__identity">
+            <p class="run-date">29 September 2026</p>
+            <p class="run-kind">Agentic game · browser FPS</p>
+            <h2 class="run__title">Whiteout Protocol · Sushi</h2>
+            <p class="run__summary">A long-horizon browser FPS project. The production build passed; a 60-second gameplay bot reached wave three.</p>
+            <div class="action-links">
+              <a href="./demos/whiteout-protocol/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="./runs/whiteout-protocol-sushi/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="./demos/whiteout-protocol/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </header>
+          <div class="run__record">
+            <section class="dimensions" aria-label="Whiteout Protocol Sushi run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.0.5</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              </ul>
+            </section>
+            <section class="performance" aria-label="Whiteout Protocol Sushi performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Warm server. Prefill follows the first restored-cache request.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">38.66 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">418.65 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Cache hit ratio</span><span class="chip__value chip__value--metric">95.17%</span></li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="run" id="whiteout-tensorfold">
+          <header class="run__identity">
+            <p class="run-date">29–30 September 2026</p>
+            <p class="run-kind">Agentic game · browser FPS</p>
+            <h2 class="run__title">Whiteout Protocol · TensorFold</h2>
+            <p class="run__summary">A separate Whiteout build from a Qwen3.8 27B verifier/drafter run. A backend outage is recorded separately from active elapsed time.</p>
+            <div class="action-links">
+              <a href="./demos/whiteout-protocol-tensorfold/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="./runs/whiteout-protocol-tensorfold/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="./demos/whiteout-protocol-tensorfold/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </header>
+          <div class="run__record">
+            <section class="dimensions" aria-label="Whiteout Protocol TensorFold run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoints</span><span class="chip__value">27B verifier · 27B DFlash2 drafter</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">4-bit verifier · Q4 drafter</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">TensorFold 0.3.6.3 · MLX-Serve</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              </ul>
+            </section>
+            <section class="performance" aria-label="Whiteout Protocol TensorFold performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Different model/runtime stack; review the outage and cache details in the run sheet.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · median</span><span class="chip__value chip__value--metric">22.9 tok/s</span></li>
+                <li class="chip"><span class="chip__key">TTFT · cached median</span><span class="chip__value chip__value--metric">7.8 s</span></li>
+                <li class="chip"><span class="chip__key">Peak KV checkpoint</span><span class="chip__value chip__value--metric">6.23 GiB</span></li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="run" id="pagoda-garden">
+          <header class="run__identity">
+            <p class="run-date">29 September 2026</p>
+            <p class="run-kind">Agentic scene · voxel garden</p>
+            <h2 class="run__title">Voxel Pagoda Garden</h2>
+            <p class="run__summary">A single-file voxel garden challenge. The recorded artifact contains 23,896 voxels across 71 InstancedMesh instances.</p>
+            <div class="action-links">
+              <a href="./demos/pagoda-garden/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="./runs/pagoda-garden/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note">Three.js 0.160.0 and OrbitControls load from unpkg; internet access is required.</p>
+          </header>
+          <div class="run__record">
+            <section class="dimensions" aria-label="Voxel Pagoda Garden run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.0.5</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
+              </ul>
+            </section>
+            <section class="performance" aria-label="Voxel Pagoda Garden performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Warm server; model-loading time is excluded.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">44.63 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">334.2 tok/s</span></li>
+                <li class="chip"><span class="chip__key">MTP acceptance · mean</span><span class="chip__value chip__value--metric">72.17%</span></li>
+              </ul>
+            </section>
+          </div>
+        </article>
+      </section>
+      <section class="site-note" id="measurement-scope" aria-labelledby="scope-title">
+        <h2 id="scope-title">Measurement scope</h2>
+        <p>Each entry is one interactive agent run. Hardware, model/engine settings, cache conditions and workload checks vary. Rates are not a standardized cross-challenge ranking; open each run sheet for its definitions and caveats.</p>
+      </section>
     </main>
-    <footer class="shell">Local Model Benchmarks</footer>
+    <footer class="shell">Local Model Benchmarks · Run window: 29 September—02 October 2026</footer>
   </body>
 </html>
