@@ -1,11 +1,11 @@
 <!doctype html>
-<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · theme: Grid / ultramarine · current feature retained above the run archive -->
+<!-- Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · theme: Grid / ultramarine · latest completed run featured above the archive -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Playable builds and run summaries from local model coding-agent benchmarks.">
-    <title>Local Model Benchmarks · Digger Arcade</title>
+    <meta name="description" content="Playable builds and run summaries from local model coding-agent benchmarks, with the latest run featured.">
+    <title>Local Model Benchmarks · Hardball 3D</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,21 +16,21 @@
       <a class="wordmark" href="./"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
       <nav aria-label="Main navigation"><a href="#run-archive">All runs <span aria-hidden="true">↓</span></a></nav>
     </header>
-    <main class="shell" id="digger-arcade">
+    <main class="shell">
       <div class="home-feature">
         <section class="home-feature__copy" aria-labelledby="page-title">
-          <p class="run-date">01 October 2026</p>
-          <p class="run-kind">Agentic game · arcade</p>
-          <h1 id="page-title">Digger Arcade</h1>
-          <p class="run__summary">A playable Digger arcade game with five boards. The recorded session completed the build and its documented game checks.</p>
+          <p class="run-date">02 October 2026</p>
+          <p class="run-kind">Agentic game · 3D baseball</p>
+          <h1 id="page-title">Hardball 3D</h1>
+          <p class="run__summary">A three-inning arcade baseball game with batting, pitching, fielding AI and base running. The final build and recorded game checks completed.</p>
           <div class="action-links">
-            <a href="./demos/digger-arcade/">Open playable build <span aria-hidden="true">↗</span></a>
-            <a href="./runs/digger-arcade/#inference">Inference measurements <span aria-hidden="true">→</span></a>
+            <a href="./demos/hardball-3d/">Open playable build <span aria-hidden="true">↗</span></a>
+            <a href="./runs/hardball-3d/#session">Agent session counters <span aria-hidden="true">→</span></a>
           </div>
         </section>
         <figure class="screenshot">
-          <img class="screenshot__image" src="./assets/screenshots/digger-arcade-gameplay.jpg" width="1600" height="1150" alt="Digger Arcade gameplay on level one, showing the player, enemies, gems and score HUD">
-          <figcaption>Digger Arcade · gameplay screenshot</figcaption>
+          <img class="screenshot__image" src="./assets/screenshots/hardball-3d-gameplay.jpg" width="1600" height="814" alt="Hardball 3D gameplay at the top of inning one, showing the field, players, scoreboard and ball call">
+          <figcaption>Hardball 3D · gameplay screenshot</figcaption>
         </figure>
       </div>
       <section class="home-dimensions" aria-labelledby="dimensions-title">
@@ -39,10 +39,20 @@
           <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
           <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
           <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
-          <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
-          <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.1.0 · MLX 0.32.3</span></li>
-          <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
-          <li class="chip"><span class="chip__key">Context</span><span class="chip__value">131,072 tokens</span></li>
+          <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">2.6 bpw · format unrecorded</span></li>
+          <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi · version unrecorded</span></li>
+          <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
+        </ul>
+      </section>
+      <section class="home-dimensions" aria-labelledby="session-title">
+        <header class="performance__head">
+          <h2 id="session-title">Agent session counters</h2>
+          <p>Pi usage metadata; per-request inference timings were not retained.</p>
+        </header>
+        <ul class="chip-list">
+          <li class="chip"><span class="chip__key">Session elapsed</span><span class="chip__value chip__value--metric">1 h 30 min</span></li>
+          <li class="chip"><span class="chip__key">Model responses</span><span class="chip__value chip__value--metric">130</span></li>
+          <li class="chip"><span class="chip__key">Output tokens</span><span class="chip__value chip__value--metric">148,981</span></li>
         </ul>
       </section>
 
@@ -52,45 +62,6 @@
         <p class="intro__copy">The remaining playable builds and run sheets, with their recorded setup and selected measurements.</p>
       </section>
       <section class="run-list" aria-label="Archived runs">
-        <article class="run" id="hardball-3d">
-          <header class="run__identity">
-            <p class="run-date">02 October 2026</p>
-            <p class="run-kind">Agentic game · 3D baseball</p>
-            <h2 class="run__title">Hardball 3D</h2>
-            <p class="run__summary">A three-inning arcade baseball game with batting, pitching, fielding AI and base running. The final build and recorded game checks completed.</p>
-            <figure class="screenshot run-card-shot">
-              <img class="screenshot__image" src="./assets/screenshots/hardball-3d-gameplay.jpg" width="1600" height="814" loading="lazy" decoding="async" alt="Hardball 3D gameplay at the top of inning one, showing the field, players, scoreboard and ball call">
-              <figcaption>Hardball 3D · gameplay screenshot</figcaption>
-            </figure>
-            <div class="action-links">
-              <a href="./demos/hardball-3d/">Open playable build <span aria-hidden="true">↗</span></a>
-              <a href="./runs/hardball-3d/">Full run sheet <span aria-hidden="true">→</span></a>
-            </div>
-            <p class="asset-note"><a href="./demos/hardball-3d/LICENSE-THREEJS.txt">Three.js license notice</a></p>
-          </header>
-          <div class="run__record">
-            <section class="dimensions" aria-label="Hardball 3D run dimensions">
-              <h3>Run dimensions</h3>
-              <ul class="chip-list">
-                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
-                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
-                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
-                <li class="chip"><span class="chip__key">Quantization label</span><span class="chip__value">2.6 bpw · format unrecorded</span></li>
-                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi · version unrecorded</span></li>
-                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
-              </ul>
-            </section>
-            <section class="performance" aria-label="Hardball 3D agent session counters">
-              <header class="performance__head"><h3>Agent session counters</h3><p>Pi usage metadata; per-request inference timings were not retained.</p></header>
-              <ul class="chip-list">
-                <li class="chip"><span class="chip__key">Session elapsed</span><span class="chip__value chip__value--metric">1 h 30 min</span></li>
-                <li class="chip"><span class="chip__key">Model responses</span><span class="chip__value chip__value--metric">130</span></li>
-                <li class="chip"><span class="chip__key">Output tokens</span><span class="chip__value chip__value--metric">148,981</span></li>
-              </ul>
-            </section>
-          </div>
-        </article>
-
         <article class="run" id="digger-3d">
           <header class="run__identity">
             <p class="run-date">02 October 2026</p>
@@ -125,6 +96,83 @@
                 <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">35.99 tok/s</span></li>
                 <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">456.15 tok/s</span></li>
                 <li class="chip"><span class="chip__key">MTP acceptance</span><span class="chip__value chip__value--metric">73.48%</span></li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="run" id="digger-arcade">
+          <header class="run__identity">
+            <p class="run-date">01 October 2026</p>
+            <p class="run-kind">Agentic game · arcade</p>
+            <h2 class="run__title">Digger Arcade</h2>
+            <p class="run__summary">A playable Digger arcade game with five boards. The recorded session completed the build and its documented game checks.</p>
+            <figure class="screenshot run-card-shot">
+              <img class="screenshot__image" src="./assets/screenshots/digger-arcade-gameplay.jpg" width="1600" height="1150" loading="lazy" decoding="async" alt="Digger Arcade gameplay on level one, showing the player, enemies, gems and score HUD">
+              <figcaption>Digger Arcade · gameplay screenshot</figcaption>
+            </figure>
+            <div class="action-links">
+              <a href="./demos/digger-arcade/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="./runs/digger-arcade/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
+          </header>
+          <div class="run__record">
+            <section class="dimensions" aria-label="Digger Arcade run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.1.0 · MLX 0.32.3</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              </ul>
+            </section>
+            <section class="performance" aria-label="Digger Arcade performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Values are from this run; prefill includes cached processing.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">34.62 tok/s</span></li>
+                <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">418.95 tok/s</span></li>
+                <li class="chip"><span class="chip__key">MTP acceptance</span><span class="chip__value chip__value--metric">69.03%</span></li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article class="run" id="whiteout-tensorfold">
+          <header class="run__identity">
+            <p class="run-date">29–30 September 2026</p>
+            <p class="run-kind">Agentic game · browser FPS</p>
+            <h2 class="run__title">Whiteout Protocol · TensorFold</h2>
+            <p class="run__summary">A separate Whiteout build from a Qwen3.8 27B verifier/drafter run. A backend outage is recorded separately from active elapsed time.</p>
+            <figure class="screenshot run-card-shot">
+              <img class="screenshot__image" src="./assets/screenshots/whiteout-protocol-tensorfold-gameplay.jpg" width="1600" height="826" loading="lazy" decoding="async" alt="Whiteout Protocol TensorFold scene with the weapon, snowy arena and pause prompt visible">
+              <figcaption>Whiteout Protocol · TensorFold · gameplay screenshot</figcaption>
+            </figure>
+            <div class="action-links">
+              <a href="./demos/whiteout-protocol-tensorfold/">Open playable build <span aria-hidden="true">↗</span></a>
+              <a href="./runs/whiteout-protocol-tensorfold/">Full run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="./demos/whiteout-protocol-tensorfold/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </header>
+          <div class="run__record">
+            <section class="dimensions" aria-label="Whiteout Protocol TensorFold run dimensions">
+              <h3>Run dimensions</h3>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
+                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
+                <li class="chip"><span class="chip__key">Checkpoints</span><span class="chip__value">27B verifier · 27B DFlash2 drafter</span></li>
+                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">4-bit verifier · Q4 drafter</span></li>
+                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">TensorFold 0.3.6.3 · MLX-Serve</span></li>
+                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
+              </ul>
+            </section>
+            <section class="performance" aria-label="Whiteout Protocol TensorFold performance summary">
+              <header class="performance__head"><h3>Inference measurements</h3><p>Different model/runtime stack; review the outage and cache details in the run sheet.</p></header>
+              <ul class="chip-list">
+                <li class="chip"><span class="chip__key">Decode · median</span><span class="chip__value chip__value--metric">22.9 tok/s</span></li>
+                <li class="chip"><span class="chip__key">TTFT · cached median</span><span class="chip__value chip__value--metric">7.8 s</span></li>
+                <li class="chip"><span class="chip__key">Peak KV checkpoint</span><span class="chip__value chip__value--metric">6.23 GiB</span></li>
               </ul>
             </section>
           </div>
@@ -169,44 +217,7 @@
           </div>
         </article>
 
-        <article class="run" id="whiteout-tensorfold">
-          <header class="run__identity">
-            <p class="run-date">29–30 September 2026</p>
-            <p class="run-kind">Agentic game · browser FPS</p>
-            <h2 class="run__title">Whiteout Protocol · TensorFold</h2>
-            <p class="run__summary">A separate Whiteout build from a Qwen3.8 27B verifier/drafter run. A backend outage is recorded separately from active elapsed time.</p>
-            <figure class="screenshot run-card-shot">
-              <img class="screenshot__image" src="./assets/screenshots/whiteout-protocol-tensorfold-gameplay.jpg" width="1600" height="826" loading="lazy" decoding="async" alt="Whiteout Protocol TensorFold scene with the weapon, snowy arena and pause prompt visible">
-              <figcaption>Whiteout Protocol · TensorFold · gameplay screenshot</figcaption>
-            </figure>
-            <div class="action-links">
-              <a href="./demos/whiteout-protocol-tensorfold/">Open playable build <span aria-hidden="true">↗</span></a>
-              <a href="./runs/whiteout-protocol-tensorfold/">Full run sheet <span aria-hidden="true">→</span></a>
-            </div>
-            <p class="asset-note"><a href="./demos/whiteout-protocol-tensorfold/LICENSE-THREEJS.txt">Three.js license notice</a></p>
-          </header>
-          <div class="run__record">
-            <section class="dimensions" aria-label="Whiteout Protocol TensorFold run dimensions">
-              <h3>Run dimensions</h3>
-              <ul class="chip-list">
-                <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
-                <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
-                <li class="chip"><span class="chip__key">Checkpoints</span><span class="chip__value">27B verifier · 27B DFlash2 drafter</span></li>
-                <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">4-bit verifier · Q4 drafter</span></li>
-                <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">TensorFold 0.3.6.3 · MLX-Serve</span></li>
-                <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent</span></li>
-              </ul>
-            </section>
-            <section class="performance" aria-label="Whiteout Protocol TensorFold performance summary">
-              <header class="performance__head"><h3>Inference measurements</h3><p>Different model/runtime stack; review the outage and cache details in the run sheet.</p></header>
-              <ul class="chip-list">
-                <li class="chip"><span class="chip__key">Decode · median</span><span class="chip__value chip__value--metric">22.9 tok/s</span></li>
-                <li class="chip"><span class="chip__key">TTFT · cached median</span><span class="chip__value chip__value--metric">7.8 s</span></li>
-                <li class="chip"><span class="chip__key">Peak KV checkpoint</span><span class="chip__value chip__value--metric">6.23 GiB</span></li>
-              </ul>
-            </section>
-          </div>
-        </article>
+
 
         <article class="run" id="pagoda-garden">
           <header class="run__identity">
