@@ -106,6 +106,7 @@ footer { border-top: 1px solid var(--color-rule); padding-block: var(--space-md)
 .home-feature__copy .run-kind { margin-block-end: var(--space-sm); }
 .home-feature__copy .run__summary { max-width: 48ch; font-size: var(--text-md); }
 .screenshot { margin: 0; }
+.run-card-shot { margin-block: var(--space-md); }
 .screenshot__image { display: block; width: 100%; height: auto; }
 .run-screenshot { max-width: 68rem; margin: 0 auto var(--space-xl); padding-inline: clamp(var(--space-sm), 4vw, var(--space-2xl)); }
 .run-screenshot .screenshot__image { width: auto; max-width: 100%; max-height: 68vh; margin-inline: auto; object-fit: contain; background: #08090c; }
