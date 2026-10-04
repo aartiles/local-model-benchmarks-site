@@ -1,0 +1,16 @@
+.prompt-panel { border-block-start: 2px solid var(--color-ink); }
+.prompt-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm); padding-block: var(--space-sm); }
+.prompt-toolbar p { margin: 0; color: var(--color-muted); font-size: var(--text-sm); }
+.prompt-copy-button { border: 1px solid var(--color-ink); padding: 0.7rem 1rem; background: var(--color-ink); color: var(--color-paper); cursor: pointer; font: 700 var(--text-sm)/1.2 var(--font-family); }
+.prompt-copy-button:hover:not(:disabled) { background: var(--color-accent); border-color: var(--color-accent); }
+.prompt-copy-button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.prompt-copy-button:disabled { cursor: wait; opacity: 0.65; }
+.prompt-source { max-block-size: min(74vh, 58rem); overflow: auto; border-block: 1px solid var(--color-rule); margin: 0; padding: var(--space-md); background: var(--color-paper-2); color: var(--color-ink); white-space: pre-wrap; overflow-wrap: anywhere; tab-size: 2; }
+.prompt-source code { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: 0.84rem; line-height: 1.7; }
+.prompt-status { min-block-size: 1.5em; margin-block: var(--space-xs) 0; color: var(--color-muted); font-size: var(--text-xs); }
+
+@media (max-width: 34rem) {
+  .prompt-toolbar { align-items: stretch; }
+  .prompt-copy-button { align-self: flex-start; }
+  .prompt-source { padding: var(--space-sm); }
+}

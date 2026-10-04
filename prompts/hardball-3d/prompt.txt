@@ -1,0 +1,724 @@
+# HardBall 3D — One-Shot Coding Benchmark
+
+Build a complete, playable **3D arcade baseball game** inspired by classic 1980s baseball games such as HardBall.
+
+This is a **one-shot coding benchmark**. You are expected to implement the entire game autonomously from the existing repository. Do not ask questions. Make reasonable decisions yourself and finish with a working game.
+
+The goal is not to reproduce HardBall exactly. Create a modern 3D reinterpretation with simple arcade mechanics, clear visual feedback, and a complete gameplay loop.
+
+## Core objective
+
+Create a baseball game where the player can:
+
+1. Bat against an AI pitcher.
+2. Time and aim swings.
+3. Hit the ball into a 3D field.
+4. Watch AI fielders chase and retrieve the ball.
+5. Run through the bases.
+6. Score runs.
+7. Accumulate strikes and outs.
+8. Switch sides and pitch against an AI batter.
+9. Complete a full playable inning.
+10. Restart and play again without reloading the page.
+
+The result must feel like a small finished game rather than a technical demo.
+
+## Technical constraints
+
+Use:
+
+- JavaScript or TypeScript
+- Three.js
+- HTML/CSS
+- Vite or an equivalent lightweight development setup
+
+The project must run with something equivalent to:
+
+`npm install`
+
+`npm run dev`
+
+Do not use:
+
+- Unity
+- Unreal
+- Godot
+- external game engines
+- external 3D models
+- downloaded textures
+- downloaded animations
+- external image assets
+- external sound assets
+- backend services
+
+Three.js helper libraries are allowed when appropriate.
+
+All important game geometry should be generated procedurally using Three.js primitives.
+
+The application must work locally in a modern desktop browser.
+
+## Visual direction
+
+Create a stylized **3D arcade baseball game**.
+
+Aim for:
+
+- modern low-poly graphics
+- slightly exaggerated player proportions
+- readable silhouettes
+- bright grass
+- clay baseball diamond
+- white bases
+- stadium walls
+- simple stands
+- stadium lights
+- clear team colors
+- expressive but simple procedural animation
+
+Think of a fictional evolution of an old 1980s baseball game into a polished low-poly 3D arcade game.
+
+Do not spend excessive effort trying to make realistic humans.
+
+Characters may be assembled from:
+
+- spheres
+- capsules
+- cylinders
+- boxes
+- simple meshes
+
+The game should look intentionally stylized rather than unfinished.
+
+## Stadium
+
+Build a recognizable baseball stadium containing at minimum:
+
+- home plate
+- first base
+- second base
+- third base
+- pitcher's mound
+- infield dirt
+- outfield grass
+- foul lines
+- outfield wall
+- dugout or bench areas
+- simple stadium seating/background structures
+
+Position all gameplay elements using coherent baseball-field geometry.
+
+The player must immediately recognize the scene as a baseball field.
+
+## Players
+
+Represent both teams with visible 3D characters.
+
+At minimum, the defensive team must include:
+
+- pitcher
+- catcher
+- first baseman
+- second baseman
+- shortstop
+- third baseman
+- left fielder
+- center fielder
+- right fielder
+
+The offensive team must visibly include:
+
+- current batter
+- any active base runners
+
+Players should have simple idle and movement animations.
+
+Procedural animations are encouraged.
+
+Examples:
+
+- pitcher wind-up
+- throwing motion
+- batter preparing
+- swing
+- running
+- fielder reaching for the ball
+- throwing
+- catcher receiving a pitch
+
+Animation quality matters more than anatomical realism.
+
+## Batting camera
+
+During a pitch, use a cinematic camera positioned behind and slightly to one side of the batter.
+
+The player should clearly see:
+
+- batter
+- pitcher
+- incoming baseball
+- strike zone / approximate target area
+
+The camera should make pitch timing readable.
+
+Do not use a purely top-down camera for batting.
+
+## Pitching
+
+The AI pitcher must perform an actual pitching sequence:
+
+1. prepare
+2. wind up
+3. release
+4. ball travels toward home plate
+5. catcher receives the ball if it is not hit
+
+Support multiple pitch variations.
+
+At minimum:
+
+- fastball
+- slower pitch
+- pitch with some lateral movement
+
+Pitch selection may be random or AI-controlled.
+
+Pitch trajectories should not be identical.
+
+The ball must visibly travel through 3D space.
+
+Do not teleport it from pitcher to catcher.
+
+## Batting controls
+
+The player must control the swing.
+
+Recommended controls:
+
+`Mouse / Arrow Keys / WASD`
+
+`adjust batting aim or contact position`
+
+`Space`
+
+`swing`
+
+`R`
+
+`restart game`
+
+You may improve these controls if you have a better design.
+
+Swing timing must matter.
+
+A swing made too early or too late should produce:
+
+- a miss
+- weak contact
+- foul ball
+
+Good timing should result in better contact.
+
+Bat position or aiming should influence where the ball travels.
+
+The player should be able to intentionally hit toward different areas of the field.
+
+## Ball contact
+
+Do not make batting purely random.
+
+Calculate the result using factors such as:
+
+- timing difference between bat and ball
+- bat position
+- pitch position
+- swing direction
+- pitch velocity
+
+These should influence:
+
+- horizontal direction
+- launch angle
+- exit velocity
+
+Good contact should feel noticeably different from poor contact.
+
+Possible outcomes should naturally include:
+
+- swing and miss
+- foul
+- ground ball
+- line drive
+- fly ball
+- deep hit
+- home run
+
+## Batted-ball physics
+
+Once hit, the baseball must become an actual moving object in the world.
+
+Implement:
+
+- velocity
+- gravity
+- ground collision
+- bounce
+- friction / rolling
+- interaction with stadium boundaries
+
+A fly ball should describe an understandable arc.
+
+A ground ball should bounce and roll.
+
+Avoid scripting every possible hit using predetermined animations.
+
+The game should emerge from the ball trajectory.
+
+## Camera transition after contact
+
+Immediately after a valid hit, transition smoothly from the batting camera to a field camera.
+
+The field camera should:
+
+- follow the ball
+- keep relevant fielders visible
+- make the play understandable
+
+Possible approaches include:
+
+- elevated broadcast camera
+- dynamic chase camera
+- camera that tracks the midpoint between ball and active fielder
+
+Avoid abrupt disorienting teleportation when possible.
+
+The transition from batting to fielding is an important part of the benchmark.
+
+## Fielding AI
+
+Fielders must react to the actual ball trajectory.
+
+Do not simply teleport a player to the ball.
+
+Implement logic to determine which defensive player should attempt the play.
+
+A fielder should:
+
+1. detect a hittable ball
+2. be selected as the primary fielder
+3. run toward an interception point
+4. collect or catch the ball
+5. decide where to throw
+6. throw toward an appropriate base
+
+Other fielders should move to useful support positions where reasonable.
+
+Only one fielder should control the ball at a time.
+
+## Catches
+
+Fly balls should be catchable.
+
+A catch before the ball touches the ground should result in an out.
+
+Provide clear visual feedback when this happens.
+
+Example:
+
+`OUT!`
+
+The state system must prevent the play from continuing incorrectly after a catch.
+
+## Throws
+
+After collecting the ball, fielders must be able to throw it.
+
+The ball should visibly travel from one player to another.
+
+Do not teleport the ball directly to a base.
+
+A throw may target:
+
+- first base
+- second base
+- third base
+- home plate
+
+depending on the current play.
+
+The receiving fielder must visibly possess or catch the ball.
+
+## Base running
+
+After hitting a fair ball, the batter becomes a runner.
+
+Runners should visibly move between:
+
+`Home → First → Second → Third → Home`
+
+The game must track which bases are occupied.
+
+At minimum, runner behavior may be automatic.
+
+A runner should make reasonable decisions based on the play.
+
+For example:
+
+- short ground ball → attempt first
+- clean outfield hit → potentially attempt second
+- deep hit → advance farther
+- home run → circle all bases
+
+A player cannot occupy two bases simultaneously.
+
+Two runners should not permanently occupy the same base.
+
+## Force outs
+
+Implement at least basic force-out logic.
+
+Examples:
+
+- ball reaches first before batter → out
+- forced runner reaches second after the ball → out
+
+The exact rules do not need to reproduce every edge case in professional baseball, but the common plays must behave correctly.
+
+## Strike system
+
+Track:
+
+- balls
+- strikes
+- outs
+
+At minimum:
+
+`3 strikes = out`
+
+`3 outs = side retired`
+
+You may use either traditional baseball ball-count rules or a slightly simplified arcade version, but the current rules must be clearly displayed.
+
+Foul-ball handling should be sensible.
+
+## Innings
+
+Implement at least **one complete inning**:
+
+`Top half:`
+
+`Player bats`
+
+`AI fields`
+
+`Bottom half:`
+
+`AI bats`
+
+`Player pitches`
+
+After both halves are complete, display the score.
+
+The game may optionally continue for additional innings.
+
+One inning must be completely playable.
+
+## Player pitching
+
+When the user is pitching, switch to an appropriate pitching camera.
+
+Allow the player to choose or influence:
+
+- pitch type
+- target position
+
+Suggested controls:
+
+`1`
+
+`fastball`
+
+`2`
+
+`slow pitch / changeup`
+
+`3`
+
+`curve`
+
+`Mouse / WASD / arrows`
+
+`aim pitch`
+
+`Space`
+
+`pitch`
+
+The AI batter should decide whether to swing based on:
+
+- pitch location
+- timing
+- pitch type
+
+The AI batter should sometimes:
+
+- miss
+- make weak contact
+- hit successfully
+
+Do not make the outcome completely random.
+
+## Game-state architecture
+
+Use a clear game state machine.
+
+Possible states include:
+
+`READY`
+
+`PITCHING`
+
+`BALL_IN_FLIGHT`
+
+`SWINGING`
+
+`BALL_HIT`
+
+`FIELDING`
+
+`THROWING`
+
+`RUNNING`
+
+`PLAY_COMPLETE`
+
+`BATTER_OUT`
+
+`SIDE_CHANGE`
+
+`GAME_OVER`
+
+You may use a different architecture.
+
+However, gameplay systems must not operate simultaneously when they should be inactive.
+
+Avoid common state bugs such as:
+
+- pitcher throwing twice
+- several fielders owning the same ball
+- runner continuing after an out
+- camera remaining in field mode for the next pitch
+- scoring the same run twice
+- multiple outs from the same event
+- ball remaining active after play completion
+
+## Scoreboard
+
+Display a readable HUD containing at minimum:
+
+- player score
+- AI score
+- inning / half inning
+- outs
+- strikes
+- balls if used
+
+The information should update live.
+
+Use HTML/CSS overlays or Three.js UI.
+
+## Game feedback
+
+Provide strong arcade-style feedback.
+
+Examples:
+
+`STRIKE!`
+
+`FOUL!`
+
+`OUT!`
+
+`BASE HIT!`
+
+`DOUBLE!`
+
+`HOME RUN!`
+
+Feedback should appear temporarily and not permanently obstruct gameplay.
+
+Use animation, scale, camera movement, particles, or other visual effects where appropriate.
+
+Do not rely entirely on text.
+
+## Polish
+
+Once the core game works, improve game feel.
+
+Possible improvements:
+
+- bat follow-through
+- pitcher anticipation
+- small screen shake on hard contact
+- baseball motion trail
+- dust particles
+- base-touch effects
+- crowd reactions
+- home-run celebration
+- smooth camera easing
+- shadows
+- stadium lights
+- subtle player idle movement
+- fielding anticipation
+- impact animation
+
+Prioritize gameplay correctness before polish.
+
+## Audio
+
+External audio files are forbidden.
+
+If you include sound, generate it procedurally using Web Audio.
+
+Possible sounds:
+
+- bat crack
+- glove catch
+- umpire-like strike cue
+- crowd noise
+- scoring effect
+
+Audio is optional but counts as polish.
+
+## Opening screen
+
+Include a simple title screen.
+
+Example:
+
+`HARDBALL 3D`
+
+`ARCADE BASEBALL`
+
+`Press Space to Play`
+
+Show basic controls before play begins.
+
+## Restartability
+
+The game must support restarting without refreshing the browser.
+
+Pressing:
+
+`R`
+
+should reset:
+
+- score
+- bases
+- outs
+- count
+- ball
+- players
+- inning
+- cameras
+- gameplay state
+
+## Important implementation priorities
+
+Prioritize work in this order:
+
+1. application starts without errors
+2. stadium renders
+3. pitching works
+4. batting works
+5. ball contact feels controllable
+6. fielding works
+7. runners and bases work
+8. outs and scoring work
+9. player pitching works
+10. complete inning works
+11. visual polish
+
+Do not spend excessive time polishing an incomplete gameplay loop.
+
+## Forbidden shortcuts
+
+Do not:
+
+- fake the game using a prerecorded sequence
+- teleport the baseball for every action
+- decide all hits using random numbers
+- make fielders decorative
+- omit defensive gameplay
+- omit base running
+- make every successful hit a home run
+- leave TODO placeholders
+- leave major gameplay features unimplemented
+- require manual setup beyond normal dependency installation
+- use external models or game assets
+
+Randomness may influence gameplay, but player input and physics must materially affect outcomes.
+
+## Acceptance test
+
+Before considering the task complete, personally verify the following gameplay sequence works:
+
+1. Start the game.
+2. AI pitcher prepares.
+3. AI pitcher throws a visible baseball.
+4. Player can swing and miss.
+5. Strike count increments correctly.
+6. Player can hit the baseball.
+7. Camera follows the ball into the field.
+8. A defensive player reacts to the ball.
+9. The fielder can retrieve or catch it.
+10. The batter runs toward first.
+11. A throw can create an out.
+12. A safe hit can place a runner on base.
+13. A later hit can advance that runner.
+14. A run can score.
+15. Three outs end the half inning.
+16. Player can then pitch.
+17. AI batter can hit the player's pitches.
+18. Three AI outs end the inning.
+19. Final inning score is displayed.
+20. Restart works correctly.
+
+Fix any issue preventing this sequence before finishing.
+
+## Quality bar
+
+This benchmark rewards:
+
+- autonomous problem solving
+- coherent architecture
+- correct game state
+- actual 3D gameplay
+- physics consistency
+- responsive controls
+- competent AI behavior
+- camera direction
+- visual clarity
+- game feel
+- completeness
+
+A beautiful stadium without a reliable baseball game is not sufficient.
+
+A simplistic but fully playable game is preferable to an ambitious broken implementation.
+
+However, once the game works, use the remaining opportunity to make it look and feel impressive.
+
+## Final instruction
+
+Work autonomously until you have the strongest complete implementation you can produce.
+
+Do not stop after scaffolding.
+
+Do not explain what you would implement.
+
+Implement it.
+
+Do not ask the user to complete missing pieces.
+
+When finished, ensure the project can be launched directly and that the full gameplay loop works.

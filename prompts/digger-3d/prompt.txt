@@ -1,0 +1,2345 @@
+# DIGGER 3D — Three.js One-Shot Coding Benchmark
+
+You are an autonomous senior gameplay programmer, Three.js engineer, technical artist, game designer and audio programmer.
+
+Build a complete polished browser game inspired by the classic 1983 arcade game **Digger**, reimagined as a modern 3D underground arcade diorama.
+
+Do not write a design document.
+
+Do not stop at scaffolding.
+
+Do not ask questions.
+
+Build the game until it is playable from title screen to game over.
+
+The core design principle is:
+
+> **2D arcade simulation, 3D presentation.**
+
+The gameplay remains grid-based and faithful to Digger-like mechanics, while Three.js renders the board as a tactile miniature underground world.
+
+The benchmark is primarily testing whether you can correctly implement several interacting game systems in one autonomous run:
+
+1. Persistent terrain excavation.
+2. Grid-based arcade movement with input buffering.
+3. Gold-bag state machines and falling/crushing mechanics.
+4. Dynamic enemy navigation over a changing map.
+5. Distinct Nobbin and Hobbin behavior.
+6. Rechargeable ranged attack.
+7. Enemy spawning, cherry bonus mode and scoring.
+8. Separation between deterministic simulation and 3D presentation.
+9. A coherent and attractive Three.js visual result.
+10. A finished, robust project rather than a prototype.
+
+A visually impressive game with incorrect mechanics is a failure.
+
+A mechanically correct game with simple but coherent visuals is acceptable.
+
+A mechanically correct game with polished 3D presentation and strong arcade feel is excellent.
+
+---
+
+# 0. HARD CONSTRAINTS
+
+## C1. Real project
+
+Create a real project using:
+
+- Vite
+- TypeScript
+- Three.js
+- official Three.js addons where useful
+- WebAudio API
+
+Use npm.
+
+Pin the Three.js version in `package.json`.
+
+Required commands:
+
+```bash
+npm install
+npm run dev
+npm run build
+```
+
+All three must work.
+
+Structure the code like a real game project.
+
+At minimum separate modules for:
+
+- application bootstrap
+- renderer
+- camera
+- game loop
+- game state
+- deterministic PRNG
+- grid / terrain
+- player
+- enemies
+- gold bags
+- projectiles
+- collisions
+- spawning
+- scoring
+- levels
+- visual FX
+- audio
+- input
+- HUD
+- debug tools
+- self-tests
+
+Do not put the whole game in one giant file.
+
+---
+
+## C2. No game engine
+
+Do NOT use:
+
+- Phaser
+- Babylon.js
+- PlayCanvas
+- Unity exports
+- Godot exports
+- Rapier
+- Cannon
+- Ammo
+- Matter
+- another physics engine
+
+Three.js is the renderer.
+
+Gameplay simulation must be implemented by you.
+
+---
+
+## C3. Offline
+
+The game must run with zero runtime network requests.
+
+Do not fetch:
+
+- textures
+- models
+- sound effects
+- music
+- fonts
+- APIs
+- remote JSON
+- CDN dependencies
+
+Generate the visuals procedurally with Three.js primitives and local code.
+
+Generate audio with WebAudio.
+
+---
+
+## C4. Deterministic simulation
+
+Use ONE seeded PRNG for every gameplay-random decision.
+
+Seed:
+
+`0xD166E2`
+
+This includes:
+
+- enemy decisions
+- transformation timing
+- spawn variation
+- visual procedural decoration where relevant
+
+Restarting a level with the same seed must recreate the same logical state.
+
+---
+
+## C5. Gameplay simulation is authoritative
+
+CRITICAL ARCHITECTURAL RULE:
+
+> Three.js object transforms are NEVER the source of truth for gameplay.
+
+Every gameplay object must have a logical simulation state independent of its Three.js mesh.
+
+For example:
+
+```ts
+interface EntityState {
+  col: number;
+  row: number;
+  direction: Direction;
+  state: EntityMode;
+}
+```
+
+The simulation decides:
+
+- position
+- collisions
+- terrain
+- pathfinding
+- deaths
+- score
+- falling
+- spawning
+- level completion
+
+The renderer only visualizes this state.
+
+Never determine gameplay by checking approximate `mesh.position`.
+
+Never use Three.js raycasting for ordinary gameplay collision.
+
+Never use visual interpolation as simulation.
+
+---
+
+## C6. Grid + rendering separation
+
+Logical coordinates:
+
+```text
+column
+row
+```
+
+Visual coordinates:
+
+```text
+x = column * CELL_SIZE
+z = row * CELL_SIZE
+```
+
+The vertical Y axis is for presentation only.
+
+Examples:
+
+```text
+terrain top: y = 0
+player: y ≈ 0.4
+emerald: y ≈ 0.5
+gold bag: y ≈ 0.5
+falling bag animation: variable y
+particles: variable y
+```
+
+The game must remain logically two-dimensional.
+
+---
+
+## C7. Performance
+
+Target stable 60 FPS on a mainstream desktop GPU.
+
+Use:
+
+- `InstancedMesh` where appropriate
+- object pools for common effects
+- sensible particle caps
+- no per-frame garbage in hot loops where practical
+
+Clamp `devicePixelRatio <= 2`.
+
+Clamp extreme delta time after tab switching.
+
+---
+
+## C8. Quality
+
+No:
+
+- TODO placeholders
+- fake UI
+- dead buttons
+- `alert()`
+- missing assets
+- console errors
+- console warnings caused by your own code
+- unhandled dead states
+
+---
+
+# 1. VISUAL DIRECTION
+
+The game should look like a handcrafted underground arcade diorama.
+
+Imagine:
+
+- classic Digger mechanics
+- chunky miniature terrain
+- clay / toy-like characters
+- late-1980s arcade colors
+- modern lighting
+- slightly exaggerated animation
+
+Do not attempt photorealism.
+
+Do not imitate existing copyrighted sprites directly.
+
+Create original procedural characters and props.
+
+---
+
+# 2. CAMERA
+
+## CAM1. Fixed gameplay camera
+
+Use a fixed 3/4 perspective camera looking down onto the board.
+
+Suggested perspective:
+
+- yaw approximately 35–45°
+- pitch approximately 45–60°
+- whole gameplay board visible
+
+The player should understand the whole level at a glance.
+
+---
+
+## CAM2. No free orbit during gameplay
+
+Do NOT allow free camera rotation during normal gameplay.
+
+A freely orbiting camera creates:
+
+- hidden tunnels
+- ambiguous movement
+- occlusion problems
+- camera-relative control complexity
+
+These do not improve the benchmark.
+
+---
+
+## CAM3. Camera effects
+
+Allow restrained camera effects:
+
+- tiny positional shake on gold-bag impact
+- stronger shake on player death
+- tiny zoom/focus pulse on bonus activation
+- slight level-start camera settle
+
+Gameplay readability always takes priority.
+
+---
+
+# 3. WORLD PRESENTATION
+
+The board is a thick rectangular slab of underground earth suspended in a dark environment.
+
+It should feel like a miniature tabletop scene.
+
+The viewer sees:
+
+- earth blocks
+- carved tunnels
+- stones
+- emeralds
+- bags
+- enemies
+- Digger
+
+The background beyond the board should remain dark and unobtrusive.
+
+---
+
+# 4. TERRAIN
+
+## T1. Logical grid
+
+Use approximately:
+
+```text
+15 columns × 10 rows
+```
+
+A similar compact grid is acceptable if gameplay remains readable.
+
+---
+
+## T2. Terrain cells
+
+Each cell stores at least:
+
+```text
+solid
+excavated
+emerald
+bag
+```
+
+and any necessary connectivity/navigation data.
+
+---
+
+## T3. 3D earth
+
+Represent solid earth using chunky cube-like or rounded-block geometry.
+
+Preferred implementation:
+
+`THREE.InstancedMesh`
+
+Each earth cell should look like a small block of compacted soil.
+
+---
+
+## T4. Earth appearance
+
+Do not use flat brown boxes.
+
+Create visual variation procedurally with:
+
+- slightly varied block scale
+- vertex/color variation
+- small stones
+- dirt speckles
+- subtle roughness variation
+- darker side faces
+
+Do not generate thousands of unnecessary meshes.
+
+---
+
+## T5. Excavation
+
+When Digger enters solid earth:
+
+- logical cell becomes excavated
+- corresponding visible earth disappears or retracts
+- dirt particles burst backward
+- small pebbles jump
+- excavation sound plays
+
+The excavation remains permanent for the rest of the level.
+
+---
+
+## T6. Tunnels
+
+Excavated cells should reveal a dark tunnel floor.
+
+Use subtle tunnel detail such as:
+
+- darker soil
+- wheel tracks
+- disturbed dust
+- occasional stone fragments
+
+Do not dynamically boolean-subtract geometry.
+
+Removing/hiding terrain cells is the intended solution.
+
+---
+
+# 5. LIGHTING AND MATERIALS
+
+Use modern but restrained arcade lighting.
+
+## L1. Overall
+
+Use:
+
+- cool dark ambient/environment light
+- warm light associated with Digger
+- bright green emerald glow
+- gold highlights on bags
+- hostile red/magenta accents on enemies
+
+---
+
+## L2. Shadows
+
+Use shadows selectively.
+
+Characters and gold bags should cast readable shadows onto the tunnel floor.
+
+Do not enable expensive shadows on every tiny effect.
+
+---
+
+## L3. Emeralds
+
+Emeralds should be visually attractive.
+
+Use simple geometry such as:
+
+- octahedron
+- custom faceted gem
+
+with:
+
+- emerald material
+- subtle emissive component
+- sparkle animation
+- tiny point-light-like fake glow if affordable
+
+---
+
+## L4. Gold
+
+Gold bags use:
+
+- leather sack body
+- tied neck
+- gold-colored details
+
+Broken gold becomes a small pile of glowing nuggets or coins.
+
+---
+
+# 6. PLAYER — DIGGER
+
+Create Digger procedurally from Three.js primitives.
+
+Do not load a model.
+
+Suggested visual design:
+
+- chunky yellow/orange mining machine
+- two wheels
+- front digging jaws or drill assembly
+- small headlamp
+- exhaust
+- expressive mechanical animation
+
+The character should remain readable at the fixed camera distance.
+
+---
+
+## D1. Movement
+
+Controls:
+
+- Arrow keys
+- WASD
+
+No diagonal movement.
+
+Movement occurs continuously between logical cell centers.
+
+Do NOT teleport tile-to-tile.
+
+---
+
+## D2. Turning
+
+Allow 90° turns at valid intersections.
+
+Implement input buffering.
+
+Example:
+
+Player is driving right.
+
+Player presses UP slightly before the intersection.
+
+Store UP.
+
+Turn upward automatically as soon as the turn becomes legal.
+
+Arcade movement must feel forgiving.
+
+---
+
+## D3. Facing
+
+The Digger model smoothly rotates toward its logical direction.
+
+Use short eased rotation.
+
+Do not make gameplay wait for the visual rotation.
+
+---
+
+## D4. Digging animation
+
+When digging through solid earth:
+
+- front jaw/drill animates
+- wheels work harder
+- dust increases
+- headlamp vibrates slightly
+- excavation sound plays
+
+In existing tunnels the animation becomes calmer.
+
+---
+
+## D5. Lives
+
+Start with:
+
+`3 lives`
+
+Lose one life when:
+
+- touched by a dangerous enemy outside bonus mode
+- crushed by a falling gold bag
+
+Death sequence:
+
+1. gameplay collision disabled
+2. Digger spins or jolts
+3. small explosion/dirt burst
+4. machine collapses
+5. short pause
+6. level resets
+
+Preserve:
+
+- score
+- lives
+- current level
+
+---
+
+# 7. EMERALDS
+
+## EM1. Placement
+
+Place emeralds through diggable terrain in clear patterns.
+
+Use lines and clusters.
+
+---
+
+## EM2. Collection
+
+Each emerald is worth:
+
+`25 points`
+
+On collection:
+
+- gem pops upward slightly
+- flashes
+- breaks into green sparkle particles
+- sound plays
+- score popup appears
+
+---
+
+## EM3. Eight-emerald chain
+
+Collecting 8 qualifying emeralds consecutively awards:
+
+`+250 points`
+
+Play:
+
+- ascending chiptune flourish
+- stronger sparkle
+- visible bonus score popup
+
+Track the chain explicitly.
+
+---
+
+# 8. GOLD BAGS — CRITICAL
+
+Gold bags are one of the benchmark's defining systems.
+
+Implement them as explicit state machines.
+
+Required states include:
+
+```text
+RESTING
+PUSHING
+WOBBLING
+FALLING
+LANDING
+BROKEN
+COLLECTIBLE
+```
+
+You may add more states if useful.
+
+---
+
+## B1. Horizontal push
+
+Digger may push an intact resting bag horizontally.
+
+Requirements:
+
+- next cell must be valid
+- no blocking object beyond it
+- push only horizontally
+- visual movement is interpolated
+- logical transition remains discrete
+
+Give bags a sense of weight:
+
+- slight Digger compression
+- scraping sound
+- dust
+- slow start / eased finish
+
+---
+
+## B2. Unsupported bag
+
+If support below an intact bag disappears:
+
+```text
+RESTING
+↓
+WOBBLING
+```
+
+Wobble for roughly:
+
+`0.5–0.8 seconds`
+
+Then:
+
+```text
+WOBBLING
+↓
+FALLING
+```
+
+---
+
+## B3. Wobble
+
+The 3D bag should:
+
+- shake left/right
+- tilt
+- slightly compress
+- release tiny dust
+
+This warning must be obvious.
+
+---
+
+## B4. Falling
+
+A falling bag descends vertically through excavated cells.
+
+The logical simulation tracks cell transitions.
+
+The 3D mesh visually accelerates downward.
+
+Use fake gravity/easing.
+
+Do NOT use a physics engine.
+
+---
+
+## B5. Crushing
+
+A falling bag kills:
+
+- Digger
+- Nobbins
+- Hobbins
+
+that occupy its path.
+
+Enemy crush score:
+
+`250`
+
+A crushed character must have a visible squash/impact animation.
+
+---
+
+## B6. Break condition
+
+Track the number of complete grid rows fallen.
+
+If fall distance is:
+
+`1 row`
+
+the bag remains intact.
+
+If fall distance is:
+
+`2 or more rows`
+
+the bag breaks open when landing.
+
+---
+
+## B7. Break effect
+
+Breaking should be one of the game's strongest visual moments.
+
+Use:
+
+- short hit-stop
+- camera shake
+- leather fragments
+- gold nuggets
+- dust ring
+- bright flash
+- metallic crash
+
+Create collectible gold.
+
+---
+
+## B8. Gold collection
+
+Broken gold is worth:
+
+`500 points`
+
+Digger must physically reach it.
+
+Enemies may reach/destroy/deny gold if your rules require it.
+
+---
+
+## B9. Chain correctness
+
+Handle situations involving:
+
+- bag over player
+- bag over enemy
+- bag over another bag
+- bag pushed into shaft
+- player removing support while moving
+- enemy digging beneath bag
+- bag falling while level state changes
+
+Never allow contradictory bag states.
+
+---
+
+# 9. PROJECTILE
+
+Digger has one rechargeable projectile.
+
+Controls:
+
+- Space
+- F
+
+---
+
+## F1. Direction
+
+Projectile launches along Digger's current logical facing direction.
+
+---
+
+## F2. Movement
+
+Projectile moves through excavated tunnel cells only.
+
+It travels in a straight line.
+
+It cannot turn.
+
+---
+
+## F3. Collision
+
+Projectile disappears when hitting:
+
+- Nobbin
+- Hobbin
+- solid terrain
+- blocking bag/object
+- map boundary
+
+Projectile does NOT pierce.
+
+---
+
+## F4. Score
+
+Enemy killed by projectile:
+
+`250 points`
+
+---
+
+## F5. Cooldown
+
+After firing, weapon becomes unavailable for several seconds.
+
+Show cooldown visibly in HUD.
+
+Do not permit another shot until fully recharged.
+
+Higher levels may slightly increase recharge duration.
+
+---
+
+## F6. 3D feedback
+
+Projectile should look like a bright arcade energy bolt.
+
+Add:
+
+- emissive core
+- small trail
+- muzzle flash
+- tiny machine recoil
+- impact particles
+- synthesized firing sound
+
+Do not create realistic gunfire.
+
+---
+
+# 10. NOBBINS
+
+Create original small enemy creatures.
+
+Suggested visual style:
+
+- squat magenta/red monster
+- large eyes
+- short legs
+- toy/clay proportions
+
+---
+
+## N1. Movement
+
+Nobbins can move ONLY through excavated tunnel cells.
+
+They cannot dig.
+
+---
+
+## N2. Navigation
+
+Nobbins pursue Digger using the current logical tunnel graph.
+
+Use:
+
+- BFS
+- A*
+- another sensible grid pathfinding solution
+
+Do not steer directly through world space.
+
+---
+
+## N3. Dynamic topology
+
+The tunnel network changes while playing.
+
+Nobbins must periodically update their routes.
+
+They may use newly dug paths.
+
+They must never travel through still-solid earth.
+
+---
+
+## N4. Deterministic personality
+
+At equivalent route choices, allow small deterministic variation from the seeded PRNG.
+
+They should feel alive without becoming random.
+
+---
+
+# 11. HOBBINS
+
+Hobbins are transformed, more dangerous enemies.
+
+Make them visually distinct.
+
+Suggested differences:
+
+- larger claws
+- brighter eyes
+- darker/redder material
+- aggressive digging animation
+- small dirt spray around them
+
+---
+
+## H1. Transformation
+
+A Nobbin may transform into a Hobbin.
+
+Transformation probability/frequency increases by level.
+
+Show:
+
+- brief pause
+- body squash/stretch
+- color change
+- aggressive sound
+- dirt burst
+
+---
+
+## H2. Digging
+
+Hobbins can traverse solid terrain.
+
+When doing so they excavate it permanently.
+
+The exact same terrain grid used by Digger must change.
+
+---
+
+## H3. Navigation
+
+Nobbin:
+
+```text
+path cost through solid earth = impossible
+```
+
+Hobbin:
+
+```text
+path cost through tunnel = low
+path cost through earth = allowed but higher
+```
+
+Implement behavior that reflects this difference.
+
+Do not merely give Hobbins a different sprite or speed.
+
+---
+
+## H4. Terrain destruction
+
+Hobbins may destroy emeralds encountered while digging when appropriate.
+
+Update:
+
+- remaining emerald count
+- level completion state
+
+correctly.
+
+---
+
+# 12. ENEMY SPAWNING
+
+## S1. Entrance
+
+Enemies enter through a visually distinct portal at the upper-right area of the board.
+
+Style idea:
+
+- dark tunnel mouth
+- red warning light
+- wooden supports
+- small dust puffs
+
+---
+
+## S2. Enemy quota
+
+Each level has a finite total spawn quota.
+
+Track separately:
+
+```text
+aliveEnemies
+spawnedEnemies
+enemyQuota
+```
+
+Do not spawn enemies forever.
+
+---
+
+## S3. Active limit
+
+Also define an active-enemy limit.
+
+Example early level:
+
+```text
+quota: 6
+max active: 3
+```
+
+Later levels increase pressure.
+
+---
+
+## S4. Spawn pacing
+
+New enemies may enter when:
+
+- active slots are available
+- quota remains
+- spawn timer has elapsed
+
+Later levels shorten the spawn delay.
+
+---
+
+# 13. CHERRY BONUS MODE
+
+This system is mandatory.
+
+---
+
+## CH1. Cherry appearance
+
+Once the level's ENTIRE enemy quota has entered the board:
+
+```text
+spawnedEnemies === enemyQuota
+```
+
+spawn a cherry at the enemy entrance.
+
+Do not base this merely on current alive enemy count.
+
+---
+
+## CH2. Cherry
+
+The cherry should be a bright 3D arcade prop.
+
+Value:
+
+`1000 points`
+
+Digger must physically collect it.
+
+---
+
+## CH3. Bonus mode
+
+Cherry activates temporary bonus mode.
+
+Early-level duration:
+
+approximately `10–15 seconds`
+
+During bonus mode:
+
+- Digger kills enemies by contact
+- enemies become frightened
+- enemies try to move away
+- enemy appearance changes
+- board lighting shifts
+- music changes
+- HUD shows BONUS
+- Digger headlamp/glow intensifies
+
+---
+
+## CH4. Enemy chain score
+
+Enemies eaten during the same bonus period score:
+
+```text
+200
+400
+800
+1600
+3200
+...
+```
+
+Double each time.
+
+Display value at the enemy location.
+
+---
+
+## CH5. Frightened presentation
+
+Frightened enemies should visibly change.
+
+For example:
+
+- cyan/blue material
+- wide eyes
+- faster leg animation
+- backward glance
+- small sweat particles
+
+---
+
+## CH6. Expiry
+
+When bonus time expires:
+
+- normal enemy behavior returns
+- palette returns
+- contact is dangerous again
+- chain counter resets
+
+No enemy may remain permanently frightened.
+
+---
+
+# 14. LEVEL COMPLETION
+
+A level completes when EITHER:
+
+### condition A
+
+All emeralds have been collected or destroyed.
+
+OR
+
+### condition B
+
+The full enemy quota has been eliminated.
+
+This is an OR condition.
+
+Never require both.
+
+---
+
+## LC1. Transition
+
+On completion:
+
+1. disable lethal interactions
+2. play victory sound
+3. briefly freeze action
+4. camera makes tiny celebratory push-in
+5. show `LEVEL COMPLETE`
+6. show score summary
+7. load next level
+
+Do not instantaneously replace the board.
+
+---
+
+# 15. LEVELS
+
+Create at least:
+
+`5 deterministic level layouts`
+
+Each level differs in:
+
+- initial tunnels
+- emerald pattern
+- bag placement
+- player start
+- enemy entry relationship
+- tactical opportunities
+
+After level 5, levels may repeat with increased difficulty.
+
+---
+
+## LV1. Designed bag opportunities
+
+At least one board must deliberately contain a setup allowing the player to:
+
+- dig underneath a bag
+- lure multiple enemies below
+- crush more than one enemy
+
+---
+
+# 16. DIFFICULTY
+
+Progressively increase pressure through:
+
+- enemy quota
+- active enemy count
+- spawn speed
+- enemy speed
+- Hobbin transformation frequency
+- projectile cooldown
+
+Progressively decrease:
+
+- cherry bonus duration
+
+Do not make difficulty simply become uncontrolled speed.
+
+Levels 1–2 should be approachable.
+
+Levels 4–5 should clearly feel more dangerous.
+
+---
+
+# 17. SCORING
+
+Use:
+
+```text
+Emerald:                   25
+8-emerald chain bonus:    250
+Broken gold:              500
+Projectile enemy kill:    250
+Bag crush enemy kill:     250
+Cherry:                  1000
+Bonus enemy #1:           200
+Bonus enemy #2:           400
+Bonus enemy #3:           800
+Bonus enemy #4:          1600
+then continue doubling
+```
+
+Award an extra life each time score crosses another multiple of:
+
+`20,000`
+
+Never award the same threshold twice.
+
+---
+
+# 18. VISUAL GAME FEEL
+
+The game should feel tactile despite simple geometry.
+
+---
+
+## GF1. Animation principles
+
+Use easing or spring-like motion for:
+
+- turns
+- bag pushes
+- bag wobble
+- bag impact
+- emerald pickup
+- enemy death
+- score popups
+- HUD reactions
+
+Do not use obvious raw linear interpolation for visible character motion when a better eased transition is appropriate.
+
+---
+
+## GF2. Dirt particles
+
+When terrain is excavated:
+
+- spawn chunky dirt particles
+- launch mostly opposite movement direction
+- apply gravity visually
+- rotate them
+- fade/remove quickly
+
+Pool particles.
+
+---
+
+## GF3. Enemy deaths
+
+Projectile kill:
+
+- enemy recoils
+- flashes
+- bursts into stylized particles
+- disappears
+
+Bag crush:
+
+- squash dramatically
+- dust burst
+- short hit-stop
+
+Bonus eat:
+
+- pop upward
+- scale down
+- score number appears
+
+---
+
+## GF4. Hit-stop
+
+Use short hit-stop for:
+
+- bag crushing enemy
+- bag breaking
+- player death
+
+Approximately:
+
+`30–70 ms`
+
+Do not freeze constantly.
+
+---
+
+# 19. POST-PROCESSING
+
+Use Three.js post-processing only where valuable.
+
+Allowed:
+
+- subtle bloom
+- vignette
+- restrained color grading feel
+
+Bloom should especially affect:
+
+- emeralds
+- projectile
+- cherry
+- bonus mode accents
+
+Do not destroy pixel/shape readability.
+
+Provide a LOW quality mode that can disable post-processing if performance is poor.
+
+---
+
+# 20. AUDIO
+
+Use WebAudio API.
+
+No external audio assets.
+
+Create retro synthesized effects.
+
+Required sounds:
+
+- driving
+- active digging
+- emerald
+- 8-emerald bonus
+- bag push
+- bag wobble
+- bag fall
+- bag impact
+- bag break
+- gold pickup
+- fire
+- recharge ready
+- enemy kill
+- enemy crush
+- Hobbin transformation
+- player death
+- cherry
+- bonus activation
+- bonus enemy eaten
+- bonus ending
+- extra life
+- level complete
+
+---
+
+## AU1. Music
+
+Create a simple procedural chiptune-like soundtrack.
+
+Normal mode:
+
+- rhythmic
+- playful
+- low intensity
+
+Danger may increase music intensity based on active enemy count.
+
+Bonus mode:
+
+- faster
+- brighter
+- more urgent
+
+Level complete:
+
+- short melodic flourish
+
+---
+
+## AU2. Browser correctness
+
+AudioContext must start or resume only after a valid user gesture.
+
+No autoplay warnings.
+
+`M` toggles mute.
+
+---
+
+# 21. HUD
+
+Create a compact arcade HUD outside or above the 3D board.
+
+Display:
+
+```text
+SCORE
+HIGH SCORE
+LEVEL
+LIVES
+WEAPON
+BONUS
+```
+
+Only show BONUS timer when active.
+
+Weapon cooldown must be readable.
+
+---
+
+## HUD1. Score reaction
+
+Score should smoothly count upward or visually punch when large rewards occur.
+
+---
+
+# 22. TITLE SCREEN
+
+Before gameplay, show a full title state.
+
+Title:
+
+`DIGGER 3D`
+
+Subtitle:
+
+`UNDERGROUND ARCADE`
+
+Show:
+
+`PRESS ENTER TO START`
+
+Display controls.
+
+Provide toggles for:
+
+- CRT / retro filter ON/OFF
+- post-processing HIGH/LOW
+- sound ON/OFF
+
+Show deterministic seed:
+
+`0xD166E2`
+
+---
+
+## TS1. Miniature title animation
+
+Keep the 3D board visible behind the menu.
+
+Have Digger:
+
+- drive briefly
+- excavate one cell
+- collect a gem
+
+or run another tiny scripted attract-mode animation.
+
+Do not start real gameplay until the player presses Enter.
+
+---
+
+# 23. GAME OVER
+
+When lives reach zero:
+
+1. complete death animation
+2. stop gameplay simulation
+3. show `GAME OVER`
+4. show score
+5. show level reached
+6. show high score
+7. allow restart
+
+Persist high score with `localStorage`.
+
+If localStorage is unavailable, fail gracefully.
+
+---
+
+# 24. DEBUG OVERLAY
+
+Backquote:
+
+```text
+`
+```
+
+toggles debug mode.
+
+Display:
+
+- FPS
+- frame ms
+- draw calls
+- active meshes
+- active particles
+- PRNG seed
+- level
+- player logical coordinates
+- player direction
+- current player state
+- remaining emeralds
+- alive enemies
+- spawned enemies / quota
+- Nobbins
+- Hobbins
+- projectile cooldown
+- bonus time
+- bag states
+- current game state
+
+---
+
+## DBG1. Logical visualization
+
+Debug mode must optionally visualize the logical grid.
+
+Show:
+
+- cell centers
+- excavated cells
+- solid cells
+- navigation edges
+- current enemy paths
+
+This should make it obvious that gameplay is grid-based even though rendering is 3D.
+
+---
+
+# 25. PAUSE
+
+`P` pauses.
+
+Pause must freeze:
+
+- simulation
+- enemies
+- player
+- bag wobble
+- bag fall
+- projectile
+- projectile cooldown
+- spawn timer
+- bonus timer
+- animations tied to simulation time
+
+Display a pause overlay.
+
+Audio should duck or pause appropriately.
+
+---
+
+# 26. SYSTEM CORRECTNESS
+
+## X1.
+
+Logical and visual coordinates must never become permanently desynchronized.
+
+---
+
+## X2.
+
+A dead enemy cannot:
+
+- damage Digger
+- pathfind
+- be killed twice
+- award score twice
+
+---
+
+## X3.
+
+A bag cannot simultaneously be:
+
+```text
+RESTING
+and
+FALLING
+```
+
+---
+
+## X4.
+
+A projectile cannot hit more than one enemy.
+
+---
+
+## X5.
+
+During player death animation, gameplay collision is disabled.
+
+---
+
+## X6.
+
+During level transition, no new enemies may spawn.
+
+---
+
+## X7.
+
+Restarting the game must not duplicate:
+
+- input listeners
+- animation loops
+- audio graphs
+- event handlers
+- Three.js scenes
+
+---
+
+# 27. AUTOMATED SELF-TEST
+
+Press:
+
+`T`
+
+from the title screen.
+
+Run deterministic automated gameplay-system tests.
+
+Tests must use the real production gameplay systems.
+
+Do not build fake versions only for tests.
+
+Log:
+
+```text
+PASS
+FAIL
+```
+
+for each test.
+
+---
+
+## TEST 1 — Coordinate separation
+
+Set a player logical position.
+
+Move/interpolate its Three.js mesh.
+
+Assert that changing visual interpolation does NOT change logical coordinates.
+
+---
+
+## TEST 2 — Digging
+
+Move Digger through solid terrain.
+
+Assert:
+
+- cell becomes excavated
+- cell remains excavated
+- navigation graph updates
+
+---
+
+## TEST 3 — Buffered turn
+
+Press perpendicular input before intersection.
+
+Assert Digger turns when legal.
+
+---
+
+## TEST 4 — Emerald
+
+Collect one emerald.
+
+Assert:
+
+```text
+removed
+score += 25
+```
+
+---
+
+## TEST 5 — Emerald chain
+
+Collect 8 qualifying emeralds.
+
+Assert:
+
+```text
++250 chain bonus
+```
+
+---
+
+## TEST 6 — Bag unsupported
+
+Excavate beneath bag.
+
+Assert:
+
+```text
+RESTING
+→ WOBBLING
+→ FALLING
+```
+
+---
+
+## TEST 7 — One-row fall
+
+Drop bag exactly one row.
+
+Assert:
+
+```text
+bag remains intact
+```
+
+---
+
+## TEST 8 — Multi-row fall
+
+Drop bag at least two rows.
+
+Assert:
+
+```text
+bag breaks
+gold becomes collectible
+```
+
+---
+
+## TEST 9 — Enemy crush
+
+Drop bag onto enemy.
+
+Assert:
+
+```text
+enemy dead
+score += 250
+```
+
+---
+
+## TEST 10 — Player crush
+
+Drop bag onto Digger.
+
+Assert:
+
+```text
+one life lost
+```
+
+---
+
+## TEST 11 — Bag state exclusivity
+
+During a complete fall cycle, assert bag never has contradictory states.
+
+---
+
+## TEST 12 — Projectile direction
+
+Fire while facing right.
+
+Assert projectile logical trajectory remains rightward.
+
+---
+
+## TEST 13 — Projectile hit
+
+Hit enemy.
+
+Assert:
+
+```text
+enemy dead
+score += 250
+projectile removed
+cooldown active
+```
+
+---
+
+## TEST 14 — Cooldown
+
+Fire again before cooldown ends.
+
+Assert:
+
+```text
+no projectile created
+```
+
+---
+
+## TEST 15 — Nobbin tunnel constraint
+
+Place solid earth directly between Nobbin and player.
+
+Assert Nobbin path never includes a solid cell.
+
+---
+
+## TEST 16 — Nobbin dynamic path
+
+Excavate a shorter route.
+
+Assert Nobbin can update and use the new path.
+
+---
+
+## TEST 17 — Hobbin digging
+
+Place Hobbin behind solid terrain.
+
+Assert:
+
+```text
+Hobbin can traverse
+terrain becomes excavated
+```
+
+---
+
+## TEST 18 — Enemy quota
+
+Spawn enemies until quota reached.
+
+Assert no additional enemy enters.
+
+---
+
+## TEST 19 — Cherry condition
+
+Assert cherry appears only after:
+
+```text
+spawnedEnemies === enemyQuota
+```
+
+---
+
+## TEST 20 — Bonus activation
+
+Collect cherry.
+
+Assert:
+
+```text
+bonus active
+enemy contact no longer kills player
+```
+
+---
+
+## TEST 21 — Bonus enemy scoring
+
+Eat four enemies.
+
+Assert:
+
+```text
+200
+400
+800
+1600
+```
+
+---
+
+## TEST 22 — Bonus expiry
+
+Expire timer.
+
+Assert:
+
+```text
+normal enemy contact becomes lethal again
+```
+
+---
+
+## TEST 23 — Completion through emeralds
+
+Remove all emeralds while enemies still exist.
+
+Assert level completes.
+
+---
+
+## TEST 24 — Completion through enemies
+
+Eliminate full enemy quota while emeralds remain.
+
+Assert level completes.
+
+---
+
+## TEST 25 — Extra life
+
+Cross 20,000 score threshold.
+
+Assert:
+
+```text
+exactly one extra life
+```
+
+---
+
+## TEST 26 — Pause
+
+Pause mid:
+
+- bag wobble
+- weapon cooldown
+- bonus mode
+
+Advance wall-clock time.
+
+Assert simulation timers do not advance.
+
+---
+
+## TEST 27 — Determinism
+
+Initialize equivalent level twice using seed:
+
+`0xD166E2`
+
+Run the same scripted input.
+
+Assert gameplay-relevant outcomes match.
+
+---
+
+## TEST 28 — Visual independence
+
+Temporarily offset an entity's Three.js mesh visually.
+
+Assert:
+
+- collisions unchanged
+- pathfinding unchanged
+- logical grid unchanged
+
+This proves rendering is not gameplay authority.
+
+---
+
+Final self-test output:
+
+```text
+28/28 PASS
+```
+
+or list every failed test explicitly.
+
+Never hide failures.
+
+---
+
+# 28. KNOWN FAILURE MODES
+
+Do not ship these.
+
+## K1.
+
+Using `mesh.position` as gameplay position.
+
+## K2.
+
+Using Three.js raycasting as the main collision system.
+
+## K3.
+
+Using a physics engine for bag falling.
+
+## K4.
+
+Terrain excavation implemented with unstable runtime CSG.
+
+## K5.
+
+Nobbins move through solid terrain.
+
+## K6.
+
+Hobbins are merely recolored Nobbins.
+
+## K7.
+
+Bag instantly falls without wobble.
+
+## K8.
+
+One-row bag fall breaks the bag.
+
+## K9.
+
+Player movement snaps visibly tile-to-tile.
+
+## K10.
+
+Turns require frame-perfect input.
+
+## K11.
+
+Camera rotates freely and makes controls ambiguous.
+
+## K12.
+
+Cherry spawns when no enemies are currently alive instead of when spawn quota is exhausted.
+
+## K13.
+
+Bonus mode is only invulnerability.
+
+Enemies must become edible and frightened.
+
+## K14.
+
+Level completion requires BOTH no emeralds and no enemies.
+
+## K15.
+
+Pause allows gameplay timers to keep running.
+
+## K16.
+
+Restart duplicates listeners or render loops.
+
+## K17.
+
+Hundreds of individual earth meshes produce poor performance when instancing would solve it.
+
+## K18.
+
+External models/textures/fonts are required for the game to look acceptable.
+
+---
+
+# 29. PRIORITY ORDER
+
+First create the smallest playable vertical slice:
+
+1. Three.js board
+2. logical grid
+3. Digger
+4. smooth grid movement
+5. excavation
+6. emerald
+7. one Nobbin
+8. death/restart
+
+Then implement in this order:
+
+1. gold-bag state machine
+2. Nobbin pathfinding
+3. Hobbin behavior
+4. projectile
+5. spawn quota
+6. cherry bonus
+7. level progression
+8. score/lives
+9. audio
+10. 3D animation polish
+11. lighting/material polish
+12. particles
+13. post-processing
+14. debug overlay
+15. self-tests
+
+If forced to cut features, cut visual polish from the bottom first.
+
+Never cut:
+
+- grid-authoritative simulation
+- digging
+- bag physics
+- Nobbin/Hobbin distinction
+- projectile cooldown
+- finite spawn quota
+- cherry
+- bonus mode
+- both level completion conditions
+
+These systems define the benchmark.
+
+---
+
+# 30. ACCEPTANCE PLAYTHROUGH
+
+The finished game must naturally support this sequence:
+
+1. open title screen
+2. start game
+3. drive through an existing tunnel
+4. dig through solid earth
+5. collect emerald
+6. make a buffered turn
+7. push a gold bag
+8. dig beneath the bag
+9. see bag wobble
+10. escape
+11. watch bag fall
+12. crush a Nobbin
+13. make another bag fall at least two rows
+14. see it break
+15. collect gold
+16. fire projectile
+17. kill enemy
+18. wait for cooldown
+19. encounter Hobbin
+20. watch Hobbin excavate terrain
+21. exhaust enemy spawn quota
+22. see cherry spawn
+23. collect cherry
+24. enter bonus mode
+25. chase frightened enemies
+26. eat several enemies
+27. see bonus expire
+28. complete level
+29. reach a harder second level
+30. eventually lose all lives
+31. see GAME OVER
+32. restart cleanly
+
+If any step is impossible because its required system does not exist, the game is incomplete.
+
+---
+
+# 31. VISUAL ACCEPTANCE
+
+A screenshot of normal gameplay should immediately communicate:
+
+- underground world
+- carved tunnel maze
+- yellow/orange Digger machine
+- glowing green emeralds
+- gold bags
+- hostile colorful creatures
+- tactile 3D miniature appearance
+
+The image should not look like:
+
+- default Three.js tutorial geometry
+- flat cubes on a plane
+- debug primitives
+- random prototype objects
+- a top-down 2D game with unnecessary perspective
+
+Use simple geometry well.
+
+Good:
+
+- strong silhouettes
+- cohesive palette
+- readable lighting
+- animation
+- particles
+- material variation
+
+Do not chase realism.
+
+---
+
+# 32. AUTONOMOUS WORK
+
+Do not respond with a plan.
+
+Implement the project.
+
+When details are ambiguous:
+
+- make a sensible game-development decision
+- continue
+- do not ask the user
+
+If you have browser/computer access:
+
+- run `npm install`
+- start the development server
+- play the game
+- inspect console output
+- test death/restart repeatedly
+- intentionally create bag edge cases
+- enter bonus mode
+- complete at least one level
+- run self-tests
+- run production build
+- fix what fails
+
+If you can inspect screenshots:
+
+- inspect several gameplay screenshots
+- judge them as a technical art director
+- improve anything that looks cheap, unclear or broken
+
+Do not stop after the first playable version.
+
+Finish and polish the game.
+
+---
+
+# 33. FINAL REPORT
+
+After implementation, output only a concise report with:
+
+## Run
+
+Exact commands:
+
+```text
+install
+dev
+build
+```
+
+## Architecture
+
+One short line per major module.
+
+## Controls
+
+Full control scheme.
+
+## Self-test
+
+Example:
+
+```text
+28/28 PASS
+```
+
+List failures explicitly if any exist.
+
+## Requirements
+
+State:
+
+- fully implemented
+- partially implemented
+- cut
+
+## Validation
+
+State whether you actually:
+
+- installed dependencies
+- launched the game
+- played it
+- tested gold-bag behavior
+- reached bonus mode
+- completed a level
+- inspected screenshots
+- ran automated self-tests
+- ran production build
+
+## Trade-offs
+
+Mention only meaningful compromises.
+
+The final product must be a playable game, not an explanation of how to build one.
