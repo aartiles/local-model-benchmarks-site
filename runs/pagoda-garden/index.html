@@ -1,91 +1,134 @@
 <!doctype html>
-<!-- Vertical rules removed at user request. -->
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Voxel Pagoda Garden run sheet: model stack, inference measurements, setup, checks and limits.">
+    <meta name="description" content="Voxel Pagoda Garden: configuration, result, recorded checks and measurements.">
     <title>Voxel Pagoda Garden run sheet · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../runs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
   </head>
   <body>
-    <header class="masthead shell">
-      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
-      <nav aria-label="Main navigation"><a href="../../">All runs <span aria-hidden="true">↑</span></a></nav>
-    </header>
-    <main>
-      <section class="intro shell" aria-labelledby="page-title">
-        <p class="run-date">29 September 2026</p>
-        <p class="run-kind">Agentic scene · voxel garden</p>
-        <h1 id="page-title">Voxel Pagoda Garden</h1>
-        <p class="intro__copy">A single-file voxel garden challenge. The recorded artifact contains 23,896 voxels across 71 InstancedMesh instances.</p>
-        <div class="action-links">
-          <a href="../../demos/pagoda-garden/">Open playable build <span aria-hidden="true">↗</span></a>
-          <a href="#inference">Inference measurements <span aria-hidden="true">↓</span></a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 03 October 2026</span><span>11 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro">
+          <header class="sheet__head">
+            <p class="label">29 September 2026 · Agentic scene · voxel garden</p>
+            <h1 class="display sheet__title" id="page-title">Voxel Pagoda Garden</h1>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="lede">Completed the voxel garden challenge and produced a single-file HTML artifact.</p>
+            <div class="actions"><a href="../../demos/pagoda-garden/">Play build <span aria-hidden="true">↗</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+        <figure class="capture capture--wide">
+          <img src="../../assets/screenshots/pagoda-garden-gameplay.jpg" width="1600" height="828" fetchpriority="high" decoding="async" alt="Voxel Pagoda Garden with the pagoda, cherry trees and orbit controls visible">
+          <figcaption>Voxel Pagoda Garden · gameplay capture</figcaption>
+        </figure>
         </div>
-      </section>
-      <figure class="screenshot run-screenshot">
-        <img class="screenshot__image" src="../../assets/screenshots/pagoda-garden-gameplay.jpg" width="1600" height="828" loading="lazy" decoding="async" alt="Voxel Pagoda Garden with the pagoda, cherry trees and orbit controls visible">
-        <figcaption>Voxel Pagoda Garden · gameplay screenshot</figcaption>
-      </figure>
-      <article class="run-sheet shell">
-        <div class="run__record">
-          <section class="dimensions" aria-label="Voxel Pagoda Garden run dimensions">
-            <h2>Run dimensions</h2>
-            <ul class="chip-list">
-              <li class="chip"><span class="chip__key">Hardware</span><span class="chip__value">Apple MacBook Pro · M5 Pro · 64 GB</span></li>
-              <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">Qwen 3.8</span></li>
-              <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">Flash Next Sushi</span></li>
-              <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">EXL3 · 2.625 bpw</span></li>
-              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">Sushi 1.0.5</span></li>
-              <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">Pi coding agent · medium</span></li>
-              <li class="chip"><span class="chip__key">Context</span><span class="chip__value">131,072 tokens</span></li>
-            </ul>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>JavaScript syntax check passed.</li>
+<li>Headless stub runtime completed five animation frames.</li>
+<li>The archived HTML is 23045 bytes, matching the artifact size in the source record.</li></ul>
+
           </section>
-          <section class="performance" id="inference" aria-label="Voxel Pagoda Garden inference measurements">
-            <header class="performance__head"><h2>Inference measurements</h2><p>Warm server. Model-loading time is excluded.</p></header>
-            <ul class="chip-list">
-              <li class="chip"><span class="chip__key">Decode · output-weighted</span><span class="chip__value chip__value--metric">44.63 tok/s</span></li>
-              <li class="chip"><span class="chip__key">Prefill · median</span><span class="chip__value chip__value--metric">334.2 tok/s</span></li>
-              <li class="chip"><span class="chip__key">MTP acceptance · mean</span><span class="chip__value chip__value--metric">72.17%</span></li>
-              <li class="chip"><span class="chip__key">Prefix-cache reuse</span><span class="chip__value chip__value--metric">90.23%</span></li>
-            </ul>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">Qwen 3.8 Flash Next · primary</td><td class="spec__def">EXL3 2.625 bpw</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">Sushi 1.0.5</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">Pi coding agent</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple M5 Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Voxel Pagoda Garden · revision 1</td><td class="spec__def">Single-file browser voxel scene generated through a Pi coding-agent session. Separate from the 10-task suite.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">131,072 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
           </section>
-          <dl class="session-data">
-            <div><dt>Session elapsed</dt><dd>9 min 31 s</dd></div>
-            <div><dt>Model requests</dt><dd>13</dd></div>
-            <div><dt>Tool calls</dt><dd>12</dd></div>
-            <div><dt>Output tokens</dt><dd>17,982</dd></div>
-          </dl>
-          <details open>
-            <summary>Setup, checks &amp; limits</summary>
-            <div class="details-grid">
-              <section>
-                <h3>Recorded setup</h3>
-                <ul>
-                  <li>Sushi 1.0.5 with Qwen 3.8 Flash Next EXL3 at 2.625 bpw; Pi coding agent at medium thinking level.</li>
-                  <li>131,072-token context, KV8, MTP depth 6, PLD and 512-token prefill chunks.</li>
-                  <li>Prefix cache: one entry, 1 GB memory and 20 GB disk. Output limit 16,384; temperature 0.</li>
-                  <li>Warm server; model-loading time is excluded. No context compactions; final prompt context was 20,269 tokens.</li>
-                  <li>185,875 of 206,004 presented input tokens were reused from prefix cache. Prefill ranged 15.4–630.9 tok/s, with a 334.2 tok/s median.</li>
-                  <li>MTP acceptance ranged 53.6–83.3%, with a 72.17% mean.</li>
-                </ul>
-              </section>
-              <section>
-                <h3>Artifact and recorded checks</h3>
-                <p>The delivered HTML file was 23,045 bytes. The report counted 23,896 voxels, 71 InstancedMesh instances and 77 scene objects. Recorded checks were a JavaScript syntax check and a headless stub run that completed five animation frames.</p>
-                <h3 class="detail-label">Limits</h3>
-                <p>These checks do not establish full browser rendering, interaction or gameplay quality. Three.js 0.160.0 and OrbitControls load from unpkg at runtime, so the demo needs an internet connection. The source recipe skipped its conservative memory preflight; this result is not a general recommendation for other hardware. This is one interactive challenge, not a repeated fixed-task score.</p>
-              </section>
-            </div>
-          </details>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Cache hit ratio</th><td class="spec__value">90.23 %</td><td class="spec__def">cached input tokens / presented input tokens · n=1</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">44.63 tok/s</td><td class="spec__def">output-token weighted mean · n=13</td></tr>
+                <tr><th scope="row">Prefill · median</th><td class="spec__value">334.2 tok/s</td><td class="spec__def">median across requests · n=13</td></tr>
+                <tr><th scope="row">MTP acceptance</th><td class="spec__value">72.17 %</td><td class="spec__def">mean across requests · n=13</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Session elapsed</th><td class="spec__value">571 s</td><td class="spec__def">session start to final delivery · n=1</td></tr>
+                <tr><th scope="row">Model requests</th><td class="spec__value">13 requests</td><td class="spec__def">total · n=1</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">12 calls</td><td class="spec__def">total · n=1</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">0 compactions</td><td class="spec__def">total · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Final prompt context</th><td class="spec__value">20,269 tokens</td><td class="spec__def">final request · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Reported voxels</th><td class="spec__value">23,896 voxels</td><td class="spec__def">artifact report · n=1</td></tr>
+                <tr><th scope="row">Reported InstancedMesh instances</th><td class="spec__value">71 meshes</td><td class="spec__def">artifact report · n=1</td></tr>
+                <tr><th scope="row">Reported scene objects</th><td class="spec__value">77 objects</td><td class="spec__def">artifact report · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>Numeric per-request measurements only. Stop reasons and all prompt or response content are excluded.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-09-29-qwen38-flash-next-sushi-pi-pagoda-garden</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
         </div>
       </article>
-      <section class="site-note shell" aria-label="Run scope"><p>The public record excludes the original prompt, local model path, server command, Pi session and server logs.</p></section>
     </main>
-    <footer class="shell"><a href="../../">All runs</a></footer>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">One-shot experiments, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
   </body>
 </html>

@@ -1,38 +1,55 @@
 <!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The Hardball 3D benchmark prompt in a copy-friendly text view.">
-    <title>Hardball 3D challenge prompt · Local Model Benchmarks</title>
+    <meta name="description" content="Hardball 3D task prompt. Task evidence and recorded methodology.">
+    <title>Hardball 3D task prompt · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../runs/runs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
     <link rel="stylesheet" href="../prompt.css">
     <script src="../copy.js" defer></script>
   </head>
   <body>
-    <header class="masthead shell">
-      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
-      <nav aria-label="Main navigation"><a href="../../">All runs <span aria-hidden="true">↑</span></a><a href="../../challenges/">Challenges</a></nav>
-    </header>
-    <main class="shell">
-      <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow">Challenge prompt · Copy-friendly text</p>
-        <h1 id="page-title">Hardball 3D</h1>
-        <p class="intro__copy">This readable text rendering preserves the visible wording and order from the saved prompt. The original macOS HTML export wrapper and editing metadata are omitted; retained prompt source files are byte-identical.</p>
-        <div class="action-links"><a href="../../challenges/hardball-3d/">Back to the Hardball 3D challenge <span aria-hidden="true">←</span></a></div>
-      </section>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/" aria-current="page">Prompts</a><a href="../../method/">Method</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 03 October 2026</span><span>11 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+<header class="sheet__head">
+        <p class="label">Challenge prompt &middot; copy-friendly text</p>
+        <h1 class="display sheet__title">Hardball 3D</h1>
+        <p class="lede">The complete task text used for the recorded attempts. Read it here, or copy it to try the challenge yourself.</p>
+        <div class="actions">
+          <a href="../../challenges/hardball-3d/">Compare attempts <span aria-hidden="true">&larr;</span></a>
+          <a class="action--quiet" href="../">All prompts</a>
+        </div>
+      </header>
+
+
+
       <section class="prompt-panel" aria-label="Full challenge prompt">
         <div class="prompt-toolbar">
-          <p id="prompt-help">Select text below or copy the complete prompt.</p>
-          <button class="prompt-copy-button" id="copy-prompt" type="button" disabled>Loading prompt…</button>
+          <p id="prompt-help">Select the text below, or copy the complete prompt.</p>
+          <button class="prompt-copy-button" id="copy-prompt" type="button" disabled>Loading prompt&hellip;</button>
         </div>
         <pre class="prompt-source" aria-describedby="prompt-help"><code id="prompt-text"></code></pre>
-        <p class="prompt-status" id="copy-status" role="status" aria-live="polite">Loading prompt text…</p>
+        <p class="prompt-status" id="copy-status" role="status" aria-live="polite">Loading prompt text&hellip;</p>
       </section>
+<aside class="reading-note"><p>The saved prompt wording and order are preserved. A shared prompt does not make scaffolds, agent settings or tools identical. Compare those details on each run sheet.</p></aside>
     </main>
-    <footer class="shell"><a href="../../challenges/hardball-3d/">Hardball 3D challenge</a> · <a href="../../">All runs</a></footer>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">One-shot experiments, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
   </body>
 </html>

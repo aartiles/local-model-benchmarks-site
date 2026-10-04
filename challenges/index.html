@@ -1,82 +1,86 @@
 <!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Catalogue · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Shared coding challenges that group cloud baselines and local model runs by workload.">
+    <meta name="description" content="Browse five agentic challenges and the inference suite, with captures and links to every attempt.">
     <title>Challenges · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../runs/runs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/tokens.css">
+    <link rel="stylesheet" href="../assets/site.css">
   </head>
   <body>
-    <header class="masthead shell">
-      <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
-      <nav aria-label="Main navigation"><a href="../">All runs <span aria-hidden="true">↑</span></a><a href="./" aria-current="page">Challenges</a></nav>
-    </header>
-    <main class="shell challenge-page">
-      <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow">Workload index</p>
-        <h1 id="page-title">Challenges</h1>
-        <p class="intro__copy">Each page groups runs that attempted the same task. Cloud baselines and local configurations stay distinct, with the generated artifacts and run records linked side by side.</p>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../runs/">Runs</a><a href="../challenges/" aria-current="page">Challenges</a><a href="../demos/">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 03 October 2026</span><span>11 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <header class="sheet__head">
+        <h1 class="display sheet__title">Explore by task</h1>
+        <p class="lede">Five agentic challenges and one inference suite. Compare attempts at the same prompt, or inspect a single recorded result.</p>
+        <nav class="archive-links" aria-label="Task groups"><a href="#comparisons">Shared prompts ↓</a><a href="#other-tasks">Other experiments ↓</a><a href="../prompts/">Task prompts →</a></nav>
+      </header>
+      <section class="band" id="comparisons" aria-labelledby="comparisons-title">
+        <div class="section-head"><h2 class="h-section" id="comparisons-title">Same task, different setups</h2><p class="note">Local builds and cloud baselines</p></div>
+        <div class="catalogue"><article class="catalogue__item" id="whiteout-protocol">
+          <figure class="capture capture--inline"><a href="../challenges/whiteout-protocol/" aria-label="Whiteout Protocol · TensorFold build · gameplay capture"><img src="../assets/screenshots/whiteout-protocol-tensorfold-gameplay.jpg" width="1600" height="826" loading="lazy" decoding="async" alt="Whiteout Protocol TensorFold scene with the weapon, snowy arena and pause prompt visible"></a></figure>
+          <h3 class="index__title"><a href="../challenges/whiteout-protocol/">Whiteout Protocol</a></h3>
+          <p class="catalogue__meta">2 local runs · 1 cloud baseline</p>
+          <p>Wave survival, first-person combat and a snowy arena. Two local configurations and a cloud baseline attempted the same prompt.</p>
+          <div class="actions"><a href="../challenges/whiteout-protocol/">Compare attempts →</a></div>
+        </article>
+<article class="catalogue__item" id="digger-3d">
+          <figure class="capture capture--inline"><a href="../challenges/digger-3d/" aria-label="Digger 3D · gameplay capture"><img src="../assets/screenshots/digger-3d-gameplay.jpg" width="1600" height="1238" loading="lazy" decoding="async" alt="Digger 3D voxel maze with the player, enemies and level HUD visible"></a></figure>
+          <h3 class="index__title"><a href="../challenges/digger-3d/">Digger 3D</a></h3>
+          <p class="catalogue__meta">1 local run · 1 cloud baseline</p>
+          <p>Deterministic grid simulation, excavation and five levels in an isometric Three.js scene.</p>
+          <div class="actions"><a href="../challenges/digger-3d/">Compare attempts →</a></div>
+        </article>
+<article class="catalogue__item" id="hardball-3d">
+          <figure class="capture capture--inline"><a href="../challenges/hardball-3d/" aria-label="Hardball 3D · gameplay capture"><img src="../assets/screenshots/hardball-3d-gameplay.jpg" width="1600" height="814" loading="lazy" decoding="async" alt="Hardball 3D gameplay at the top of inning one, showing the field, players, scoreboard and ball call"></a></figure>
+          <h3 class="index__title"><a href="../challenges/hardball-3d/">Hardball 3D</a></h3>
+          <p class="catalogue__meta">1 local run · 1 cloud baseline</p>
+          <p>Batting, pitching, fielding and a full inning. Compare the generated games and their recorded checks.</p>
+          <div class="actions"><a href="../challenges/hardball-3d/">Compare attempts →</a></div>
+        </article></div>
       </section>
-      <section class="challenge-section" aria-labelledby="current-title">
-        <header class="challenge-section__head">
-          <h2 id="current-title">Current comparisons</h2>
-          <p>Runs are compared by their task results first. Runtime speed measurements remain attached to each run and keep their own definitions.</p>
-        </header>
-        <article class="compare-card">
-          <header class="compare-card__head">
-            <p class="eyebrow">Agentic coding · wave-survival browser FPS</p>
-            <h3>Whiteout Protocol</h3>
-            <p>One-shot game-building challenge · three recorded runs</p>
-          </header>
-          <p class="compare-card__summary">Build a playable single-player FPS with wave-based combat and a complete browser game loop. The page groups one GPT-6 Luna cloud baseline with two local Qwen runs on different engines.</p>
-          <ul class="chip-list" aria-label="Whiteout Protocol comparison runs">
-            <li class="chip"><span class="chip__key">Cloud baseline</span><span class="chip__value">GPT-6 Luna · Codex · xhigh</span></li>
-            <li class="chip"><span class="chip__key">Local</span><span class="chip__value">Qwen 3.8 Flash Next · Sushi · Pi</span></li>
-            <li class="chip"><span class="chip__key">Local</span><span class="chip__value">Qwen 3.8 27B · TensorFold · Pi</span></li>
-          </ul>
-          <div class="action-links">
-            <a href="./whiteout-protocol/">Open challenge comparison <span aria-hidden="true">→</span></a>
-            <a href="../demos/whiteout-protocol-gpt-6-luna-codex/">Play cloud baseline <span aria-hidden="true">↗</span></a>
-          </div>
+      <section class="band" id="other-tasks" aria-labelledby="other-title">
+        <h2 class="h-section" id="other-title">Other experiments</h2>
+        <div class="catalogue"><article class="catalogue__item" id="digger-arcade">
+          <figure class="capture capture--inline"><a href="../runs/digger-arcade/" aria-label="Digger Arcade · gameplay capture"><img src="../assets/screenshots/digger-arcade-gameplay.jpg" width="1600" height="1150" loading="lazy" decoding="async" alt="Digger Arcade gameplay on level one, showing the player, enemies, gems and score HUD"></a></figure>
+          <h3 class="index__title"><a href="../runs/digger-arcade/">Digger Arcade</a></h3>
+          <p class="catalogue__meta">1 local run</p>
+          <p>Completed a playable arcade Digger game and reported end-to-end verification.</p>
+          <div class="actions"><a href="../runs/digger-arcade/">Run sheet →</a><a href="../demos/digger-arcade/">Play build ↗</a></div>
         </article>
-        <article class="compare-card">
-          <header class="compare-card__head">
-            <p class="eyebrow">Agentic coding · isometric 3D arcade</p>
-            <h3>Digger 3D</h3>
-            <p>One-shot browser-game challenge · two recorded runs</p>
-          </header>
-          <p class="compare-card__summary">Build a playable Digger-inspired game with deterministic grid movement and excavation, collectibles, enemies, and multi-level progression in an isometric Three.js scene.</p>
-          <ul class="chip-list" aria-label="Digger 3D comparison runs">
-            <li class="chip"><span class="chip__key">Cloud baseline</span><span class="chip__value">GPT-6 Luna · Codex · xhigh</span></li>
-            <li class="chip"><span class="chip__key">Local</span><span class="chip__value">Qwen 3.8 Flash Next · Sushi · Pi</span></li>
-          </ul>
-          <div class="action-links">
-            <a href="./digger-3d/">Open challenge comparison <span aria-hidden="true">→</span></a>
-            <a href="../demos/digger-3d-gpt-6-luna-codex/">Play cloud baseline <span aria-hidden="true">↗</span></a>
-          </div>
+<article class="catalogue__item" id="pagoda-garden">
+          <figure class="capture capture--inline"><a href="../runs/pagoda-garden/" aria-label="Voxel Pagoda Garden · gameplay capture"><img src="../assets/screenshots/pagoda-garden-gameplay.jpg" width="1600" height="828" loading="lazy" decoding="async" alt="Voxel Pagoda Garden with the pagoda, cherry trees and orbit controls visible"></a></figure>
+          <h3 class="index__title"><a href="../runs/pagoda-garden/">Voxel Pagoda Garden</a></h3>
+          <p class="catalogue__meta">1 local run</p>
+          <p>Completed the voxel garden challenge and produced a single-file HTML artifact.</p>
+          <div class="actions"><a href="../runs/pagoda-garden/">Run sheet →</a><a href="../demos/pagoda-garden/">Play build ↗</a></div>
         </article>
-        <article class="compare-card">
-          <header class="compare-card__head">
-            <p class="eyebrow">Agentic coding · 3D baseball</p>
-            <h3>Hardball 3D</h3>
-            <p>One-shot game-building challenge · two recorded runs</p>
-          </header>
-          <p class="compare-card__summary">Build a playable 3D arcade baseball game with batting, pitching, fielding, base running, scoring, a complete inning, and restart behavior.</p>
-          <ul class="chip-list" aria-label="Hardball 3D comparison runs">
-            <li class="chip"><span class="chip__key">Cloud baseline</span><span class="chip__value">GPT-6 Luna · Codex · xhigh</span></li>
-            <li class="chip"><span class="chip__key">Local</span><span class="chip__value">Qwen 3.8 Flash Next · Sushi · Pi</span></li>
-          </ul>
-          <div class="action-links">
-            <a href="./hardball-3d/">Open challenge comparison <span aria-hidden="true">→</span></a>
-            <a href="../demos/hardball-3d-gpt-6-luna-codex/">Play cloud baseline <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
+<article class="catalogue__item" id="llmprobe-performance">
+          <div class="suite-preview"><strong>Inference suite</strong><p>Latency · decode · cache</p><p>4K / 16K / 64K context</p></div>
+          <h3 class="index__title"><a href="../runs/llmprobe-mlx-serve/">LLMProbe performance suite</a></h3>
+          <p class="catalogue__meta">2 local runs</p>
+          <p>The same checkpoint served by Sushi and MLX-Serve. Inspect decode, latency and cache behaviour at each context rung, including the 64K memory-admission limit.</p>
+          <div class="actions"><a href="../runs/llmprobe-mlx-serve/">MLX-Serve sheet →</a><a href="../runs/llmprobe-sushi/">Sushi sheet →</a></div>
+        </article></div>
       </section>
+      <aside class="reading-note"><p>Judge a build against its task and recorded checks. Runtime speed answers a separate question. <a href="../method/">Measurement definitions and comparison limits</a>.</p></aside>
     </main>
-    <footer class="shell"><a href="../">All runs</a></footer>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">One-shot experiments, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../runs/">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a></nav>
+    </footer>
   </body>
 </html>

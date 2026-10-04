@@ -1,0 +1,104 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Method &amp; measurements. Task evidence and recorded methodology.">
+    <title>Method &amp; measurements · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/tokens.css">
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../runs/">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/">Builds</a><a href="../prompts/">Prompts</a><a href="../method/" aria-current="page">Method</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 03 October 2026</span><span>11 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+<article class="sheet-body"><header class="sheet__head">
+
+        <h1 class="display sheet__title">Method &amp; measurements</h1>
+        <p class="lede">Read the task result and runtime measurements as separate evidence. Every figure describes a recorded execution, with the definition and limits needed to interpret it.</p>
+      <nav class="archive-links" aria-label="Method sections"><a href="#protocol-title">Protocol ↓</a><a href="#metrics-title">Definitions ↓</a><a href="#compare-title">Comparisons ↓</a><a href="#limits-title">Limits ↓</a></nav></header>
+
+      <section class="band band--quiet" aria-labelledby="protocol-title">
+        <h2 class="h-section" id="protocol-title">The one-shot protocol</h2>
+        <div class="prose">
+          <p>Most runs here are one-shot. A single task prompt is submitted to the model through a coding agent, and I do not intervene, steer the session, or hand-edit the result. The published build is whatever the run produced.</p>
+          <p>That protocol is what makes the builds comparable as <em>artifacts</em>: each one is an honest answer to the same prompt. It is not what makes their measurements comparable. Every workload in this archive records one repetition, so a figure such as a decode rate describes one session rather than a stable property of the model or engine.</p>
+        </div>
+      </section>
+
+      <section class="band band--quiet" aria-labelledby="metrics-title">
+        <h2 class="h-section" id="metrics-title">Metric definitions</h2>
+        <p class="note" style="margin-block-end: var(--space-md);">These are the measurement names used across the run sheets, with the statistic each one reports. Where a run recorded a different statistic for the same quantity, that run sheet says so in its own row.</p>
+        <table class="spec">
+          <caption class="label">Metric &middot; What it reports</caption>
+          <thead><tr><th scope="col">Metric</th><th scope="col">What it reports</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Decode &middot; per-request median</th><td class="spec__def">The middle per-request generation rate across the session&rsquo;s requests. Sensitive to short requests and to cache state.</td></tr>
+            <tr><th scope="row">Decode &middot; output-weighted</th><td class="spec__def">Total output tokens divided by the summed per-request decode time. Weights long generations more heavily than the median does.</td></tr>
+            <tr><th scope="row">Prefill &middot; median</th><td class="spec__def">The middle prompt-processing rate across requests. Includes cache reuse, so a cached prompt inflates it.</td></tr>
+            <tr><th scope="row">MTP acceptance</th><td class="spec__def">The share of drafted speculative tokens the model accepted. A property of the draft configuration and the text, not of raw speed.</td></tr>
+            <tr><th scope="row">TTFT &middot; cached</th><td class="spec__def">Request-start to first token when the prompt prefix was already cached. Recorded only where the engine logged it.</td></tr>
+            <tr><th scope="row">Cache hit ratio</th><td class="spec__def">Cached input tokens as a share of presented input tokens.</td></tr>
+            <tr><th scope="row">Session elapsed</th><td class="spec__def">Wall time from the first request to the final response. Includes coding, tool calls and recorded checks &mdash; it is not generation time.</td></tr>
+            <tr><th scope="row">End-to-end output rate</th><td class="spec__def">Output tokens divided by task wall time, including reasoning, tool calls and waiting. Deliberately <em>not</em> model decode speed.</td></tr>
+            <tr><th scope="row">Peak KV checkpoint</th><td class="spec__def">The largest key/value checkpoint observed in unified memory during the run.</td></tr>
+            <tr><th scope="row">Cumulative input</th><td class="spec__def">Input tokens summed across model calls. Repeated conversation context can be counted more than once.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+
+      <section class="band band--quiet" aria-labelledby="compare-title">
+        <h2 class="h-section" id="compare-title">Which figures cannot be compared</h2>
+        <p class="note" style="margin-block-end: var(--space-md);">Four distinctions account for most of the apparent contradictions between run sheets. Each one is a different question, not a different answer.</p>
+        <table class="spec">
+          <caption class="label">Apparent comparison &middot; Why it does not hold</caption>
+          <thead><tr><th scope="col">Apparent comparison</th><th scope="col">Why it does not hold</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Output-weighted decode vs. median decode</th><td class="spec__def">Different statistics of the same quantity. The TensorFold run reports a median of 22.9 tok/s; the Sushi runs report output-weighted means in the mid-30s. Neither is wrong, and neither converts to the other without the underlying per-request rows, which are not published.</td></tr>
+            <tr><th scope="row">Local decode vs. Codex end-to-end rate</th><td class="spec__def">The Codex figures divide output tokens by total task wall time, so reasoning, tool calls, generated tool output and waiting are all inside the denominator. A local engine decode rate has none of that. The cloud run records state this directly.</td></tr>
+            <tr><th scope="row">Prefill across runs</th><td class="spec__def">Prefill figures include cache reuse, and recorded cache hit ratios range from 90.23% to 95.17% across these runs. A run with more reuse reports a faster prefill for reasons that have nothing to do with the engine.</td></tr>
+            <tr><th scope="row">Session elapsed across runs</th><td class="spec__def">Session time includes coding, tool calls, recorded checks and any backend failure. The TensorFold session contains a recorded 25,718-second outage, so its raw wall time is not an effective elapsed time; that run sheet publishes both figures.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="band band--quiet" aria-labelledby="limits-title">
+        <h2 class="h-section" id="limits-title">What this archive does not establish</h2>
+        <div class="prose">
+          <ul>
+            <li><strong>No model ranking.</strong> One run per workload cannot rank anything. A completed run is not a better run; it means the build finished and its recorded checks passed.</li>
+            <li><strong>No repeatability.</strong> Every workload here records a single repetition. The LLMProbe suite measured each scenario once and is explicitly indicative.</li>
+            <li><strong>No peak-memory comparison for the inference suite.</strong> Peak RAM was not sampled during the LLMProbe A/B, so the two engines cannot be compared on memory.</li>
+            <li><strong>No general context ceiling.</strong> The MLX-Serve 64K prefill was rejected by its memory-admission policy. That describes the tested cold-prefill scenario, not a maximum context for either engine.</li>
+            <li><strong>No image or video workloads.</strong> These runs cover text-to-code agentic tasks and a text inference suite only.</li>
+            <li><strong>No thermal, power or sustained-load data.</strong> Long-duration memory pressure and battery behaviour are not covered.</li>
+            <li><strong>Checks were transcribed, not rerun.</strong> The verification bullets on each run sheet are transcribed from the session log during archiving. They were not re-executed against the published build.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="band band--quiet">
+        <div class="callout">
+          <p class="label">Reading a run sheet</p>
+          <p>Each run sheet opens with the generated result, followed by recorded checks and limits, configuration, and measurements. Every metric retains its statistic, unit and sample count. Request provenance is available in a disclosure at the end. <a href="../runs/">Browse the runs</a>, or read a <a href="../runs/whiteout-protocol-tensorfold/">worked example with a recorded backend outage</a>.</p>
+        </div>
+      </section></article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">One-shot experiments, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../runs/">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>
