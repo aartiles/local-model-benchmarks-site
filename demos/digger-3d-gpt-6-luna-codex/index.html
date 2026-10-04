@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#100f18" />
+    <title>Digger 3D — Underground Arcade</title>
+    <script type="module" crossorigin src="./assets/index-ByzE1P0y.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Nw_pR8-t.css">
+  </head>
+  <body>
+    <div id="app">
+      <div id="scene"></div>
+      <div class="vignette"></div>
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">◆</span><span>DIGGER <i>3D</i></span></div>
+        <div class="top-tag">UNDERGROUND ARCADE <span>● LIVE SYSTEM</span></div>
+      </header>
+      <section class="hud" id="hud" aria-live="polite">
+        <div class="hud-card score-card"><span class="label">SCORE</span><strong id="score">000000</strong><small>BEST <b id="high-score">000000</b></small></div>
+        <div class="hud-card level-card"><span class="label">DEPTH</span><strong id="level">01</strong><small id="level-name">THE TOPSOIL</small></div>
+        <div class="hud-card lives-card"><span class="label">LIVES</span><strong id="lives">● ● ●</strong><small>EXTRA LIFE AT 20K</small></div>
+        <div class="hud-card weapon-card"><span class="label">PULSE CHARGE</span><div class="charge-track"><i id="charge"></i></div><small id="weapon-state">READY · SPACE</small></div>
+        <div class="bonus-readout" id="bonus-readout"><span>CHERRY FEVER</span><b id="bonus-time">10.0</b></div>
+      </section>
+      <div class="bottom-hint" id="bottom-hint"><span>ARROWS / WASD <b>MOVE</b></span><span>SPACE / F <b>PULSE</b></span><span>P <b>PAUSE</b></span><span>` <b>DEBUG</b></span></div>
+      <div class="debug" id="debug"></div>
+      <div class="toast" id="toast"></div>
+      <div class="overlay" id="overlay">
+        <div class="overlay-panel title-panel">
+          <div class="eyebrow"><span></span> A CLASSIC ARCADE DESCENDS</div>
+          <h1>DIGGER <em>3D</em></h1>
+          <p class="subtitle">UNDERGROUND <span>ARCADE</span></p>
+          <div class="title-rule"></div>
+          <p class="intro">Cut through the earth. Drop the heavy stuff.<br />Make it out with the gold.</p>
+          <button id="start-button" class="start-button"><span>PRESS ENTER TO START</span><b>↗</b></button>
+          <div class="title-controls"><span><kbd>W A S D</kbd> OR <kbd>↑ ↓ ← →</kbd> MOVE</span><span><kbd>SPACE</kbd> FIRE</span><span><kbd>P</kbd> PAUSE</span></div>
+          <div class="settings-row"><button id="crt-toggle">CRT <b>OFF</b></button><button id="quality-toggle">FX <b>HIGH</b></button><button id="sound-toggle">SOUND <b>ON</b></button><span>SEED <b>0xD166E2</b></span></div>
+          <div class="press-note">BUILT FOR THE BRAVE · PRESS <b>T</b> TO RUN SYSTEM CHECK</div>
+        </div>
+        <div class="overlay-panel message-panel" id="message-panel" hidden>
+          <div class="eyebrow"><span></span> SYSTEM STATUS</div><h2 id="message-title">PAUSED</h2><p id="message-copy">Press P to resume.</p>
+          <button id="resume-button" class="start-button"><span>CONTINUE</span><b>↗</b></button>
+        </div>
+      </div>
+      <div class="scanlines" id="scanlines"></div>
+    </div>
+  </body>
+</html>

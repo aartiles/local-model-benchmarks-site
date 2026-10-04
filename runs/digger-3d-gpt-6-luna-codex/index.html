@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GPT-6 Luna cloud baseline run sheet for the Digger 3D challenge, with Codex task metrics and limits.">
+    <title>Digger 3D · GPT-6 Luna baseline · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../../">All runs <span aria-hidden="true">↑</span></a><a href="../../challenges/digger-3d/">Digger challenge <span aria-hidden="true">→</span></a></nav>
+    </header>
+    <main>
+      <section class="intro shell" aria-labelledby="page-title">
+        <p class="run-date">03 October 2026</p>
+        <p class="run-kind">Cloud baseline · agentic game · isometric 3D</p>
+        <h1 id="page-title">Digger 3D · GPT-6 Luna</h1>
+        <p class="intro__copy">One-shot Codex run with GPT-6 Luna at xhigh reasoning, using the same prompt file as the local Qwen attempt. The production build and simulation self-tests were reported successful; manual acceptance remained partial.</p>
+        <div class="action-links">
+          <a href="../../demos/digger-3d-gpt-6-luna-codex/">Open playable build <span aria-hidden="true">↗</span></a>
+          <a href="../../challenges/digger-3d/">Compare with the local run <span aria-hidden="true">→</span></a>
+          <a href="../../demos/digger-3d-gpt-6-luna-codex/LICENSE-THREEJS.txt">Three.js license notice</a>
+        </div>
+      </section>
+      <figure class="screenshot run-screenshot">
+        <img class="screenshot__image" src="../../assets/screenshots/digger-3d-gpt-6-luna-codex-gameplay.jpg" width="1600" height="832" loading="lazy" decoding="async" alt="GPT-6 Luna Digger 3D gameplay with the level, player, gems, enemies and HUD visible">
+        <figcaption>Digger 3D · GPT-6 Luna cloud baseline gameplay capture</figcaption>
+      </figure>
+      <article class="run-sheet shell">
+        <div class="run__record">
+          <section class="dimensions" aria-label="Cloud baseline run dimensions">
+            <h2>Run dimensions</h2>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Execution</span><span class="chip__value">Hosted model · Codex project tools</span></li>
+              <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">GPT</span></li>
+              <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">GPT-6 Luna</span></li>
+              <li class="chip"><span class="chip__key">Reasoning effort</span><span class="chip__value">xhigh</span></li>
+              <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">Managed service · not exposed</span></li>
+              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">OpenAI hosted inference</span></li>
+              <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">OpenAI Codex</span></li>
+              <li class="chip"><span class="chip__key">Workload</span><span class="chip__value">Digger 3D · one-shot</span></li>
+            </ul>
+          </section>
+          <section class="performance" id="task-metrics" aria-label="Codex task metrics">
+            <header class="performance__head">
+              <h2>Codex task metrics</h2>
+              <p>Aggregated over model calls for this task. Wall time includes reasoning, tools, and waiting; token rate is not decode speed.</p>
+            </header>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Request to completion</span><span class="chip__value chip__value--metric">1 h 20 min 23 s</span></li>
+              <li class="chip"><span class="chip__key">Output tokens</span><span class="chip__value chip__value--metric">98,008</span></li>
+              <li class="chip"><span class="chip__key">Reasoning output</span><span class="chip__value chip__value--metric">44,152</span></li>
+              <li class="chip"><span class="chip__key">Cumulative input</span><span class="chip__value chip__value--metric">12,264,781</span></li>
+              <li class="chip"><span class="chip__key">Cached input · included above</span><span class="chip__value chip__value--metric">12,028,672</span></li>
+              <li class="chip"><span class="chip__key">Output / wall time</span><span class="chip__value chip__value--metric">20.32 tok/s</span></li>
+            </ul>
+          </section>
+          <details open>
+            <summary>Setup, checks &amp; limits</summary>
+            <div class="details-grid">
+              <section>
+                <h3>Recorded setup</h3>
+                <ul>
+                  <li>GPT-6 Luna, model ID gpt-6-luna, with xhigh reasoning through OpenAI Codex.</li>
+                  <li>One task submission; its prompt file was byte-identical to the local Qwen run. Project scaffolds and harness behavior may differ.</li>
+                  <li>Hosted inference hardware and service build are not exposed in the retained metrics.</li>
+                  <li>The generated project uses Three.js 0.170.0, Vite 6.4.3, and TypeScript 5.6.3.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Build and task checks</h3>
+                <p>The session notes record a successful TypeScript check and Vite production build, plus 28/28 simulation self-tests. The interaction smoke check covered game start, movement, collecting a gem, and firing with cooldown.</p>
+                <p>Manual acceptance did not include completing a level or checking bags and the bonus mechanic. The session notes also list bloom/post-processing, hit-stop, and danger-reactive music as unfinished polish.</p>
+                <h3 class="detail-label">Metric interpretation</h3>
+                <p>Input and output counts are cumulative across model calls. Repeated conversation context can be counted again; cached input is already included in the input total, and reasoning output is already included in output. The 20.32 tokens/s figure divides total output by end-to-end wall time. It is not a model decoding benchmark.</p>
+                <h3 class="detail-label">Limits</h3>
+                <p>No token-by-token emission timestamps or reliable time-to-first-token measurement were retained. The run is one task attempt, not a repeated score. Compare the reported game checks on the <a href="../../challenges/digger-3d/">challenge page</a>; do not compare its aggregate token rate with local Sushi decode or prefill rates.</p>
+                <p>An early self-test left a browser-local high score of 20,005. The test was fixed so later runs would not change that value, but the existing value was not cleared. It is browser storage, not data embedded in the published game build.</p>
+              </section>
+            </div>
+          </details>
+        </div>
+      </article>
+      <section class="site-note shell" aria-label="Run scope">
+        <p>The public record omits the original prompt, Codex transcript, session log path and session identifier. The gameplay image is a user-provided capture optimized for the site; it documents one visible state and does not verify completion of the full challenge.</p>
+      </section>
+    </main>
+    <footer class="shell"><a href="../../challenges/digger-3d/">Digger challenge</a> · <a href="../../">All runs</a></footer>
+  </body>
+</html>
