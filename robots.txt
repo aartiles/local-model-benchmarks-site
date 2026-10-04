@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aartiles.github.io/local-model-benchmarks-site/sitemap.xml
