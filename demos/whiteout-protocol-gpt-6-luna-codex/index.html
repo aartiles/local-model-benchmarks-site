@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#081523" />
+    <title>WHITEOUT PROTOCOL</title>
+    <script type="module" crossorigin src="./assets/index-6TBNAeK4.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/three-core-W0YJAZpx.js">
+    <link rel="modulepreload" crossorigin href="./assets/three-addons-gLJefwfX.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-DU0X0py5.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game"></canvas>
+      <div class="grade"></div>
+      <div class="vignette"></div>
+      <div class="damage-wash"></div>
+      <section class="start-screen" id="start-screen">
+        <div class="start-backdrop"></div>
+        <div class="start-content">
+          <div class="eyebrow"><span class="status-dot"></span> POLAR RESEARCH FACILITY · SECTOR 04</div>
+          <h1>WHITEOUT<br /><em>PROTOCOL</em></h1>
+          <p class="start-copy">THE STORM IS CLOSING IN.<br />HOLD THE YARD.</p>
+          <button class="start-button" id="start-button"><span>DEPLOY</span><b>↗</b></button>
+          <button class="god-toggle" id="god-toggle" aria-pressed="false"><i></i> GOD MODE <small>OFF</small></button>
+          <div class="control-preview"><span>W A S D <small>MOVE</small></span><span>SHIFT <small>SPRINT</small></span><span>RMB <small>AIM</small></span><span>LMB <small>FIRE</small></span></div>
+        </div>
+        <div class="start-footer"><span>WHITEOUT PROTOCOL // FIELD TEST 07</span><span>NO EXTRACTION AVAILABLE</span></div>
+      </section>
+      <div class="hud hidden" id="hud">
+        <div class="topline"><div class="facility-tag"><span class="status-dot"></span> NORD-7 <i>/</i> YARD CONTROL</div><div class="wave-block"><small>WAVE</small><strong id="wave-number">01</strong></div><div class="score-block"><small>COMBAT SCORE</small><strong id="score">000000</strong></div><div class="enemy-count"><span class="enemy-icon">✳</span><strong id="enemy-count">0</strong><small>HOSTILES</small></div></div>
+        <div class="objective"><span class="objective-kicker">OBJECTIVE</span><strong id="objective-text">CLEAR THE YARD</strong><span class="objective-line"></span></div>
+        <div class="center-feedback"><div class="crosshair" id="crosshair"><i></i><i></i><i></i><i></i><b></b></div><div id="hit-marker" class="hit-marker">×</div><div id="damage-number" class="damage-number"></div></div>
+        <div class="combo-pop" id="combo-pop"><b id="combo-num">2</b><span>CHAIN</span></div>
+        <div class="banner" id="banner"><span>INCOMING</span><strong id="banner-text">WAVE 01</strong></div>
+        <div class="multikill" id="multikill"></div>
+        <div class="kill-feed" id="kill-feed"></div>
+        <div class="health-panel"><div class="health-label"><span>VITALS</span><strong id="health-value">100</strong></div><div class="health-track"><i id="health-fill"></i><b id="health-delayed"></b></div><div class="health-state" id="health-state">STABLE</div></div>
+        <div class="ammo-panel"><div class="ammo-label">ASSAULT RIFLE <span>AR-17 // 5.56</span></div><div class="ammo-count"><strong id="ammo-count">30</strong><i>/</i><span>∞</span></div><div class="ammo-meta"><span>MAGAZINE</span><span>RESERVE</span></div><div class="reload-indicator" id="reload-indicator">RELOADING<span>•••</span></div></div>
+        <div class="god-badge hidden" id="god-badge">✦ GOD MODE</div>
+        <div class="overdrive" id="overdrive"><span>OVERDRIVE</span><i></i></div>
+        <div class="damage-direction" id="damage-direction">⌃</div>
+        <div class="prompt" id="prompt"></div>
+        <div class="help-card" id="help-card"><strong>FIELD MANUAL</strong><span>WASD <i>MOVE</i> · SHIFT <i>SPRINT</i> · CTRL <i>SLIDE / CROUCH</i></span><span>SPACE <i>JUMP</i> · RMB <i>AIM</i> · LMB <i>FIRE</i> · R <i>RELOAD</i></span><small>PRESS ANY KEY TO DISMISS</small></div>
+        <div class="debug hidden" id="debug"></div>
+        <div class="pause-screen hidden" id="pause-screen"><div><small>FIELD PAUSED</small><strong>TAKE A BREATH.</strong><span>CLICK TO RETURN</span></div></div>
+        <div class="wave-card hidden" id="wave-card"><small>SECTOR REPORT</small><strong>YARD SECURED</strong><div class="report-grid"><span>ACCURACY<b id="report-accuracy">0%</b></span><span>HEADSHOTS<b id="report-headshots">0%</b></span><span>BEST CHAIN<b id="report-combo">0×</b></span></div><button id="continue-button">NEXT WAVE ↗</button></div>
+        <div class="death-screen hidden" id="death-screen"><small>VITAL SIGNS LOST</small><strong>WHITEOUT<br /><em>CLAIMS ANOTHER.</em></strong><button id="restart-button">REDEPLOY ↗</button></div>
+      </div>
+      <div class="mobile-hint">BEST EXPERIENCED WITH A KEYBOARD</div>
+    </div>
+  </body>
+</html>

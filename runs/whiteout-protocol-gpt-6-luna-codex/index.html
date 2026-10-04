@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GPT-6 Luna cloud baseline for the Whiteout Protocol browser FPS challenge, with Codex task metrics and limits.">
+    <title>Whiteout Protocol · GPT-6 Luna baseline · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../../">All runs <span aria-hidden="true">↑</span></a><a href="../../challenges/whiteout-protocol/">Whiteout challenge <span aria-hidden="true">→</span></a></nav>
+    </header>
+    <main>
+      <section class="intro shell" aria-labelledby="page-title">
+        <p class="run-date">03 October 2026</p>
+        <p class="run-kind">Cloud baseline · agentic game · browser FPS</p>
+        <h1 id="page-title">Whiteout Protocol · GPT-6 Luna</h1>
+        <p class="intro__copy">One-shot Codex run with GPT-6 Luna at xhigh reasoning. The generated static build is archived alongside two local builds from the same challenge prompt.</p>
+        <div class="action-links">
+          <a href="../../demos/whiteout-protocol-gpt-6-luna-codex/">Open playable build <span aria-hidden="true">↗</span></a>
+          <a href="../../challenges/whiteout-protocol/">Compare all Whiteout runs <span aria-hidden="true">→</span></a>
+          <a href="#task-metrics">Codex task metrics <span aria-hidden="true">↓</span></a>
+          <a href="../../demos/whiteout-protocol-gpt-6-luna-codex/LICENSE-THREEJS.txt">Three.js license notice</a>
+        </div>
+      </section>
+      <figure class="screenshot run-screenshot">
+        <div class="screenshot-placeholder" role="img" aria-label="No gameplay capture was archived for the GPT-6 Luna Whiteout Protocol run"><span>Gameplay capture not archived for this run</span></div>
+        <figcaption>Whiteout Protocol · GPT-6 Luna cloud baseline</figcaption>
+      </figure>
+      <article class="run-sheet shell">
+        <div class="run__record">
+          <section class="dimensions" aria-label="Cloud baseline run dimensions">
+            <h2>Run dimensions</h2>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Execution</span><span class="chip__value">Cloud model · local project tools</span></li>
+              <li class="chip"><span class="chip__key">Model family</span><span class="chip__value">GPT</span></li>
+              <li class="chip"><span class="chip__key">Checkpoint</span><span class="chip__value">GPT-6 Luna</span></li>
+              <li class="chip"><span class="chip__key">Reasoning effort</span><span class="chip__value">xhigh</span></li>
+              <li class="chip"><span class="chip__key">Quantization</span><span class="chip__value">Managed service · not exposed</span></li>
+              <li class="chip"><span class="chip__key">Runtime</span><span class="chip__value">OpenAI hosted inference</span></li>
+              <li class="chip"><span class="chip__key">Harness</span><span class="chip__value">OpenAI Codex</span></li>
+              <li class="chip"><span class="chip__key">Workload</span><span class="chip__value">Whiteout Protocol · one-shot</span></li>
+            </ul>
+          </section>
+          <section class="performance" id="task-metrics" aria-label="Codex task metrics">
+            <header class="performance__head">
+              <h2>Codex task metrics</h2>
+              <p>Aggregated over model calls for this task. Wall time includes reasoning, tools, and waiting; token rate is not decode speed.</p>
+            </header>
+            <ul class="chip-list">
+              <li class="chip"><span class="chip__key">Request to completion</span><span class="chip__value chip__value--metric">59 min 6 s</span></li>
+              <li class="chip"><span class="chip__key">Cumulative input</span><span class="chip__value chip__value--metric">23,556,664</span></li>
+              <li class="chip"><span class="chip__key">Cached input · included above</span><span class="chip__value chip__value--metric">23,088,768</span></li>
+              <li class="chip"><span class="chip__key">Output tokens</span><span class="chip__value chip__value--metric">149,405</span></li>
+              <li class="chip"><span class="chip__key">Reasoning output · included above</span><span class="chip__value chip__value--metric">77,698</span></li>
+              <li class="chip"><span class="chip__key">Output / wall time</span><span class="chip__value chip__value--metric">42.14 tok/s</span></li>
+            </ul>
+          </section>
+          <details open>
+            <summary>Setup, checks &amp; limits</summary>
+            <div class="details-grid">
+              <section>
+                <h3>Recorded setup</h3>
+                <ul>
+                  <li>GPT-6 Luna with xhigh reasoning through OpenAI Codex.</li>
+                  <li>One task submission. Its prompt file is byte-identical to the local Sushi Whiteout run; the original prompt is not published.</li>
+                  <li>Inference hardware and hosted service build are not exposed in the retained record.</li>
+                  <li>The archived project build uses Three.js 0.180.0 and Vite 7.3.6.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Recorded result</h3>
+                <p>Codex completed the task and produced a static Whiteout Protocol browser FPS build. The session log records a successful Vite production build, and its bundle filenames match this archived artifact. The public record does not assign an independent gameplay acceptance score. The <a href="../../challenges/whiteout-protocol/">challenge comparison</a> links this artifact beside both local builds and their run-specific checks.</p>
+                <h3 class="detail-label">Metric interpretation</h3>
+                <p>Input and output counts are cumulative across model calls. Repeated conversation context can be counted again; cached input is already included in the input total, and reasoning output is already included in output. The 42.14 tokens/s figure divides total output by end-to-end wall time. It includes tool arguments and other generated output, so it is not model decoding speed.</p>
+                <h3 class="detail-label">Limits</h3>
+                <p>No token-by-token emission timestamps or reliable time-to-first-token measurement were retained. Provider hardware and service build are not exposed. This is one cloud task attempt, not a repeated score; do not compare its aggregate token rate with local Sushi decode or prefill measurements.</p>
+              </section>
+            </div>
+          </details>
+        </div>
+      </article>
+      <section class="site-note shell" aria-label="Run scope">
+        <p>The public record omits the original prompt, Codex transcript, session log, session identifier, local source paths, and tool arguments/results. No run-specific gameplay capture is archived.</p>
+      </section>
+    </main>
+    <footer class="shell"><a href="../../challenges/whiteout-protocol/">Whiteout challenge</a> · <a href="../../">All runs</a></footer>
+  </body>
+</html>

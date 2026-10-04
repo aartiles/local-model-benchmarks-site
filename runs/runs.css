@@ -112,8 +112,11 @@ footer { border-top: 1px solid var(--color-rule); padding-block: var(--space-md)
 .screenshot { margin: 0; }
 .run-card-shot { margin-block: var(--space-md); }
 .screenshot__image { display: block; width: 100%; height: auto; }
+.screenshot-placeholder { display: grid; place-items: center; aspect-ratio: 16 / 9; border: 1px dashed var(--color-rule); background: var(--color-paper-2); color: var(--color-muted); text-align: center; font-size: var(--text-sm); }
+.screenshot-placeholder span { max-width: 24ch; padding: var(--space-md); }
 .run-screenshot { max-width: 68rem; margin: 0 auto var(--space-xl); padding-inline: clamp(var(--space-sm), 4vw, var(--space-2xl)); }
 .run-screenshot .screenshot__image { width: auto; max-width: 100%; max-height: 68vh; margin-inline: auto; object-fit: contain; background: #08090c; }
+.run-screenshot .screenshot-placeholder { width: 100%; max-height: 68vh; }
 .screenshot figcaption { margin-block-start: var(--space-xs); color: var(--color-muted); font-size: var(--text-xs); }
 .home-dimensions { border-top: 2px solid var(--color-ink); padding-block: var(--space-md) var(--space-xl); }
 .home-dimensions h2 { margin-block-end: var(--space-sm); color: var(--color-ink); font-size: var(--text-sm); font-weight: 700; }

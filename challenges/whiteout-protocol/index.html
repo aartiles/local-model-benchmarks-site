@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Whiteout Protocol browser FPS challenge with one GPT-6 Luna cloud baseline and two local Qwen runs.">
+    <title>Whiteout Protocol challenge · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../runs/runs.css">
+  </head>
+  <body>
+    <header class="masthead shell">
+      <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>LOCAL MODEL BENCHMARKS</a>
+      <nav aria-label="Main navigation"><a href="../../">All runs <span aria-hidden="true">↑</span></a><a href="../">Challenges</a></nav>
+    </header>
+    <main class="shell challenge-page">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Workload · Agentic coding · Revision 1</p>
+        <h1 id="page-title">Whiteout Protocol</h1>
+        <p class="intro__copy">A one-shot coding challenge to build a playable, single-player wave-survival FPS for the browser. This page groups one cloud baseline with two local runs using different model and engine configurations.</p>
+        <div class="action-links">
+          <a href="#runs">Compare the recorded runs <span aria-hidden="true">↓</span></a>
+          <a href="../../demos/whiteout-protocol-gpt-6-luna-codex/">Open GPT-6 Luna build <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="challenge-spec" aria-labelledby="brief-title">
+        <h2 id="brief-title">Challenge brief</h2>
+        <p>Each attempt produces its own browser game build. The run records describe the available checks for that build, from production-build and runtime checks to short gameplay exercises. The full prompt and project transcripts are not published.</p>
+        <ul>
+          <li>Playable first-person movement and aiming in a snowy arena.</li>
+          <li>Wave-based combat, enemy damage, player health, and redeployment.</li>
+          <li>Weapon feedback, ammunition, reload, and combat HUD.</li>
+          <li>Separate archived build and run sheet for each attempt.</li>
+        </ul>
+        <p class="asset-note">The GPT-6 Luna prompt file is byte-identical to the local Sushi run's prompt file. Shared prompt text does not make project scaffolds or harness behavior identical.</p>
+      </section>
+
+      <section class="challenge-section" id="runs" aria-labelledby="runs-title">
+        <header class="challenge-section__head">
+          <h2 id="runs-title">Recorded runs</h2>
+          <p>One cloud baseline and two local runs. Each card links to its own build and run sheet.</p>
+        </header>
+        <div class="compare-grid">
+          <article class="compare-card" aria-labelledby="baseline-title">
+            <header class="compare-card__head">
+              <p class="eyebrow"><span class="baseline-pill">Cloud baseline</span> · 03 October 2026</p>
+              <h3 id="baseline-title">GPT-6 Luna</h3>
+              <p>OpenAI Codex · xhigh reasoning · one-shot</p>
+            </header>
+            <figure class="screenshot">
+              <div class="screenshot-placeholder" role="img" aria-label="No gameplay capture was archived for the GPT-6 Luna Whiteout Protocol run"><span>Gameplay capture not archived</span></div>
+              <figcaption>GPT-6 Luna · cloud baseline</figcaption>
+            </figure>
+            <p class="compare-card__summary">Codex completed the task and its Vite production build. No independent gameplay acceptance score is assigned in the retained record.</p>
+            <div class="action-links">
+              <a href="../../demos/whiteout-protocol-gpt-6-luna-codex/">Play GPT-6 Luna build <span aria-hidden="true">↗</span></a>
+              <a href="../../runs/whiteout-protocol-gpt-6-luna-codex/">Baseline run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="../../demos/whiteout-protocol-gpt-6-luna-codex/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </article>
+
+          <article class="compare-card" aria-labelledby="sushi-title">
+            <header class="compare-card__head">
+              <p class="eyebrow">Local run · 29 September 2026</p>
+              <h3 id="sushi-title">Qwen 3.8 Flash Next</h3>
+              <p>Sushi 1.0.5 · Pi coding agent · M5 Pro</p>
+            </header>
+            <figure class="screenshot">
+              <img class="screenshot__image" src="../../assets/screenshots/whiteout-protocol-sushi-gameplay.jpg" width="1600" height="820" loading="lazy" decoding="async" alt="Whiteout Protocol Sushi gameplay during wave one, with hostiles and the player HUD visible">
+              <figcaption>Qwen 3.8 Flash Next · gameplay capture</figcaption>
+            </figure>
+            <p class="compare-card__summary">The production build passed; a 60-second gameplay bot reached wave three and exercised combat, damage, death, and redeploy.</p>
+            <div class="action-links">
+              <a href="../../demos/whiteout-protocol/">Play Sushi build <span aria-hidden="true">↗</span></a>
+              <a href="../../runs/whiteout-protocol-sushi/">Sushi run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="../../demos/whiteout-protocol/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </article>
+
+          <article class="compare-card" aria-labelledby="tensorfold-title">
+            <header class="compare-card__head">
+              <p class="eyebrow">Local run · 29–30 September 2026</p>
+              <h3 id="tensorfold-title">Qwen 3.8 27B</h3>
+              <p>TensorFold 0.3.6.3 · Pi coding agent · M5 Pro</p>
+            </header>
+            <figure class="screenshot">
+              <img class="screenshot__image" src="../../assets/screenshots/whiteout-protocol-tensorfold-gameplay.jpg" width="1600" height="826" loading="lazy" decoding="async" alt="Whiteout Protocol TensorFold scene with the weapon, snowy arena and pause prompt visible">
+              <figcaption>Qwen 3.8 27B · TensorFold gameplay capture</figcaption>
+            </figure>
+            <p class="compare-card__summary">The production build passed. Recorded checks covered combat, wave progression, aiming self-tests, and restart; its wall time includes a long backend outage.</p>
+            <div class="action-links">
+              <a href="../../demos/whiteout-protocol-tensorfold/">Play TensorFold build <span aria-hidden="true">↗</span></a>
+              <a href="../../runs/whiteout-protocol-tensorfold/">TensorFold run sheet <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="asset-note"><a href="../../demos/whiteout-protocol-tensorfold/LICENSE-THREEJS.txt">Three.js license notice</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="comparison-note" aria-labelledby="reading-title">
+        <h2 id="reading-title">How to read the comparison</h2>
+        <ul>
+          <li>Compare the generated games and the checks recorded for each run. There is no repeated or normalized quality score.</li>
+          <li>The Codex cumulative token rate includes reasoning, tool calls, generated tool output, and waiting. It is not comparable to local per-request decode or prefill rates.</li>
+          <li>The GPT-6 Luna record has no independent gameplay acceptance score. The local run sheets show their own build and gameplay checks.</li>
+        </ul>
+        <p>Each future attempt for this workload should have its own immutable run sheet, build artifact, and capture when one is available.</p>
+      </section>
+    </main>
+    <footer class="shell"><a href="../">Challenges</a> · <a href="../../">All runs</a></footer>
+  </body>
+</html>
