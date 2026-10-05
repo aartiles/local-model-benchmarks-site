@@ -28,6 +28,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/hardball-3d-gpt-6-luna-codex/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/hardball-3d-qwen38-27b-tensorfold-pi/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/</loc>
   </url>
   <url>
@@ -71,6 +74,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/hardball-3d-gpt-6-luna-codex/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/hardball-3d-qwen38-27b-tensorfold-pi/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/</loc>

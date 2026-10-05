@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hardball 3D playable local model build · Local Model Benchmarks</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #0a1020; }
+  #app { position: fixed; inset: 0; }
+  canvas { display: block; }
+
+  .font-arcade { font-family: "Arial Black", "Impact", sans-serif; letter-spacing: 2px; }
+
+  /* ---------- Scoreboard ---------- */
+  #hud { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
+  #scoreboard {
+    position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+    display: none; gap: 0; background: rgba(8,14,30,0.85);
+    border: 2px solid rgba(255,255,255,0.25); border-radius: 10px;
+    padding: 8px 18px; color: #fff; align-items: center;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+  }
+  #scoreboard .team { display: flex; align-items: center; gap: 8px; margin: 0 14px; }
+  #scoreboard .tname { font-size: 15px; opacity: 0.9; }
+  #scoreboard .tscore { font-size: 30px; min-width: 34px; text-align: center; color: #ffd34d; }
+  #scoreboard .mid { text-align: center; font-size: 13px; line-height: 1.35; border-left: 1px solid rgba(255,255,255,0.2); border-right: 1px solid rgba(255,255,255,0.2); padding: 0 14px; }
+  #scoreboard .count { display: flex; gap: 10px; justify-content: center; margin-top: 3px; }
+  #scoreboard .count span b { color: #ffd34d; margin-right: 3px; }
+  #scoreboard .outs { display: flex; gap: 5px; justify-content: center; margin-top: 4px; }
+  #scoreboard .outs i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.15); display: inline-block; }
+  #scoreboard .outs i.on { background: #ff5252; }
+  #scoreboard .bases { display: flex; gap: 5px; justify-content: center; margin-top: 4px; }
+  #scoreboard .bases i { width: 9px; height: 9px; background: rgba(255,255,255,0.15); display: inline-block; transform: rotate(45deg); }
+  #scoreboard .bases i.on { background: #4dd2ff; }
+
+  /* ---------- Banner message ---------- */
+  #banner {
+    position: absolute; top: 26%; left: 50%; transform: translate(-50%, -50%) scale(0.6);
+    font-size: 64px; color: #fff; text-shadow: 0 0 24px rgba(255,200,60,0.9), 0 4px 12px rgba(0,0,0,0.8);
+    opacity: 0; transition: none; white-space: nowrap; font-style: italic;
+  }
+  #banner.show { animation: bannerPop 1.6s ease-out forwards; }
+  @keyframes bannerPop {
+    0%   { opacity: 0; transform: translate(-50%,-50%) scale(0.4) rotate(-6deg); }
+    15%  { opacity: 1; transform: translate(-50%,-50%) scale(1.15) rotate(2deg); }
+    30%  { transform: translate(-50%,-50%) scale(1.0) rotate(0deg); }
+    75%  { opacity: 1; transform: translate(-50%,-50%) scale(1.02); }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(1.1); }
+  }
+
+  /* ---------- Hints ---------- */
+  #hints {
+    position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.75); font-size: 13px; text-align: center;
+    background: rgba(8,14,30,0.6); padding: 7px 18px; border-radius: 8px; display: none;
+  }
+  #hints b { color: #ffd34d; }
+
+  /* ---------- Title screen ---------- */
+  #title {
+    position: fixed; inset: 0; z-index: 20; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; color: #fff;
+    background: radial-gradient(ellipse at 50% 30%, rgba(20,35,80,0.55), rgba(5,8,18,0.88));
+  }
+  #title h1 {
+    font-size: 84px; font-style: italic; letter-spacing: 6px;
+    background: linear-gradient(180deg, #ffe98a, #ff9d2e 55%, #e2571b);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 8px 24px rgba(255,150,40,0.35));
+  }
+  #title .sub { font-size: 20px; letter-spacing: 14px; margin: 6px 0 34px; color: #bcd2ff; }
+  #title .press { font-size: 22px; letter-spacing: 3px; color: #ffd34d; animation: blink 1.2s infinite; }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+  #title .controls {
+    margin-top: 34px; font-size: 14px; line-height: 2.05; color: rgba(255,255,255,0.85);
+    background: rgba(10,16,34,0.7); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 18px 34px;
+  }
+  #title .controls b { color: #ffd34d; }
+  #title .foot { margin-top: 26px; font-size: 11px; letter-spacing: 4px; color: rgba(255,255,255,0.4); }
+  #title.hidden, #title .hidden { display: none !important; }
+
+  /* ---------- Side / game over panels ---------- */
+  #panel {
+    position: fixed; inset: 0; z-index: 15; display: none; align-items: center; justify-content: center;
+    background: rgba(4,7,16,0.55); color: #fff;
+  }
+  #panel .box {
+    background: rgba(10,16,34,0.92); border: 2px solid rgba(255,210,80,0.5); border-radius: 16px;
+    padding: 34px 60px; text-align: center; box-shadow: 0 20px 80px rgba(0,0,0,0.7);
+    animation: panelIn 0.4s ease-out;
+  }
+  @keyframes panelIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  #panel h2 { font-size: 40px; letter-spacing: 3px; color: #ffd34d; margin-bottom: 14px; }
+  #panel .scoreline { font-size: 26px; margin: 8px 0 4px; letter-spacing: 2px; }
+  #panel .prompt { margin-top: 22px; font-size: 16px; color: rgba(255,255,255,0.8); letter-spacing: 2px; animation: blink 1.2s infinite; }
+</style>
+  <script type="module" crossorigin src="./assets/index-CNjfTUXW.js"></script>
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/demos/hardball-3d-qwen38-27b-tensorfold-pi/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="description" content="Play the Hardball 3D build generated by a local model coding run. See the benchmark archive for configuration, recorded checks and limitations.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/demos/hardball-3d-qwen38-27b-tensorfold-pi/">
+    <meta property="og:title" content="Hardball 3D playable local model build · Local Model Benchmarks">
+    <meta property="og:description" content="Play the Hardball 3D build generated by a local model coding run. See the benchmark archive for configuration, recorded checks and limitations.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Hardball 3D playable local model build · Local Model Benchmarks">
+    <meta name="twitter:description" content="Play the Hardball 3D build generated by a local model coding run. See the benchmark archive for configuration, recorded checks and limitations.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+<body>
+<div id="app"></div>
+
+<div id="hud">
+  <div id="scoreboard" class="font-arcade">
+    <div class="team"><span class="tname" style="color:#ff6b57">YOU</span><span class="tscore" id="scoreA">0</span></div>
+    <div class="mid">
+      <div id="inning">1st TOP</div>
+      <div class="count">
+        <span><b>B</b><span id="balls">0</span></span>
+        <span><b>S</b><span id="strikes">0</span></span>
+      </div>
+      <div class="outs" id="outsBox"><i></i><i></i><i></i></div>
+      <div class="bases" id="basesBox"><i></i><i></i><i></i></div>
+    </div>
+    <div class="team"><span class="tscore" id="scoreB">0</span><span class="tname" style="color:#59b7ff">CPU</span></div>
+  </div>
+  <div id="banner" class="font-arcade"></div>
+  <div id="hints" class="font-arcade"></div>
+</div>
+
+<div id="title">
+  <h1>HARDBALL 3D</h1>
+  <div class="sub">ARCADE BASEBALL</div>
+  <div class="press">— PRESS SPACE TO PLAY —</div>
+  <div class="controls font-arcade">
+    <div><b>BAT:</b> Arrows / WASD aim the bat &nbsp;•&nbsp; <b>SPACE</b> swing &nbsp;•&nbsp; hit the clock, aim the barrel</div>
+    <div><b>PITCH:</b> <b>1</b> fastball &nbsp; <b>2</b> changeup &nbsp; <b>3</b> curve &nbsp;•&nbsp; Arrows / mouse aim the zone &nbsp;•&nbsp; <b>SPACE</b> throw</div>
+    <div><b>R</b> restart the game</div>
+  </div>
+  <div class="foot">THREE.JS ARCADE — NO LOADS, ALL PLAY</div>
+</div>
+
+<div id="panel"><div class="box font-arcade" id="panelBox"></div></div>
+
+</body>
+</html>

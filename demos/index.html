@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="9 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta name="description" content="10 playable generated builds, with captures and separate local and cloud provenance.">
     <title>Playable builds · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/demos/">
     <meta property="og:title" content="Playable builds · Local Model Benchmarks">
-    <meta property="og:description" content="9 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta property="og:description" content="10 playable generated builds, with captures and separate local and cloud provenance.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -30,7 +30,7 @@
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
     <meta name="twitter:title" content="Playable builds · Local Model Benchmarks">
-    <meta name="twitter:description" content="9 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta name="twitter:description" content="10 playable generated builds, with captures and separate local and cloud provenance.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -42,12 +42,12 @@
         <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../runs/">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/" aria-current="page">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 03 October 2026</span><span>11 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 03 October 2026</span><span>12 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
 <header class="sheet__head">
         <h1 class="display sheet__title">Playable builds</h1>
-        <p class="lede">9 generated artifacts, grouped by task. Play the result as the model produced it, then check the run sheet for the recorded tests and limits.</p>
+        <p class="lede">10 generated artifacts, grouped by task. Play the result as the model produced it, then check the run sheet for the recorded tests and limits.</p>
         <nav class="archive-links" aria-label="Build groups"><a href="#whiteout-protocol">Whiteout Protocol ↓</a><a href="#digger-3d">Digger 3D ↓</a><a href="#hardball-3d">Hardball 3D ↓</a><a href="#digger-arcade">Digger Arcade ↓</a><a href="#pagoda-garden">Voxel Pagoda Garden ↓</a></nav>
       </header>
       <section class="band" id="whiteout-protocol" aria-labelledby="whiteout-protocol-title">
@@ -108,7 +108,7 @@
             </article></div>
         </section><section class="band" id="hardball-3d" aria-labelledby="hardball-3d-title">
           <div class="section-head"><h2 class="h-section" id="hardball-3d-title">Hardball 3D</h2><a href="../challenges/hardball-3d/">Compare attempts →</a></div>
-          <div class="compare compare--thumbs compare--pair"><article class="compare__item">
+          <div class="compare compare--thumbs"><article class="compare__item">
               <figure class="capture capture--inline"><a href="../demos/hardball-3d/" aria-label="Hardball 3D · gameplay capture"><img src="../assets/screenshots/hardball-3d-gameplay.jpg" width="1600" height="814" loading="lazy" decoding="async" alt="Hardball 3D gameplay at the top of inning one, showing the field, players, scoreboard and ball call"></a></figure>
               <header class="compare__head">
                 <h3><a href="../runs/hardball-3d/">Sushi 1.1.0</a></h3>
@@ -118,6 +118,16 @@
               <p class="compare__summary">Completed a three-inning 3D arcade baseball game with batting, pitching, fielding, scoring, and restart behavior. The visual presentation is acceptable, but gameplay does not consistently follow baseball rules.</p>
               <div class="actions compare__actions"><a href="../demos/hardball-3d/">Play build ↗</a><a class="action--quiet" href="../runs/hardball-3d/">Run sheet →</a></div>
               <p class="asset-note"><a href="../demos/hardball-3d/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
+            </article><article class="compare__item">
+              <figure class="capture capture--inline"><a href="../demos/hardball-3d-qwen38-27b-tensorfold-pi/" aria-label="Hardball 3D · Qwen 3.8 27B TensorFold build · gameplay capture"><img src="../assets/screenshots/hardball-3d-qwen38-27b-tensorfold-pi-gameplay.jpg" width="1600" height="830" loading="lazy" decoding="async" alt="Hardball 3D TensorFold gameplay from behind the batter, with the inning scoreboard and field visible"></a></figure>
+              <header class="compare__head">
+                <h3><a href="../runs/hardball-3d-qwen38-27b-tensorfold-pi/">TensorFold 0.6.4</a></h3>
+                <p class="index__meta">Qwen 3.8 27B · MLX-Serve 4-bit + Qwen 3.8 27B DFlash2 · 4 October 2026</p>
+              </header>
+              <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+              <p class="compare__summary">Produced a complete playable 3D arcade baseball game. Pi’s final session summary reports gameplay and restart checks; those checks were not independently rerun while archiving.</p>
+              <div class="actions compare__actions"><a href="../demos/hardball-3d-qwen38-27b-tensorfold-pi/">Play build ↗</a><a class="action--quiet" href="../runs/hardball-3d-qwen38-27b-tensorfold-pi/">Run sheet →</a></div>
+              <p class="asset-note"><a href="../demos/hardball-3d-qwen38-27b-tensorfold-pi/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
             </article><article class="compare__item">
               <figure class="capture capture--inline"><a href="../demos/hardball-3d-gpt-6-luna-codex/" aria-label="Hardball 3D · GPT-6 Luna build · gameplay capture"><img src="../assets/screenshots/hardball-3d-gpt-6-luna-codex-gameplay.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Luna Hardball 3D gameplay from the batter&#x27;s view"></a></figure>
               <header class="compare__head">

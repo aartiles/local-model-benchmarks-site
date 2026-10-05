@@ -1,0 +1,160 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hardball 3D · TensorFold 0.6.4: configuration, result, recorded checks and measurements.">
+    <title>Hardball 3D · TensorFold 0.6.4 run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/hardball-3d-qwen38-27b-tensorfold-pi/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/hardball-3d-qwen38-27b-tensorfold-pi/">
+    <meta property="og:title" content="Hardball 3D · TensorFold 0.6.4 run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Hardball 3D · TensorFold 0.6.4: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Hardball 3D · TensorFold 0.6.4 run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Hardball 3D · TensorFold 0.6.4: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 03 October 2026</span><span>12 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro">
+          <header class="sheet__head">
+            <p class="label">4 October 2026 · Agentic game · 3D baseball</p>
+            <h1 class="display sheet__title" id="page-title">Hardball 3D · TensorFold 0.6.4</h1>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="lede">Produced a complete playable 3D arcade baseball game. Pi’s final session summary reports gameplay and restart checks; those checks were not independently rerun while archiving.</p>
+            <div class="actions"><a href="../../demos/hardball-3d-qwen38-27b-tensorfold-pi/">Play build <span aria-hidden="true">↗</span></a><a href="../../challenges/hardball-3d/">Compare attempts <span aria-hidden="true">→</span></a><a href="../../prompts/hardball-3d/">Task prompt <span aria-hidden="true">→</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+        <figure class="capture capture--wide">
+          <img src="../../assets/screenshots/hardball-3d-qwen38-27b-tensorfold-pi-gameplay.jpg" width="1600" height="830" fetchpriority="high" decoding="async" alt="Hardball 3D TensorFold gameplay from behind the batter, with the inning scoreboard and field visible">
+          <figcaption>Hardball 3D · Qwen 3.8 27B TensorFold build · gameplay capture</figcaption>
+        </figure>
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>The archived production dist contains a relative-path HTML entry and one JavaScript bundle (538,782 bytes).</li>
+<li>Pi’s final session summary reports all eight game states exercised, batting contact from both sides, scoring, inning progression with score carry, game-over and restart.</li>
+<li>Pi’s final session summary reports zero console or page errors during multi-minute autoplay and a pixel census confirming rendered scene content.</li>
+<li>The source project, Pi transcript and server logs are excluded; the shared task prompt is linked from the Hardball 3D challenge page.</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>The full 4 October Pi session has 136 usage-bearing assistant responses. Only 134 request summaries are unambiguously attributable to this session: its first two counter triples are identical to those in a separate 3 October Pi session, and TensorFold’s text log has no timestamps or correlatable request IDs. Those two responses are excluded from decode, prefill, TTFT and MTP calculations; session-wide Pi counters still cover all 136 responses. Four runtime completions remain unused after matching the 134-response subset. One matched request ended with finish=length at 16,384 output tokens, but the configured output limit was not retained. No peak process or system memory measurement was recorded. The 3 October session is not merged into this run.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · verifier</th><td class="spec__value">Qwen 3.8 27B · MLX-Serve 4-bit · verifier · reasoning medium</td><td class="spec__def">MLX affine 4-bit, group size 64 · 4 bpw</td></tr>
+                <tr><th scope="row">Model · drafter</th><td class="spec__value">Qwen 3.8 27B DFlash2 · drafter</td><td class="spec__def">4-bit; draft block size 8 · 4 bpw</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">TensorFold 0.6.4 · MLX 0.32.2</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">Pi coding agent</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Hardball 3D · revision 1</td><td class="spec__def">One-shot agentic 3D baseball coding challenge; one session, not a repeated fixed-task suite.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">131,072 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Decode · median</th><td class="spec__value">27.4 tok/s</td><td class="spec__def">Median per-request TensorFold rate; excludes the first output token. · n=134</td></tr>
+                <tr><th scope="row">Decode · 10th percentile</th><td class="spec__value">22.1 tok/s</td><td class="spec__def">P10; linear interpolation. · n=134</td></tr>
+                <tr><th scope="row">Decode · 90th percentile</th><td class="spec__value">42.37 tok/s</td><td class="spec__def">P90; linear interpolation. · n=134</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">29.0015 tok/s</td><td class="spec__def">Total matched output tokens / sum(output tokens / per-request logged rate); rates rounded to 0.1 tok/s. · n=134</td></tr>
+                <tr><th scope="row">Prefill · median</th><td class="spec__value">153.56 tok/s</td><td class="spec__def">Median fresh input tokens / recorded prefill seconds; cached tokens excluded from numerator. · n=134 · 133 of 134 requests reused a nonzero prompt prefix.</td></tr>
+                <tr><th scope="row">Prefill · mean</th><td class="spec__value">160.55 tok/s</td><td class="spec__def">Mean fresh input tokens / recorded prefill seconds; cached tokens excluded from numerator. · n=134 · 133 of 134 requests reused a nonzero prompt prefix.</td></tr>
+                <tr><th scope="row">TTFT · median</th><td class="spec__value">8.13 s</td><td class="spec__def">Median engine request-start to first output token. · n=134 · 133 of 134 requests reused a nonzero prompt prefix.</td></tr>
+                <tr><th scope="row">TTFT · 90th percentile</th><td class="spec__value">21.45 s</td><td class="spec__def">P90 engine request-start to first output token; linear interpolation. · n=134</td></tr>
+                <tr><th scope="row">MTP rounds</th><td class="spec__value">40,785 rounds</td><td class="spec__def">Sum of speculative decode rounds. · n=134</td></tr>
+                <tr><th scope="row">MTP acceptance</th><td class="spec__value">23.3941 %</td><td class="spec__def">Total accepted draft tokens / total drafted tokens. · n=655057 · 153,245 accepted / 655,057 drafted tokens across 134 unambiguous requests.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Session elapsed</th><td class="spec__value">194.5 min</td><td class="spec__def">Pi session start to final assistant response, rounded to the nearest second; includes coding, tools and checks. · n=1</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">136 responses</td><td class="spec__def">Assistant responses with usage metadata in the full 4 October Pi session. · n=1</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">134 requests</td><td class="spec__def">Unambiguous one-to-one Pi/TensorFold matches; two overlapping responses excluded from inference metrics. · n=1</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">142 calls</td><td class="spec__def">Total Pi tool calls in the full session. · n=1</td></tr>
+                <tr><th scope="row">Tool errors</th><td class="spec__value">12 errors</td><td class="spec__def">Tool results marked as errors in the full Pi session. · n=1</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">2 compactions</td><td class="spec__def">Total Pi session compactions. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">114,614 tokens</td><td class="spec__def">Largest total prompt, fresh plus cached, in the full Pi session. · n=136</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">330,711 tokens</td><td class="spec__def">Sum of Pi uncached input usage counters across all 136 assistant responses. · n=1</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">9,813,340 tokens</td><td class="spec__def">Sum of Pi cache-read counters across all 136 assistant responses. · n=1</td></tr>
+                <tr><th scope="row">Cumulative input</th><td class="spec__value">10,144,051 tokens</td><td class="spec__def">Fresh input plus cache-read tokens from Pi usage counters. · n=1</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">193,993 tokens</td><td class="spec__def">Pi output usage total across all 136 responses; includes reasoning tokens. · n=1</td></tr>
+                <tr><th scope="row">of which reasoning output</th><td class="spec__value">104,279 tokens</td><td class="spec__def">Pi-reported reasoning tokens, included in output tokens. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>Contains 134 numeric per-request rows for Pi assistant responses 3–136. Each is matched in sequence by total prompt, cached input and output token counts. The first two responses are ambiguous because their counter triples also occur in the separate 3 October session. Four remaining TensorFold completions were not assigned to this unique subset. Request IDs, timestamps, output text, prompt content and hashes are excluded.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-10-04-qwen38-27b-tensorfold-pi-hardball-3d</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">One-shot experiments, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>
