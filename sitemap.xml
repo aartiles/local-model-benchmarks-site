@@ -37,6 +37,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/obby-3d-qwen38-27b-splash-v130/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/obby-3d-sushi-v1-2/</loc>
   </url>
   <url>
@@ -95,6 +98,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/llmprobe-sushi/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/obby-3d-qwen38-27b-splash-v130/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/obby-3d-qwen38-sushi-v120/</loc>

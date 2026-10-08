@@ -42,25 +42,44 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 07 October 2026</span><span>13 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 07 October 2026</span><span>14 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
         <p class="label">Workload &middot; Agentic coding · third-person 3D platform course &middot; Revision 1</p>
         <h1 class="display sheet__title">Obby 3D</h1>
-        <p class="lede">A one-shot coding challenge to build a complete, playable ten-stage obstacle course with desktop and touch controls, checkpoints, moving platforms and a clear finish.</p>
+        <p class="lede">A coding challenge to build a complete, playable ten-stage obstacle course with desktop and touch controls, checkpoints, moving platforms and a clear finish. This page compares two local runs with different model and runtime configurations.</p>
         <div class="actions">
-          <a href="#runs">Compare 1 attempt <span aria-hidden="true">&darr;</span></a>
+          <a href="#runs">Compare 2 attempts <span aria-hidden="true">&darr;</span></a>
           <a href="../../prompts/obby-3d/">Task prompt <span aria-hidden="true">&rarr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">1 recorded attempt</p>
-          <h2 class="h-section" id="runs-title">Recorded attempt</h2>
+          <p class="label">2 recorded attempts</p>
+          <h2 class="h-section" id="runs-title">The builds, side by side</h2>
         </header>
         <div class="compare compare--attempts">
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/obby-3d-qwen38-27b-splash-v130-gameplay.jpg" width="1600" height="816" loading="lazy" decoding="async" alt="Obby 3D gameplay at stage one, showing the player, floating platforms and stage HUD">
+              <figcaption>Obby 3D · Qwen 3.8 27B + Splash 1.3.0 · gameplay capture</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">08 October 2026</p>
+              <h3>Qwen 3.8 27B</h3>
+              <p class="note">Splash 1.3.0 · Pi coding agent</p>
+            </header>
+            <div class="record-tag"><span class="mark">Local run</span></div>
+            <p class="compare__summary">The final retained headless simulation completed all ten stages in 36.4 seconds with zero deaths. No independent browser or touch-device playthrough was retained.</p>
+            <div class="actions compare__actions">
+              <a href="../../demos/obby-3d-qwen38-27b-splash-v130/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/obby-3d-qwen38-27b-splash-v130/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <p class="asset-note"><a href="../../demos/obby-3d-qwen38-27b-splash-v130/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
+          </article>
           <article class="compare__item">
             <figure class="capture capture--inline">
               <img src="../../assets/screenshots/obby-3d-sushi-v1-2-gameplay.jpg" width="1600" height="843" loading="lazy" decoding="async" alt="Obby 3D gameplay at stage one, showing the player, floating platforms and stage HUD">
@@ -85,7 +104,7 @@
 
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
-        <div class="disclosure__body"><p>The prompt specifies a browser-based third-person platform course with a fair, physically achievable route. The recorded run sheet lists the retained route validator, desktop/touch smoke check and headless completion trials.</p><ul>            <li>Complete all ten stages using the implemented movement physics.</li>
+        <div class="disclosure__body"><p>The prompt specifies a browser-based third-person platform course with a fair, physically achievable route. The Sushi run sheet records a route validator, desktop/touch smoke check and headless trials. The Splash run sheet records a custom headless simulation; no independent browser or touch-device test was retained.</p><ul>            <li>Complete all ten stages using the implemented movement physics.</li>
             <li>Support desktop keyboard and mouse plus simultaneous multi-touch movement, jump and camera control.</li>
             <li>Include hazards, moving and rotating obstacles, disappearing platforms and conveyors.</li>
             <li>Activate checkpoints, respawn safely, finish the course and restart.</li>
