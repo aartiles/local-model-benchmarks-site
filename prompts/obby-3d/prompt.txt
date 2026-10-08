@@ -1,0 +1,296 @@
+# Obby 3D
+
+Build a complete, polished and playable 3D obstacle-course game inspired by classic platforming obbies.
+
+The game must run in a modern web browser and must be fully playable on both desktop and touch devices, with iPad/tablet as a first-class target.
+
+Use Three.js for rendering. You may use additional lightweight libraries if useful, but the final project must be straightforward to run locally.
+
+The objective is to reach the top of a colorful floating obstacle course consisting of 10 distinct stages.
+
+## Core gameplay
+
+Create a third-person player character that can:
+
+- Walk and run across platforms.
+- Jump.
+- Fall under gravity.
+- Land reliably on platforms.
+- Die when touching hazards or falling out of the level.
+- Respawn at the most recently activated checkpoint.
+
+Movement should feel responsive and arcade-like rather than physically realistic.
+
+The player must never be able to fly, double-jump or climb vertically unless a stage explicitly provides a mechanism for doing so.
+
+## Controls
+
+### Desktop
+
+- WASD or arrow keys: move.
+- Space: jump.
+- Mouse drag or pointer lock: rotate the camera.
+
+### Touch / tablet
+
+The entire game must be completable without a physical keyboard or mouse.
+
+Provide:
+
+- A virtual joystick on the lower-left side for movement.
+- A large jump button on the lower-right side.
+- Dragging on the right side of the screen rotates the camera.
+- Movement and camera control must work simultaneously using multi-touch.
+- The jump button must remain usable while another finger is controlling movement or camera.
+
+Touching the game must not accidentally scroll, zoom or select the surrounding page.
+
+Controls must be large enough to use comfortably on an iPad.
+
+The primary mobile target is tablet landscape orientation, although the interface should remain usable at other reasonable viewport sizes.
+
+## Camera
+
+Use a third-person follow camera positioned behind and above the player.
+
+The camera must:
+
+- Follow the player smoothly.
+- Rotate horizontally around the player.
+- Allow limited vertical rotation.
+- Avoid flipping upside down.
+- Keep the player visible during normal gameplay.
+- Behave sensibly after respawning.
+
+Do not require extremely precise camera positioning to complete jumps.
+
+## Course
+
+The course must contain exactly 10 numbered stages arranged as a visually coherent ascending obstacle course.
+
+Each stage should introduce or combine a meaningful gameplay idea.
+
+Use approximately this progression:
+
+1. Basic platform jumps.
+2. Longer jumps and platforms at different heights.
+3. Narrow beams or paths requiring careful movement.
+4. Hazard blocks or lava that kill the player on contact.
+5. Moving platforms.
+6. Rotating obstacle bars or sweepers.
+7. Platforms that periodically disappear and return.
+8. Conveyor platforms that push the player.
+9. A vertical sequence combining moving platforms and jumps.
+10. A final gauntlet combining several previously introduced mechanics.
+
+You may adapt the exact geometry and visual design, but all ten gameplay concepts must be represented.
+
+## Physical consistency
+
+Every required jump and obstacle MUST be achievable using the actual movement speed, jump velocity and gravity implemented in the game.
+
+Design the course using the real movement capabilities of the player.
+
+Do not place required platforms beyond the player's maximum achievable jump distance or height.
+
+The player must be able to complete the entire course without:
+
+- exploiting collision bugs,
+- jumping outside the intended route,
+- frame-perfect input,
+- pixel-perfect positioning,
+- unusually precise camera angles,
+- or impossible jumps.
+
+The normal intended route from Stage 1 through Stage 10 must be physically completable.
+
+## Moving platforms
+
+Moving platforms must interact correctly with the player.
+
+When standing on a moving platform, the player should be carried along by it instead of remaining stationary in world space and sliding off.
+
+Moving platforms must not pass unpredictably through the player or make required jumps impossible.
+
+## Rotating obstacles
+
+At least one stage must contain a rotating bar or sweeper.
+
+Touching the dangerous part should either kill the player or clearly knock the player from the platform.
+
+Its speed must allow a reasonably skilled player to pass it.
+
+## Disappearing platforms
+
+At least one stage must contain platforms that alternate between active and inactive states.
+
+Their timing must be readable and fair.
+
+Inactive platforms must genuinely stop supporting the player.
+
+They must later return so the stage can always be retried.
+
+## Conveyors
+
+At least one stage must contain conveyor platforms.
+
+Standing on them should visibly push the player in a defined direction while still allowing the player to move and jump.
+
+## Hazards and falling
+
+Clearly distinguish dangerous surfaces from safe platforms.
+
+For example:
+
+- red/orange glowing surfaces may represent hazards,
+- neutral or brightly colored blocks may be safe.
+
+Touching a hazard immediately kills the player.
+
+Falling sufficiently below the course also kills the player.
+
+Death should trigger a quick respawn rather than requiring a page reload.
+
+## Checkpoints
+
+Include checkpoints throughout the course, at minimum after Stages:
+
+- 2
+- 4
+- 6
+- 8
+
+and before or at the start of the final stage.
+
+A checkpoint must activate when the player reaches it.
+
+Once activated, subsequent deaths must respawn the player at that checkpoint rather than at the beginning.
+
+Give clear visual feedback when a new checkpoint activates.
+
+Respawning must place the player safely above or on the checkpoint and must reset vertical velocity and any invalid movement state.
+
+## Finish
+
+Stage 10 must end with a clearly identifiable finish platform, portal, flag or similar goal.
+
+Reaching it completes the game.
+
+Display a completion screen showing:
+
+- OBBY COMPLETE
+- completion time
+- total deaths
+- a button to play again
+
+Restarting should reset the timer, deaths and checkpoint progress.
+
+## HUD
+
+During gameplay display a simple unobtrusive HUD containing:
+
+- Stage X / 10
+- elapsed time
+- deaths
+
+The current stage must update as the player progresses.
+
+On touch devices, the HUD must not overlap the joystick, jump button or important areas of the screen.
+
+## Visual style
+
+Create an original colorful 3D obstacle-course aesthetic.
+
+Aim for something playful, readable and visually attractive, using:
+
+- floating platforms,
+- saturated colors,
+- a bright sky,
+- clouds or distant environmental elements,
+- clear height progression,
+- simple geometric decoration,
+- subtle shadows,
+- lightweight particles or effects where appropriate.
+
+Do not reproduce Roblox branding, characters, UI or copyrighted assets.
+
+The player may be a simple stylized character built from primitive geometry.
+
+External 3D models are not necessary.
+
+Gameplay readability is more important than visual complexity.
+
+## Level readability
+
+The player should generally understand where to go next.
+
+Use platform placement, elevation, color, checkpoints and environmental composition to guide progression.
+
+Avoid large ambiguous areas or routes where it is unclear which platform belongs to the next stage.
+
+Stages should feel visually distinct enough that progression is obvious.
+
+## Performance
+
+The game should run smoothly in a modern desktop browser and on a reasonably recent iPad.
+
+Avoid unnecessarily expensive geometry, lighting, post-processing or physics.
+
+Use responsive sizing and adapt correctly when the viewport changes.
+
+## Robustness
+
+Pay particular attention to:
+
+- grounded detection,
+- collision handling,
+- landing on platform edges,
+- jumping underneath geometry,
+- moving-platform interaction,
+- simultaneous touch inputs,
+- camera controls,
+- death and respawn,
+- checkpoint persistence,
+- finishing and restarting.
+
+The game should remain playable after repeatedly dying and respawning.
+
+Do not allow the player to become permanently stuck because of an invalid physics state.
+
+## Starting experience
+
+When the game loads, show a short start screen with:
+
+OBBY 3D
+
+Reach the top.
+
+Desktop:
+WASD + Space + Mouse
+
+Touch:
+Joystick + Jump + Drag to look
+
+START
+
+On touch devices, begin gameplay directly from the START interaction so that browser input restrictions are handled correctly.
+
+## Required outcome
+
+Deliver a complete game, not a tech demo.
+
+A successful implementation must allow a player to:
+
+1. Start the game.
+2. Control the character comfortably.
+3. Rotate the camera.
+4. Complete all ten stages in order.
+5. Activate checkpoints.
+6. Die and correctly respawn.
+7. Interact correctly with moving, rotating, disappearing and conveyor obstacles.
+8. Reach Stage 10.
+9. Finish the course.
+10. See their completion time and death count.
+11. Restart and play again.
+
+Most importantly, test the gameplay logic against the movement constants you implement: the intended course must actually be completable from beginning to end.

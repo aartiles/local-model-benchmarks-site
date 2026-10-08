@@ -4,23 +4,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Digger 3D challenge brief and side-by-side comparison of every recorded attempt.">
-    <title>Digger 3D challenge · Local Model Benchmarks</title>
+    <meta name="description" content="Obby 3D challenge brief and side-by-side comparison of every recorded attempt.">
+    <title>Obby 3D challenge · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/tokens.css">
     <link rel="stylesheet" href="../../assets/site.css">
     <!-- Site metadata:start -->
-    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/challenges/digger-3d/">
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/challenges/obby-3d/">
     <meta name="author" content="@aartiles24">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Local Model Benchmarks">
     <meta property="og:locale" content="en_US">
-    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/challenges/digger-3d/">
-    <meta property="og:title" content="Digger 3D challenge · Local Model Benchmarks">
-    <meta property="og:description" content="Digger 3D challenge brief and side-by-side comparison of every recorded attempt.">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/challenges/obby-3d/">
+    <meta property="og:title" content="Obby 3D challenge · Local Model Benchmarks">
+    <meta property="og:description" content="Obby 3D challenge brief and side-by-side comparison of every recorded attempt.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -29,8 +29,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
-    <meta name="twitter:title" content="Digger 3D challenge · Local Model Benchmarks">
-    <meta name="twitter:description" content="Digger 3D challenge brief and side-by-side comparison of every recorded attempt.">
+    <meta name="twitter:title" content="Obby 3D challenge · Local Model Benchmarks">
+    <meta name="twitter:description" content="Obby 3D challenge brief and side-by-side comparison of every recorded attempt.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -46,68 +46,50 @@
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
-        <p class="label">Workload &middot; Agentic coding · isometric 3D arcade &middot; Revision 1</p>
-        <h1 class="display sheet__title">Digger 3D</h1>
-        <p class="lede">A one-shot coding challenge to build a playable Digger-inspired game with deterministic grid movement and excavation, collectibles, enemies, and multi-level progression in an isometric Three.js scene.</p>
+        <p class="label">Workload &middot; Agentic coding · third-person 3D platform course &middot; Revision 1</p>
+        <h1 class="display sheet__title">Obby 3D</h1>
+        <p class="lede">A one-shot coding challenge to build a complete, playable ten-stage obstacle course with desktop and touch controls, checkpoints, moving platforms and a clear finish.</p>
         <div class="actions">
-          <a href="#runs">Compare 2 attempts <span aria-hidden="true">&darr;</span></a>
-          <a href="../../prompts/digger-3d/">Task prompt <span aria-hidden="true">&rarr;</span></a>
+          <a href="#runs">Compare 1 attempt <span aria-hidden="true">&darr;</span></a>
+          <a href="../../prompts/obby-3d/">Task prompt <span aria-hidden="true">&rarr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">2 recorded attempts</p>
-          <h2 class="h-section" id="runs-title">The builds, side by side</h2>
+          <p class="label">1 recorded attempt</p>
+          <h2 class="h-section" id="runs-title">Recorded attempt</h2>
         </header>
         <div class="compare compare--attempts">
           <article class="compare__item">
             <figure class="capture capture--inline">
-              <img src="../../assets/screenshots/digger-3d-gameplay.jpg" width="1600" height="1238" loading="lazy" decoding="async" alt="Digger 3D voxel maze with the player, enemies and level HUD visible">
-              <figcaption>Digger 3D · gameplay capture</figcaption>
+              <img src="../../assets/screenshots/obby-3d-sushi-v1-2-gameplay.jpg" width="1600" height="843" loading="lazy" decoding="async" alt="Obby 3D gameplay at stage one, showing the player, floating platforms and stage HUD">
+              <figcaption>Obby 3D · Qwen 3.8 Flash Next + Sushi 1.2.0 · gameplay capture</figcaption>
             </figure>
 
             <header class="compare__head">
-              <p class="label">02 October 2026</p>
+              <p class="label">07 October 2026</p>
               <h3>Qwen 3.8 Flash Next</h3>
-              <p class="note">Sushi 1.1.0 · Pi coding agent</p>
+              <p class="note">Sushi 1.2.0 · Pi coding agent</p>
             </header>
             <div class="record-tag"><span class="mark">Local run</span></div>
-            <p class="compare__summary">A deterministic grid simulation with an isometric presentation. The TypeScript check and production build passed, along with 28 of 28 self-tests and validation across all five levels.</p>
+            <p class="compare__summary">The recorded headless checks report a valid route, a successful desktop/touch smoke test and three full bot completions. Each trial activated all five checkpoints; deaths fell from 12 to 8 to 5.</p>
             <div class="actions compare__actions">
-              <a href="../../demos/digger-3d/">Play the build <span aria-hidden="true">&#8599;</span></a>
-              <a class="action--quiet" href="../../runs/digger-3d/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+              <a href="../../demos/obby-3d-sushi-v1-2/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/obby-3d-qwen38-sushi-v120/">Run sheet <span aria-hidden="true">&rarr;</span></a>
             </div>
-            <p class="asset-note"><a href="../../demos/digger-3d/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
-          </article>
-          <article class="compare__item">
-            <figure class="capture capture--inline">
-              <img src="../../assets/screenshots/digger-3d-gpt-6-luna-codex-gameplay.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Luna Digger 3D gameplay showing the isometric grid and HUD">
-              <figcaption>Digger 3D · GPT-6 Luna build · gameplay capture</figcaption>
-            </figure>
-
-            <header class="compare__head">
-              <p class="label">03 October 2026</p>
-              <h3>GPT-6 Luna</h3>
-              <p class="note">OpenAI Codex · xhigh reasoning · one-shot</p>
-            </header>
-            <div class="record-tag"><span class="mark mark--accent">Cloud baseline</span></div>
-            <p class="compare__summary">Session notes report 28/28 simulation self-tests passing and a small interactive smoke check; manual acceptance remained partial.</p>
-            <div class="actions compare__actions">
-              <a href="../../demos/digger-3d-gpt-6-luna-codex/">Play the build <span aria-hidden="true">&#8599;</span></a>
-              <a class="action--quiet" href="../../runs/digger-3d-gpt-6-luna-codex/">Run sheet <span aria-hidden="true">&rarr;</span></a>
-            </div>
-            <p class="asset-note"><a href="../../demos/digger-3d-gpt-6-luna-codex/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
+            <p class="asset-note"><a href="../../demos/obby-3d-sushi-v1-2/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
           </article>
         </div>
       </section>
 
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
-        <div class="disclosure__body"><p>Each attempt starts from a project scaffold and must deliver a complete, playable game loop rather than a partial scene. The checks recorded for each attempt are listed on its run sheet.</p><ul>            <li>Deterministic grid-based movement and excavation.</li>
-            <li>Collectibles, enemies, and multi-level progression.</li>
-            <li>An isometric Three.js presentation that works in a modern desktop browser.</li>
-            <li>A separate archived build and run sheet for each attempt.</li></ul></div>
+        <div class="disclosure__body"><p>The prompt specifies a browser-based third-person platform course with a fair, physically achievable route. The recorded run sheet lists the retained route validator, desktop/touch smoke check and headless completion trials.</p><ul>            <li>Complete all ten stages using the implemented movement physics.</li>
+            <li>Support desktop keyboard and mouse plus simultaneous multi-touch movement, jump and camera control.</li>
+            <li>Include hazards, moving and rotating obstacles, disappearing platforms and conveyors.</li>
+            <li>Activate checkpoints, respawn safely, finish the course and restart.</li>
+            <li>Show stage, elapsed time and deaths during play, then show completion time and deaths.</li></ul></div>
       </details>
 
       <section class="band band--quiet">

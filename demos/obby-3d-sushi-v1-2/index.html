@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Obby 3D Sushi V1 2 playable local model build · Local Model Benchmarks</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body {
+    width:100%; height:100%; overflow:hidden;
+    touch-action:none; -webkit-touch-callout:none;
+    -webkit-user-select:none; user-select:none;
+    overscroll-behavior:none;
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    background:#87d3f0;
+  }
+  canvas { display:block; touch-action:none; }
+
+  /* ---------- HUD ---------- */
+  #hud {
+    position:fixed; top:calc(10px + env(safe-area-inset-top)); left:50%;
+    transform:translateX(-50%);
+    display:none; gap:14px; align-items:center;
+    background:rgba(20,40,70,0.45); backdrop-filter:blur(6px);
+    padding:8px 18px; border-radius:14px; color:#fff;
+    font-size:17px; font-weight:600; letter-spacing:.5px;
+    pointer-events:none; z-index:10;
+    text-shadow:0 1px 3px rgba(0,0,0,.35);
+  }
+  #hud .sep { opacity:.4; }
+  #toast {
+    position:fixed; top:22%; left:50%; transform:translateX(-50%) scale(.8);
+    color:#fff; font-size:clamp(24px,5vw,42px); font-weight:800;
+    text-shadow:0 3px 12px rgba(0,0,0,.4); opacity:0; pointer-events:none;
+    z-index:11; transition:opacity .25s, transform .25s; letter-spacing:1px;
+  }
+  #toast.show { opacity:1; transform:translateX(-50%) scale(1); }
+
+  /* ---------- screens ---------- */
+  .screen {
+    position:fixed; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; z-index:20;
+    background:radial-gradient(ellipse at 50% 30%, rgba(140,215,255,.92), rgba(60,130,200,.94));
+    color:#fff; text-align:center;
+  }
+  .hidden { display:none !important; }
+  #start-screen h1 {
+    font-size:clamp(48px,10vw,96px); font-weight:900; letter-spacing:4px;
+    color:#ffe14d;
+    text-shadow:0 4px 0 #e8a020, 0 10px 30px rgba(0,0,0,.35);
+  }
+  #start-screen .sub { font-size:clamp(18px,3vw,26px); margin:6px 0 22px; font-weight:600; text-shadow:0 2px 6px rgba(0,0,0,.25); }
+  .controls-help {
+    background:rgba(255,255,255,.14); border-radius:16px; padding:14px 26px;
+    font-size:clamp(14px,2.2vw,18px); line-height:1.7; margin-bottom:28px;
+    text-shadow:0 1px 3px rgba(0,0,0,.25);
+  }
+  .big-btn {
+    font-size:clamp(22px,4vw,32px); font-weight:800; letter-spacing:2px;
+    padding:16px 64px; border:none; border-radius:999px; cursor:pointer;
+    color:#5a3a00; background:linear-gradient(#ffe14d,#ffb020);
+    box-shadow:0 6px 0 #c97d10, 0 12px 28px rgba(0,0,0,.3);
+    touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+  }
+  .big-btn:active { transform:translateY(4px); box-shadow:0 2px 0 #c97d10; }
+  #complete-screen h1 {
+    font-size:clamp(40px,9vw,84px); font-weight:900; color:#ffe14d;
+    text-shadow:0 4px 0 #e8a020, 0 10px 30px rgba(0,0,0,.35); letter-spacing:3px;
+  }
+  #stats { font-size:clamp(20px,4vw,30px); margin:18px 0 30px; line-height:1.8; font-weight:700; text-shadow:0 2px 6px rgba(0,0,0,.3); }
+
+  /* ---------- touch controls ---------- */
+  #joy-base {
+    position:fixed; left:0; top:0; width:150px; height:150px; border-radius:50%;
+    background:rgba(255,255,255,.18); border:3px solid rgba(255,255,255,.45);
+    display:none; z-index:12; pointer-events:none;
+  }
+  #joy-knob {
+    position:fixed; left:0; top:0; width:64px; height:64px; border-radius:50%;
+    background:rgba(255,255,255,.75); box-shadow:0 4px 14px rgba(0,0,0,.3);
+    display:none; z-index:13; pointer-events:none;
+  }
+  #jump-btn {
+    position:fixed; right:calc(28px + env(safe-area-inset-right));
+    bottom:calc(30px + env(safe-area-inset-bottom));
+    width:120px; height:120px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #ffffff, #ffd24d 55%, #ff9d20);
+    border:5px solid rgba(255,255,255,.85);
+    box-shadow:0 8px 22px rgba(0,0,0,.3);
+    display:none; align-items:center; justify-content:center;
+    font-size:44px; color:#7a4a00; z-index:14;
+    touch-action:none; -webkit-tap-highlight-color:transparent;
+  }
+  #jump-btn.pressed { transform:scale(.92); filter:brightness(.9); }
+  body.touch-ui #jump-btn { display:flex; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/demos/obby-3d-sushi-v1-2/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="description" content="Play the Obby 3D Sushi V1 2 build generated by a local model coding run. See the benchmark archive for configuration, recorded checks and limitations.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/demos/obby-3d-sushi-v1-2/">
+    <meta property="og:title" content="Obby 3D Sushi V1 2 playable local model build · Local Model Benchmarks">
+    <meta property="og:description" content="Play the Obby 3D Sushi V1 2 build generated by a local model coding run. See the benchmark archive for configuration, recorded checks and limitations.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Obby 3D Sushi V1 2 playable local model build · Local Model Benchmarks">
+    <meta name="twitter:description" content="Play the Obby 3D Sushi V1 2 build generated by a local model coding run. See the benchmark archive for configuration, recorded checks and limitations.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+<body>
+  <div id="hud">
+    <span id="hud-stage">Stage 1 / 10</span><span class="sep">|</span>
+    <span id="hud-time">0:00.0</span><span class="sep">|</span>
+    <span id="hud-deaths">Deaths 0</span>
+  </div>
+  <div id="toast"></div>
+
+  <div id="start-screen" class="screen">
+    <h1>OBBY 3D</h1>
+    <div class="sub">Reach the top.</div>
+    <div class="controls-help">
+      <b>Desktop:</b> WASD + Space + Mouse<br>
+      <b>Touch:</b> Joystick + Jump + Drag to look
+    </div>
+    <button id="start-btn" class="big-btn">START</button>
+  </div>
+
+  <div id="complete-screen" class="screen hidden">
+    <h1>OBBY COMPLETE</h1>
+    <div id="stats"></div>
+    <button id="again-btn" class="big-btn">PLAY AGAIN</button>
+  </div>
+
+  <div id="joy-base"></div>
+  <div id="joy-knob"></div>
+  <div id="jump-btn">&#8593;</div>
+
+  <script src="src/main.js" type="module"></script>
+</body>
+</html>

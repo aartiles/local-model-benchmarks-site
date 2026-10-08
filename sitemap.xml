@@ -10,6 +10,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/obby-3d/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/whiteout-protocol/</loc>
   </url>
   <url>
@@ -32,6 +35,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/obby-3d-sushi-v1-2/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pagoda-garden/</loc>
@@ -61,6 +67,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/obby-3d/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d/</loc>
   </url>
   <url>
@@ -86,6 +95,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/llmprobe-sushi/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/obby-3d-qwen38-sushi-v120/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pagoda-garden/</loc>
