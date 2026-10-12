@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Wild West Showdown 3D Tensorfold Native playable local model build · Local Model Benchmarks</title>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #1a120b; }
+    body { touch-action: none; overscroll-behavior: none; user-select: none; -webkit-user-select: none; font-family: Georgia, 'Times New Roman', serif; }
+    #app { position: fixed; inset: 0; }
+    canvas { display: block; }
+    .hidden { display: none !important; }
+
+    /* --- start screen --- */
+    #start-screen {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 18px;
+      background: radial-gradient(ellipse at center, #4a3620 0%, #1a120b 80%);
+      color: #e8d5a8; text-align: center; z-index: 10;
+    }
+    #start-screen h1 { font-size: clamp(32px, 8vw, 72px); margin: 0; letter-spacing: 4px; color: #f0e0b0; text-shadow: 0 4px 0 #00000055; }
+    #start-screen p { margin: 0; opacity: 0.85; }
+    #start-btn {
+      font: inherit; font-size: 24px; padding: 14px 48px; letter-spacing: 3px;
+      background: #8a5a2b; color: #fff3d8; border: 3px solid #e8d5a8; border-radius: 6px;
+      cursor: pointer;
+    }
+    #start-btn:active { background: #6d4520; }
+
+    /* --- pause --- */
+    #pause-overlay {
+      position: fixed; inset: 0; z-index: 9; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      background: #000000a8; color: #f0e0b0;
+    }
+    #pause-overlay h2 { margin: 0; font-size: clamp(28px, 6vw, 54px); letter-spacing: 6px; }
+    #pause-overlay p { margin: 0; opacity: 0.8; }
+
+    /* --- exploration HUD --- */
+    #hud { position: fixed; top: 12px; left: 12px; z-index: 5; pointer-events: none; }
+    #hud .stat {
+      display: inline-block; background: #00000066; border: 1px solid #e8d5a844;
+      color: #fff3d8; padding: 6px 14px; border-radius: 6px; font-size: 17px;
+      margin-right: 8px; letter-spacing: 1px;
+    }
+    #hud .stat b { color: #ffd870; }
+    #hud-objective {
+      margin-top: 8px; background: #00000066; border: 1px solid #e8d5a844;
+      color: #f0e0b0; padding: 6px 14px; border-radius: 6px; font-size: 14px;
+      display: inline-block; max-width: 60vw;
+    }
+    /* On touch devices keep the HUD clear of the bottom controls. */
+    #hud.hud-touch { top: 10px; left: 10px; }
+    #hud.hud-touch .stat { font-size: 15px; padding: 5px 10px; }
+    #hud.hud-touch #hud-objective { font-size: 12px; max-width: 46vw; }
+
+    #hud-prompt {
+      position: fixed; bottom: 12vh; left: 50%; transform: translateX(-50%);
+      z-index: 5; background: #000000aa; border: 1px solid #e8d5a8; color: #fff3d8;
+      padding: 10px 22px; border-radius: 8px; font-size: 17px; letter-spacing: 1px;
+      pointer-events: none;
+    }
+    #hud.hud-touch ~ #hud-prompt, body.touch #hud-prompt { bottom: 24vh; }
+
+    /* --- duel overlay --- */
+    #duel-hud { position: fixed; inset: 0; z-index: 5; pointer-events: none; }
+    #duel-name {
+      position: absolute; top: 4vh; left: 50%; transform: translateX(-50%);
+      color: #fff3d8; font-size: clamp(18px, 3.4vw, 30px); letter-spacing: 3px;
+      background: #00000077; border: 1px solid #e8d5a855; padding: 8px 26px; border-radius: 8px;
+    }
+    #duel-state {
+      position: absolute; top: 16vh; left: 50%; transform: translateX(-50%);
+      color: #f0e0b0; font-size: clamp(22px, 5vw, 44px); letter-spacing: 6px;
+      text-shadow: 0 3px 0 #00000088;
+    }
+    #duel-state.draw { color: #ffd870; font-size: clamp(34px, 8vw, 72px); text-shadow: 0 0 18px #ffd87088, 0 4px 0 #00000088; }
+
+    #reticle {
+      position: fixed; z-index: 6; width: 34px; height: 34px; margin: -17px 0 0 -17px;
+      pointer-events: none; display: none;
+    }
+    #reticle::before, #reticle::after {
+      content: ''; position: absolute; background: #fff3d8; box-shadow: 0 0 4px #000;
+    }
+    #reticle::before { left: 50%; top: 0; width: 2px; height: 100%; margin-left: -1px; }
+    #reticle::after { top: 50%; left: 0; height: 2px; width: 100%; margin-top: -1px; }
+    #reticle .ring {
+      position: absolute; inset: 6px; border: 2px solid #fff3d8cc; border-radius: 50%;
+      box-shadow: 0 0 4px #000;
+    }
+
+    /* --- banners (results, rewards) --- */
+    #banner, #banner-sub {
+      position: fixed; top: 30vh; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+      z-index: 7; color: #f0e0b0; font-size: clamp(26px, 6vw, 54px); letter-spacing: 5px;
+      text-shadow: 0 4px 0 #000000aa; opacity: 0; transition: opacity 0.25s, transform 0.25s;
+      pointer-events: none; text-align: center;
+    }
+    #banner.show, #banner-sub.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    #banner.good, #banner-sub.good { color: #a8e88a; }
+    #banner.bad, #banner-sub.bad { color: #ff8a6a; }
+    #banner.reward, #banner-sub.reward { color: #ffd870; font-size: clamp(18px, 3.6vw, 32px); }
+    #banner.sub, #banner-sub.sub { color: #e8d5a8; font-size: clamp(14px, 2.8vw, 24px); }
+    #banner-sub { top: 42vh; }
+
+    /* --- shop --- */
+    #shop-panel {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      z-index: 8; width: min(520px, 92vw); max-height: 80vh; overflow-y: auto;
+      background: #2a1c10ee; border: 3px solid #e8d5a8; border-radius: 10px;
+      color: #f0e0b0; padding: 18px 22px;
+    }
+    #shop-panel h2 { margin: 0 0 4px; letter-spacing: 3px; text-align: center; }
+    #shop-money { text-align: center; margin-bottom: 12px; color: #ffd870; }
+    .shop-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 4px; border-bottom: 1px solid #e8d5a833; }
+    .shop-row span { font-size: 13px; opacity: 0.8; }
+    .shop-row button {
+      font: inherit; font-size: 15px; padding: 8px 18px; letter-spacing: 1px;
+      background: #8a5a2b; color: #fff3d8; border: 2px solid #e8d5a8; border-radius: 6px; cursor: pointer;
+    }
+    .shop-row button:disabled { opacity: 0.45; cursor: default; }
+    .shop-row.owned button { background: #4a5a3a; }
+    #shop-close { display: block; margin: 14px auto 0; font: inherit; font-size: 15px; padding: 8px 26px; background: #5a3a2a; color: #fff3d8; border: 2px solid #e8d5a8; border-radius: 6px; cursor: pointer; }
+
+    /* --- victory --- */
+    #victory-screen {
+      position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 20px; text-align: center;
+      background: radial-gradient(ellipse at center, #4a3a1a 0%, #120c06 80%);
+      color: #f0e0b0;
+    }
+    #victory-screen h1 { margin: 0; font-size: clamp(34px, 8vw, 76px); letter-spacing: 6px; color: #ffd870; text-shadow: 0 0 24px #ffd87055, 0 5px 0 #00000066; }
+    #victory-screen p.sub { margin: 0; opacity: 0.85; }
+    #victory-stats { font-size: clamp(15px, 2.6vw, 22px); line-height: 1.9; background: #00000055; border: 1px solid #e8d5a855; border-radius: 10px; padding: 14px 34px; }
+    #play-again-btn {
+      font: inherit; font-size: 22px; padding: 14px 44px; letter-spacing: 3px;
+      background: #8a5a2b; color: #fff3d8; border: 3px solid #e8d5a8; border-radius: 6px; cursor: pointer;
+    }
+    #play-again-btn:active { background: #6d4520; }
+
+    /* --- touch controls --- */
+    #touch-ui { position: fixed; inset: 0; z-index: 6; pointer-events: none; }
+    #touch-joy {
+      position: absolute; width: 130px; height: 130px; margin: -65px 0 0 -65px;
+      border: 3px solid #e8d5a866; border-radius: 50%; background: #00000033;
+      pointer-events: none; display: none;
+    }
+    #touch-joy.active { display: block; }
+    #touch-knob {
+      position: absolute; left: 50%; top: 50%; width: 58px; height: 58px;
+      margin: -29px 0 0 -29px; border-radius: 50%;
+      background: #e8d5a8cc; border: 3px solid #fff3d8;
+    }
+    #touch-action {
+      position: absolute; right: 5vw; bottom: 12vh; width: 110px; height: 110px;
+      border-radius: 50%; border: 4px solid #e8d5a8; background: #8a2a1a99;
+      color: #fff3d8; font: inherit; font-size: 20px; letter-spacing: 2px;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: auto; touch-action: none;
+    }
+    #touch-action:active { background: #b83a2a; }
+    #touch-interact {
+      position: absolute; right: calc(5vw + 130px); bottom: 14vh; width: 84px; height: 84px;
+      border-radius: 50%; border: 3px solid #e8d5a8; background: #2a5a8a99;
+      color: #fff3d8; font: inherit; font-size: 16px; letter-spacing: 1px;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: auto; touch-action: none;
+    }
+    #touch-interact:active { background: #3a6aaa; }
+
+    #control-hint {
+      position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+      z-index: 8; color: #fff3d8; background: #00000066; border: 1px solid #e8d5a844;
+      padding: 8px 18px; border-radius: 6px; font-size: 14px; letter-spacing: 1px;
+      transition: opacity 1.2s; opacity: 0; pointer-events: none;
+    }
+    #control-hint.visible { opacity: 1; }
+  </style>
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/demos/wild-west-showdown-3d-tensorfold-native/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="description" content="Play the Wild West Showdown 3D Tensorfold Native build generated by a local model coding run. See the benchmark archive for configuration, recorded checks and limitations.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/demos/wild-west-showdown-3d-tensorfold-native/">
+    <meta property="og:title" content="Wild West Showdown 3D Tensorfold Native playable local model build · Local Model Benchmarks">
+    <meta property="og:description" content="Play the Wild West Showdown 3D Tensorfold Native build generated by a local model coding run. See the benchmark archive for configuration, recorded checks and limitations.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Wild West Showdown 3D Tensorfold Native playable local model build · Local Model Benchmarks">
+    <meta name="twitter:description" content="Play the Wild West Showdown 3D Tensorfold Native build generated by a local model coding run. See the benchmark archive for configuration, recorded checks and limitations.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+<body>
+  <div id="app"></div>
+
+  <div id="start-screen">
+    <h1>WILD WEST SHOWDOWN</h1>
+    <p>Become the fastest gunslinger in town.</p>
+    <p>Explore. Challenge rivals. Wait for <b>DRAW</b>. Shoot first.</p>
+    <p>Desktop: WASD + Mouse &nbsp;&nbsp;•&nbsp;&nbsp; Touch: Joystick + Drag + Action</p>
+    <button id="start-btn">START</button>
+  </div>
+
+  <div id="pause-overlay" class="hidden">
+    <h2>PAUSED</h2>
+    <p>Press <b>Esc</b> to resume</p>
+  </div>
+
+  <div id="hud" class="hidden">
+    <span class="stat"><b id="hud-money">$0</b></span><span class="stat"><b id="hud-rep">★ 0</b></span>
+    <div id="hud-objective">Find a gunslinger to challenge</div>
+  </div>
+  <div id="hud-prompt" class="hidden"></div>
+
+  <div id="duel-hud" class="hidden">
+    <div id="duel-name"></div>
+    <div id="duel-state"></div>
+  </div>
+  <div id="reticle"><div class="ring"></div></div>
+  <div id="banner"></div>
+  <div id="banner-sub"></div>
+
+  <div id="shop-panel" class="hidden">
+    <h2>GENERAL STORE</h2>
+    <div id="shop-money"></div>
+    <div id="shop-items"></div>
+    <button id="shop-close">Close (E)</button>
+  </div>
+
+  <div id="victory-screen" class="hidden">
+    <h1>WILD WEST CHAMPION</h1>
+    <p class="sub">Silas Vane has fallen. The town is yours.</p>
+    <div id="victory-stats"></div>
+    <button id="play-again-btn">PLAY AGAIN</button>
+  </div>
+
+  <div id="touch-ui" class="hidden">
+    <div id="touch-joy"><div id="touch-knob"></div></div>
+    <div id="touch-action">FIRE</div>
+    <div id="touch-interact" class="hidden">DUEL</div>
+  </div>
+
+  <div id="control-hint">WASD move · Shift run · drag to look · LMB shoot · E interact · Esc pause</div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

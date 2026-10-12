@@ -1,0 +1,931 @@
+# Wild West Showdown 3D
+
+Build a complete, polished and genuinely fun 3D Wild West action game.
+
+The game should evoke the feeling of fast arcade cowboy duels and blocky multiplayer games, while using an original visual identity and no copyrighted Roblox assets, branding, UI or characters.
+
+The setting is a stylized western desert town populated by blocky characters.
+
+The final result must feel like a small finished game rather than a technical demo.
+
+It must run in a modern web browser and be fully playable on desktop and touch devices, with iPad/tablet as a first-class target.
+
+Use Three.js for rendering. You may use additional lightweight libraries when they genuinely improve the implementation.
+
+---
+
+# IMPORTANT: PROJECT WORKFLOW
+
+This is a substantial project and may exceed a single context window.
+
+Do not attempt to keep the entire project state only in conversation history.
+
+The repository is the source of truth.
+
+Before substantial implementation, create and maintain these files:
+
+- `GAME_SPEC.md`
+- `PLAN.md`
+- `STATE.md`
+- `DECISIONS.md`
+- `REVIEW.md`
+
+## GAME_SPEC.md
+
+Record the important gameplay rules and non-negotiable requirements from this prompt.
+
+Do not silently change these rules later to make implementation easier.
+
+## PLAN.md
+
+Before writing substantial game code, create a phased implementation plan.
+
+Break the project into milestones that can each be implemented and tested independently.
+
+Track progress explicitly:
+
+- `[ ]` not started
+- `[>]` in progress
+- `[x]` completed
+
+A reasonable initial structure would be:
+
+1. Project architecture and game loop
+2. Player, camera and controls
+3. Shooting and weapons
+4. Duel state machine
+5. Enemy AI
+6. Western town and world interactions
+7. Progression and game loop
+8. UI, sound and effects
+9. Mobile/touch refinement
+10. Full playthrough and polish
+11. Final QA and bug fixing
+
+You may improve this structure if appropriate.
+
+## STATE.md
+
+Keep this file SHORT and CURRENT.
+
+It must contain:
+
+- current milestone,
+- what currently works,
+- known bugs,
+- current implementation focus,
+- immediate next actions,
+- important warnings for whoever continues the project.
+
+Update it regularly, especially before finishing a major piece of work.
+
+## DECISIONS.md
+
+Record significant architectural or gameplay decisions that a future session would otherwise have to rediscover.
+
+Do not fill this with trivial information.
+
+## REVIEW.md
+
+Use this during the final review phase.
+
+Record concrete defects, gameplay problems and polish issues before fixing them.
+
+---
+
+# CONTEXT RECOVERY
+
+Conversation context is temporary.
+
+Repository state is persistent.
+
+Whenever you are uncertain about previous work, after significant context loss, or after context compaction:
+
+1. Inspect the repository.
+2. Read `GAME_SPEC.md`.
+3. Read `PLAN.md`.
+4. Read `STATE.md`.
+5. Read relevant entries from `DECISIONS.md`.
+6. Inspect the actual implementation.
+7. Continue from the current milestone.
+
+Never rely on remembered conversation details when the repository can tell you the current state.
+
+Do not restart systems that already work merely because their implementation is unfamiliar.
+
+---
+
+# DEVELOPMENT RULE
+
+Build vertically.
+
+Do not spend most of the project creating isolated systems that have never been played together.
+
+Get a minimal complete gameplay loop working early:
+
+walk → find opponent → duel → shoot → win/lose → reward → continue.
+
+Then expand and polish it.
+
+At the end of every major milestone, run or inspect the game and verify that the systems implemented so far work together.
+
+A feature is not complete merely because code exists for it.
+
+---
+
+# GAME CONCEPT
+
+The player is a blocky cowboy arriving in a lively frontier town.
+
+The town contains rival gunslingers.
+
+The player explores the environment, approaches opponents and challenges them to quick Wild West duels.
+
+Winning duels earns money and reputation.
+
+As the player progresses, opponents become faster and more dangerous.
+
+The ultimate objective is to defeat the town's most feared gunslinger in a final showdown.
+
+The overall experience should be accessible, humorous and arcade-like rather than realistic or violent.
+
+Avoid gore.
+
+---
+
+# WORLD
+
+Create a coherent explorable Wild West desert town.
+
+It should feel intentionally designed rather than like randomly placed primitives.
+
+Include at minimum:
+
+- main street,
+- saloon,
+- sheriff's office,
+- bank,
+- general store,
+- stable,
+- water tower,
+- small houses or cabins,
+- wooden fences,
+- barrels and crates,
+- hitching posts,
+- desert rocks,
+- cactus,
+- distant mesas or mountains.
+
+Not every building needs an interior.
+
+Use environmental composition to make the town easy to understand and navigate.
+
+The town should have recognizable landmarks.
+
+The desert should extend visually beyond the playable area so the world does not appear to end abruptly.
+
+Invisible or natural boundaries should prevent the player from wandering indefinitely into empty terrain.
+
+---
+
+# VISUAL STYLE
+
+Use an original stylized blocky aesthetic.
+
+Characters should have deliberately simple, chunky proportions:
+
+- rectangular torso,
+- blocky arms,
+- blocky legs,
+- simplified head,
+- cowboy hat,
+- simple facial features.
+
+Characters should be readable and expressive without requiring external character assets.
+
+Use warm western colors:
+
+- dusty earth,
+- sand,
+- weathered wood,
+- faded paint,
+- strong sunlight,
+- blue sky.
+
+Add visual atmosphere such as:
+
+- drifting dust,
+- tumbleweeds,
+- chimney smoke,
+- swinging signs,
+- birds in the distance,
+- subtle wind movement.
+
+Keep performance appropriate for tablet hardware.
+
+---
+
+# PLAYER
+
+Create a third-person controllable cowboy.
+
+The player must be able to:
+
+- walk,
+- run,
+- turn,
+- aim,
+- shoot,
+- interact with duel opponents.
+
+Movement should feel responsive and arcade-like.
+
+The player should not be able to leave the intended playable area.
+
+---
+
+# DESKTOP CONTROLS
+
+At minimum:
+
+- WASD or arrow keys: move
+- Mouse drag or mouse movement: camera
+- Left mouse button: shoot when appropriate
+- E or equivalent: interact/challenge
+- Escape: pause
+
+You may improve the exact mapping when useful.
+
+---
+
+# MOBILE / TABLET CONTROLS
+
+The entire game must be playable without a keyboard or mouse.
+
+Tablet landscape is the primary touch target.
+
+Provide:
+
+- virtual movement joystick on the left,
+- camera control by dragging on a clear area of the right side,
+- large context-sensitive action/shoot button,
+- interaction control when needed.
+
+Multi-touch must work correctly.
+
+The player must be able to:
+
+- move while rotating the camera,
+- move while using an action control,
+- aim and shoot comfortably.
+
+Touch interaction must not accidentally scroll, zoom or select the page.
+
+Controls must be large enough to use comfortably on an iPad.
+
+Do not simply make desktop buttons visible on mobile and call that touch support.
+
+Actually design the interaction for touch.
+
+---
+
+# THIRD-PERSON CAMERA
+
+Use a polished third-person camera.
+
+It should:
+
+- follow smoothly,
+- rotate around the player,
+- allow limited vertical movement,
+- prevent upside-down rotation,
+- maintain a useful distance,
+- keep the character readable,
+- avoid excessive clipping through buildings.
+
+During normal exploration the player controls the camera.
+
+During a formal duel, the game may temporarily take more control of framing in order to produce a cinematic confrontation.
+
+Transitions between exploration and duel cameras should be smooth.
+
+---
+
+# OPPONENTS
+
+Populate the town with several recognizable gunslingers.
+
+Create at least 6 duel opponents plus the final boss.
+
+Give each opponent:
+
+- a name,
+- distinct clothing/colors,
+- a recognizable location or role,
+- different reaction speed,
+- slightly different accuracy or behavior.
+
+Examples of archetypes:
+
+- nervous rookie,
+- saloon gambler,
+- outlaw,
+- sheriff's deputy,
+- veteran gunslinger,
+- notorious bandit.
+
+Do not simply clone exactly the same opponent with different colors.
+
+Their difficulty should increase meaningfully.
+
+---
+
+# DUEL SYSTEM
+
+The duel is the central mechanic of the game.
+
+Treat it as a proper state machine.
+
+A duel should progress through clear states such as:
+
+1. challenge
+2. accept/start
+3. characters take position
+4. face-off
+5. countdown/tension
+6. DRAW signal
+7. shooting window
+8. hit/miss resolution
+9. result
+10. return to exploration
+
+Do not allow these phases to overlap incorrectly.
+
+---
+
+# CHALLENGING AN OPPONENT
+
+Approaching a valid opponent should clearly indicate that they can be challenged.
+
+For example:
+
+`Challenge Buck?`
+
+Starting the duel moves both characters into predefined positions facing each other.
+
+Do not start the shooting phase immediately.
+
+Allow a brief cinematic pause to establish the confrontation.
+
+---
+
+# THE DRAW RULE
+
+This rule is critical.
+
+Neither participant may legally shoot before the DRAW signal.
+
+The sequence should create tension.
+
+For example:
+
+READY...
+
+...
+
+DRAW!
+
+Do NOT make the delay before DRAW perfectly predictable every time.
+
+Use a reasonable randomized delay so the player cannot simply memorize a fixed timing.
+
+However, it must remain fair.
+
+---
+
+# EARLY SHOTS
+
+If the PLAYER fires before DRAW:
+
+- immediately declare a false start,
+- the player loses that duel.
+
+Clearly communicate what happened.
+
+For example:
+
+`TOO EARLY!`
+
+Do not silently ignore the input.
+
+The AI opponent must also obey the same rule.
+
+An enemy must NEVER shoot before DRAW.
+
+This is a core gameplay invariant.
+
+---
+
+# REACTION TIME
+
+After DRAW, both gunslingers may shoot.
+
+Opponent difficulty should primarily be influenced by believable variables such as:
+
+- reaction delay,
+- aiming delay,
+- accuracy,
+- probability of hesitation.
+
+Early enemies should provide a generous window.
+
+Later enemies should become noticeably quicker.
+
+The final opponent should be challenging but humanly beatable.
+
+Do not create impossible reaction times.
+
+---
+
+# SHOOTING
+
+Implement actual 3D shooting logic.
+
+The game should determine whether a shot hits or misses based on the player's aim.
+
+Do not secretly make every shot hit.
+
+Provide clear feedback:
+
+- muzzle flash,
+- smoke,
+- recoil,
+- gunshot sound if audio is available,
+- impact effect,
+- hit reaction.
+
+Keep violence cartoon-like.
+
+No blood or gore is necessary.
+
+---
+
+# AIMING
+
+During a duel, the player must have meaningful control over aim.
+
+On desktop this may use mouse input.
+
+On touch, dragging should allow comfortable aim adjustment.
+
+Use a visible but unobtrusive reticle.
+
+The player should not need pixel-perfect accuracy.
+
+Enemy hitboxes should be forgiving enough for an arcade game.
+
+---
+
+# DUEL OUTCOMES
+
+Possible outcomes include:
+
+- player shoots first and hits → win
+- player fires too early → loss
+- opponent shoots first and hits → loss
+- player fires and misses → opponent may still fire
+- opponent misses → player has another opportunity
+- both actions occur very close together → resolve deterministically and sensibly
+
+Avoid race-condition-like outcomes where the result appears arbitrary.
+
+---
+
+# PLAYER DEFEAT
+
+Losing a duel should not reload the entire page.
+
+Use a short defeat sequence.
+
+Then return the player to a sensible location.
+
+A defeat may cost some money or simply increase a loss/death statistic.
+
+Do not erase all game progress.
+
+---
+
+# REWARDS
+
+Winning a duel gives:
+
+- money,
+- reputation,
+- progression toward tougher opponents.
+
+Display the reward clearly.
+
+Example:
+
+`+ $25`
+`+ 10 Reputation`
+
+---
+
+# PROGRESSION
+
+Create a lightweight progression system.
+
+The player should not be able to challenge the final gunslinger immediately.
+
+Require the player to build reputation by defeating opponents.
+
+For example:
+
+- several normal gunslingers available initially,
+- tougher opponents unlock after enough reputation,
+- final showdown unlocks once the player becomes sufficiently notorious.
+
+Keep the system understandable.
+
+Do not turn it into a complicated RPG.
+
+---
+
+# MONEY
+
+Money should have at least one meaningful use.
+
+Implement a simple store or upgrade system.
+
+Possible upgrades include:
+
+- slightly faster aim movement,
+- improved revolver accuracy,
+- cosmetic hat,
+- cosmetic outfit,
+- different revolver appearance.
+
+Do not create upgrades that make the duel mechanic trivial.
+
+Reaction timing should remain the core skill.
+
+---
+
+# SALOON
+
+Make the saloon a visually important landmark.
+
+Ideally the player can enter it, but a convincing exterior interaction is acceptable if an interior would compromise the rest of the game's quality.
+
+It can contain:
+
+- a gunslinger,
+- piano music or visual piano,
+- tables,
+- bar,
+- swinging doors,
+- NPCs.
+
+Prioritize polish over unnecessary interior complexity.
+
+---
+
+# NPC LIFE
+
+Add lightweight ambient NPC behavior so the town does not feel dead.
+
+Examples:
+
+- walking between locations,
+- standing near buildings,
+- chatting,
+- sitting,
+- wandering,
+- reacting when a duel starts.
+
+NPCs do not need sophisticated simulation.
+
+They should simply make the town feel inhabited.
+
+---
+
+# FINAL GUNSLINGER
+
+Create a memorable final opponent.
+
+Give this character:
+
+- unique appearance,
+- unique name,
+- special introduction,
+- intimidating but fair reaction time,
+- distinctive duel arena or location.
+
+The final showdown should feel more dramatic than regular encounters.
+
+Use camera framing, sound, lighting or environmental composition to reinforce the moment.
+
+---
+
+# WIN CONDITION
+
+Defeating the final gunslinger completes the game.
+
+Display a proper completion screen.
+
+Include at minimum:
+
+WILD WEST CHAMPION
+
+and stats such as:
+
+- total play time,
+- duels won,
+- duels lost,
+- fastest duel,
+- money earned.
+
+Provide:
+
+`PLAY AGAIN`
+
+Restarting must reset progression correctly.
+
+---
+
+# HUD
+
+During exploration show a clean HUD containing:
+
+- money,
+- reputation,
+- current objective.
+
+Do not cover too much of the screen.
+
+On mobile, keep the HUD away from touch controls.
+
+During duels, simplify the UI and emphasize:
+
+- opponent name,
+- duel state,
+- reticle,
+- DRAW signal.
+
+---
+
+# OBJECTIVES
+
+The game should always give the player some idea of what to do next.
+
+Examples:
+
+`Find a gunslinger to challenge`
+
+`Earn 50 Reputation`
+
+`The Sheriff wants to duel`
+
+`Final showdown unlocked`
+
+Avoid leaving the player wandering with no indication of how progression works.
+
+---
+
+# AUDIO
+
+Use audio where practical.
+
+Important sounds include:
+
+- revolver shot,
+- dry fire if relevant,
+- duel start cue,
+- DRAW cue,
+- hit/miss feedback,
+- reward sound,
+- ambient western atmosphere.
+
+Browser autoplay restrictions must be respected.
+
+Initialize audio from a user interaction such as START.
+
+If external audio assets are unavailable, use generated/simple audio or ensure the game remains polished without them.
+
+---
+
+# STARTING EXPERIENCE
+
+On initial load, show a polished start screen.
+
+Something similar to:
+
+WILD WEST SHOWDOWN
+
+Become the fastest gunslinger in town.
+
+Explore.
+Challenge rivals.
+Wait for DRAW.
+Shoot first.
+
+Desktop:
+WASD + Mouse
+
+Touch:
+Joystick + Drag + Action
+
+START
+
+Do not overwhelm the player with instructions.
+
+Teach additional mechanics through the game.
+
+---
+
+# POLISH
+
+Once the complete game loop works, spend meaningful effort polishing it.
+
+Look for opportunities such as:
+
+- satisfying camera transitions,
+- character poses,
+- recoil animation,
+- holster/draw animation,
+- dust particles,
+- tumbleweeds,
+- bullet impact effects,
+- signs moving in the wind,
+- readable shadows,
+- sunset/warm lighting,
+- duel music sting,
+- NPC reactions,
+- satisfying reward feedback.
+
+Do not prioritize decorative polish before the core game works.
+
+---
+
+# GAME FEEL
+
+The player should feel:
+
+- anticipation before DRAW,
+- urgency immediately after DRAW,
+- satisfaction from landing a shot,
+- progression from defeating increasingly difficult gunslingers.
+
+A technically correct but dull duel system is not enough.
+
+Tune timing and presentation.
+
+---
+
+# PERFORMANCE
+
+The game must run smoothly on:
+
+- a modern desktop browser,
+- a reasonably recent iPad.
+
+Avoid excessive:
+
+- draw calls,
+- dynamic lights,
+- high-poly geometry,
+- huge textures,
+- unnecessary post-processing.
+
+Use lightweight techniques appropriate for the blocky visual style.
+
+---
+
+# ROBUSTNESS
+
+Test especially:
+
+- starting and ending duels repeatedly,
+- firing too early,
+- firing immediately after DRAW,
+- missing shots,
+- opponent misses,
+- player defeat,
+- opponent defeat,
+- entering another duel after the previous one,
+- touch controls,
+- simultaneous touch inputs,
+- camera state after duels,
+- buying an upgrade,
+- progression unlocks,
+- final showdown,
+- restarting after completion.
+
+The game must remain playable after many consecutive duels.
+
+Do not leave stale timers or event handlers from previous encounters.
+
+A previous duel must never unexpectedly fire an event during a later duel.
+
+---
+
+# REQUIRED COMPLETE PLAYTHROUGH
+
+Before declaring the project complete, perform a full logical review of this sequence:
+
+1. Start the game.
+2. Explore the town.
+3. Find an opponent.
+4. Challenge them.
+5. Enter the duel.
+6. Wait for DRAW.
+7. Win a duel.
+8. Receive a reward.
+9. Lose a duel and recover correctly.
+10. Fire too early and verify the penalty.
+11. Fight multiple different opponents.
+12. Earn reputation.
+13. Spend money.
+14. Unlock stronger opponents.
+15. Unlock the final gunslinger.
+16. Complete the final showdown.
+17. Reach the victory screen.
+18. Restart.
+19. Verify that a new game starts correctly.
+
+If any step is impossible or obviously broken, the game is not finished.
+
+---
+
+# FINAL REVIEW PHASE
+
+Once you believe the game is complete, STOP adding new features.
+
+Switch to review mode.
+
+Inspect the game as if it were created by another developer.
+
+Update `REVIEW.md` with concrete findings categorized roughly as:
+
+- Critical
+- Gameplay
+- Mobile
+- Visual
+- Polish
+
+Pay particular attention to whether the game technically implements a requirement but does so poorly.
+
+Examples:
+
+- duel works but timing feels bad,
+- opponent AI shoots unfairly,
+- touch aiming technically works but is uncomfortable,
+- map exists but feels empty,
+- upgrades exist but have no meaningful effect,
+- camera frequently clips through buildings.
+
+Then fix the important findings.
+
+Repeat review and repair until there are no known critical problems.
+
+---
+
+# SCOPE MANAGEMENT
+
+You have permission to simplify secondary details when necessary to protect the quality of the core experience.
+
+Never simplify away these core requirements:
+
+- explorable Western town,
+- blocky cowboy characters,
+- desktop controls,
+- genuine iPad/touch controls,
+- multiple opponents,
+- formal DRAW-based duels,
+- penalty for shooting early,
+- actual aiming and shooting,
+- opponent difficulty progression,
+- money,
+- reputation,
+- at least one meaningful purchase,
+- final gunslinger,
+- victory state,
+- persistent project planning/state files,
+- final review phase.
+
+A smaller polished game is preferable to a huge broken game.
+
+---
+
+# DEFINITION OF DONE
+
+Do not declare success because the application loads or because all requested systems have corresponding source files.
+
+The game is complete only when it feels like a coherent playable product.
+
+The intended player experience must work from beginning to end:
+
+explore → challenge → tension → DRAW → shoot → win/lose → progress → improve → face stronger rivals → final showdown → victory.
+
+Build the best complete game you can, and use the repository itself to preserve your plan and project state throughout the work.

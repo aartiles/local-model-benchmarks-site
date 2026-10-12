@@ -16,6 +16,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/whiteout-protocol/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/wild-west-showdown-3d/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d/</loc>
   </url>
   <url>
@@ -55,6 +58,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/whiteout-protocol-tensorfold/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/wild-west-showdown-3d-tensorfold-native/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/</loc>
   </url>
   <url>
@@ -71,6 +77,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/obby-3d/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/wild-west-showdown-3d/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d/</loc>
@@ -116,5 +125,8 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/whiteout-protocol-tensorfold/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/wild-west-showdown-3d-tensorfold-native/</loc>
   </url>
 </urlset>

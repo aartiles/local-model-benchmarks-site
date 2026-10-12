@@ -25,14 +25,14 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
     <meta name="twitter:title" content="Hardball 3D · TensorFold 0.6.4 run sheet · Local Model Benchmarks">
     <meta name="twitter:description" content="Hardball 3D · TensorFold 0.6.4: configuration, result, recorded checks and measurements.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
-    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. One-shot coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
   </head>
   <body>
@@ -42,7 +42,7 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 07 October 2026</span><span>14 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 12 October 2026</span><span>15 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <article class="sheet">
@@ -77,6 +77,7 @@
                 <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
                 <tbody>
                 <tr><th scope="row">Model · verifier</th><td class="spec__value">Qwen 3.8 27B · verifier · reasoning medium</td><td class="spec__def">MLX affine 4-bit, group size 64 · 4 bpw</td></tr>
+                <tr><th scope="row">Checkpoint · verifier</th><td class="spec__value">Qwen3.8-27B-MLX-Serve-4bit</td><td class="spec__def">verifier model artifact</td></tr>
                 <tr><th scope="row">Model · drafter</th><td class="spec__value">Qwen 3.8 27B DFlash2 · drafter</td><td class="spec__def">4-bit; draft block size 8 · 4 bpw</td></tr>
                 <tr><th scope="row">Runtime</th><td class="spec__value">TensorFold 0.6.4 · MLX 0.32.2</td><td class="spec__def">inference engine and exact build</td></tr>
                 <tr><th scope="row">Harness</th><td class="spec__value">Pi coding agent</td><td class="spec__def">the agent or client that drove the run</td></tr>
@@ -152,7 +153,7 @@
     </main>
     <footer class="shell colophon">
       <p class="colophon__mark">Local Model Benchmarks</p>
-      <p class="colophon__tag">One-shot experiments, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
       <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
       <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
     </footer>
