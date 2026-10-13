@@ -1,0 +1,169 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Prefix Cache Anatomy: configuration, result, recorded checks and measurements.">
+    <title>Prefix Cache Anatomy run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/anatomy-prefix-cache-sushi-v122/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/anatomy-prefix-cache-sushi-v122/">
+    <meta property="og:title" content="Prefix Cache Anatomy run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Prefix Cache Anatomy: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Prefix Cache Anatomy run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Prefix Cache Anatomy: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 12 October 2026</span><span>17 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro">
+          <header class="sheet__head">
+            <p class="label">12 October 2026 · Agentic task loop · interactive figure</p>
+            <h1 class="display sheet__title" id="page-title">Prefix Cache Anatomy</h1>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="lede">The orchestrator reached COMPLETE after 10 h 26 min of run time in three segments. All 14 model-planned tasks are done, the project&#x27;s verify passes 35 checks in 103 s (limit 240 s), and the final reviewer accepted all 26 requirements. The model invented a paper-tape telegraph relay desk whose parts show prefix reuse, partial reuse, a miss, LRU eviction and refusal. 21 of 62 sessions ended on engine memory errors; none counted against a task.</p>
+            <div class="actions"><a href="../../demos/anatomy-prefix-cache-sushi-v122/">Play build <span aria-hidden="true">↗</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+        <figure class="capture capture--wide">
+          <img src="../../assets/screenshots/anatomy-prefix-cache-sushi-v122-figure.jpg" width="1400" height="1170" fetchpriority="high" decoding="async" alt="Isometric line drawing of a paper-tape relay desk with a peg rack, a shuttle and a sprocket, above four prompt buttons">
+          <figcaption>Prefix Cache Anatomy · Sushi 1.2.2 · interactive figure</figcaption>
+        </figure>
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>Bootstrap was accepted on its first session: 26 requirements, 14 task cards, full requirement coverage and a deterministic verify.</li>
+<li>Each task was accepted only after the orchestrator ran verify --all and verify --task &lt;ID&gt; and a fresh reviewer returned ACCEPT. Reviewers sent T004 and T007 back once and T008 twice.</li>
+<li>verify covers model.mjs behaviour, both page builds, headless-Chrome loads without console errors (the skill&#x27;s capture.mjs), the skill&#x27;s geometry audit, the line-end check (0 loose ends on both pages), and dark/light screenshots at 1440 px and 390 px plus one mid-motion frame.</li>
+<li>The final reviewer drove the pages itself: the four prompt cases by pointer and keys 1-4, the idle tour, pause offscreen, reduced motion, and readouts matching a Node replay of the model.</li>
+<li>Independent check after the run: verify --all passed 35/35 in 103 s; the screenshots are non-blank and show the machine and live readout; model.mjs was exercised outside the figure for reuse, partial reuse, miss, LRU eviction, oversized refusal and the 1.2 GB size of a 15,000-token state. One deviation: a full miss is charged the 0.3 s resume time on top of the prefill time.</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>Run configuration changed between segments. Before the second segment the orchestrator gained a context cap driven by the engine&#x27;s reported maximum, a large-tool-output steer, and a shared rule against reading large files whole (journal records templates-refreshed and orchestrator-changed). The cap never triggered, because every later engine error reported a maximum below the 32k floor. The generated project, transcripts and engine logs stay on the workstation.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">Qwen 3.8 Flash Next · primary · reasoning medium</td><td class="spec__def">EXL3 2.625 bpw (K=2.625; MCG codebook, window 15), confirmed by the Sushi 1.2.2 startup log</td></tr>
+                <tr><th scope="row">Checkpoint · primary</th><td class="spec__value">Qwen3.8-Flash-Next-Sushi-2.6bpw</td><td class="spec__def">primary model artifact</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">Sushi 1.2.2 · OpenAI-compatible server, one process for the whole run, greedy sampling, MTP drafts, 8-bit KV cache, SSD prefix cache, vision on, /metrics enabled mode</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">Pi coding agent, driven by the task-loop orchestrator, with the anatomy skill 1.1.0</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Prefix Cache Anatomy · revision 1</td><td class="spec__def">Second run of the task-loop orchestrator (scripts/task-loop.mjs), and the first with a visual, open-ended brief: an interactive isometric figure that explains an LLM server&#x27;s prefix cache, built with the anatomy skill loaded in every session. The orchestrator ran 62 fresh Pi sessions with no human input to the model. The run blocked twice on engine memory and was resumed with --resume after the operator freed memory.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">131,072 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">TTFT · median</th><td class="spec__value">3.064 s</td><td class="spec__def">Median engine-measured TTFT from Sushi /metrics deltas around each response (p90 19.18 s). · n=871</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">40.14 tok/s</td><td class="spec__def">Output tokens / engine decode seconds over requests with engine timings (output-weighted). · n=871</td></tr>
+                <tr><th scope="row">Draft acceptance</th><td class="spec__value">63.01 %</td><td class="spec__def">Accepted MTP draft tokens / drafted tokens from Sushi spec-stats over matched requests. · n=872 · 346605 accepted of 550069 drafted.</td></tr>
+                <tr><th scope="row">Swapped in during the run</th><td class="spec__value">197.86 GiB</td><td class="spec__def">Pages swapped in during the run (vm_stat Swapins deltas, 16 KiB pages) over 1350 samples at 30 s and session boundaries. · n=1350 · Kernel memory pressure reached warning in 129 samples and never critical.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Run elapsed</th><td class="spec__value">626.5 min</td><td class="spec__def">Sum of the three run segments (start or --resume to COMPLETE or BLOCKED): 4 h 55 min, 1 h 9 min and 4 h 23 min. Excludes the time the run sat BLOCKED; includes 103 min of engine-retry backoff. · n=1</td></tr>
+                <tr><th scope="row">Agent sessions</th><td class="spec__value">62 sessions</td><td class="spec__def">Fresh Pi sessions started by the orchestrator: 1 bootstrap, 40 builder, 18 reviewer, 2 replan, 1 final reviewer. · n=1</td></tr>
+                <tr><th scope="row">Sessions ended by engine errors</th><td class="spec__value">21 sessions</td><td class="spec__def">Sessions that ended with a Sushi 400 error because the prompt needed more GPU memory than was available. Rerun without counting as task attempts. · n=1 · 14 in the first segment (large contexts on a nearly full machine), 7 in the second (a 5-7 GB browser was open). None in the third, after the operator closed other applications.</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">898 responses</td><td class="spec__def">Assistant responses with usage records across all sessions, including 26 error responses. · n=1</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">872 requests</td><td class="spec__def">Successful Pi responses matched in order to Sushi 1.2.2 request summaries by prompt total, output tokens and cached (SSD-restored) tokens. · n=1 · All 872 matched in one process log (PID 97969). 17 key tuples occur more than once because rerun sessions replayed identical first turns under greedy decoding; each repeat appears once per session in the same order, so the ordered assignment is forced. 22 engine summaries are left unassigned: preflight probes, the deleted first launch, and two unrelated requests.</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">1,099 calls</td><td class="spec__def">Pi tool calls across all sessions. · n=1</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">1 compactions</td><td class="spec__def">Pi context compactions across all sessions (T006, session 037). · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">113,626 tokens</td><td class="spec__def">Largest engine-reported prompt among matched requests. · n=872</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">4,001,102 tokens</td><td class="spec__def">Sum of Pi uncached input counters across all sessions. · n=1</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">25,155,774 tokens</td><td class="spec__def">Sum of Pi cache-read counters; equals Sushi&#x27;s cached counts for the matched requests. · n=1</td></tr>
+                <tr><th scope="row">Prompt-cache token share</th><td class="spec__value">86.28 %</td><td class="spec__def">Cached input tokens / prompt tokens over matched requests (25,155,774 / 29,156,876). · n=872</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">807,277 tokens</td><td class="spec__def">Pi output usage across all sessions; includes reasoning tokens. · n=1</td></tr>
+                <tr><th scope="row">of which reasoning output</th><td class="spec__value">584,641 tokens</td><td class="spec__def">Pi-reported reasoning tokens included in output tokens. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Tasks completed</th><td class="spec__value">14 tasks</td><td class="spec__def">Task cards with status done at the end; none split, blocked or dropped. · n=1</td></tr>
+                <tr><th scope="row">Reviews returning changes</th><td class="spec__value">4 reviews</td><td class="spec__def">Reviewer sessions that returned CHANGES. · n=1</td></tr>
+                <tr><th scope="row">Project checks passing</th><td class="spec__value">35 checks</td><td class="spec__def">Checks passed by the project&#x27;s own ./verify --all at the end (103 s). · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>Per-request numbers are not published. All 872 successful Pi responses were matched in order to the Sushi 1.2.2 process log (prompt total, output and cached tokens). TTFT and decode come from Sushi /metrics counters read before and after each response; 871 responses had exactly one finished engine request with token counts equal to Pi&#x27;s.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-10-12-qwen38-flash-next-sushi-v122-pi-task-loop-anatomy-prefix-cache</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>

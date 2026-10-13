@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="All 15 recorded runs, with captures, model, runtime and recorded outcome.">
+    <meta name="description" content="All 17 recorded runs, with captures, model, runtime and recorded outcome.">
     <title>Run archive · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/">
     <meta property="og:title" content="Run archive · Local Model Benchmarks">
-    <meta property="og:description" content="All 15 recorded runs, with captures, model, runtime and recorded outcome.">
+    <meta property="og:description" content="All 17 recorded runs, with captures, model, runtime and recorded outcome.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -30,7 +30,7 @@
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
     <meta name="twitter:title" content="Run archive · Local Model Benchmarks">
-    <meta name="twitter:description" content="All 15 recorded runs, with captures, model, runtime and recorded outcome.">
+    <meta name="twitter:description" content="All 17 recorded runs, with captures, model, runtime and recorded outcome.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -42,16 +42,36 @@
         <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../runs/" aria-current="page">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 12 October 2026</span><span>15 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 12 October 2026</span><span>17 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
         <h1 class="display sheet__title">Run archive</h1>
-        <p class="lede">12 local executions and 3 cloud baselines, newest first. Open a run for its configuration, recorded checks and measurements.</p>
+        <p class="lede">14 local executions and 3 cloud baselines, newest first. Open a run for its configuration, recorded checks and measurements.</p>
         <nav class="archive-links" aria-label="Archive views"><a href="../challenges/">Group by task →</a><a href="../demos/">Browse playable builds →</a></nav>
       </header>
       <section class="run-list" aria-label="Recorded runs"><ul class="index">          <li class="index__row">
-            <figure class="capture capture--inline"><a href="./wild-west-showdown-3d-tensorfold-native/" aria-label="Wild West Showdown 3D · TensorFold Native · gameplay capture"><img src="../assets/screenshots/wild-west-showdown-3d-tensorfold-native-gameplay.png" width="2990" height="1562" fetchpriority="high" decoding="async" alt="Wild West Showdown 3D gameplay in the town, with the player HUD and a gunslinger nearby"></a></figure>
+            <figure class="capture capture--inline"><a href="./anatomy-prefix-cache-sushi-v122/" aria-label="Prefix Cache Anatomy · Sushi 1.2.2 · interactive figure"><img src="../assets/screenshots/anatomy-prefix-cache-sushi-v122-figure.jpg" width="1400" height="1170" fetchpriority="high" decoding="async" alt="Isometric line drawing of a paper-tape relay desk with a peg rack, a shuttle and a sprocket, above four prompt buttons"></a></figure>
+            <div>
+              <p class="label">12 October 2026</p>
+              <h3 class="index__title"><a href="./anatomy-prefix-cache-sushi-v122/">Prefix Cache Anatomy</a></h3>
+              <p class="index__meta"><span>Qwen 3.8 Flash Next</span><span>Sushi 1.2.2</span><span>Pi coding agent, driven by the task-loop orchestrator, with the anatomy skill</span></p>
+              <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            </div>
+            <div class="index__summary"><p>The orchestrator reached COMPLETE after 10 h 26 min of run time in three segments. All 14 model-planned tasks are done, the project&#x27;s verify passes 35 checks in 103 s (limit 240 s), and the final reviewer accepted all 26 requirements. The model invented a paper-tape telegraph relay desk whose parts show prefix reuse, partial reuse, a miss, LRU eviction and refusal. 21 of 62 sessions ended on engine memory errors; none counted against a task.</p><div class="actions"><a href="./anatomy-prefix-cache-sushi-v122/">Run sheet →</a><a href="../demos/anatomy-prefix-cache-sushi-v122/">Play build ↗</a></div></div>
+          </li>
+          <li class="index__row">
+            <div class="capture-placeholder" role="img" aria-label="Gameplay capture not yet available"><strong>Gameplay capture pending</strong><p>A screenshot has not been added for this run yet.</p></div>
+            <div>
+              <p class="label">12 October 2026</p>
+              <h3 class="index__title"><a href="./pocket-ledger-tensorfold-native/">Pocket Ledger</a></h3>
+              <p class="index__meta"><span>Qwen 3.8 27B + Qwen 3.8 27B DFlash2</span><span>TensorFold native (Zig) 1.0.7</span><span>Pi coding agent, driven by the task-loop orchestrator</span></p>
+              <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            </div>
+            <div class="index__summary"><p>The orchestrator reached COMPLETE without intervention in 5 h 9 min. All 16 model-planned tasks are done, and the project&#x27;s verify passes 50 checks. The final reviewer accepted coverage of all 20 requirements, and an independent end-to-end check of the brief&#x27;s acceptance scenario passed apart from one wording issue.</p><div class="actions"><a href="./pocket-ledger-tensorfold-native/">Run sheet →</a></div></div>
+          </li>
+          <li class="index__row">
+            <figure class="capture capture--inline"><a href="./wild-west-showdown-3d-tensorfold-native/" aria-label="Wild West Showdown 3D · TensorFold Native · gameplay capture"><img src="../assets/screenshots/wild-west-showdown-3d-tensorfold-native-gameplay.png" width="2990" height="1562" loading="lazy" decoding="async" alt="Wild West Showdown 3D gameplay in the town, with the player HUD and a gunslinger nearby"></a></figure>
             <div>
               <p class="label">10 October 2026</p>
               <h3 class="index__title"><a href="./wild-west-showdown-3d-tensorfold-native/">Wild West Showdown 3D</a></h3>
