@@ -19,6 +19,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/wild-west-showdown-3d/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/anatomy-microwave-sushi/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/anatomy-prefix-cache-sushi-v122/</loc>
   </url>
   <url>
@@ -83,6 +86,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/wild-west-showdown-3d/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/anatomy-microwave-sushi/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/anatomy-prefix-cache-sushi-v122/</loc>
