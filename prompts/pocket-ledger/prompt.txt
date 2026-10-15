@@ -1,0 +1,68 @@
+# Pocket Ledger
+
+Build `ledger`, a command-line personal finance tracker. It is a small trial
+challenge for the task-loop orchestrator: it is big enough to need planning
+and roughly 10–15 tasks, and every requirement can be checked by running the
+program.
+
+## Platform
+
+- Node.js 20 or later, using only the standard library. There is no
+  `npm install` step.
+- The entry point is `./ledger` at the project root (an executable script).
+- Data lives in one JSON file. Its path comes from `--file PATH`, then the
+  `LEDGER_FILE` environment variable, then `./ledger.json`.
+
+## Commands
+
+- `ledger add --date YYYY-MM-DD --amount -12.50 --payee "Corner Shop" [--category food] [--note "..."]`
+  adds a transaction and prints its ID. Negative amounts are spending;
+  positive amounts are income. Amounts are stored as integer cents.
+- `ledger list [--from DATE] [--to DATE] [--category C] [--payee TEXT] [--json]`
+  prints matching transactions sorted by date, then by ID, as an aligned
+  table, or as JSON with `--json`. The table ends with a total line.
+- `ledger edit ID [--date] [--amount] [--payee] [--category] [--note]` and
+  `ledger rm ID` change or delete one transaction.
+- `ledger import FILE.csv [--dry-run]` imports bank CSV files with the header
+  `Date,Description,Amount`. It handles quoted fields with commas and
+  doubled quotes, both `YYYY-MM-DD` and `DD/MM/YYYY` dates, and amounts such
+  as `-1,234.56`. It skips rows identical to an existing transaction (same
+  date, amount, and payee) and reports how many it added and how many it
+  skipped. `--dry-run` reports without writing.
+- `ledger rules add PATTERN CATEGORY`, `ledger rules list`, and
+  `ledger rules rm N` manage categorisation rules. A rule is a
+  case-insensitive regular expression matched against the payee; the first
+  matching rule wins. Imported and newly added transactions without a
+  category get one from the rules. `ledger recategorize` applies the rules
+  to all uncategorised transactions.
+- `ledger report [--month YYYY-MM] [--json]` shows spending and income per
+  category for the month (default: the latest month with data), plus net
+  totals and the change from the previous month for each category.
+- `ledger budget set CATEGORY AMOUNT` and `ledger budget list` define
+  monthly limits. `report` marks categories over budget, and `add` or
+  `import` print a warning when a transaction pushes a category over budget
+  for its month.
+- `ledger export [--from] [--to] FILE.csv` writes transactions as CSV that
+  `import` can read back without losing anything.
+- `ledger undo` reverts the last command that changed the data file. It can
+  be repeated up to 20 times.
+- `ledger help [COMMAND]` prints usage. Every command also accepts `--help`.
+
+## Behaviour rules
+
+- Invalid input (a bad date, a non-numeric amount, an unknown ID, an unknown
+  option) prints one clear error line to stderr and exits with code 2. Other
+  failures exit with code 1. Success exits with code 0.
+- The data file is written atomically (write a temporary file, then rename
+  it), so an interrupted write never corrupts it.
+- A missing data file means an empty ledger. A corrupt one is reported, not
+  overwritten.
+- Output is deterministic: a fixed sort order and no current-time stamps in
+  normal output.
+- Money is never handled as floating point. Totals must be exact.
+
+## Done means
+
+A user can import two months of a sample bank CSV, categorise them with
+rules, set budgets, read the reports, fix a transaction, undo a mistake, and
+export and re-import the data without loss, guided only by `ledger help`.

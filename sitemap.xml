@@ -1,6 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/anatomy-microwave/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/anatomy-prefix-cache/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/digger-3d/</loc>
   </url>
   <url>
@@ -11,6 +17,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/obby-3d/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/pocket-ledger/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/whiteout-protocol/</loc>
@@ -73,6 +82,12 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/method/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/anatomy-microwave/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/anatomy-prefix-cache/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/digger-3d/</loc>
   </url>
   <url>
@@ -83,6 +98,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/obby-3d/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/pocket-ledger/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/wild-west-showdown-3d/</loc>

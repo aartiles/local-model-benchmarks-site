@@ -102,6 +102,15 @@
         </div>
       </section>
 
+      <section class="band" id="measured" aria-labelledby="measured-title">
+        <header class="band__head">
+          <p class="label">From the run records</p>
+          <h2 class="h-section" id="measured-title">Measured side by side</h2>
+        </header>
+        <div class="bars-grid"><figure class="bars"><figcaption class="label">Wall time</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d/">Sushi 1.1.0</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="first instruction to final response">118 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-gpt-6-luna-codex/">GPT-6 Luna</a><span class="bars__track"><span class="bars__fill bars__fill--cloud" style="width:68.2%"></span></span><span class="bars__value" title="user request received to Codex task completion; includes reasoning, tool calls, and waiting">80.4 min</span></li></ul></figure><figure class="bars"><figcaption class="label">Output tokens</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d/">Sushi 1.1.0</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="total">194 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-gpt-6-luna-codex/">GPT-6 Luna</a><span class="bars__track"><span class="bars__fill bars__fill--cloud" style="width:50.5%"></span></span><span class="bars__value" title="cumulative model output across calls; includes reasoning output">98.0 k tokens</span></li></ul></figure></div>
+        <p class="note">Each attempt used its own engine, harness version and settings, and some sessions include waiting or outages. Hover a value for its exact definition, and read the run sheets before drawing conclusions. Cloud wall time includes provider queueing; local decode speed is per request on this machine.</p>
+      </section>
+
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
         <div class="disclosure__body"><p>Each attempt starts from a project scaffold and must deliver a complete, playable game loop rather than a partial scene. The checks recorded for each attempt are listed on its run sheet.</p><ul>            <li>Deterministic grid-based movement and excavation.</li>

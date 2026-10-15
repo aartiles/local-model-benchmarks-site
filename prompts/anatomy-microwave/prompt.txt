@@ -1,0 +1,125 @@
+# Microwave Oven Anatomy
+
+Build one interactive isometric figure that explains how a microwave oven
+heats food. Use the `anatomy` skill: it is loaded in every session, and a
+read-only copy is in `.agent/skills/anatomy/`. Read its `SKILL.md` before
+planning. Read its `references/` files only for the step you are working on,
+and read large files by section, not whole.
+
+## Scope
+
+- **Size: Figure.** One mechanism, 40–80 parts, SVG with at most one WebGL
+  layer, no 3D mode. Do not ask anyone to choose a size or confirm a plan; every
+  decision is yours.
+- **Framework-free.** Use a Node build script (`build.mjs` at the project root)
+  that imports the kit and writes a standalone page, following the skill's
+  standalone path. There is no `npm install` and no network access.
+- **Project-local kit.** Copy what you need from `.agent/skills/anatomy/kit/` and
+  `scripts/` into the project. Never build or write inside `.agent/skills/`; it is
+  read-only. To study an example, copy its folder into `.agent/private/` and
+  build it there.
+
+## The idea to explain (truth first)
+
+A microwave oven turns mains electricity into radio waves that shake water
+molecules in the food. The parts, in the order the energy flows:
+
+1. A **high-voltage transformer** raises the mains voltage to about 2 kV AC.
+   A **capacitor and diode** form a voltage doubler that drives the magnetron
+   at about 4 kV.
+2. The **magnetron**: a heated cathode at the centre of a copper anode block
+   with resonant cavities. Two ring magnets make the electrons spiral past the
+   cavities, which ring at 2.45 GHz. A short antenna couples the waves out. A
+   fan cools it.
+3. A **waveguide**, a rectangular metal duct, carries the waves into the
+   cooking cavity.
+4. The **cavity** is a metal box, so the waves reflect and form a standing
+   wave. At 2.45 GHz the wavelength is about 12.2 cm, so hot spots repeat about
+   every 6.1 cm (half a wavelength), with cold spots between them.
+5. The **food**: the field reverses 2.45 billion times a second and keeps
+   twisting the water molecules, which heats the water. The **turntable**
+   (about 5 rpm, one turn in about 12 s) carries the food through hot and cold
+   spots so it heats more evenly.
+6. The **door** has a metal mesh with holes of about 1 mm. They are far
+   smaller than the 12 cm wave, so the waves stay in while light gets out.
+   **Interlock switches** cut the magnetron the instant the door opens.
+
+Numbers for the model (typical values; the caption must call them typical):
+
+- 800 W of microwave output at full power, from about 1200 W drawn from the
+  mains.
+- Lower power levels do not weaken the magnetron. It switches fully on and off
+  over a cycle of about 30 s, so 50% power means 15 s on and 15 s off.
+- Liquid water: heating needs 4.18 J per gram per °C. Assume a cup of liquid
+  water absorbs the full output. 250 g of water at 20 °C reaches 100 °C in about
+  105 s at full power.
+- Ice absorbs microwaves far less than liquid water. Assume 10% of the water
+  rate while frozen, and say in the caption that this is the figure's
+  assumption. Melting takes 334 J per gram, during which the temperature stays
+  at 0 °C.
+- An empty ceramic dish absorbs almost nothing.
+
+The figure's readout, motion and caption must follow from a small pure model
+module (`model.mjs`) that implements this behaviour with these numbers. Every
+formula has an edge case, such as zero time, the door open, or the magnetron
+off part of a cycle. Test each one.
+
+## The object
+
+The object is a real countertop microwave oven, drawn as a cutaway: the outer
+case opened so the reader sees the magnetron and its high-voltage parts, the
+waveguide, the cavity with its turntable, and the door. Draw it the way a real
+one is built: screws, vents, the mesh door, the control panel, and cables with
+connectors. Say in one sentence in `.agent/spec.md` what moves and what that
+motion means.
+
+## Interaction
+
+- The reader can choose at least: the power level (100%, 50%, 30%); what is
+  inside (a cup of water, a frozen block, an empty dish); the turntable on or
+  off; and the door open or closed.
+- An idle tour shows these on its own when nobody interacts.
+- Keyboard and pointer both work.
+- Motion stops when the figure is offscreen and goes still under reduced
+  motion.
+- The live readout shows at least: power level and whether the magnetron is
+  on right now, elapsed time, energy delivered, and the food's temperature or
+  its melted share.
+
+## Deliverable
+
+- `node build.mjs` writes `dist/index.html` (dark), and `node build.mjs --light`
+  writes `dist/index-light.html`. Both are standalone pages that open from the
+  file system.
+- The figure sits in the skill's framed card with a title, hint, live readout,
+  and a true caption under the card.
+
+## Checks
+
+`./verify --all` must finish within 240 seconds. It covers:
+
+- the model module's behaviour: heating of water by the energy balance;
+  duty-cycle power levels; no power with the door open; the melting plateau at
+  0 °C; the 10% ice rate; hot-spot spacing of half a wavelength; and the edge
+  cases above;
+- both pages build, and load in headless Chrome without console errors (the
+  skill's `scripts/capture.mjs`);
+- `node build.mjs --audit` passes whenever the figure has pipes, cables or
+  round parts;
+- the skill's line-end check (`scripts/lines.mjs`) reports `line ends: 0` on
+  both pages;
+- screenshots of the dark and light pages at desktop width and at 390 px, plus
+  one taken mid-motion. They are written under `.agent/private/shots/` and
+  listed in the verify JSON's `artifacts`.
+
+Look at the screenshots yourself with the read tool, and judge them against the
+skill's quality bar. A blank or broken image is a failure, even when every
+check passes.
+
+## Done means
+
+A reader who opens `dist/index.html` recognises a detailed microwave oven.
+They can see the energy travel from the transformer through the magnetron and
+waveguide into the cavity. The food heats as the model says. Lower power
+levels visibly cycle the magnetron on and off, and opening the door stops it.
+The readout numbers follow from the model, and every check passes.

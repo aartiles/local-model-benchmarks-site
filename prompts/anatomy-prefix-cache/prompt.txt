@@ -1,0 +1,95 @@
+# Prefix Cache Anatomy
+
+Build one interactive isometric figure that explains how an LLM inference
+server's prefix cache works. Use the `anatomy` skill: it is loaded in every
+session, and a read-only copy is in `.agent/skills/anatomy/`. Read its
+`SKILL.md` before planning. Read its `references/` files only for the step you
+are working on.
+
+## Scope
+
+- **Size: Figure.** One mechanism, 40–80 parts, SVG with at most one WebGL
+  layer, no 3D mode. Do not ask anyone to choose a size or confirm a plan; every
+  decision is yours.
+- **Framework-free.** Use a Node build script (`build.mjs` at the project root)
+  that imports the kit and writes a standalone page, following the skill's
+  standalone path. There is no `npm install` and no network access.
+- **Project-local kit.** Copy what you need from `.agent/skills/anatomy/kit/` and
+  `scripts/` into the project. Never build or write inside `.agent/skills/`; it is
+  read-only. To study an example, copy its folder into `.agent/private/` and
+  build it there.
+
+## The idea to explain (truth first)
+
+A server receives prompts one after another. Agent prompts share long
+beginnings: the same instructions, then a conversation that only grows. Before
+it can answer, the server must turn every prompt token into an internal state
+("prefill"). The prefix cache stores the state at the end of a prompt, so a
+later prompt that starts with the same tokens resumes from the longest stored
+match. Only the new tail has to be computed.
+
+- The cache has a fixed capacity. When it is full, the least recently used
+  state is evicted. A state larger than the whole cache cannot be stored at
+  all.
+- A stored state costs about 80 KB per token. A 15,000-token state takes about
+  1.2 GB.
+- On this hardware, computing new tokens runs at about 500 tokens per second,
+  while resuming from the cache takes about 0.3 s regardless of length.
+- In one measured agent run, 74% of all prompt tokens were served from a 2 GB
+  cache. Prompts above about 25,000 tokens could not be cached at all.
+
+The figure's readout, motion and caption must follow from a small pure model
+module (`model.mjs`) that implements this behaviour with these numbers.
+
+## The object
+
+Invent a real, well-made physical machine whose working *is* this idea. Do not
+reuse an object from the skill's examples or its table of earlier figures. Say
+in one sentence what moves and what that motion means, in `.agent/spec.md`.
+
+## Interaction
+
+- The reader can send prompts. At least these choices: the same prompt again;
+  the same prompt with a new tail; an unrelated prompt; and one prompt too
+  large for the cache.
+- An idle tour runs these cases on its own when nobody interacts.
+- Keyboard and pointer both work.
+- Motion stops when the figure is offscreen and goes still under reduced
+  motion.
+- The live readout shows at least: tokens reused, tokens computed, estimated
+  time to first token, and cache fill.
+
+## Deliverable
+
+- `node build.mjs` writes `dist/index.html` (dark), and `node build.mjs --light`
+  writes `dist/index-light.html`. Both are standalone pages that open from the
+  file system.
+- The figure sits in the skill's framed card with a title, hint, live readout,
+  and a true caption under the card.
+
+## Checks
+
+`./verify --all` must finish within 240 seconds. It covers:
+
+- the model module's behaviour: reuse, partial reuse, miss, LRU eviction,
+  refusal of an oversized state, and timing figures that follow from the
+  numbers above;
+- both pages build, and load in headless Chrome without console errors (the
+  skill's `scripts/capture.mjs`);
+- `node build.mjs --audit` passes whenever the figure has pipes, cables or
+  round parts;
+- the skill's line-end check (`scripts/lines.mjs`) reports `line ends: 0` on
+  both pages;
+- screenshots of the dark and light pages at desktop width and at 390 px, plus
+  one taken mid-motion. They are written under `.agent/private/shots/` and
+  listed in the verify JSON's `artifacts`.
+
+Look at the screenshots yourself with the read tool, and judge them against the
+skill's quality bar. A blank or broken image is a failure, even when every
+check passes.
+
+## Done means
+
+A reader who opens `dist/index.html` sees a recognisable, detailed machine.
+Its parts move to show reuse, partial reuse, a miss, an eviction and a refusal.
+The readout numbers follow from the model, and every check passes.
