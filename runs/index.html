@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="All 18 recorded runs, with captures, model, runtime and recorded outcome.">
+    <meta name="description" content="All 19 recorded runs, with captures, model, runtime and recorded outcome.">
     <title>Run archive · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/">
     <meta property="og:title" content="Run archive · Local Model Benchmarks">
-    <meta property="og:description" content="All 18 recorded runs, with captures, model, runtime and recorded outcome.">
+    <meta property="og:description" content="All 19 recorded runs, with captures, model, runtime and recorded outcome.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -30,7 +30,7 @@
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
     <meta name="twitter:title" content="Run archive · Local Model Benchmarks">
-    <meta name="twitter:description" content="All 18 recorded runs, with captures, model, runtime and recorded outcome.">
+    <meta name="twitter:description" content="All 19 recorded runs, with captures, model, runtime and recorded outcome.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -42,19 +42,29 @@
         <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../runs/" aria-current="page">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 15 October 2026</span><span>18 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 16 October 2026</span><span>19 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
         <h1 class="display sheet__title">Run archive</h1>
-        <p class="lede">15 local executions and 3 cloud baselines, newest first. Open a run for its configuration, recorded checks and measurements.</p>
+        <p class="lede">16 local executions and 3 cloud baselines, newest first. Open a run for its configuration, recorded checks and measurements.</p>
         <nav class="archive-links" aria-label="Archive views"><a href="../challenges/">Group by task →</a><a href="../demos/">Browse playable builds →</a></nav>
       </header>
       <section class="run-list" aria-label="Recorded runs"><ul class="index">          <li class="index__row">
-            <figure class="capture capture--inline"><a href="./anatomy-microwave-sushi/" aria-label="Microwave Oven Anatomy · Sushi 1.2.2 → 1.2.3 · interactive figure"><img src="../assets/screenshots/anatomy-microwave-sushi-figure.jpg" width="1316" height="1132" fetchpriority="high" decoding="async" alt="Isometric cutaway of a countertop microwave oven with its mesh door, keypad, magnetron and cables, above power, contents, turntable and door controls"></a></figure>
+            <figure class="capture capture--inline"><a href="./anatomy-microwave-qwen38-27b-splash-v131/" aria-label="Microwave Oven Anatomy · Splash 1.3.1 · interactive figure"><img src="../assets/screenshots/anatomy-microwave-qwen38-27b-splash-v131-figure.jpg" width="1316" height="1090" fetchpriority="high" decoding="async" alt="Isometric cutaway of a countertop microwave oven with its transformer bay, magnetron and fan, cavity and turntable, above door, turntable, power and contents buttons"></a></figure>
+            <div>
+              <p class="label">16 October 2026</p>
+              <h3 class="index__title"><a href="./anatomy-microwave-qwen38-27b-splash-v131/">Microwave Oven Anatomy · Splash 1.3.1</a></h3>
+              <p class="index__meta"><span>Qwen 3.8 27B + Qwen 3.8 27B DFlash2</span><span>Splash 1.3.1</span><span>Pi coding agent, driven by the task-loop orchestrator, with the anatomy skill</span></p>
+              <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            </div>
+            <div class="index__summary"><p>The orchestrator reached COMPLETE after 29 h 1 min in one segment, with no operator action. All 29 leaf tasks are done (16 planned at bootstrap, 6 split into smaller tasks, more added by replans and the final review), the project&#x27;s verify passes 67 checks, and the final reviewer accepted all 23 requirements on its second cycle. The physics module passes all 16 hidden acceptance cases, including the frozen-block rate the Sushi attempt got wrong. The figure works in both themes, but its composition is cluttered.</p><div class="actions"><a href="./anatomy-microwave-qwen38-27b-splash-v131/">Run sheet →</a><a href="../demos/anatomy-microwave-qwen38-27b-splash-v131/">Play build ↗</a></div></div>
+          </li>
+          <li class="index__row">
+            <figure class="capture capture--inline"><a href="./anatomy-microwave-sushi/" aria-label="Microwave Oven Anatomy · Sushi 1.2.2 → 1.2.3 · interactive figure"><img src="../assets/screenshots/anatomy-microwave-sushi-figure.jpg" width="1316" height="1132" loading="lazy" decoding="async" alt="Isometric cutaway of a countertop microwave oven with its mesh door, keypad, magnetron and cables, above power, contents, turntable and door controls"></a></figure>
             <div>
               <p class="label">13 October 2026</p>
-              <h3 class="index__title"><a href="./anatomy-microwave-sushi/">Microwave Oven Anatomy</a></h3>
+              <h3 class="index__title"><a href="./anatomy-microwave-sushi/">Microwave Oven Anatomy · Sushi 1.2.2 → 1.2.3</a></h3>
               <p class="index__meta"><span>Qwen 3.8 Flash Next</span><span>Sushi 1.2.2 → 1.2.3</span><span>Pi coding agent, driven by the task-loop orchestrator, with the anatomy skill</span></p>
               <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
             </div>

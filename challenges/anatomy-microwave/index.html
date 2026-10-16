@@ -42,7 +42,7 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 15 October 2026</span><span>18 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 16 October 2026</span><span>19 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
@@ -50,15 +50,15 @@
         <h1 class="display sheet__title">Microwave Oven Anatomy</h1>
         <p class="lede">A long, visual brief for the task-loop orchestrator: an interactive isometric cutaway of a countertop microwave oven, built with the anatomy skill, that explains how it heats food. The object is given; the challenge is drawing it in detail and getting the physics right.</p>
         <div class="actions">
-          <a href="#runs">Compare 1 attempt <span aria-hidden="true">&darr;</span></a>
+          <a href="#runs">Compare 2 attempts <span aria-hidden="true">&darr;</span></a>
           <a href="../../prompts/anatomy-microwave/">Task prompt <span aria-hidden="true">&rarr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">1 recorded attempt</p>
-          <h2 class="h-section" id="runs-title">Recorded attempt</h2>
+          <p class="label">2 recorded attempts</p>
+          <h2 class="h-section" id="runs-title">The builds, side by side</h2>
         </header>
         <div class="compare compare--attempts">
           <article class="compare__item">
@@ -79,9 +79,35 @@
               <a class="action--quiet" href="../../runs/anatomy-microwave-sushi/">Run sheet <span aria-hidden="true">&rarr;</span></a>
             </div>
           </article>
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/anatomy-microwave-qwen38-27b-splash-v131-figure.jpg" width="1316" height="1090" loading="lazy" decoding="async" alt="Isometric cutaway of a countertop microwave oven with its transformer bay, magnetron and fan, cavity and turntable, above door, turntable, power and contents buttons">
+              <figcaption>Microwave Oven Anatomy · Splash 1.3.1 · interactive figure</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">15–16 October 2026</p>
+              <h3>Qwen 3.8 27B</h3>
+              <p class="note">Splash 1.3.1 · Pi 1.1.0 + task-loop orchestrator</p>
+            </header>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="compare__summary">COMPLETE after 29 h 1 min with no operator action: a cluttered but complete cutaway, 67 project checks, and 16 of 16 hidden acceptance cases. Default sampling, so not a like-for-like comparison.</p>
+            <div class="actions compare__actions">
+              <a href="../../demos/anatomy-microwave-qwen38-27b-splash-v131/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/anatomy-microwave-qwen38-27b-splash-v131/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
         </div>
       </section>
 
+      <section class="band" id="measured" aria-labelledby="measured-title">
+        <header class="band__head">
+          <p class="label">From the run records</p>
+          <h2 class="h-section" id="measured-title">Measured side by side</h2>
+        </header>
+        <div class="bars-grid"><figure class="bars"><figcaption class="label">Wall time</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-sushi/">Sushi 1.2.2 → 1.2.3</a><span class="bars__track"><span class="bars__fill" style="width:59.8%"></span></span><span class="bars__value" title="Sum of the three run segments: 11 h 32 min (start to BLOCKED), 7.5 min (resume to the operator&#x27;s pause) and 5 h 41 min (resume to COMPLETE). Excludes the time the run sat blocked or paused.">1,040 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-qwen38-27b-splash-v131/">Splash 1.3.1</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="From the orchestrator&#x27;s preflight (2026-10-15 08:20:43 UTC) to COMPLETE (2026-10-16 13:21:27 UTC) in one segment, with no block or pause.">1,741 min</span></li></ul></figure><figure class="bars"><figcaption class="label">Output tokens</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-sushi/">Sushi 1.2.2 → 1.2.3</a><span class="bars__track"><span class="bars__fill" style="width:61.5%"></span></span><span class="bars__value" title="Pi output usage across all recorded sessions; includes reasoning tokens.">1,688 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-qwen38-27b-splash-v131/">Splash 1.3.1</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Pi output usage across all sessions; includes reasoning tokens. Equal to Splash output over matched requests.">2,745 k tokens</span></li></ul></figure><figure class="bars"><figcaption class="label">Tool calls</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-sushi/">Sushi 1.2.2 → 1.2.3</a><span class="bars__track"><span class="bars__fill" style="width:59.8%"></span></span><span class="bars__value" title="Pi tool calls across all recorded sessions.">1,676 calls</span></li><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-qwen38-27b-splash-v131/">Splash 1.3.1</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Pi tool calls across all sessions.">2,802 calls</span></li></ul></figure><figure class="bars"><figcaption class="label">Decode speed</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-sushi/">Sushi 1.2.2 → 1.2.3</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Output tokens / engine decode seconds over requests with engine timings (output-weighted). 41.43 on 1.2.2 and 41.46 on 1.2.3.">41.4 tok/s</span></li><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-qwen38-27b-splash-v131/">Splash 1.3.1</a><span class="bars__track"><span class="bars__fill" style="width:80.4%"></span></span><span class="bars__value" title="Output tokens / (output tokens / Splash-reported rate) over matched requests with more than one output token (output-weighted). The per-request median is 38.2 tok/s.">33.3 tok/s</span></li></ul></figure><figure class="bars"><figcaption class="label">Largest prompt</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-sushi/">Sushi 1.2.2 → 1.2.3</a><span class="bars__track"><span class="bars__fill" style="width:99.8%"></span></span><span class="bars__value" title="Largest engine-reported prompt among matched requests (Sushi 1.2.2). The largest on 1.2.3 was 72,144.">110 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/anatomy-microwave-qwen38-27b-splash-v131/">Splash 1.3.1</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Largest Splash-reported input among matched requests.">111 k tokens</span></li></ul></figure></div>
+        <p class="note">Each attempt used its own engine, harness version and settings, and some sessions include waiting or outages. Hover a value for its exact definition, and read the run sheets before drawing conclusions. Cloud wall time includes provider queueing; local decode speed is per request on this machine.</p>
+      </section>
 
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
