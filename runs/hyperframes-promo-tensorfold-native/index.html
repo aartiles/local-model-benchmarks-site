@@ -4,8 +4,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Custom Characters Promo: configuration, result, recorded checks and measurements.">
-    <title>Custom Characters Promo run sheet · Local Model Benchmarks</title>
+    <meta name="description" content="Custom Characters Promo · TensorFold native (Zig) 1.0.12: configuration, result, recorded checks and measurements.">
+    <title>Custom Characters Promo · TensorFold native (Zig) 1.0.12 run sheet · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
     <meta property="og:site_name" content="Local Model Benchmarks">
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/hyperframes-promo-tensorfold-native/">
-    <meta property="og:title" content="Custom Characters Promo run sheet · Local Model Benchmarks">
-    <meta property="og:description" content="Custom Characters Promo: configuration, result, recorded checks and measurements.">
+    <meta property="og:title" content="Custom Characters Promo · TensorFold native (Zig) 1.0.12 run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Custom Characters Promo · TensorFold native (Zig) 1.0.12: configuration, result, recorded checks and measurements.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -29,8 +29,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
-    <meta name="twitter:title" content="Custom Characters Promo run sheet · Local Model Benchmarks">
-    <meta name="twitter:description" content="Custom Characters Promo: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:title" content="Custom Characters Promo · TensorFold native (Zig) 1.0.12 run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Custom Characters Promo · TensorFold native (Zig) 1.0.12: configuration, result, recorded checks and measurements.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -42,14 +42,14 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 17 October 2026</span><span>20 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 17 October 2026</span><span>21 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <article class="sheet">
         <div class="run-intro">
           <header class="sheet__head">
             <p class="label">17 October 2026 · Agentic task loop · video edit</p>
-            <h1 class="display sheet__title" id="page-title">Custom Characters Promo</h1>
+            <h1 class="display sheet__title" id="page-title">Custom Characters Promo · TensorFold native (Zig) 1.0.12</h1>
             <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
             <p class="lede">The orchestrator ended COMPLETE_WITH_GAPS after 8 h 36 min of run time. 18 tasks are done and the project&#x27;s verify passes 25 checks, but the second and last final review asked for three more fixes that were not made: captions cover the call-to-action button and the result card&#x27;s name, and a label overlaps the form footage. The render passes 15 of 20 hidden acceptance cases. It leaves out the generation wait and the dark call screens, which the Opus 5.5 render of the Spanish brief did not, but its captions vanish in pauses and two of its texts are hidden.</p>
             <div class="actions"><a href="../../challenges/hyperframes-promo/">Compare attempts <span aria-hidden="true">→</span></a><a href="../../prompts/hyperframes-promo/">Task prompt <span aria-hidden="true">→</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
@@ -67,7 +67,7 @@
 <li>verify covers ./hf lint and ./hf check, the asset hashes, the chosen source windows against the timings in the notes, a draft render&#x27;s size, frame rate and length, and stills at each beat and spoken sentence for the reviewers.</li>
 <li>Independent check after the run: verify --all passed 25/25 in 55 s (limit 240 s). The committed render is 1080×1920, 30 fps, 20.000 s with audio, and was made after the last composition change.</li>
 <li>Hidden acceptance cases: 15 of 20, read from the render with ffprobe, macOS Vision OCR at 4 frames a second and SSIM. Failed: sentence 3&#x27;s caption collides with the result card&#x27;s name; captions are hidden in two pauses (2.75–4.0 s and 8.25–8.75 s); the &#x27;Pick a voice&#x27; label is partly covered; the caption plate covers &#x27;Create yours at PapaNoel.chat&#x27;; the last caption fades out during the final hold. Each failure was confirmed on the frames.</li>
-<li>Visual judgement (operator, not a score): the story reads beat by beat and the footage windows are correct, but the footage is small on a large dark field and the text collisions are visible.</li></ul>
+<li>Visual judgement (operator, not a score): the story reads beat by beat and the footage windows are correct, but the footage is small on a large dark field and the text collisions are visible. It is plainer than the Opus 5.5 render of the Spanish brief, which had a background per scene, a numbered label and headline in every scene and offset gold shadows, and was made with a storyboard, the hyperframes-creative skill and seven revisions with a person.</li></ul>
             <div class="limits"><h3>Limits of this evidence</h3><p>Three fixes were made during the run, each logged with a marker in the server log and the run log. (1) TensorFold 1.0.12 decodes JPEG only with libjpeg-turbo 3.1.4.1 and Homebrew had 3.2.0; the operator built 3.1.4.1 into a private prefix and set TENSORFOLD_LIBTURBOJPEG in the LaunchAgent. (2) Sessions read more images than one request may hold (4 by default, up to 28 seen); the server was restarted with --vision-max-images 24 --vision-image-tokens 16384. (3) The orchestrator now continues a session in a fresh one when the engine refuses an image (count, size or format, such as the supplied WebP banner), with the refusal in the new session&#x27;s prompt; before that change it retried the same session, which under greedy decoding failed the same way until the run blocked. The journal records orchestrator-changed twice, paused twice and image-continuation twice. The supplied footage, narration, generated project, transcripts and engine logs stay on the workstation.</p></div>
           </section>
           <section class="band">
@@ -150,7 +150,7 @@
                 <tr><th scope="row">Tasks completed</th><td class="spec__value">18 tasks</td><td class="spec__def">Task cards with status done at the end. Three more were split; three added by the last final review stayed todo. · n=1</td></tr>
                 <tr><th scope="row">Reviews returning changes</th><td class="spec__value">1 reviews</td><td class="spec__def">Task reviewer sessions that returned CHANGES (T010). Both final reviews also returned CHANGES. · n=1</td></tr>
                 <tr><th scope="row">Project checks passing</th><td class="spec__value">25 checks</td><td class="spec__def">Checks passed by the project&#x27;s own ./verify --all at the end (55 s in the independent run). · n=1</td></tr>
-                <tr><th scope="row">Hidden acceptance cases passed</th><td class="spec__value">15 checks</td><td class="spec__def">Hidden acceptance cases passed, of 20: written from the brief, never shown to the model, and read from the rendered video. · n=1 · No reference render that passes all 20 exists yet, so the cases themselves are not yet checked the way the protocol asks.</td></tr>
+                <tr><th scope="row">Hidden acceptance cases passed</th><td class="spec__value">15 checks</td><td class="spec__def">Hidden acceptance cases passed, of 20: written from the brief, never shown to the model, and read from the rendered video. · n=1 · No reference render that passes all 20 exists yet. Rescored after two case corrections made with the Sushi attempt (mix compared with the narration alone; OCR tolerant of misread monospace capitals): unchanged at 15.</td></tr>
                 </tbody>
               </table>
             </section>

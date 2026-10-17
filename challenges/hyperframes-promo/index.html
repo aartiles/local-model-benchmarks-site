@@ -42,7 +42,7 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 17 October 2026</span><span>20 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 17 October 2026</span><span>21 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
@@ -50,15 +50,15 @@
         <h1 class="display sheet__title">Custom Characters Promo</h1>
         <p class="lede">A video brief for the task-loop orchestrator: a 20-second vertical promo edited with HyperFrames from supplied app recordings, a drawing animation and an English narration. The model must find the right parts of the footage itself, keep captions in sync with the voice, and leave out what the brief excludes.</p>
         <div class="actions">
-          <a href="#runs">Compare 1 attempt <span aria-hidden="true">&darr;</span></a>
+          <a href="#runs">Compare 2 attempts <span aria-hidden="true">&darr;</span></a>
           <a href="../../prompts/hyperframes-promo/">Task prompt <span aria-hidden="true">&rarr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">1 recorded attempt</p>
-          <h2 class="h-section" id="runs-title">Recorded attempt</h2>
+          <p class="label">2 recorded attempts</p>
+          <h2 class="h-section" id="runs-title">The builds, side by side</h2>
         </header>
         <div class="compare compare--attempts">
           <article class="compare__item">
@@ -79,13 +79,39 @@
               <a class="action--quiet" href="../../runs/hyperframes-promo-tensorfold-native/">Run sheet <span aria-hidden="true">&rarr;</span></a>
             </div>
           </article>
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/hyperframes-promo-sushi-v124-hook.jpg" width="720" height="1280" loading="lazy" decoding="async" alt="Opening frame of the vertical promo: the headline What if their drawing could talk to them? above a child&#x27;s drawing of a vampire with sparkles, and the first caption">
+              <figcaption>Custom Characters Promo · Sushi 1.2.4 · rendered video, hook at 1.5 s</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">17 October 2026</p>
+              <h3>Qwen 3.8 Flash Next</h3>
+              <p class="note">Sushi 1.2.4 (bf16 n-gram table) · Pi 1.1.0 + task-loop orchestrator</p>
+            </header>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="compare__summary">COMPLETE in 3 h 55 min with no operator action: 28 project checks and 19 of 20 hidden acceptance cases (captions hidden in two pauses). Clean but plainer than the Opus 5.5 render of the Spanish brief.</p>
+            <div class="actions compare__actions">
+              <a href="../../demos/hyperframes-promo-sushi-v124/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/hyperframes-promo-sushi-v124/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
         </div>
       </section>
 
+      <section class="band" id="measured" aria-labelledby="measured-title">
+        <header class="band__head">
+          <p class="label">From the run records</p>
+          <h2 class="h-section" id="measured-title">Measured side by side</h2>
+        </header>
+        <div class="bars-grid"><figure class="bars"><figcaption class="label">Wall time</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-tensorfold-native/">TensorFold native (Zig) 1.0.12</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="From the orchestrator&#x27;s preflight (2026-10-16 17:40:47 UTC) to the end (2026-10-17 11:25:07 UTC), less 9 h 5 min blocked on engine errors and 3 min of operator pauses.">516 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:45.5%"></span></span><span class="bars__value" title="From the orchestrator&#x27;s preflight (2026-10-17 14:23:59 UTC) to COMPLETE (18:18:41 UTC) in one segment, with no block or pause.">235 min</span></li></ul></figure><figure class="bars"><figcaption class="label">Output tokens</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-tensorfold-native/">TensorFold native (Zig) 1.0.12</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Pi output usage across all sessions; includes reasoning tokens. Equal to TensorFold&#x27;s output over matched requests.">662 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:67.0%"></span></span><span class="bars__value" title="Pi output usage across all sessions; includes reasoning tokens.">444 k tokens</span></li></ul></figure><figure class="bars"><figcaption class="label">Tool calls</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-tensorfold-native/">TensorFold native (Zig) 1.0.12</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Pi tool calls across all sessions.">1,355 calls</span></li><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:69.1%"></span></span><span class="bars__value" title="Pi tool calls across all sessions.">936 calls</span></li></ul></figure><figure class="bars"><figcaption class="label">Decode speed</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-tensorfold-native/">TensorFold native (Zig) 1.0.12</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Output tokens / engine decode seconds over requests with engine timings (output-weighted).">53.4 tok/s</span></li><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:88.4%"></span></span><span class="bars__value" title="Output tokens / engine decode seconds over requests with engine timings (output-weighted).">47.2 tok/s</span></li></ul></figure><figure class="bars"><figcaption class="label">Largest prompt</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-tensorfold-native/">TensorFold native (Zig) 1.0.12</a><span class="bars__track"><span class="bars__fill" style="width:57.6%"></span></span><span class="bars__value" title="Largest engine-reported prompt among matched requests.">50.2 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/hyperframes-promo-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Largest engine-reported prompt among matched requests.">87.1 k tokens</span></li></ul></figure></div>
+        <p class="note">Each attempt used its own engine, harness version and settings, and some sessions include waiting or outages. Hover a value for its exact definition, and read the run sheets before drawing conclusions. Cloud wall time includes provider queueing; local decode speed is per request on this machine.</p>
+      </section>
 
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
-        <div class="disclosure__body"><p>The footage and narration are supplied; the model cuts, places and captions them. Renders are scored with hidden acceptance cases read from the video itself (ffprobe, on-screen text by OCR, and still-frame comparison). The supplied footage is private product material and is not published.</p><ul>            <li>Five beats in 20 s at 1080&amp;times;1920 and 30 fps: hook, creation form, finished card, video call, call to action.</li>
+        <div class="disclosure__body"><p>The footage and narration are supplied; the model cuts, places and captions them. Renders are scored with hidden acceptance cases read from the video itself (ffprobe, on-screen text by OCR, and still-frame comparison). The supplied source files are not published; the Sushi attempt&#x27;s render is, as a build, with its narration made by Fish Audio Drama 3 (Built with Fish Audio).</p><ul>            <li>Five beats in 20 s at 1080&amp;times;1920 and 30 fps: hook, creation form, finished card, video call, call to action.</li>
             <li>Find the usable parts of two silent screen recordings by looking at frames, and leave out a long generation wait and two dark call screens.</li>
             <li>Captions that show each sentence of the supplied narration while it is spoken.</li>
             <li>Narration at full level, a ducked music bed and short chime accents.</li>

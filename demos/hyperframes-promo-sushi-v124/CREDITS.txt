@@ -1,0 +1,14 @@
+Custom Characters Promo, rendered by Qwen 3.8 Flash Next on Sushi 1.2.4
+(Local Model Benchmarks, run 2026-10-17-qwen38-flash-next-sushi-v124-pi-task-loop-hyperframes-promo).
+
+The model wrote the HyperFrames composition; HyperFrames (Apache-2.0) rendered it.
+
+Supplied material, not made by the model under test:
+- App screen recordings, drawing animation, self-view clip and banner: PapaNoel.chat.
+- Narration: generated with Fish Audio Drama 3 (mlx-community/fish-audio-drama-3-4bit).
+  Built with Fish Audio. The Fish Audio materials are licensed under the
+  Fish Audio Community License, Version 1.0.
+- Music bed: generated with Sonilo v1.1.
+- Chime: ringtone-magic-11238.mp3.
+- Fonts: Montserrat and Space Mono (SIL Open Font License 1.1).
+- Animation runtime: GSAP 3.14.2 (GSAP Standard No Charge License).
