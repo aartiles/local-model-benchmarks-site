@@ -1,0 +1,133 @@
+# Custom Characters Promo
+
+Edit one 20-second vertical promo video for PapaNoel.chat with HyperFrames, from
+the footage and audio supplied in `assets/`. Use the HyperFrames skills: they
+are loaded in every session, and read-only copies are in `.agent/skills/`. Read
+`hyperframes-core/SKILL.md` before planning, and `hyperframes-cli/SKILL.md`
+before running any command. Read their `references/` files only for the step
+you are working on, and read large files by section, not whole.
+
+## Scope
+
+- **One composition, rendered to `renders/promo.mp4`.** 1080×1920 portrait,
+  30 fps, exactly 20 s, with the supplied narration, music and chime mixed in.
+- **No questions and no approvals.** Nobody will answer. This brief is the
+  approved brief, and the render is approved in advance: render when the
+  checks pass. Every creative decision inside these rules is yours.
+- **Offline.** There is no network. The HyperFrames CLI is installed in the
+  project: run it as `./hf <command>` (for example `./hf lint`, `./hf check`,
+  `./hf render`), never `npx`. Do not use `usage`, `catalog`, `add`, `tts`,
+  `transcribe`, `auth`, `publish`, `cloud`, `lambda` or `cloudrun`: they need
+  the network or an account.
+- **Local assets only.** GSAP is in `vendor/gsap.min.js`; load it with a
+  relative path. Montserrat and Space Mono are in `vendor/fonts/` with
+  `@font-face` rules in `vendor/fonts/fonts.css`. Use no other fonts, no CDN
+  and no remote URL.
+- **Do not change the supplied files.** Never edit, re-encode, trim or overwrite
+  anything in `assets/`. `assets/SHA256SUMS` must still match at the end. Pick
+  parts of the footage with the framework's media windows (`data-media-start`,
+  `data-duration`, `data-playback-rate`), not with new files.
+- **Inspect the footage yourself.** Use `ffprobe` and `ffmpeg` to read the
+  sources and to extract still frames into `.agent/private/`, and look at the
+  frames to find the parts you need. Write the timings you choose in your notes.
+
+## The message
+
+"Your child draws it. We bring it to life, and it talks with them."
+
+A short, warm vertical promo for PapaNoel.chat, for parents and families. The
+story goes from the transformation (the child's drawing comes to life), to how
+simple it is for the adult to create, and ends on the emotional moment of
+talking with it. Festive, clean and premium; the benefit comes before the
+explanation.
+
+## Assets
+
+All are in `assets/`. Each is described by what it shows, not by its timings.
+
+- `source/form-custom-character-creation.mov`: a real screen recording of the
+  creation flow (silent). Use the upload, the form sped up, and the finished
+  character card. It contains a long wait while the character is generated;
+  leave that wait out completely.
+- `source/vladdy-custom-character.mov`: a real video call with Vladdy, the
+  character made from the drawing (silent). Use the middle of the call; leave
+  out the dark intro screen before it and the dark thank-you screen after it.
+- `source/custom-drawing-hero.mp4`: the drawing coming to life, for the hook.
+- `source/child-pip.mp4`: the child's self-view for the call. Muted and
+  mirrored.
+- `source/child-pip-poster.webp`: the poster and fallback for that self-view.
+- `source/before-after-banner-mobile.webp`: the drawing beside the finished
+  character, with no text in it, for the call to action.
+- `audio/voiceover-en.wav`: the narration, 20 s, five sentences (below).
+- `audio/music-bed.mp3`: an instrumental music bed, 20 s.
+- `audio/ringtone-magic.mp3`: a chime. Use only short pieces of it, as accents
+  for the call connecting and the call to action.
+
+## Narration (locked)
+
+The voiceover says these five sentences in this order. Captions show the same
+words exactly, each while it is spoken:
+
+1. What if your child's drawing could come to life?
+2. Upload their drawing, give it a name and tell us what it's like.
+3. And we bring it to life.
+4. Now it can talk, listen and have a conversation with your child.
+5. Turn their drawing into a moment they'll never forget.
+
+Find when each sentence is spoken from the audio itself (for example with
+`ffmpeg`'s `silencedetect` filter). The pauses between sentences are about a
+second long; shorter pauses fall inside a sentence, at its commas. Always write the brand as "PapaNoel.chat".
+
+## Structure
+
+Five beats:
+
+| Beat | Time | Shows |
+|---|---|---|
+| Hook | 0–3 s | The drawing comes to life. Headline: "What if their drawing could talk to them?" |
+| Create | 3–8 s | The upload at about normal speed, then only the useful form fields at 4–5×. Labels: "Upload", "Describe", "Pick a voice". |
+| Result | 8–10 s | The finished card "Vladdy, el vampiro bonachón" appears as the reward. |
+| Call | 10–16 s | Vladdy on the video call, with the child's self-view on top. |
+| Call to action | 16–20 s | "Imagine their face when they see it.", "Turn their drawing into someone to talk to." and "Create yours at PapaNoel.chat", held still for at least the last second. |
+
+The recordings show the app's real interface, which is in Spanish; leave it as
+it is. Everything you add (headlines, labels, captions, the call to action) is
+in English.
+
+## Rules
+
+- **Captions** are always visible and in sync, in one lower band on a dark
+  translucent plate.
+- **Safe area:** keep faces, interface and essential copy inside the central
+  80% of the frame.
+- **The self-view** follows the site's hero treatment: a card at the top right
+  of the call, with an amber border, the poster as fallback, muted, mirrored
+  with `scaleX(-1)`, and clearly secondary to Vladdy. Place it over the empty
+  self-view tile that the call recording already shows.
+- **Audio:** the narration at full level; the music bed low under it (duck it
+  under the voice); the chime as short accents only.
+- **Do not invent** teeth, lips, gums, anatomy or features for Vladdy or the
+  drawing. Show the supplied images as they are; do not crop the artwork.
+- **Look:** a dark Christmas brand. Almost-black cranberry background
+  (`#171018`), warm ivory copy (`#fff8ed`), red (`#d9283f`) and green
+  (`#1f6f57`) for structure, gold (`#f3b43f`) for magic and interaction.
+  Montserrat for headlines and body, Space Mono for labels. Headlines 90 px or
+  larger, body and captions 32 px or larger. The footage is the focus; overlays
+  are translucent and editorial, never clutter.
+
+## Checks
+
+`verify` must, within 240 s:
+
+- run `./hf lint` and `./hf check` and require both to pass;
+- check that `assets/SHA256SUMS` still matches;
+- check every source window you chose against the timings in your notes (the
+  wait and the dark call screens left out);
+- render a draft and check its size, frame rate and duration with `ffprobe`;
+- extract still frames at the middle of each beat and of each spoken sentence
+  into `.agent/private/frames/`, and list them as artifacts, so that a
+  reviewer can look at them.
+
+The final task renders `renders/promo.mp4` at normal quality (outside
+`verify`'s time limit if needed, with the CLI's detached render) and checks it
+the same way.

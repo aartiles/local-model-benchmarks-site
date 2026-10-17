@@ -13,6 +13,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/hardball-3d/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/hyperframes-promo/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/</loc>
   </url>
   <url>
@@ -97,6 +100,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/hardball-3d/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/hyperframes-promo/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/</loc>
   </url>
   <url>
@@ -134,6 +140,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/hardball-3d-qwen38-27b-tensorfold-pi/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/hyperframes-promo-tensorfold-native/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/</loc>

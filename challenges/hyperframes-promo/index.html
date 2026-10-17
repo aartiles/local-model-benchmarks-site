@@ -1,0 +1,109 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Workbench · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Custom Characters Promo challenge brief and side-by-side comparison of every recorded attempt.">
+    <title>Custom Characters Promo challenge · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/challenges/hyperframes-promo/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/challenges/hyperframes-promo/">
+    <meta property="og:title" content="Custom Characters Promo challenge · Local Model Benchmarks">
+    <meta property="og:description" content="Custom Characters Promo challenge brief and side-by-side comparison of every recorded attempt.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Custom Characters Promo challenge · Local Model Benchmarks">
+    <meta name="twitter:description" content="Custom Characters Promo challenge brief and side-by-side comparison of every recorded attempt.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 17 October 2026</span><span>20 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <header class="sheet__head">
+        <p class="label">Workload &middot; Task-loop orchestrator · video edit &middot; Revision 1</p>
+        <h1 class="display sheet__title">Custom Characters Promo</h1>
+        <p class="lede">A video brief for the task-loop orchestrator: a 20-second vertical promo edited with HyperFrames from supplied app recordings, a drawing animation and an English narration. The model must find the right parts of the footage itself, keep captions in sync with the voice, and leave out what the brief excludes.</p>
+        <div class="actions">
+          <a href="#runs">Compare 1 attempt <span aria-hidden="true">&darr;</span></a>
+          <a href="../../prompts/hyperframes-promo/">Task prompt <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </header>
+
+      <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
+        <header class="band__head">
+          <p class="label">1 recorded attempt</p>
+          <h2 class="h-section" id="runs-title">Recorded attempt</h2>
+        </header>
+        <div class="compare compare--attempts">
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/hyperframes-promo-tensorfold-native-hook.jpg" width="720" height="1280" loading="lazy" decoding="async" alt="Opening frame of the vertical promo: a child&#x27;s drawing of a vampire with sparkles, the headline What if their drawing could talk to them? and the first caption">
+              <figcaption>Custom Characters Promo · TensorFold native 1.0.12 · rendered video, hook at 1.5 s</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">16–17 October 2026</p>
+              <h3>Qwen 3.8 27B</h3>
+              <p class="note">TensorFold native 1.0.12 · Pi 1.1.0 + task-loop orchestrator</p>
+            </header>
+            <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            <p class="compare__summary">COMPLETE_WITH_GAPS after 8 h 36 min of run time: 18 tasks, 25 project checks, and 15 of 20 hidden acceptance cases. The engine and orchestrator were fixed for refused images during the run.</p>
+            <div class="actions compare__actions">
+
+              <a class="action--quiet" href="../../runs/hyperframes-promo-tensorfold-native/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+
+      <details class="disclosure">
+        <summary>Task requirements &amp; full brief</summary>
+        <div class="disclosure__body"><p>The footage and narration are supplied; the model cuts, places and captions them. Renders are scored with hidden acceptance cases read from the video itself (ffprobe, on-screen text by OCR, and still-frame comparison). The supplied footage is private product material and is not published.</p><ul>            <li>Five beats in 20 s at 1080&amp;times;1920 and 30 fps: hook, creation form, finished card, video call, call to action.</li>
+            <li>Find the usable parts of two silent screen recordings by looking at frames, and leave out a long generation wait and two dark call screens.</li>
+            <li>Captions that show each sentence of the supplied narration while it is spoken.</li>
+            <li>Narration at full level, a ducked music bed and short chime accents.</li>
+            <li>Offline, with the HyperFrames CLI pinned in the project and four HyperFrames skills loaded.</li></ul></div>
+      </details>
+
+      <section class="band band--quiet">
+        <div class="callout">
+          <p class="label">How to read this comparison</p>
+          <p>Compare the generated builds and the checks recorded for each attempt. There is no normalised quality score, and the cloud task&rsquo;s cumulative token totals and end-to-end rate include repeated context, reasoning, tool calls and waiting &mdash; they are not comparable with local per-request decode or prefill rates. <a href="../../method/">The method page</a> sets out which figures can and cannot be set against each other.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>
