@@ -7,6 +7,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/anatomy-prefix-cache/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/benchmarks-promo/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/digger-3d/</loc>
   </url>
   <url>
@@ -38,6 +41,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/anatomy-prefix-cache-sushi-v122/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/benchmarks-promo-sushi-v124/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d/</loc>
@@ -97,6 +103,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/anatomy-prefix-cache/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/benchmarks-promo/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/digger-3d/</loc>
   </url>
   <url>
@@ -125,6 +134,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/anatomy-prefix-cache-sushi-v122/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/benchmarks-promo-sushi-v124/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d/</loc>

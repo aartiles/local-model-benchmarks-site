@@ -1,0 +1,153 @@
+# Local Model Benchmarks Promo
+
+Edit one 30-second vertical promo video for the Local Model Benchmarks website
+with HyperFrames, from the footage, images and narration supplied in `assets/`.
+Use the HyperFrames skills: they are loaded in every session, and read-only
+copies are in `.agent/skills/`. Read `hyperframes-core/SKILL.md` before
+planning, `hyperframes-cli/SKILL.md` before running any command, and
+`hyperframes-creative/SKILL.md` before designing a scene. Read their
+`references/` files only for the step you are working on, and read large files
+by section, not whole.
+
+## Scope
+
+- **One composition, rendered to `renders/promo.mp4`.** 1080×1920 portrait,
+  30 fps, exactly 30 s, with the supplied narration.
+- **No questions and no approvals.** Nobody will answer. This brief is the
+  approved brief and the storyboard below is the approved storyboard; the
+  render is approved in advance. Every creative decision inside these rules is
+  yours.
+- **Offline.** There is no network. The HyperFrames CLI is installed in the
+  project: run it as `./hf <command>` (for example `./hf lint`, `./hf check`,
+  `./hf render`), never `npx`. Do not use `usage`, `catalog`, `add`, `tts`,
+  `transcribe`, `auth`, `publish`, `cloud`, `lambda` or `cloudrun`: they need
+  the network or an account.
+- **Local assets only.** GSAP is in `vendor/gsap.min.js`; load it with a
+  relative path. Archivo and IBM Plex Mono are in `vendor/fonts/` with
+  `@font-face` rules in `vendor/fonts/fonts.css`. Use no other fonts, no CDN
+  and no remote URL.
+- **Do not change the supplied files.** Never edit, re-encode, trim or
+  overwrite anything in `assets/`; `assets/SHA256SUMS` must still match at the
+  end. Pick parts of a clip with the framework's media windows
+  (`data-media-start`, `data-duration`, `data-playback-rate`), not new files.
+- **Inspect the assets yourself.** Use `ffprobe` and `ffmpeg` to read them and
+  to extract stills into `.agent/private/`, and look at them. Read only PNG or
+  JPEG images, and combine several stills into one contact sheet rather than
+  reading many.
+
+## The message
+
+"A laptop, a local model and enough time can build real software on their
+own, and this site records exactly how it went."
+
+A promo for Local Model Benchmarks, a public archive of what small language
+models running on one laptop build from a single brief, with every run
+measured and every build checked by hidden tests. The audience is developers
+curious about local models. The tone is calm, precise and confident, like a
+good technical documentary: the evidence is the hook, not hype.
+
+## Assets
+
+All are in `assets/`.
+
+- `site/`: the website itself. `scroll-home.mp4`, `scroll-builds.mp4` and
+  `scroll-run-sheet.mp4` are 6.5 s eased scrolls at 1080×1920; `home-mobile.png`
+  and `run-sheet-mobile.png` are phone-width pages; `charts.png` (the
+  side-by-side bar charts), `measurements.png` (a run's measurement table) and
+  `builds-side-by-side.png` are desktop crops; `build-microwave.png`,
+  `build-prefix-cache.png` and `build-hardball.png` are three builds the
+  models made (two interactive figures and a 3D game).
+- `figure/`: "Fig 1 · Local benchmark rig", an isometric machine that shows
+  how a run works (task cards fed one at a time, the model writing, a verify
+  gate, a reviewer's ACCEPT stamp, a done tray, a sealed box of hidden tests).
+  `rig-loop-dark.mp4` and `rig-loop-light.mp4` are seamless 9.6 s loops at
+  1080×1080; `rig-loop-transparent.webm` has an alpha channel; two 2160×2160
+  stills. Keep `LICENSE-ANATOMY.txt` with it.
+- `images/`: four 1080×1920 photographs: `laptop-night.png` (an open laptop
+  under a desk lamp at night), `aluminium-edge.png` (a laptop edge in blue
+  light, the top two thirds empty), `cubes-assembled.png` (glowing cubes placed
+  by thin robot arms), `sunrise-desk.png` (the closed laptop and a coffee at
+  sunrise: the night's run is done).
+- `audio/narration-en.wav`: the narration, 30.000 s, six sentences (below).
+
+## Narration (locked)
+
+The voiceover says these six sentences in order. Captions show the same words
+exactly:
+
+1. What can a small model on a laptop build, if you give it time?
+2. One MacBook Pro. Sixty-four gigabytes. Models running locally, with no one stepping in.
+3. Games, interactive figures, even videos like this one.
+4. Every run is recorded: every session, every token, every second.
+5. And every build is checked against hidden tests it never sees.
+6. Local Model Benchmarks. See what your machine can do.
+
+Find when each sentence is spoken from the audio itself (for example with
+`ffmpeg`'s `silencedetect` filter at about 0.6 s). Each caption appears when
+its sentence starts and **stays on screen until the next sentence starts**, so
+there is always one caption visible; the last stays to the end. Write numbers
+in captions as spoken ("Sixty-four gigabytes").
+
+## Storyboard (approved)
+
+Six scenes, each starting with its sentence (± 0.3 s). Every scene has its own
+background, a numbered label, a headline and the footage. Copy in quotes is
+exact.
+
+| # | Scene | Background | Label | Headline | Footage and motion |
+|---|---|---|---|---|---|
+| 1 | Hook | `laptop-night.png`, slow push-in | "01 · LOCAL MODEL BENCHMARKS" | "What can a laptop build on its own?" | The photograph fills the frame, darkened at the bottom for the caption |
+| 2 | The machine | dark (`#07090D`) | "02 · ONE MACHINE" | "One MacBook Pro. 64 GB. No one stepping in." | `rig-loop-dark.mp4` large and centred; three small mono tags appear one by one: "M5 PRO", "64 GB", "LOCAL" |
+| 3 | The builds | paper (`#FAFCFE`) | "03 · WHAT IT BUILT" | "Games. Figures. Even this video." | The three build stills as framed cards that slide in one after another, then `scroll-builds.mp4` in a phone frame |
+| 4 | Measured | accent (`#1A48BC`) | "04 · EVERY RUN, RECORDED" | "Every session. Every token. Every second." | `scroll-run-sheet.mp4` in a phone frame, with three numbers counting up beside or over it: "76 sessions", "1,437 requests", "41.4 tok/s" |
+| 5 | Hidden tests | `cubes-assembled.png`, darkened | "05 · CHECKED BLIND" | "Scored by tests it never sees." | `charts.png` or `measurements.png` as a framed card; then a large "15 / 16" with the line "hidden tests passed" |
+| 6 | Call to action | `sunrise-desk.png`, then paper | "06 · SEE THE RUNS" | "Local Model Benchmarks" | `home-mobile.png` or `scroll-home.mp4` in a phone frame; the line "aartiles.github.io/local-model-benchmarks-site" and "@aartiles24"; everything still for the last 1.5 s |
+
+The numbers in scenes 4 and 5 are real: they are one recorded run (Microwave
+Oven Anatomy on Sushi), and its run sheet is the one in `scroll-run-sheet.mp4`.
+Use them exactly.
+
+## Design system
+
+The video must look like the website.
+
+- **Colours:** paper `#FAFCFE`, ink `#0A0E12`, body ink `#25292F`, muted
+  `#4B5056`, hairline rule `#D4D8DD`, capture dark `#07090D`, accent blue
+  `#1A48BC` (text on it `#FAFCFE`). No other hues except inside the footage.
+- **Type:** headlines in Archivo 800, 96–120 px, letter-spacing −0.04em,
+  line-height 1.02. Body and captions in Archivo 500–600, 34–40 px. Labels,
+  numbers' units and the URL in IBM Plex Mono 500–600, uppercase for labels,
+  tracked 0.09em, 26–30 px. Big numbers in Archivo 800.
+- **Shapes:** square corners and hairline rules, as on the site. Footage sits
+  in frames with a 2 px ink or paper border and a solid offset shadow of
+  16 px in the accent blue (on light scenes) or in ink (on blue and dark
+  scenes). The phone frame is a plain rounded rectangle (radius 48 px) with a
+  thin border, no fake device details.
+- **Layout:** label at the top left, headline under it, footage in the middle,
+  caption band at the bottom. Keep all copy inside the central 80% of the
+  frame.
+- **Captions:** one lower band on a plate (ink at 85% on light scenes, paper
+  at 92% with ink text on dark and blue scenes), centred, never covering a
+  headline, a number or the footage's key content.
+- **Motion:** calm and precise. Ease-out `cubic-bezier(0.16, 1, 0.3, 1)` for
+  entrances, ease-in-out `cubic-bezier(0.65, 0, 0.35, 1)` for moves, 0.4–0.8 s.
+  Each scene enters with one clear move (a wipe, slide or reveal in the accent
+  colour), never a plain cut, and the elements inside it stagger in. No bounce,
+  spin or blur effects.
+
+## Checks
+
+`verify` must, within 240 s:
+
+- run `./hf lint` and `./hf check` and require both to pass;
+- check that `assets/SHA256SUMS` still matches;
+- check the caption windows against the sentence timings in your notes;
+- render a draft and check its size, frame rate and duration with `ffprobe`;
+- extract stills at the middle of each scene and of each spoken sentence into
+  `.agent/private/frames/`, combine them into one contact sheet, and list the
+  stills and the sheet as artifacts, so that a reviewer can compare the scenes
+  with the storyboard and the design system.
+
+The final task renders `renders/promo.mp4` at normal quality (outside
+`verify`'s time limit if needed, with the CLI's detached render) and checks it
+the same way.
