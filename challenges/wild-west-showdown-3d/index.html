@@ -42,7 +42,7 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 18 October 2026</span><span>22 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 25 October 2026</span><span>23 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
@@ -50,15 +50,15 @@
         <h1 class="display sheet__title">Wild West Showdown 3D</h1>
         <p class="lede">A staged, long-horizon challenge to build a complete browser game while preserving a plan and project state across fresh sessions. The game combines an explorable western town, touch controls, DRAW-based duels, progression and a final boss.</p>
         <div class="actions">
-          <a href="#runs">Compare 1 attempt <span aria-hidden="true">&darr;</span></a>
+          <a href="#runs">Compare 2 attempts <span aria-hidden="true">&darr;</span></a>
           <a href="../../prompts/wild-west-showdown-3d/">Task prompt <span aria-hidden="true">&rarr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">1 recorded attempt</p>
-          <h2 class="h-section" id="runs-title">Recorded attempt</h2>
+          <p class="label">2 recorded attempts</p>
+          <h2 class="h-section" id="runs-title">The builds, side by side</h2>
         </header>
         <div class="compare compare--attempts">
           <article class="compare__item">
@@ -80,13 +80,40 @@
             </div>
             <p class="asset-note"><a href="../../demos/wild-west-showdown-3d-tensorfold-native/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
           </article>
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/wild-west-showdown-3d-sushi-v124-tenaz-gameplay.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Wild West Showdown 3D duel at DRAW: the player&#x27;s cowboy from behind, the rival Cass Dryden across the street under the reticle, and the town&#x27;s saloon and mesas">
+              <figcaption>Wild West Showdown 3D · Sushi 1.2.4 + Tenaz build · duel at DRAW</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">20–25 October 2026</p>
+              <h3>Qwen 3.8 Flash Next</h3>
+              <p class="note">Sushi 1.2.4 (bf16 n-gram table) · fx 0.0.14 + Tenaz 0.1.0</p>
+            </header>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="compare__summary">COMPLETE after 104 h over 575 sessions with no manual work on the project: 126 project checks, and all seven rivals beaten in a real-timing playtest. In the boss duel the player&#x27;s own model hides the boss.</p>
+            <div class="actions compare__actions">
+              <a href="../../demos/wild-west-showdown-3d-sushi-v124-tenaz/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/wild-west-showdown-3d-sushi-v124-tenaz/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <p class="asset-note"><a href="../../demos/wild-west-showdown-3d-sushi-v124-tenaz/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
+          </article>
         </div>
       </section>
 
+      <section class="band" id="measured" aria-labelledby="measured-title">
+        <header class="band__head">
+          <p class="label">From the run records</p>
+          <h2 class="h-section" id="measured-title">Measured side by side</h2>
+        </header>
+        <div class="bars-grid"><figure class="bars"><figcaption class="label">Wall time</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/wild-west-showdown-3d-tensorfold-native/">TensorFold native (Zig) 1.0.4</a><span class="bars__track"><span class="bars__fill" style="width:31.2%"></span></span><span class="bars__value" title="Pi session start to final assistant response; includes tool execution and waiting.">1,891 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/wild-west-showdown-3d-sushi-v124-tenaz/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="From the preflight&#x27;s end (20 October 21:04:20 UTC) to the COMPLETE record (25 October 05:14:56 UTC), less three operator pauses (4 min 55 s) and the block (2 h 57 min 15 s).">6,068 min</span></li></ul></figure><figure class="bars"><figcaption class="label">Output tokens</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/wild-west-showdown-3d-tensorfold-native/">TensorFold native (Zig) 1.0.4</a><span class="bars__track"><span class="bars__fill" style="width:1.9%"></span></span><span class="bars__value" title="Pi output usage in the final manual completion session; includes reasoning tokens.">193 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/wild-west-showdown-3d-sushi-v124-tenaz/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Output tokens across matched requests; includes reasoning tokens.">10,125 k tokens</span></li></ul></figure><figure class="bars"><figcaption class="label">Tool calls</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/wild-west-showdown-3d-tensorfold-native/">TensorFold native (Zig) 1.0.4</a><span class="bars__track"><span class="bars__fill" style="width:1.5%"></span></span><span class="bars__value" title="Total Pi tool calls in the final manual completion session.">199 calls</span></li><li class="bars__row"><a class="bars__label" href="../../runs/wild-west-showdown-3d-sushi-v124-tenaz/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="fx tool calls across all sessions, each approved by the runner over ACP; 309 were repaired by Tenaz before reaching fx.">18,242 calls</span></li></ul></figure><figure class="bars"><figcaption class="label">Largest prompt</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/wild-west-showdown-3d-tensorfold-native/">TensorFold native (Zig) 1.0.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Largest Pi input plus cache-read count in the final manual completion session.">114 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/wild-west-showdown-3d-sushi-v124-tenaz/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:85.4%"></span></span><span class="bars__value" title="Largest engine-reported prompt among matched requests.">97.7 k tokens</span></li></ul></figure></div>
+        <p class="note">Each attempt used its own engine, harness version and settings, and some sessions include waiting or outages. Hover a value for its exact definition, and read the run sheets before drawing conclusions. Cloud wall time includes provider queueing; local decode speed is per request on this machine.</p>
+      </section>
 
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
-        <div class="disclosure__body"><p>This is a staged challenge: the requested project files preserve plans and state across fresh Pi sessions, while a deterministic runner is intended to sequence Architect, Builder, Reviewer and Fixer roles. The retained run did not complete that autonomous protocol. The runner stopped during M03 after two unsuccessful sessions; the user continued manually. The final Pi session reported 65/65 smoke checks, but the runner&#x27;s final review gate did not run. Session metrics are deliberately limited to the final manual completion session and are not pooled with earlier phases. No transcripts or private runner prompts are published.</p><ul>            <li>Maintain GAME_SPEC.md, PLAN.md, STATE.md, DECISIONS.md and REVIEW.md as the project source of truth.</li>
+        <div class="disclosure__body"><p>This is a staged challenge: the requested project files preserve plans and state across fresh sessions. The TensorFold attempt did not complete its runner&#x27;s autonomous protocol: the runner stopped during M03 after two unsuccessful sessions and the user continued manually, so its metrics cover only the final manual session. The Sushi attempt ran under Tenaz, which plans its own tasks and accepts each one only after its checks pass and a fresh reviewer agrees; it finished with no manual work on the project, but Tenaz was fixed four times during the run and the machine was shared, so its wall time is not representative. The two attempts differ in model, engine, harness and runner, and their wall-time figures measure different spans. No transcripts or private runner prompts are published.</p><ul>            <li>Maintain GAME_SPEC.md, PLAN.md, STATE.md, DECISIONS.md and REVIEW.md as the project source of truth.</li>
             <li>Build an explorable 3D western town with blocky characters and a responsive third-person camera.</li>
             <li>Support desktop controls and first-class iPad/tablet multi-touch controls.</li>
             <li>Implement fair DRAW-based duels, meaningful aiming, early-shot penalties and distinct opponents.</li>

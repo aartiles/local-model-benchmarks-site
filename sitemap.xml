@@ -88,6 +88,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/whiteout-protocol-tensorfold/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/wild-west-showdown-3d-sushi-v124-tenaz/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/wild-west-showdown-3d-tensorfold-native/</loc>
   </url>
   <url>
@@ -191,6 +194,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/whiteout-protocol-tensorfold/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/wild-west-showdown-3d-sushi-v124-tenaz/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/wild-west-showdown-3d-tensorfold-native/</loc>

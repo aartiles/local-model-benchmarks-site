@@ -1,0 +1,675 @@
+/* Shared UI layer. T002 sets the western palette and the start screen;
+   T011 (HUD), T015/T017 (touch) and T022 (defeat/victory) extend it. */
+
+:root {
+  --sand: #d8b98c;
+  --dust: #e8c98d;
+  --parchment: #ecd7ab;
+  --parchment-dark: #d9bd8b;
+  --leather: #33200f;
+  --leather-soft: #5b3a24;
+  --wood: #7a5230;
+  --amber: #c98a4b;
+  --sky: #7fb6dd;
+  --cream: #f3e3c4;
+  --blood: #8c2f22;
+  --ink: rgba(26, 20, 16, .45);
+  --font-display: "Rockwell", "Roboto Slab", ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #1a1410;
+  color: var(--cream);
+  font-family: var(--font-body);
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app { position: fixed; inset: 0; }
+#gl { display: block; width: 100%; height: 100%; touch-action: none; }
+
+#ui { position: absolute; inset: 0; pointer-events: none; }
+.layer { position: absolute; inset: 0; }
+
+/* --- overlays -------------------------------------------------------------
+   Opening is instant (the first painted frame must show the title); closing
+   fades, and pointer-events drop immediately so a hidden screen can never
+   swallow input meant for the game. */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  touch-action: none;
+  transition: opacity 260ms ease, visibility 0s linear 260ms;
+}
+
+.screen.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: none;
+}
+
+/* Painted dusk backdrop: no image assets, just gradients and clip-paths. */
+.screen-sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #2f6ea8 0%, #6ba6d2 34%, #c9b487 68%, var(--dust) 100%);
+}
+
+.sky-sun {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  width: 34vmin;
+  height: 34vmin;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 244, 214, .95) 0 28%, rgba(255, 214, 143, .55) 46%, rgba(255, 205, 130, 0) 72%);
+}
+
+.sky-mesa,
+.sky-ground { position: absolute; left: 0; right: 0; background: var(--leather-soft); }
+
+.sky-mesa-a {
+  bottom: 12%;
+  height: 26%;
+  opacity: .55;
+  clip-path: polygon(0 100%, 0 62%, 12% 40%, 26% 38%, 33% 66%, 52% 58%, 61% 30%, 74% 32%, 82% 62%, 100% 54%, 100% 100%);
+}
+
+.sky-mesa-b {
+  bottom: 8%;
+  height: 20%;
+  opacity: .8;
+  clip-path: polygon(0 100%, 0 70%, 18% 46%, 34% 48%, 44% 74%, 66% 62%, 78% 40%, 92% 44%, 100% 70%, 100% 100%);
+}
+
+.sky-ground {
+  bottom: 0;
+  height: 10%;
+  background: linear-gradient(180deg, #6b4526, #4a2f1b);
+}
+
+/* Wanted-poster panel. */
+.poster {
+  position: relative;
+  width: min(760px, 92vw);
+  max-height: 92vh;
+  padding: clamp(16px, 3.2vh, 30px) clamp(18px, 4vw, 40px) clamp(16px, 3vh, 26px);
+  overflow: auto;
+  text-align: center;
+  color: var(--leather);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 30%),
+    radial-gradient(120% 90% at 50% 0%, var(--parchment) 0 55%, var(--parchment-dark) 100%);
+  border: 3px solid var(--leather);
+  border-radius: 3px;
+  box-shadow: 0 18px 44px rgba(12, 8, 5, .55), inset 0 0 0 1px rgba(255, 255, 255, .35);
+  transform: rotate(-.5deg);
+}
+
+/* Transform only: the panel must be fully opaque on the first painted frame,
+   otherwise the title reads as a translucent wash over the sky. */
+.screen.is-open .poster { animation: poster-in 320ms ease-out both; }
+
+@keyframes poster-in {
+  from { transform: translateY(12px) scale(.985) rotate(-.5deg); }
+  to { transform: translateY(0) scale(1) rotate(-.5deg); }
+}
+
+.kicker {
+  margin: 0 0 .5em;
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.5vw, 14px);
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--leather-soft);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(30px, 6.2vw, 62px);
+  line-height: .98;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--leather);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 3px 0 var(--ink);
+}
+
+.title-3d {
+  display: inline-block;
+  margin-left: .3em;
+  padding: .14em .34em;
+  font-size: .3em;
+  vertical-align: .62em;
+  letter-spacing: .14em;
+  color: var(--parchment);
+  background: var(--blood);
+  border: 2px solid var(--leather);
+  border-radius: 3px;
+  transform: rotate(3deg);
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: min(320px, 70%);
+  height: 0;
+  margin: .5em auto 0;
+  border-top: 3px double var(--leather);
+  opacity: .7;
+}
+
+.tagline {
+  margin: .8em auto 0;
+  max-width: 46ch;
+  font-size: clamp(13px, 1.7vw, 17px);
+  line-height: 1.45;
+  color: var(--leather-soft);
+}
+
+.rules {
+  display: grid;
+  gap: .3em;
+  margin: clamp(12px, 2.4vh, 20px) auto 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: rule;
+  max-width: 52ch;
+  font-size: clamp(12px, 1.6vw, 16px);
+  line-height: 1.4;
+  text-align: left;
+}
+
+.rules li {
+  counter-increment: rule;
+  padding-left: 2.1em;
+  position: relative;
+}
+
+.rules li::before {
+  content: counter(rule, upper-roman) ".";
+  position: absolute;
+  left: 0;
+  font-family: var(--font-display);
+  color: var(--blood);
+}
+
+.rules strong { color: var(--blood); letter-spacing: .08em; }
+
+.hints {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 2vw, 20px);
+  margin: clamp(12px, 2.4vh, 20px) auto 0;
+  text-align: left;
+}
+
+.hint {
+  padding: 10px 12px;
+  background: rgba(51, 32, 15, .07);
+  border: 1px solid rgba(51, 32, 15, .28);
+  border-radius: 3px;
+}
+
+.hint h2 {
+  margin: 0 0 .4em;
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.3vw, 13px);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--wood);
+}
+
+.hint ul { margin: 0; padding-left: 1.1em; font-size: clamp(11px, 1.4vw, 14px); line-height: 1.5; }
+.hint li { margin: 0 0 .2em; }
+
+kbd {
+  display: inline-block;
+  padding: .05em .4em;
+  font: inherit;
+  font-weight: 700;
+  color: var(--parchment);
+  background: var(--leather);
+  border-radius: 3px;
+}
+
+/* pointer-events is inherited from .screen so a fading-out overlay cannot
+   swallow input meant for the game. */
+.btn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--leather);
+  background: linear-gradient(180deg, #f0c07f, var(--amber));
+  border: 3px solid var(--leather);
+  border-radius: 4px;
+  box-shadow: 0 4px 0 var(--leather), 0 10px 18px rgba(12, 8, 5, .35);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 90ms ease, box-shadow 90ms ease, filter 120ms ease;
+}
+
+.btn:hover { filter: brightness(1.06); }
+.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--leather), 0 4px 10px rgba(12, 8, 5, .3); }
+.btn:focus-visible { outline: 3px solid var(--blood); outline-offset: 3px; }
+
+.btn-start {
+  min-width: 220px;
+  min-height: 56px;
+  margin-top: clamp(14px, 2.8vh, 24px);
+  padding: 14px 44px;
+  font-size: clamp(18px, 2.4vw, 24px);
+}
+
+.fineprint {
+  margin: .9em 0 0;
+  font-size: clamp(10px, 1.2vw, 12px);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(51, 32, 15, .6);
+}
+
+/* --- HUD (T012: R49/R60/R61/R62) -----------------------------------------
+   All lines live in #hud and are non-interactive. Layout keeps the bottom-left
+   and bottom-right corners clear for T015's joystick and action button (R32):
+   the purse sits top-left, the duel UI top-centre, the prompt bottom-centre.
+   Visibility is opacity-driven, because T007/T008/T027 assert on computed
+   opacity. `.is-hidden` is declared after `.is-on` so it wins at equal
+   specificity — never add !important here. */
+
+.hud-panel,
+.hud-duel,
+.hud-prompt,
+.hud-duel-signal,
+.hud-duel-reason,
+.hud-reward,
+.hud-reticle { position: absolute; pointer-events: none; }
+
+/* The exploration purse (R60). */
+.hud-panel {
+  top: clamp(10px, 2.2vh, 22px);
+  left: clamp(10px, 1.8vw, 22px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px 11px;
+  background: linear-gradient(180deg, rgba(46, 31, 19, .82), rgba(30, 20, 13, .86));
+  border: 2px solid rgba(201, 138, 75, .55);
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(12, 8, 5, .35);
+  color: var(--parchment);
+  font-family: var(--font-body);
+  max-width: min(46vw, 420px);
+  opacity: 1;
+  transition: opacity 140ms linear;
+}
+.hud-stat {
+  font: 700 clamp(13px, 1.7vw, 18px)/1.15 var(--font-display);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.hud-stat-label { color: rgba(232, 201, 141, .62); font-weight: 600; }
+.hud-stat-value { color: var(--dust); }
+.hud-objective {
+  margin-top: 2px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(201, 138, 75, .3);
+  font: 500 clamp(11px, 1.35vw, 14px)/1.35 var(--font-body);
+  letter-spacing: .02em;
+  color: rgba(243, 227, 196, .88);
+}
+
+/* The duel banner (R61): opponent name + duel state, top-centre. */
+.hud-duel {
+  top: clamp(8px, 2vh, 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--parchment);
+  text-shadow: 0 2px 0 rgba(20, 12, 6, .85);
+  opacity: 1;
+  transition: opacity 140ms linear;
+}
+.hud-duel-name {
+  font: 800 clamp(16px, 2.6vw, 30px)/1.1 var(--font-display);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.hud-duel-state {
+  margin-top: 3px;
+  font: 700 clamp(11px, 1.5vw, 15px)/1.2 var(--font-body);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  white-space: nowrap;
+}
+
+/* R39/R61: the READY.../DRAW! cue. */
+.hud-duel-signal {
+  left: 50%;
+  top: 26%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #f7e3b8;
+  text-shadow: 0 2px 0 rgba(20, 12, 6, .85);
+  font: 800 clamp(28px, 6vw, 64px)/1.1 var(--font-display);
+  letter-spacing: .12em;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 90ms linear;
+}
+
+/* R40/R48: why the duel ended, or the boss's introduction line.
+ * REVIEW V1: this used to be `white-space: nowrap` with no width bound, so
+ * shrink-to-fit gave the box the WHOLE line (1168px = 91% of a 1280px viewport)
+ * and the red text ran edge-to-edge into the purse panel. It is now a bounded,
+ * centred caption plate: max-width keeps it inside 56vw (the card's limit is
+ * 60%), wrapping is allowed so a long line reads as dialogue, and the plate is
+ * anchored by its own top edge so it can never reach the top-left panel.
+ * Layout only — the wording is duel.js's and boss.js's, unchanged. */
+.hud-duel-reason {
+  left: 50%;
+  top: 42%;
+  width: max-content;
+  max-width: min(56vw, 640px);
+  transform: translateX(-50%);
+  padding: .3rem 1rem .4rem;
+  border: 1px solid rgba(201, 138, 75, .38);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(38, 24, 15, .62), rgba(24, 15, 10, .7));
+  box-shadow: 0 6px 16px rgba(12, 8, 5, .35);
+  text-align: center;
+  color: #ff6b52;
+  text-shadow: 0 2px 0 rgba(20, 12, 6, .9);
+  font: 900 clamp(18px, 3.4vw, 40px)/1.15 var(--font-display);
+  letter-spacing: .12em;
+  white-space: normal;
+  overflow-wrap: break-word;
+  opacity: 0;
+  transition: opacity 90ms linear;
+}
+
+/* R49: the payout line, straight under the result so the two read together. */
+.hud-reward {
+  left: 50%;
+  top: 54%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #ffd97a;
+  text-shadow: 0 2px 0 rgba(20, 12, 6, .9), 0 0 14px rgba(255, 190, 90, .35);
+  font: 800 clamp(17px, 3vw, 32px)/1.15 var(--font-display);
+  letter-spacing: .1em;
+  white-space: pre;
+  opacity: 0;
+  /* No fade: the payout must be readable in the same tick the winning shot
+     lands (T012.reward-shown reads computed opacity right after requestShot). */
+  transition: none;
+}
+
+/* R37/R62: the challenge prompt, bottom-centre, clear of the touch zones (R32). */
+.hud-prompt {
+  left: 50%;
+  bottom: 18%;
+  transform: translateX(-50%);
+  padding: .5rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(28, 20, 14, .72);
+  color: #f2d9a8;
+  font: 600 clamp(14px, 2.2vw, 20px)/1.2 var(--font-body);
+  letter-spacing: .04em;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 120ms linear;
+}
+
+/* R46: the reticle. Dead centre, thin, unobtrusive; T016 owns what it aims. */
+.hud-reticle {
+  left: 50%;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  transform: translate(-50%, -50%);
+  opacity: .85;
+  transition: opacity 120ms linear;
+}
+.hud-reticle::before,
+.hud-reticle::after {
+  content: "";
+  position: absolute;
+  background: rgba(247, 227, 184, .85);
+  box-shadow: 0 0 3px rgba(20, 12, 6, .8);
+}
+.hud-reticle::before { left: 50%; top: 0; width: 2px; height: 100%; transform: translateX(-50%); }
+.hud-reticle::after { top: 50%; left: 0; height: 2px; width: 100%; transform: translateY(-50%); }
+.reticle-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: var(--blood);
+}
+
+/* On/off, in the order that makes .is-hidden the last word. */
+.hud-prompt.is-on,
+.hud-duel-signal.is-on,
+.hud-duel-reason.is-on,
+.hud-reward.is-on { opacity: 1; }
+
+.hud-panel.is-hidden,
+.hud-duel.is-hidden,
+.hud-reticle.is-hidden,
+.hud-prompt.is-hidden { opacity: 0; }
+
+/* T031 (REVIEW V4/R60): the completion poster owns the screen, so every line in
+   the layer steps aside — including the rows nested inside the panel and the
+   duel card, which carry their own opacity. The layer itself stays lit. */
+#hud.is-suppressed [data-role] { opacity: 0; }
+
+/* --- touch controls (T015: R28/R29/R30/R32) --------------------------------
+   Only #touch.is-active makes these hit-testable, and touch.js sets that class
+   only when `(pointer: coarse) and (hover: none)` matches — a finger is the
+   primary pointer. A desktop, and any laptop that merely also has a touchscreen,
+   keeps a clickable canvas and an uncluttered screen. Layout keeps the
+   bottom-left and bottom-right corners for the stick and the trigger, and the
+   camera pad stops above the bottom band so it never covers the purse (top-left)
+   or the challenge prompt (bottom-centre) — R32. `--touch-band` is the height of
+   that band; the pad's bottom edge is the only place it is used. */
+
+#touch { --touch-band: 208px; }
+
+.touch-control {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  transition: opacity 140ms linear;
+}
+#touch * { touch-action: none; -webkit-user-select: none; user-select: none; }
+#touch.is-active .touch-control { opacity: 1; pointer-events: auto; }
+/* Children are decoration: a finger always hits the control, never its label. */
+#touch .touch-control > * { pointer-events: none; }
+/* While a mouse pointer is the one in use, the invisible camera pad must not
+   claim it: the canvas underneath owns mouse aim and mouse-shoot (T016/T017a).
+   Same specificity as the rule above and later in the sheet, so it wins. */
+#touch.is-mouse .touch-camera { pointer-events: none; }
+
+/* The camera drag area: a clear right-side region, invisible, no visual weight.
+   It is deliberately transparent — R32 is about the HUD not being hidden by the
+   controls a player reads through, and this one paints nothing. */
+.touch-camera {
+  left: 46%;
+  right: 0;
+  top: 0;
+  bottom: var(--touch-band);
+  background: none;
+  border: 0;
+}
+
+/* Left virtual movement stick. */
+.touch-stick {
+  left: max(16px, env(safe-area-inset-left));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(28, 20, 14, .5), rgba(28, 20, 14, .28) 70%, rgba(28, 20, 14, 0) 100%);
+  border: 2px solid rgba(201, 138, 75, .5);
+  box-shadow: inset 0 2px 10px rgba(12, 8, 5, .45);
+}
+.touch-knob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 62px;
+  height: 62px;
+  margin: -31px 0 0 -31px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(232, 201, 141, .95), rgba(160, 106, 52, .95));
+  border: 2px solid rgba(46, 31, 19, .7);
+  box-shadow: 0 4px 10px rgba(12, 8, 5, .5);
+  opacity: 1;
+  pointer-events: none;
+  touch-action: none;
+}
+
+/* One large context-sensitive action / shoot button. */
+.touch-action {
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font: 800 clamp(13px, 1.7vw, 17px)/1 var(--font-display);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #2b1a0d;
+  background: radial-gradient(circle at 50% 35%, #f0cf8d, #c98a4b 62%, #8a5326 100%);
+  border: 3px solid rgba(46, 31, 19, .65);
+  box-shadow: 0 6px 16px rgba(12, 8, 5, .45);
+  cursor: pointer;
+}
+.touch-action-label { display: block; text-align: center; max-width: 96px; overflow: hidden; }
+.touch-action.is-wait {
+  color: rgba(243, 227, 196, .55);
+  background: radial-gradient(circle at 50% 35%, rgba(70, 52, 36, .8), rgba(40, 28, 18, .8) 70%);
+}
+
+/* The interaction control, offered only when an interaction is available. */
+.touch-interact {
+  right: 150px;
+  bottom: max(30px, env(safe-area-inset-bottom));
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font: 800 13px/1 var(--font-display);
+  letter-spacing: .1em;
+  color: #f2d9a8;
+  background: rgba(28, 20, 14, .72);
+  border: 2px solid rgba(201, 138, 75, .6);
+  opacity: 0;
+  cursor: pointer;
+}
+#touch.is-active .touch-control.touch-interact:not(.is-on) { opacity: 0; pointer-events: none; }
+#touch.is-active .touch-interact.is-on { opacity: 1; }
+
+/* Touch-only way in and out of the pause screen (R24/R28). */
+.touch-pause {
+  right: max(14px, env(safe-area-inset-right));
+  top: max(14px, env(safe-area-inset-top));
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font: 800 14px/1 var(--font-display);
+  color: #f2d9a8;
+  background: rgba(28, 20, 14, .66);
+  border: 2px solid rgba(201, 138, 75, .5);
+  cursor: pointer;
+}
+
+@media (max-height: 480px) {
+  #touch { --touch-band: 150px; }
+  .touch-stick { width: 112px; height: 112px; }
+  .touch-knob { width: 48px; height: 48px; margin: -24px 0 0 -24px; }
+  .touch-action { width: 92px; height: 92px; }
+  .touch-interact { width: 60px; height: 60px; right: 122px; }
+}
+
+/* --- layout guards -------------------------------------------------------- */
+@media (max-width: 620px) {
+  .hints { grid-template-columns: 1fr; }
+}
+
+@media (max-height: 560px) {
+  .kicker, .fineprint { display: none; }
+  .poster { padding: 10px 14px; }
+  .title { font-size: clamp(28px, 5.4vh, 34px); }
+  .title::after { margin-top: .35em; }
+  .tagline { margin-top: .45em; font-size: 12px; }
+  .rules, .hints { margin-top: 8px; }
+  .rules { font-size: 11.5px; gap: .12em; }
+  .hint { padding: 6px 9px; }
+  .hint h2 { font-size: 10px; margin-bottom: .25em; }
+  .hint ul { font-size: 11px; line-height: 1.35; }
+  .btn-start { min-height: 46px; margin-top: 10px; padding: 8px 30px; font-size: 17px; }
+}
+
+@media (max-height: 420px) {
+  .tagline { display: none; }
+  .rules { font-size: 11px; }
+  .hint ul { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen.is-open .poster { animation: none; }
+  .btn { transition: none; }
+}
+
+/* T014a: general-store rows (R51) */
+.store-items { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 8px; }
+.store-item { display: grid; grid-template-columns: 1fr auto auto auto; gap: 10px; align-items: center; text-align: left; }
+
+/* T022a (R58): the completion screen's ledger — label left, number right. */
+.victory-stats { list-style: none; margin: 14px 0; padding: 0; display: grid; gap: 6px; }
+.victory-stat { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline;
+  text-align: left; border-bottom: 1px dashed rgba(120, 82, 45, .35); padding-bottom: 5px; }
+.victory-label { font-size: .95rem; opacity: .82; }
+.victory-value { font-variant-numeric: tabular-nums; font-weight: 700; letter-spacing: .04em; }
+.store-name { font-weight: 700; }
+.store-price { font-variant-numeric: tabular-nums; }
+.store-desc { grid-column: 1 / -1; font-size: .8em; opacity: .75; }
+.store-note { min-height: 1.2em; font-weight: 700; }
