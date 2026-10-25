@@ -42,7 +42,7 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 25 October 2026</span><span>23 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 25 October 2026</span><span>27 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
@@ -50,14 +50,14 @@
         <h1 class="display sheet__title">Digger 3D</h1>
         <p class="lede">A one-shot coding challenge to build a playable Digger-inspired game with deterministic grid movement and excavation, collectibles, enemies, and multi-level progression in an isometric Three.js scene.</p>
         <div class="actions">
-          <a href="#runs">Compare 2 attempts <span aria-hidden="true">&darr;</span></a>
+          <a href="#runs">Compare 5 attempts <span aria-hidden="true">&darr;</span></a>
           <a href="../../prompts/digger-3d/">Task prompt <span aria-hidden="true">&rarr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">2 recorded attempts</p>
+          <p class="label">5 recorded attempts</p>
           <h2 class="h-section" id="runs-title">The builds, side by side</h2>
         </header>
         <div class="compare compare--attempts">
@@ -99,6 +99,58 @@
             </div>
             <p class="asset-note"><a href="../../demos/digger-3d-gpt-6-luna-codex/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
           </article>
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/digger-3d-sushi-v124-gameplay.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Digger 3D on level one: a bright isometric dirt board with dug tunnels, glowing emeralds, gold bags, the digger meeting a pink Nobbin and the red spawn portal">
+              <figcaption>Digger 3D · Qwen 3.8 Flash Next + Sushi 1.2.4 · gameplay capture</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">25 October 2026</p>
+              <h3>Qwen 3.8 Flash Next</h3>
+              <p class="note">Sushi 1.2.4 · Pi coding agent</p>
+            </header>
+            <div class="record-tag"><span class="mark">Local run</span></div>
+            <p class="compare__summary">An equal-conditions rerun with the same 16,384-token output limit as the Splash attempts. Complete and playable: 28 of 28 self-tests, all five levels valid, visible excavation and enemies, and a presentation the operator judged more polished than the first Sushi build.</p>
+            <div class="actions compare__actions">
+              <a href="../../demos/digger-3d-sushi-v124/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/digger-3d-sushi-v124/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <p class="asset-note"><a href="../../demos/digger-3d-sushi-v124/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
+          </article>
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/digger-3d-splash-v140-q2-64k-gameplay.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Digger 3D Splash build on level one: a very dark board where the visible blocks are the tunnels, with the digger and two emeralds; enemies are hidden inside the blocks">
+              <figcaption>Digger 3D · Qwen 3.8 Flash Next Q2_0 + Splash 1.4.0 (64K output) · gameplay capture</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">25 October 2026</p>
+              <h3>Qwen 3.8 Flash Next GSQ-RCO Q2_0</h3>
+              <p class="note">Splash 1.4.0 · Pi coding agent · 64K output limit</p>
+            </header>
+            <div class="record-tag"><span class="mark">Local run</span></div>
+            <p class="compare__summary">Needed a 65,536-token output limit to finish. The simulation plays and passes 28 of 28 self-tests, but the board renders inverted: dirt is invisible, digging shows no change and enemies are hidden inside blocks. Published with these defects.</p>
+            <div class="actions compare__actions">
+              <a href="../../demos/digger-3d-splash-v140-q2-64k/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/digger-3d-splash-v140-q2-64k/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <p class="asset-note"><a href="../../demos/digger-3d-splash-v140-q2-64k/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
+          </article>
+          <article class="compare__item">
+
+            <header class="compare__head">
+              <p class="label">25 October 2026</p>
+              <h3>Qwen 3.8 Flash Next GSQ-RCO Q2_0</h3>
+              <p class="note">Splash 1.4.0 · Pi coding agent · 16K output limit</p>
+            </header>
+            <div class="record-tag"><span class="mark">Local run</span></div>
+            <p class="compare__summary">Three attempts at the Sushi settings, none usable. Run 1 wrote a project that never loads its game script; runs 2 and 3 reached the output limit inside one planning turn and wrote no code. No build is published.</p>
+            <div class="actions compare__actions">
+
+              <a class="action--quiet" href="../../runs/digger-3d-splash-v140-q2-run1/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -107,7 +159,7 @@
           <p class="label">From the run records</p>
           <h2 class="h-section" id="measured-title">Measured side by side</h2>
         </header>
-        <div class="bars-grid"><figure class="bars"><figcaption class="label">Wall time</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d/">Sushi 1.1.0</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="first instruction to final response">118 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-gpt-6-luna-codex/">GPT-6 Luna</a><span class="bars__track"><span class="bars__fill bars__fill--cloud" style="width:68.2%"></span></span><span class="bars__value" title="user request received to Codex task completion; includes reasoning, tool calls, and waiting">80.4 min</span></li></ul></figure><figure class="bars"><figcaption class="label">Output tokens</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d/">Sushi 1.1.0</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="total">194 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-gpt-6-luna-codex/">GPT-6 Luna</a><span class="bars__track"><span class="bars__fill bars__fill--cloud" style="width:50.5%"></span></span><span class="bars__value" title="cumulative model output across calls; includes reasoning output">98.0 k tokens</span></li></ul></figure></div>
+        <div class="bars-grid"><figure class="bars"><figcaption class="label">Wall time</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d/">Sushi 1.1.0</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="first instruction to final response">118 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-gpt-6-luna-codex/">GPT-6 Luna</a><span class="bars__track"><span class="bars__fill bars__fill--cloud" style="width:68.2%"></span></span><span class="bars__value" title="user request received to Codex task completion; includes reasoning, tool calls, and waiting">80.4 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:54.9%"></span></span><span class="bars__value" title="Pi session start to final assistant response; includes coding, tools and waiting">64.7 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-64k/">Splash 1.4.0 · 64K output</a><span class="bars__track"><span class="bars__fill" style="width:46.8%"></span></span><span class="bars__value" title="Pi session start to final assistant response; includes coding, tools and waiting">55.1 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-run1/">Splash 1.4.0 · run 1</a><span class="bars__track"><span class="bars__fill" style="width:26.8%"></span></span><span class="bars__value" title="Pi session start to final assistant response; includes coding, tools and waiting">31.6 min</span></li></ul></figure><figure class="bars"><figcaption class="label">Output tokens</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d/">Sushi 1.1.0</a><span class="bars__track"><span class="bars__fill" style="width:94.2%"></span></span><span class="bars__value" title="total">194 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-gpt-6-luna-codex/">GPT-6 Luna</a><span class="bars__track"><span class="bars__fill bars__fill--cloud" style="width:47.6%"></span></span><span class="bars__value" title="cumulative model output across calls; includes reasoning output">98.0 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:66.0%"></span></span><span class="bars__value" title="Sum of Pi output counters across successful assistant responses">136 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-64k/">Splash 1.4.0 · 64K output</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Sum of Pi output counters across successful assistant responses">206 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-run1/">Splash 1.4.0 · run 1</a><span class="bars__track"><span class="bars__fill" style="width:66.6%"></span></span><span class="bars__value" title="Sum of Pi output counters across successful assistant responses">137 k tokens</span></li></ul></figure><figure class="bars"><figcaption class="label">Tool calls</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d/">Sushi 1.1.0</a><span class="bars__track"><span class="bars__fill" style="width:92.4%"></span></span><span class="bars__value" title="total">171 calls</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:43.8%"></span></span><span class="bars__value" title="Tool results recorded in the Pi session">81.0 calls</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-64k/">Splash 1.4.0 · 64K output</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Tool results recorded in the Pi session">185 calls</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-run1/">Splash 1.4.0 · run 1</a><span class="bars__track"><span class="bars__fill" style="width:50.8%"></span></span><span class="bars__value" title="Tool results recorded in the Pi session">94.0 calls</span></li></ul></figure><figure class="bars"><figcaption class="label">Decode speed</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d/">Sushi 1.1.0</a><span class="bars__track"><span class="bars__fill" style="width:42.9%"></span></span><span class="bars__value" title="total output tokens / summed per-request decode time">36.0 tok/s</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:47.8%"></span></span><span class="bars__value" title="Total matched output tokens / sum of per-request output tokens divided by reported decode rate">40.0 tok/s</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-64k/">Splash 1.4.0 · 64K output</a><span class="bars__track"><span class="bars__fill" style="width:90.9%"></span></span><span class="bars__value" title="Total matched output tokens / sum of per-request output tokens divided by reported decode rate; rates rounded to 0.1 tokens/s">76.2 tok/s</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-run1/">Splash 1.4.0 · run 1</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Total matched output tokens / sum of per-request output tokens divided by reported decode rate; rates rounded to 0.1 tokens/s">83.8 tok/s</span></li></ul></figure><figure class="bars"><figcaption class="label">Largest prompt</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d/">Sushi 1.1.0</a><span class="bars__track"><span class="bars__fill" style="width:98.6%"></span></span><span class="bars__value" title="maximum">113 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-sushi-v124/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:99.8%"></span></span><span class="bars__value" title="Maximum Pi input plus cacheRead tokens in one assistant request">115 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-64k/">Splash 1.4.0 · 64K output</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Maximum Pi input plus cacheRead tokens in one assistant request">115 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/digger-3d-splash-v140-q2-run1/">Splash 1.4.0 · run 1</a><span class="bars__track"><span class="bars__fill" style="width:99.6%"></span></span><span class="bars__value" title="Maximum Pi input plus cacheRead tokens in one assistant request">114 k tokens</span></li></ul></figure></div>
         <p class="note">Each attempt used its own engine, harness version and settings, and some sessions include waiting or outages. Hover a value for its exact definition, and read the run sheets before drawing conclusions. Cloud wall time includes provider queueing; local decode speed is per request on this machine.</p>
       </section>
 

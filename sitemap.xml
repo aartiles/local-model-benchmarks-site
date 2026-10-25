@@ -52,6 +52,12 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d-gpt-6-luna-codex/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d-splash-v140-q2-64k/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d-sushi-v124/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-arcade/</loc>
   </url>
   <url>
@@ -86,9 +92,6 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/whiteout-protocol-tensorfold/</loc>
-  </url>
-  <url>
-    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/wild-west-showdown-3d-sushi-v124-tenaz/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/wild-west-showdown-3d-tensorfold-native/</loc>
@@ -148,6 +151,21 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-gpt-6-luna-codex/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-splash-v140-q2-64k/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-splash-v140-q2-run1/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-splash-v140-q2-run2/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-splash-v140-q2-run3/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-sushi-v124/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-arcade/</loc>
   </url>
   <url>
@@ -194,9 +212,6 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/whiteout-protocol-tensorfold/</loc>
-  </url>
-  <url>
-    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/wild-west-showdown-3d-sushi-v124-tenaz/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/wild-west-showdown-3d-tensorfold-native/</loc>
