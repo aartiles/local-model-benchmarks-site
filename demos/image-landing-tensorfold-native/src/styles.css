@@ -1,0 +1,232 @@
+/* Fernwell — system fonts only, no web fonts, no CDN.
+   Palette sampled from the generated images (warm, not cool):
+   pale ceramic, soft daylight, warm oak, olive greens. */
+
+:root {
+  --green: #5c6e3e;        /* olive green, from the herbs */
+  --green-deep: #33402a;   /* deep warm green: footer, story base */
+  --oak: #b89878;          /* warm oak, sampled straight from the images */
+  --oak-deep: #96714f;     /* darker oak for hover */
+  --ceramic: #ece4d4;      /* pale warm ceramic */
+  --daylight: #f6f2e8;     /* soft warm daylight */
+  --ink: #2e2b22;          /* warm near-black for text */
+  --ink-soft: #6b6353;     /* warm muted brown for secondary text */
+  --overlay: rgba(30, 26, 16, 0.58);
+  --radius: 16px;
+  --maxw: 1160px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--daylight);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { line-height: 1.12; margin: 0 0 0.5em; font-weight: 700; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.3rem, 5.6vw, 4rem); }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 1em; }
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 28px;
+  background: var(--ceramic);
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  color: var(--green-deep);
+  text-decoration: none;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-small { padding: 9px 18px; font-size: 0.9rem; }
+.btn-primary { background: var(--green); color: #fff; }
+.btn-primary:hover { background: var(--green-deep); }
+.btn:focus-visible { outline: 3px solid var(--oak); outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  .btn:hover { transform: translateY(-1px); }
+}
+
+/* Hero — text over the image, readable at every width */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-end;
+}
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(30, 26, 16, 0.08) 0%,
+    rgba(30, 26, 16, 0.34) 45%,
+    rgba(30, 26, 16, 0.74) 100%);
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  max-width: 660px;
+  padding: 56px 28px 72px;
+}
+.hero-copy h1 { color: #fff; }
+.hero-copy .hero-promise { font-size: 1.15rem; max-width: 560px; }
+.hero-copy .hero-support { color: rgba(255, 255, 255, 0.85); max-width: 520px; }
+.hero-copy .btn-primary { background: var(--oak); }
+.hero-copy .btn-primary:hover { background: var(--oak-deep); }
+
+/* Feature cards */
+.features { padding: 104px 0; background: var(--ceramic); }
+.features h2 { text-align: center; }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin-top: 56px;
+}
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 3px 18px rgba(51, 64, 42, 0.10);
+}
+.card-media {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #e6ddcb;
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-body { padding: 26px 28px 32px; }
+.card-body p { color: var(--ink-soft); margin: 0; }
+
+/* Full-width background section */
+.story {
+  position: relative;
+  background: var(--green-deep) url("../assets/background.png") center / cover no-repeat;
+}
+.story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+}
+.story .container {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  padding-top: 128px;
+  padding-bottom: 128px;
+}
+.story blockquote { margin: 0; }
+.story blockquote p {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.7vw, 2rem);
+  line-height: 1.4;
+  max-width: 760px;
+}
+
+/* Closing call to action */
+.order { padding: 112px 28px; text-align: center; background: var(--daylight); }
+.order-image {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+  margin: 0 auto 34px;
+}
+.order p { max-width: 580px; margin: 0 auto 1.6em; color: var(--ink-soft); }
+
+/* Footer */
+.site-footer {
+  background: var(--green-deep);
+  color: #e9e4d6;
+  padding: 52px 28px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.site-footer p { margin: 0 0 0.5em; }
+.footer-brand { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; }
+.small-print { font-size: 0.8rem; opacity: 0.75; }
+
+/* Reveal motion — only when JS is present, off under reduced motion */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+html.js .reveal.is-visible { opacity: 1; transform: none; }
+/* gentle stagger for the three cards */
+html.js .card-grid .card:nth-child(2) { transition-delay: 0.1s; }
+html.js .card-grid .card:nth-child(3) { transition-delay: 0.2s; }
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+  html.js .card-grid .card { transition-delay: 0s; }
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-grid .card:last-child { grid-column: 1 / -1; max-width: 520px; margin-inline: auto; }
+}
+
+/* 390 px phone — designed, not squeezed */
+@media (max-width: 620px) {
+  .container { padding: 0 20px; }
+  .site-header { padding: 14px 20px; }
+  .card-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 40px; }
+  .card-grid .card:last-child { grid-column: auto; max-width: none; }
+  .hero { min-height: 82vh; }
+  .hero-copy { padding: 40px 20px 56px; }
+  .hero-copy .hero-promise, .hero-copy .hero-support { max-width: none; }
+  .features { padding: 72px 0; }
+  .story .container { padding-top: 88px; padding-bottom: 88px; }
+  .order { padding: 80px 20px; }
+  .order-image { width: 200px; height: 200px; }
+  .site-footer { padding: 44px 20px; }
+}

@@ -1,0 +1,156 @@
+# Image Landing
+
+Build the landing page described in the challenge below, and make every
+image on it yourself with the `generate_image` tool. The challenge text, from
+"Build a polished one-page landing site" to the end, is the exact benchmark
+prompt and every requirement in it is in scope. A copy is in `CHALLENGE.md`
+at the project root; do not edit it.
+
+## Platform
+
+- **Offline.** There is no network and nobody will answer questions. Every
+  decision inside these rules is yours.
+- **No build step.** The page is plain static files: `index.html` at the
+  project root, CSS and JavaScript under `src/`, images under `assets/`. It
+  must work with `python3 -m http.server 8080` from the project root and
+  opening `http://127.0.0.1:8080/`. Use no CDN, no web font, no remote URL
+  and no package that is not already installed.
+- **Headless browser for checks.** `playwright-core` is installed in
+  `node_modules/` (Node 24). There is no bundled browser: launch the system
+  Chrome with `chromium.launch({ channel: 'chrome', headless: true })`. Use
+  it to load the page, read the console, measure the layout and take
+  screenshots. Keep the checks fast (well under two minutes in total) and
+  start and stop any server they need themselves.
+- **Do not change** `CHALLENGE.md`, `package.json` dependencies or
+  `node_modules/`.
+
+## Images
+
+- **Only `generate_image`.** Every image file on the page comes from a
+  `generate_image` call and is copied, unchanged, from the path the call
+  returns into `assets/`. Nothing downloaded, no SVG, no `<canvas>` drawing,
+  no `data:` URI and no CSS gradient, pattern or emoji standing in for an
+  image, and no placeholder files. CSS overlays on top of a generated image
+  (for example a dark gradient to make text readable) are fine.
+- **At most 8 `generate_image` calls for the whole project**, retries
+  included. Plan the prompts before the first call.
+- **Fixed slots, sizes and seeds.** Use exactly these, so repeated runs are
+  comparable. A retry keeps the slot's seed and size and changes only the
+  prompt.
+
+  | Slot | File | Size | Seed |
+  |---|---|---|---|
+  | Hero | `assets/hero.png` | 1536×864 | 101 |
+  | Feature card 1 | `assets/feature-1.png` | 768×768 | 201 |
+  | Feature card 2 | `assets/feature-2.png` | 768×768 | 202 |
+  | Feature card 3 | `assets/feature-3.png` | 768×768 | 203 |
+  | Background section | `assets/background.png` | 1536×640 | 301 |
+  | Optional sixth image | `assets/extra.png` | 768×768 | 401 |
+
+- **No text in the images.** Ask for no letters, words, logos or
+  watermarks (`negative_prompt` helps). All text on the page is HTML.
+- **One visual family.** The images should look like one product shoot:
+  the same product design, palette and lighting in every slot.
+- **Keep `assets/manifest.json`** current. It lists every `generate_image`
+  call in order, including the ones whose result you did not use:
+  `{"calls": [{"n", "slot", "prompt", "negative_prompt", "seed", "width",
+  "height", "returned": [paths], "used_as": "assets/<file>" | null}]}`.
+
+## Checks `verify` must run
+
+Besides your own tests, `verify` must check:
+
+- Every file in `assets/` other than `manifest.json` is a valid PNG or JPEG
+  (no WebP) whose pixel size equals its slot's size, and no two files have
+  the same SHA-256.
+- Every image is not flat: drawn into a canvas in the headless browser, the
+  standard deviation of its luminance is above 12 (on 0–255).
+- Every asset's SHA-256 equals that of the `returned` path that
+  `manifest.json` names for it. When that path no longer exists (the project
+  was copied elsewhere), this one check reports skipped, not passed.
+- `manifest.json` has at most 8 calls, and each used call's seed and size
+  match its slot.
+- `index.html` references every image in `assets/`, and nothing else in
+  `assets/` is unused.
+- In Chrome at 1440×900 and at 390×844: no console errors or failed
+  requests, every request goes to the local server, every `<img>` has
+  `complete` and `naturalWidth > 0` after scrolling it into view, the
+  background section's computed `background-image` loads its asset, and at
+  390 px `document.documentElement.scrollWidth <= innerWidth`.
+
+The quality of the images and the page is judged by a person afterwards, not
+by `verify`.
+
+## Done means
+
+The page loads on a desktop browser and on a phone with no console errors,
+every image shows, the page reads as one coherent product site, and the files
+`PLAN.md`, `STATE.md` and `DECISIONS.md` exist and reflect the finished
+project.
+
+---
+
+# Fernwell landing page
+
+Build a polished one-page landing site for **Fernwell**, a fictional
+countertop herb garden. Fernwell is a small, quiet indoor planter for the
+kitchen: a pale ceramic body, a slim oak lamp arm with a warm grow light, and
+six pods where basil, mint, parsley, thyme, chives and coriander grow without
+soil. It waters itself from a hidden tank and needs refilling about once
+every three weeks.
+
+The site should make a person want one. It should look like the work of a
+small design studio, not a template.
+
+## Sections
+
+1. **Hero.** A large photograph of Fernwell on a kitchen counter, with the
+   product name, a one-line promise, a short supporting sentence and a
+   primary call to action ("Pre-order — €129"). The text must stay readable
+   over the image at every width.
+2. **Three feature cards.** One image per card, each showing a different
+   real benefit (for example: herbs ready to pick, the self-watering tank,
+   the grow light at night). Each card has a short title and two or three
+   sentences.
+3. **A full-width section with a background image** (for example, a
+   harvest scene or herbs in a finished dish) and a short paragraph or quote
+   over it, readable on top of the image.
+4. **A closing call to action and a footer** with the product name, a
+   fictional contact line and small print. No social-media icons.
+
+An optional sixth image may support any section where it genuinely helps.
+
+## Copy
+
+Write all the copy yourself, in English. Keep it specific and concrete: say
+what Fernwell does and what it is like to live with, not generic marketing
+phrases. Prices, numbers and claims must agree everywhere on the page.
+
+## Design
+
+- One clear typographic hierarchy with system fonts only.
+- A palette drawn from the images: greens, warm oak, pale ceramic, soft
+  daylight.
+- Generous spacing and a layout that is designed for both a wide desktop
+  window and a 390 px phone, not merely squeezed.
+- Images keep their aspect ratio and are never stretched; crops are chosen
+  on purpose.
+- Every `<img>` has a meaningful `alt` text.
+- Buttons and links are real elements and work with the keyboard. The call
+  to action can scroll to the closing section.
+- Motion, if any, is subtle and respects `prefers-reduced-motion`.
+
+## Project workflow
+
+Before building, write `PLAN.md` with the steps you will take, including the
+prompt you intend to give each image. Keep `STATE.md` short and current:
+what works, what is left, known problems. Record decisions a later session
+would otherwise rediscover in `DECISIONS.md`, including why you kept or
+retried each image.
+
+## Definition of done
+
+The page is finished when a person opening it on a laptop or a phone sees a
+coherent, attractive product site in which every image is a real generated
+photograph that fits its section, all text is readable, nothing overflows,
+and the console is clean.

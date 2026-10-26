@@ -19,6 +19,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/hyperframes-promo/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/image-landing/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/</loc>
   </url>
   <url>
@@ -73,6 +76,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/hyperframes-promo-sushi-v124/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/image-landing-tensorfold-native/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/</loc>
   </url>
   <url>
@@ -122,6 +128,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/hyperframes-promo/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/image-landing/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/</loc>
@@ -187,6 +196,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/hyperframes-promo-tensorfold-native/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/image-landing-tensorfold-native/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/</loc>
   </url>
   <url>
@@ -203,6 +215,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pagoda-garden/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-ledger-sushi-v124-smr/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-ledger-tensorfold-native/</loc>

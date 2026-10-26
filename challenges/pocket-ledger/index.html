@@ -42,23 +42,23 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 25 October 2026</span><span>28 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 26 October 2026</span><span>30 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
         <p class="label">Workload &middot; Task-loop orchestrator · command-line app &middot; Revision 1</p>
         <h1 class="display sheet__title">Pocket Ledger</h1>
-        <p class="lede">A long brief for the task-loop orchestrator: a dependency-free Node.js personal finance tracker. The model plans its own tasks, and fresh Pi sessions build, review and verify them one at a time with no human input.</p>
+        <p class="lede">A long brief for a task-loop orchestrator: a dependency-free Node.js personal finance tracker. The model plans its own tasks, and fresh agent sessions build, review and verify them one at a time with no human input.</p>
         <div class="actions">
-          <a href="#runs">Compare 1 attempt <span aria-hidden="true">&darr;</span></a>
+          <a href="#runs">Compare 2 attempts <span aria-hidden="true">&darr;</span></a>
           <a href="../../prompts/pocket-ledger/">Task prompt <span aria-hidden="true">&rarr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">1 recorded attempt</p>
-          <h2 class="h-section" id="runs-title">Recorded attempt</h2>
+          <p class="label">2 recorded attempts</p>
+          <h2 class="h-section" id="runs-title">The builds, side by side</h2>
         </header>
         <div class="compare compare--attempts">
           <article class="compare__item">
@@ -75,13 +75,35 @@
               <a class="action--quiet" href="../../runs/pocket-ledger-tensorfold-native/">Run sheet <span aria-hidden="true">&rarr;</span></a>
             </div>
           </article>
+          <article class="compare__item">
+
+            <header class="compare__head">
+              <p class="label">18 October 2026</p>
+              <h3>Qwen 3.8 Flash Next</h3>
+              <p class="note">Sushi 1.2.4 (bf16 n-gram table) · fx 0.0.14 + smr 0.1.0</p>
+            </header>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="compare__summary">COMPLETE in 6 h 33 min with no operator action: 17 tasks, 77 project checks, a final review accepting all 52 requirements on its second cycle, and 19 of 19 hidden acceptance cases.</p>
+            <div class="actions compare__actions">
+
+              <a class="action--quiet" href="../../runs/pocket-ledger-sushi-v124-smr/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
         </div>
       </section>
 
+      <section class="band" id="measured" aria-labelledby="measured-title">
+        <header class="band__head">
+          <p class="label">From the run records</p>
+          <h2 class="h-section" id="measured-title">Measured side by side</h2>
+        </header>
+        <div class="bars-grid"><figure class="bars"><figcaption class="label">Wall time</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/pocket-ledger-tensorfold-native/">TensorFold native (Zig) 1.0.7</a><span class="bars__track"><span class="bars__fill" style="width:78.7%"></span></span><span class="bars__value" title="Orchestrator start (after preflight) to the run&#x27;s COMPLETE record; includes all sessions, verify runs, git bookkeeping and review.">309 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/pocket-ledger-sushi-v124-smr/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="From the preflight&#x27;s end (07:10:14 UTC) to the run&#x27;s COMPLETE record (13:42:58 UTC), as for the task-loop run; one segment, no block or pause. The preflight took 130 s before that.">393 min</span></li></ul></figure><figure class="bars"><figcaption class="label">Output tokens</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/pocket-ledger-tensorfold-native/">TensorFold native (Zig) 1.0.7</a><span class="bars__track"><span class="bars__fill" style="width:35.1%"></span></span><span class="bars__value" title="Pi output usage across all sessions; includes reasoning tokens.">300 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/pocket-ledger-sushi-v124-smr/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Output tokens across all requests; includes reasoning tokens.">854 k tokens</span></li></ul></figure><figure class="bars"><figcaption class="label">Tool calls</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/pocket-ledger-tensorfold-native/">TensorFold native (Zig) 1.0.7</a><span class="bars__track"><span class="bars__fill" style="width:44.1%"></span></span><span class="bars__value" title="Pi tool calls across all sessions.">650 calls</span></li><li class="bars__row"><a class="bars__label" href="../../runs/pocket-ledger-sushi-v124-smr/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="fx tool calls across all sessions, each approved by the runner over ACP.">1,475 calls</span></li></ul></figure><figure class="bars"><figcaption class="label">Largest prompt</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/pocket-ledger-tensorfold-native/">TensorFold native (Zig) 1.0.7</a><span class="bars__track"><span class="bars__fill" style="width:47.4%"></span></span><span class="bars__value" title="Largest engine-reported prompt among matched requests.">42.5 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/pocket-ledger-sushi-v124-smr/">Sushi 1.2.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Largest engine-reported prompt among matched requests.">89.5 k tokens</span></li></ul></figure></div>
+        <p class="note">Each attempt used its own engine, harness version and settings, and some sessions include waiting or outages. Hover a value for its exact definition, and read the run sheets before drawing conclusions. Cloud wall time includes provider queueing; local decode speed is per request on this machine.</p>
+      </section>
 
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
-        <div class="disclosure__body"><p>The orchestrator runs one fresh Pi session per unit of work (bootstrap, build, review, replan, final review), keeps all state in the repository, and accepts a task only when the project&#x27;s verify passes and a fresh reviewer agrees. No transcripts are published.</p><ul>            <li>Add, list, edit and remove transactions stored as integer cents in one JSON file.</li>
+        <div class="disclosure__body"><p>The orchestrator runs one fresh agent session per unit of work (bootstrap, build, review, replan, final review), keeps all state in the repository, and accepts a task only when the project&#x27;s verify passes and a fresh reviewer agrees. The first attempt used the task-loop orchestrator with Pi; the second used smr, its Rust port, with fx. The two attempts differ in runner, harness, model and engine at once, so they describe the brief rather than isolate one change. No transcripts are published.</p><ul>            <li>Add, list, edit and remove transactions stored as integer cents in one JSON file.</li>
             <li>Import bank CSV files with quoted fields, two date formats and deduplication.</li>
             <li>Categorisation rules, monthly reports, budgets and CSV export that round-trips.</li>
             <li>A 20-step undo, help text, fixed exit codes and atomic writes.</li>

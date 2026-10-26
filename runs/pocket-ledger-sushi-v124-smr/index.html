@@ -1,0 +1,168 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pocket Ledger · Sushi 1.2.4: configuration, result, recorded checks and measurements.">
+    <title>Pocket Ledger · Sushi 1.2.4 run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-ledger-sushi-v124-smr/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-ledger-sushi-v124-smr/">
+    <meta property="og:title" content="Pocket Ledger · Sushi 1.2.4 run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Pocket Ledger · Sushi 1.2.4: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Pocket Ledger · Sushi 1.2.4 run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Pocket Ledger · Sushi 1.2.4: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 26 October 2026</span><span>30 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro run-intro--text">
+          <header class="sheet__head">
+            <p class="label">18 October 2026 · Agentic task loop · command-line app</p>
+            <h1 class="display sheet__title" id="page-title">Pocket Ledger · Sushi 1.2.4</h1>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="lede">smr reached COMPLETE after 6 h 33 min with no operator action: all 17 tasks done (16 planned at bootstrap and one added by the final review), none split or blocked, the project&#x27;s verify passing 77 checks, and a final review that accepted all 52 requirements on its second cycle. The build passes all 19 hidden acceptance cases. One harness process exited mid-turn and the runner charged that to the task as a failed attempt.</p>
+            <div class="actions"><a href="../../challenges/pocket-ledger/">Compare attempts <span aria-hidden="true">→</span></a><a href="../../prompts/pocket-ledger/">Task prompt <span aria-hidden="true">→</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>Preflight through fx and the proxy: reasoning and prefix cache confirmed, taking 2 min 10 s.</li>
+<li>Bootstrap was accepted on its first session: 52 requirements and 16 task cards (the 2026-10-12 task-loop run planned 20 requirements and 16 tasks).</li>
+<li>Each task was accepted only after verify --all and verify --task &lt;ID&gt; passed and a fresh reviewer returned ACCEPT. Reviewers returned CHANGES on T005 and T010. The first final review returned CHANGES and added T017; the second accepted.</li>
+<li>Four sessions ended early: 002-builder-T001, whose fx process exited with code 1 while a shell call awaited permission (charged to T001 as attempt 1; T001 passed on attempt 2); two reviewers past the 25-turn review budget (T005, T016), as the task loop also limits reviews; one builder after 20 turns without changing a file (T011, passed on attempt 2).</li>
+<li>Independent check after the run: verify --all passed 77/77 in 16 s; hidden acceptance cases 19 of 19 through a name-only adapter (amounts in `amount` and `spending`/`income`, all in cents).</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>Runner defects found in this run are listed in the report for the smr repository: a harness process exit charged as a task attempt, fx&#x27;s ACP log overwritten by every session, and no MTP draft counts in requests.jsonl. The generated project, transcripts and engine logs stay on the workstation.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">Qwen 3.8 Flash Next · primary · reasoning medium</td><td class="spec__def">EXL3 2.625 bpw (K=2.625; MCG codebook, window 15); n-gram embedding table bf16 (95.4 GB, read from the SSD)</td></tr>
+                <tr><th scope="row">Checkpoint · primary</th><td class="spec__value">Qwen3.8-Flash-Next-Sushi-2.6bpw, with the bf16 n-gram table of the Sushi-4bpw pack</td><td class="spec__def">primary model artifact</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">Sushi 1.2.4 · OpenAI-compatible server (PID 78275, the same process as the two promo runs), greedy sampling (--temp 0), MTP drafts, 8-bit KV cache, SSD prefix cache, vision on, /metrics enabled; reached through smr&#x27;s engine proxy, which adds reasoning_effort from the pinned thinking level mode</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">fx coding agent over ACP, driven by the smr single-model runner 0.0.14</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Pocket Ledger · revision 1</td><td class="spec__def">The first full run of smr 0.1.0 (commit 6bf4930), the Rust port of the task-loop orchestrator, with the fx 0.0.14 harness over ACP. Same brief, same role prompts (templates sha256 a88af82e…) and same default parameters as the task loop. The 2026-10-12 task-loop run of this brief differs in four ways at once (runner, harness, model and engine), so the comparison describes the two runs rather than isolating the runner. No operator action during the run.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">131,072 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">TTFT · median</th><td class="spec__value">1.707 s</td><td class="spec__def">Median engine-measured TTFT from Sushi /metrics deltas around each request (p90 5.05 s). · n=1333</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">45.75 tok/s</td><td class="spec__def">Output tokens / engine decode seconds over requests with engine timings (output-weighted). · n=1333</td></tr>
+                <tr><th scope="row">Draft acceptance</th><td class="spec__value">66.34 %</td><td class="spec__def">Accepted MTP draft tokens / drafted tokens from Sushi spec-stats over matched requests (smr&#x27;s requests.jsonl does not record draft counts). · n=1333 · 494,880 accepted of 745,964 drafted.</td></tr>
+                <tr><th scope="row">Swapped in during the run</th><td class="spec__value">2.24 GiB</td><td class="spec__def">Pages swapped in during the run, from smr&#x27;s memory samples (swapins deltas, 16 KiB pages), 871 samples at 30 s and session boundaries. · n=871 · Memory pressure reached warning; free memory fell to 0.02 GiB; Sushi&#x27;s process reached 52 GiB and swap in use 3.48 GiB. No request failed.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Run elapsed</th><td class="spec__value">392.7 min</td><td class="spec__def">From the preflight&#x27;s end (07:10:14 UTC) to the run&#x27;s COMPLETE record (13:42:58 UTC), as for the task-loop run; one segment, no block or pause. The preflight took 130 s before that. · n=1</td></tr>
+                <tr><th scope="row">Agent sessions</th><td class="spec__value">46 sessions</td><td class="spec__def">fx sessions started by smr: 1 bootstrap, 21 builder, 19 reviewer, 3 replan, 2 final reviewer. · n=1</td></tr>
+                <tr><th scope="row">Sessions stopped by a watchdog</th><td class="spec__value">4 sessions</td><td class="spec__def">One harness exit mid-turn (002), two reviewers past the 25-turn review budget, one builder after 20 turns without a write. · n=1</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">1,333 responses</td><td class="spec__def">Engine requests recorded by smr&#x27;s proxy (one row each in requests.jsonl): 1,287 ending in tool calls and 46 in stop. · n=1</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">1,333 requests</td><td class="spec__def">Proxy-recorded requests matched in order to the Sushi 1.2.4 process log (PID 78275) by prompt total, output tokens and SSD-restored tokens. · n=1 · Every request matched and no key repeats. The log&#x27;s earlier summaries belong to the two promo runs and the preflight; one other request fell inside the run window.</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">1,475 calls</td><td class="spec__def">fx tool calls across all sessions, each approved by the runner over ACP. · n=1</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">0 compactions</td><td class="spec__def">Compactions across all sessions. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">89,492 tokens</td><td class="spec__def">Largest engine-reported prompt among matched requests. · n=1333</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">2,013,409 tokens</td><td class="spec__def">Uncached input tokens across all sessions (journal usage). · n=1</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">57,395,134 tokens</td><td class="spec__def">Sushi SSD-restored tokens over matched requests (equal to the journal&#x27;s cacheRead). · n=1333</td></tr>
+                <tr><th scope="row">Prompt-cache token share</th><td class="spec__value">96.61 %</td><td class="spec__def">Cached prompt tokens / prompt tokens over matched requests (57,395,134 / 59,408,543). · n=1333</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">854,383 tokens</td><td class="spec__def">Output tokens across all requests; includes reasoning tokens. · n=1333</td></tr>
+                <tr><th scope="row">of which reasoning output</th><td class="spec__value">479,504 tokens</td><td class="spec__def">Reasoning tokens reported by Sushi through the proxy (56.1% of output). · n=1333</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Tasks completed</th><td class="spec__value">17 tasks</td><td class="spec__def">Task cards with status done at the end; none split, blocked or dropped. · n=1</td></tr>
+                <tr><th scope="row">Build attempts</th><td class="spec__value">21 attempts</td><td class="spec__def">Builder sessions across all tasks; T001, T005, T010 and T011 took two. · n=1</td></tr>
+                <tr><th scope="row">Reviews returning changes</th><td class="spec__value">2 reviews</td><td class="spec__def">Task reviewer sessions that returned CHANGES (T005, T010). · n=1</td></tr>
+                <tr><th scope="row">Project checks passing</th><td class="spec__value">77 checks</td><td class="spec__def">Checks passed by the project&#x27;s own ./verify --all at the end (16 s in the independent run). · n=1</td></tr>
+                <tr><th scope="row">Hidden acceptance cases passed</th><td class="spec__value">19 checks</td><td class="spec__def">Hidden acceptance cases passed, of 19: written from the brief, never shown to the model, and scored the same way for every run. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>Per-request numbers are not published. smr&#x27;s engine proxy recorded every request with its usage and finish reason, and attached Sushi /metrics timings to each; all 1,333 were also matched in order to the Sushi process log.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-10-18-qwen38-flash-next-sushi-v124-smr-pocket-ledger</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>

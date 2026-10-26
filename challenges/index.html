@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Browse ten agentic challenges and the inference suite, with captures and links to every attempt.">
+    <meta name="description" content="Browse thirteen agentic challenges and the inference suite, with captures and links to every attempt.">
     <title>Challenges · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/challenges/">
     <meta property="og:title" content="Challenges · Local Model Benchmarks">
-    <meta property="og:description" content="Browse ten agentic challenges and the inference suite, with captures and links to every attempt.">
+    <meta property="og:description" content="Browse thirteen agentic challenges and the inference suite, with captures and links to every attempt.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -30,7 +30,7 @@
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
     <meta name="twitter:title" content="Challenges · Local Model Benchmarks">
-    <meta name="twitter:description" content="Browse ten agentic challenges and the inference suite, with captures and links to every attempt.">
+    <meta name="twitter:description" content="Browse thirteen agentic challenges and the inference suite, with captures and links to every attempt.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -42,12 +42,12 @@
         <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../runs/">Runs</a><a href="../challenges/" aria-current="page">Challenges</a><a href="../demos/">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 25 October 2026</span><span>28 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 26 October 2026</span><span>30 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
         <h1 class="display sheet__title">Explore by task</h1>
-        <p class="lede">Ten agentic challenges and one inference suite. Compare attempts at the same prompt, or inspect a single recorded result.</p>
+        <p class="lede">Thirteen agentic challenges and one inference suite. Compare attempts at the same prompt, or inspect a single recorded result.</p>
         <nav class="archive-links" aria-label="Task groups"><a href="#comparisons">Shared prompts ↓</a><a href="#task-loop">Long briefs ↓</a><a href="#other-tasks">Other experiments ↓</a><a href="../prompts/">Task prompts →</a></nav>
       </header>
       <section class="band" id="comparisons" aria-labelledby="comparisons-title">
@@ -89,8 +89,15 @@
         </article></div>
       </section>
       <section class="band" id="task-loop" aria-labelledby="task-loop-title">
-        <div class="section-head"><h2 class="h-section" id="task-loop-title">Long briefs, run by the task-loop orchestrator</h2><p class="note">Fresh sessions, no human input</p></div>
-        <div class="catalogue"><article class="catalogue__item" id="benchmarks-promo">
+        <div class="section-head"><h2 class="h-section" id="task-loop-title">Long briefs, run by a task-loop orchestrator</h2><p class="note">Fresh sessions, no human input</p></div>
+        <div class="catalogue"><article class="catalogue__item" id="image-landing">
+          <figure class="capture capture--inline"><a href="../challenges/image-landing/" aria-label="Image Landing · TensorFold native 1.1.4 + Tenaz · hero with a generated image"><img src="../assets/screenshots/image-landing-tensorfold-native-hero.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Fernwell landing page hero at 1600 px: a generated photograph of a pale ceramic herb planter under an oak lamp arm on a kitchen counter, with the headline Fresh herbs, three steps from your stove. and a Pre-order €129 button"></a></figure>
+          <h3 class="index__title"><a href="../challenges/image-landing/">Image Landing</a></h3>
+          <p class="catalogue__meta">1 local run</p>
+          <p>A landing page whose photographs the agent makes itself with a local image model, with the text model unloaded for each image.</p>
+          <div class="actions"><a href="../challenges/image-landing/">Compare attempts →</a></div>
+        </article>
+<article class="catalogue__item" id="benchmarks-promo">
           <figure class="capture capture--inline"><a href="../challenges/benchmarks-promo/" aria-label="Local Model Benchmarks Promo · Sushi 1.2.4 · rendered video, scene 4"><img src="../assets/screenshots/benchmarks-promo-sushi-v124-measured.jpg" width="720" height="1280" loading="lazy" decoding="async" alt="Scene 4 of the promo on the site&#x27;s accent blue: the label EVERY RUN, RECORDED, the headline Every session. Every token. Every second., a run sheet in a phone frame beside the counters 76 sessions, 1,437 requests and 41.4 tok/s, and the caption"></a></figure>
           <h3 class="index__title"><a href="../challenges/benchmarks-promo/">Local Model Benchmarks Promo</a></h3>
           <p class="catalogue__meta">1 local run</p>
@@ -121,7 +128,7 @@
 <article class="catalogue__item" id="pocket-ledger">
           <div class="suite-preview"><strong>Command-line app</strong><p>add · import · report · budget · undo</p><p>Node.js, no dependencies</p></div>
           <h3 class="index__title"><a href="../challenges/pocket-ledger/">Pocket Ledger</a></h3>
-          <p class="catalogue__meta">1 local run</p>
+          <p class="catalogue__meta">2 local runs</p>
           <p>A dependency-free command-line finance tracker, planned and built over many fresh sessions with no human input.</p>
           <div class="actions"><a href="../challenges/pocket-ledger/">Compare attempts →</a></div>
         </article></div>

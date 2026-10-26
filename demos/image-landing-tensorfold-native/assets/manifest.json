@@ -1,0 +1,92 @@
+{
+  "calls": [
+    {
+      "n": 1,
+      "slot": "hero",
+      "prompt": "A large photograph of a Fernwell indoor herb garden on a pale kitchen counter: a rounded pale ceramic planter holding six soil-free pods of basil, mint and chives, a slim oak lamp arm arching over the pods with a warm grow light glowing softly, morning daylight from a window, shallow depth of field, no text, no logos, no people",
+      "negative_prompt": "text, letters, words, typography, logos, watermarks, people, faces",
+      "seed": 101,
+      "width": 1536,
+      "height": 864,
+      "returned": [".tenaz/private/media/2026-10-25T23-08-48-957591Z-0001/tenaz_00001_.png"],
+      "used_as": "assets/hero.png"
+    },
+    {
+      "n": 2,
+      "slot": "feature-1",
+      "prompt": "Close-up photograph of a hand pinching a basil leaf from one of six soil-free pods in a pale ceramic Fernwell planter, slim oak lamp arm with warm grow light softly blurred in the background, kitchen counter, soft daylight, no text, no logos",
+      "negative_prompt": "text, letters, words, typography, logos, watermarks, people, faces",
+      "seed": 201,
+      "width": 768,
+      "height": 768,
+      "returned": [".tenaz/private/media/2026-10-25T23-12-05-961222Z-0002/tenaz_00002_.png"],
+      "used_as": "assets/feature-1.png"
+    },
+    {
+      "n": 3,
+      "slot": "feature-2",
+      "prompt": "Photograph of the base of a pale ceramic Fernwell planter with a small water level window and a green indicator light, a glass of water beside it on a kitchen counter, six soil-free pods of herbs above, warm grow light on a slim oak arm, no text, no logos",
+      "negative_prompt": "text, letters, words, typography, logos, watermarks, people, faces",
+      "seed": 202,
+      "width": 768,
+      "height": 768,
+      "returned": [".tenaz/private/media/2026-10-25T23-14-25-994801Z-0003/tenaz_00003_.png"],
+      "used_as": null
+    },
+    {
+      "n": 4,
+      "slot": "feature-3",
+      "prompt": "Photograph of a Fernwell herb garden at night: six soil-free pods of herbs under a warm glowing grow light on a slim oak arm, dark kitchen, pale ceramic planter, cozy low light, no text, no logos",
+      "negative_prompt": "text, letters, words, typography, logos, watermarks, people, faces",
+      "seed": 203,
+      "width": 768,
+      "height": 768,
+      "returned": [".tenaz/private/media/2026-10-25T23-16-48-694972Z-0004/tenaz_00004_.png"],
+      "used_as": null
+    },
+    {
+      "n": 5,
+      "slot": "feature-2",
+      "prompt": "Photograph of the base of a rounded pale ceramic Fernwell planter with a small round water level window and a green indicator light, a glass of water beside it on a pale kitchen counter, six soil-free pods of herbs above, warm grow light on a slim oak arm, soft daylight, plain unmarked ceramic surface, no text, no logos, no engraving, no lettering",
+      "negative_prompt": "text, letters, words, typography, engraving, etching, brand name, logo, watermark, label, sticker, people, faces",
+      "seed": 202,
+      "width": 768,
+      "height": 768,
+      "returned": [".tenaz/private/media/2026-10-26T00-02-58-793534Z-0005/tenaz_00005_.png"],
+      "used_as": "assets/feature-2.png"
+    },
+    {
+      "n": 6,
+      "slot": "feature-3",
+      "prompt": "Photograph of a Fernwell herb garden at night: a rounded pale ceramic planter holding six soil-free pods of herbs, a slim oak lamp arm arching over the pods with a warm grow light glowing softly, dark kitchen, cozy low light, plain unmarked ceramic surface, no text, no logos, no engraving, no lettering",
+      "negative_prompt": "text, letters, words, typography, engraving, etching, brand name, logo, watermark, label, sticker, people, faces",
+      "seed": 203,
+      "width": 768,
+      "height": 768,
+      "returned": [".tenaz/private/media/2026-10-26T00-05-14-995823Z-0006/tenaz_00006_.png"],
+      "used_as": "assets/feature-3.png"
+    },
+    {
+      "n": 7,
+      "slot": "extra",
+      "prompt": "Close-up photograph of a single soil-free Fernwell pod of fresh basil, a rounded pale ceramic pod with a small round water level window, a few basil leaves reaching up, resting on a pale kitchen counter, a slim oak lamp arm with a warm grow light softly blurred behind, soft daylight, shallow depth of field, plain unmarked ceramic surface, no text, no logos, no engraving, no lettering, no people",
+      "negative_prompt": "text, letters, words, typography, engraving, etching, brand name, logo, watermark, label, sticker, people, faces",
+      "seed": 401,
+      "width": 768,
+      "height": 768,
+      "returned": [".tenaz/private/media/2026-10-26T00-21-15-239287Z-0007/tenaz_00007_.png"],
+      "used_as": "assets/extra.png"
+    },
+    {
+      "n": 8,
+      "slot": "background",
+      "prompt": "Wide photograph of freshly harvested Fernwell herbs — basil, mint and chives — gathered in a pale ceramic dish on a pale kitchen counter, a rounded pale ceramic Fernwell planter holding six soil-free pods softly blurred in the background, a slim oak lamp arm with a warm grow light glowing softly, soft morning daylight from a window, shallow depth of field, no text, no logos, no people",
+      "negative_prompt": "text, letters, words, typography, engraving, etching, brand name, logo, watermark, label, sticker, people, faces",
+      "seed": 301,
+      "width": 1536,
+      "height": 640,
+      "returned": [".tenaz/private/media/2026-10-26T00-26-36-57902Z-0008/tenaz_00008_.png"],
+      "used_as": "assets/background.png"
+    }
+  ]
+}
