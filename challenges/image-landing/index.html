@@ -42,7 +42,7 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 26 October 2026</span><span>30 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 26 October 2026</span><span>31 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
@@ -50,15 +50,15 @@
         <h1 class="display sheet__title">Image Landing</h1>
         <p class="lede">A one-page landing site for a fictional countertop herb garden, whose photographs the agent makes itself with a local image model. It tests whether one runner can drive a text model and an image model on the same machine toward one goal.</p>
         <div class="actions">
-          <a href="#runs">Compare 1 attempt <span aria-hidden="true">&darr;</span></a>
+          <a href="#runs">Compare 2 attempts <span aria-hidden="true">&darr;</span></a>
           <a href="../../prompts/image-landing/">Task prompt <span aria-hidden="true">&rarr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">1 recorded attempt</p>
-          <h2 class="h-section" id="runs-title">Recorded attempt</h2>
+          <p class="label">2 recorded attempts</p>
+          <h2 class="h-section" id="runs-title">The builds, side by side</h2>
         </header>
         <div class="compare compare--attempts">
           <article class="compare__item">
@@ -79,13 +79,39 @@
               <a class="action--quiet" href="../../runs/image-landing-tensorfold-native/">Run sheet <span aria-hidden="true">&rarr;</span></a>
             </div>
           </article>
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/image-landing-mlx-serve-hero.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Fernwell landing page hero at 1600 px: a generated photograph of a sage ceramic planter with five potted herbs under an oak arch on a kitchen counter, darkened behind the headline Fresh herbs, right where you cook. and a Pre-order €129 button">
+              <figcaption>Image Landing · MLX-Serve 26.10.3 + Qwen Image 2.1 · hero with a generated image</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">26 October 2026</p>
+              <h3>Qwen 3.8 27B + Qwen Image 2.1</h3>
+              <p class="note">MLX-Serve 26.10.3, one resident model · fx 0.0.14 + Tenaz 0.1.0</p>
+            </header>
+            <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            <p class="compare__summary">COMPLETE_WITH_GAPS in 3 h 22 min with no operator action: 10 of 11 tasks, 5 images from 6 calls, 16 project checks; the open task only reorders the image manifest. Calmer photographs, but the product still changes from image to image and the reviewers rarely opened them.</p>
+            <div class="actions compare__actions">
+              <a href="../../demos/image-landing-mlx-serve/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/image-landing-mlx-serve/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
         </div>
       </section>
 
+      <section class="band" id="measured" aria-labelledby="measured-title">
+        <header class="band__head">
+          <p class="label">From the run records</p>
+          <h2 class="h-section" id="measured-title">Measured side by side</h2>
+        </header>
+        <div class="bars-grid"><figure class="bars"><figcaption class="label">Wall time</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-tensorfold-native/">FLUX 3 Image Klein · TensorFold native 1.1.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="From tenaz run&#x27;s start (25 October 22:37:13 UTC) to the COMPLETE record (26 October 02:26:04 UTC); no pauses.">229 min</span></li><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-mlx-serve/">Qwen Image 2.1 · MLX-Serve 26.10.3</a><span class="bars__track"><span class="bars__fill" style="width:88.4%"></span></span><span class="bars__value" title="From tenaz run&#x27;s start (26 October 11:54:03 UTC) to the COMPLETE_WITH_GAPS record (15:16:20 UTC); no pauses.">202 min</span></li></ul></figure><figure class="bars"><figcaption class="label">Output tokens</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-tensorfold-native/">FLUX 3 Image Klein · TensorFold native 1.1.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Output tokens across matched requests; includes reasoning tokens.">332 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-mlx-serve/">Qwen Image 2.1 · MLX-Serve 26.10.3</a><span class="bars__track"><span class="bars__fill" style="width:75.8%"></span></span><span class="bars__value" title="Output tokens across matched requests; includes reasoning tokens, which MLX-Serve does not count separately.">252 k tokens</span></li></ul></figure><figure class="bars"><figcaption class="label">Tool calls</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-tensorfold-native/">FLUX 3 Image Klein · TensorFold native 1.1.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="fx tool calls across all sessions, each approved by the runner over ACP; 15 were repaired by Tenaz before reaching fx.">429 calls</span></li><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-mlx-serve/">Qwen Image 2.1 · MLX-Serve 26.10.3</a><span class="bars__track"><span class="bars__fill" style="width:96.0%"></span></span><span class="bars__value" title="fx tool calls across all sessions, each approved by the runner over ACP; 20 were repaired by Tenaz before reaching fx.">412 calls</span></li></ul></figure><figure class="bars"><figcaption class="label">Decode speed</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-tensorfold-native/">FLUX 3 Image Klein · TensorFold native 1.1.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Output tokens / engine decode seconds over matched requests (output-weighted).">48.5 tok/s</span></li><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-mlx-serve/">Qwen Image 2.1 · MLX-Serve 26.10.3</a><span class="bars__track"><span class="bars__fill" style="width:63.7%"></span></span><span class="bars__value" title="Output tokens / engine decode seconds from the MLX-Serve summaries over matched requests (output-weighted; per-request median 39.6).">30.9 tok/s</span></li></ul></figure><figure class="bars"><figcaption class="label">Largest prompt</figcaption><ul><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-tensorfold-native/">FLUX 3 Image Klein · TensorFold native 1.1.4</a><span class="bars__track"><span class="bars__fill" style="width:100.0%"></span></span><span class="bars__value" title="Largest engine-reported prompt among matched requests.">46.7 k tokens</span></li><li class="bars__row"><a class="bars__label" href="../../runs/image-landing-mlx-serve/">Qwen Image 2.1 · MLX-Serve 26.10.3</a><span class="bars__track"><span class="bars__fill" style="width:80.8%"></span></span><span class="bars__value" title="Largest engine-reported prompt among matched requests.">37.7 k tokens</span></li></ul></figure></div>
+        <p class="note">Each attempt used its own engine, harness version and settings, and some sessions include waiting or outages. Hover a value for its exact definition, and read the run sheets before drawing conclusions. Cloud wall time includes provider queueing; local decode speed is per request on this machine.</p>
+      </section>
 
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
-        <div class="disclosure__body"><p>Tenaz gives the agent a generate_image tool backed by ComfyUI with FLUX 3 Image Klein on the same Mac, and unloads the language model while each image is made. The automatic checks cover sizes, provenance, loading and layout; the quality and consistency of the images are judged by eye. No transcripts are published; the model&#x27;s image prompts are in the build&#x27;s manifest.</p><ul>            <li>A hero, three feature cards, a full-width section over a background image, a closing call to action and a footer.</li>
+        <div class="disclosure__body"><p>Tenaz gives the agent a generate_image tool backed by a local image model on the same Mac. The first attempt used FLUX 3 Image Klein in ComfyUI, with Tenaz unloading the language model for each image; the second used Qwen Image 2.1 served by the same MLX-Serve process as the language model, which swapped the two in memory itself. The text engine, sampling and context also differ, so the two attempts compare image models and setups, not one change. The automatic checks cover sizes, provenance, loading and layout; the quality and consistency of the images are judged by eye. No transcripts are published; the model&#x27;s image prompts are in each build&#x27;s manifest.</p><ul>            <li>A hero, three feature cards, a full-width section over a background image, a closing call to action and a footer.</li>
             <li>Every image from the runner&#x27;s generate_image tool, at most 8 calls, with a fixed size and seed per slot and no text in the images.</li>
             <li>One visual family: the same product, palette and light in every image.</li>
             <li>Static files with no build step, readable at 1440 and 390 px with a clean console.</li>

@@ -1,0 +1,219 @@
+/* Fernwell — design system (T006).
+   Palette sampled from the generated images: leafy greens, warm oak,
+   pale ceramic, soft daylight. System fonts only; one type scale;
+   mobile-first (390 px base) with one wide-desktop breakpoint. */
+
+:root {
+  /* palette */
+  --green-900: #18281c;
+  --green-700: #2c4636;
+  --green-500: #3f5f4a;
+  --green-300: #a8c3ad;
+  --green-100: #e3ecdf;
+  --oak-500: #a97b52;
+  --oak-400: #c99b6f;
+  --ceramic-100: #f4f1ea;
+  --daylight-200: #e9efe6;
+
+  /* type — one scale, system fonts */
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  --text-xl: clamp(1.375rem, 1.125rem + 1vw, 1.75rem);
+  --text-2xl: clamp(1.75rem, 1.375rem + 1.7vw, 2.75rem);
+
+  /* spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+
+  /* layout */
+  --wrap: 72rem;
+  --radius: 1rem;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--green-900);
+  background: var(--ceramic-100);
+}
+
+img { display: block; max-width: 100%; }
+
+h1, h2 { line-height: 1.15; margin: 0 0 var(--space-3); font-weight: 700; }
+h1 { font-size: var(--text-2xl); }
+h2 { font-size: var(--text-xl); }
+p { margin: 0 0 var(--space-3); }
+
+/* content column: full width minus gutters, capped on wide desktop */
+.wrap {
+  width: min(100% - 2 * var(--space-3), var(--wrap));
+  margin-inline: auto;
+}
+
+/* header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  width: min(100% - 2 * var(--space-3), var(--wrap));
+  margin-inline: auto;
+  background: var(--ceramic-100);
+}
+.brand { font-weight: 700; font-size: 1.25rem; color: var(--green-900); text-decoration: none; }
+
+/* buttons — warm oak reads on both the light header and the dark hero shade */
+.btn {
+  display: inline-block;
+  padding: 0.65em 1.4em;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--text-base);
+  background: var(--oak-500);
+  color: var(--ceramic-100);
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+.btn:hover { background: var(--oak-400); transform: translateY(-1px); }
+
+/* visible keyboard focus on every link and button (R20) */
+a:focus, button:focus {
+  outline: 3px solid var(--oak-500);
+  outline-offset: 3px;
+}
+
+/* hero — full-bleed photograph in a deliberate 16:9 frame (the generated
+   image is 1536×864 = 16:9). The frame keeps its ratio at every width, so
+   object-fit: cover crops the photo and never stretches it. On phones the
+   copy sits below the frame on the dark green ground; on wide desktop it
+   overlays the photo. */
+.hero {
+  position: relative;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  padding: var(--space-4) 0;
+  background: var(--green-900);
+}
+.hero-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+/* dark green gradient keeps the light text readable over the daylight photo */
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(24, 40, 28, 0.5) 0%, rgba(24, 40, 28, 0.72) 100%);
+  z-index: 1;
+}
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  color: var(--ceramic-100);
+  max-width: 34rem;
+  margin-inline: auto;
+  padding: var(--space-4) var(--space-3);
+}
+@media (min-width: 760px) {
+  .hero-copy { position: absolute; inset: 0; display: grid; align-items: center; }
+}
+.hero-copy .lede { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.hero-copy .sub { font-size: var(--text-base); margin-bottom: var(--space-4); opacity: 0.92; }
+.hero-copy .btn { font-size: var(--text-lg); }
+
+/* feature cards */
+.features {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-3);
+  width: min(100% - 2 * var(--space-3), var(--wrap));
+  margin-inline: auto;
+}
+@media (min-width: 760px) {
+  .features { grid-template-columns: repeat(3, 1fr); }
+}
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  box-shadow: 0 1px 3px rgba(24, 40, 28, 0.08);
+  transition: box-shadow 150ms ease, transform 150ms ease;
+}
+.card:hover { box-shadow: 0 6px 18px rgba(24, 40, 28, 0.14); transform: translateY(-2px); }
+/* 1:1 frame matches the 768×768 cards exactly — cover, never stretched */
+.card-media {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--daylight-200);
+  border-radius: 0.5rem;
+  margin-bottom: var(--space-4);
+}
+.card p { margin-bottom: 0; }
+
+/* background section — full-width photograph with a dark shade for readable text */
+.harvest {
+  background-color: var(--green-900);
+  background-image:
+    linear-gradient(rgba(24, 40, 28, 0.58), rgba(24, 40, 28, 0.58)),
+    url("../assets/background.png");
+  background-size: cover, cover;
+  background-position: center, center;
+  color: var(--ceramic-100);
+  padding: var(--space-6) var(--space-3);
+  text-align: center;
+}
+.harvest-copy { max-width: 40rem; margin-inline: auto; }
+
+/* closing CTA */
+.preorder {
+  text-align: center;
+  padding: var(--space-6) var(--space-3);
+  background: var(--green-100);
+}
+.preorder .btn { font-size: var(--text-lg); }
+
+/* footer */
+.site-footer {
+  padding: var(--space-5) var(--space-3);
+  width: min(100% - 2 * var(--space-3), var(--wrap));
+  margin-inline: auto;
+  background: var(--green-900);
+  color: var(--green-300);
+}
+.site-footer .brand { color: var(--ceramic-100); }
+.site-footer p { margin: 0 0 var(--space-2); font-size: var(--text-sm); }
+.small-print { opacity: 0.7; }
+
+/* reveal-on-scroll (T007 adds the JS); motion-safe by default */
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+.reveal.is-hidden { opacity: 0; transform: translateY(0.75rem); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
+}

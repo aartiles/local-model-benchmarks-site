@@ -1,0 +1,70 @@
+{
+  "calls": [
+    {
+      "n": 1,
+      "slot": "hero",
+      "prompt": "Wide editorial photograph of the Fernwell — a small pale-ceramic countertop herb garden planter with six small planting pods and a slim warm-oak lamp arm with a soft warm grow light, fresh green herbs — on a bright kitchen counter, soft diffused daylight, muted sage-green, warm-oak and off-white palette, calm lifestyle editorial photography, shallow depth of field",
+      "negative_prompt": "text, words, letters, logo, watermark",
+      "seed": 101,
+      "width": 1536,
+      "height": 864,
+      "returned": [],
+      "used_as": null
+    },
+    {
+      "n": 2,
+      "slot": "hero",
+      "prompt": "Wide editorial photograph of the Fernwell — a small pale-ceramic countertop herb garden planter with six small planting pods and a slim warm-oak lamp arm with a soft warm grow light, fresh green herbs — on a bright kitchen counter, soft diffused daylight, muted sage-green, warm-oak and off-white palette, calm lifestyle editorial photography, shallow depth of field",
+      "negative_prompt": "text, words, letters, logo, watermark",
+      "seed": 101,
+      "width": 1536,
+      "height": 864,
+      "returned": [".tenaz/private/media/2026-10-26T12-57-09-149318Z-0004/image-1.png"],
+      "used_as": "assets/hero.png"
+    },
+    {
+      "n": 3,
+      "slot": "feature-1",
+      "prompt": "Close-up photograph of lush fresh green herbs ready to pick in a small pale-ceramic countertop herb garden planter with six small planting pods, a few cut herb stems on a warm-oak wooden board, soft diffused daylight, muted sage-green, warm-oak and off-white palette, editorial food photography",
+      "negative_prompt": "text, words, letters, logo, watermark",
+      "seed": 201,
+      "width": 768,
+      "height": 768,
+      "returned": [".tenaz/private/media/2026-10-26T12-53-07-342139Z-0001/image-1.png"],
+      "used_as": "assets/feature-1.png"
+    },
+    {
+      "n": 4,
+      "slot": "feature-2",
+      "prompt": "Detail photograph of the self-watering tank of a small pale-ceramic countertop herb garden planter, translucent tank with a visible water level, six small planting pods with fresh green herbs, slim warm-oak frame, soft diffused daylight, muted sage-green, warm-oak and off-white palette, clean product photography",
+      "negative_prompt": "text, words, letters, logo, watermark",
+      "seed": 202,
+      "width": 768,
+      "height": 768,
+      "returned": [".tenaz/private/media/2026-10-26T12-53-59-627979Z-0002/image-1.png"],
+      "used_as": "assets/feature-2.png"
+    },
+    {
+      "n": 5,
+      "slot": "feature-3",
+      "prompt": "Night scene photograph of a small pale-ceramic countertop herb garden planter with six small planting pods, slim warm-oak lamp arm with a soft warm grow light glowing over fresh green herbs, dark quiet kitchen, warm amber glow, muted sage-green and warm-oak palette, cozy lifestyle photography",
+      "negative_prompt": "text, words, letters, logo, watermark",
+      "seed": 203,
+      "width": 768,
+      "height": 768,
+      "returned": [".tenaz/private/media/2026-10-26T12-54-47-534487Z-0003/image-1.png"],
+      "used_as": "assets/feature-3.png"
+    },
+    {
+      "n": 6,
+      "slot": "background",
+      "prompt": "Calm wide photograph of fresh herbs gathered into a finished dish on a bright kitchen counter — a small white plate of chopped green herbs, a few whole herb stems, the small pale-ceramic countertop herb garden planter with six small planting pods and slim warm-oak lamp arm softly out of focus behind, soft even diffused daylight, muted sage-green, warm-oak and off-white palette, quiet even lighting, no strong shadows, editorial food photography",
+      "negative_prompt": "text, words, letters, logo, watermark",
+      "seed": 301,
+      "width": 1536,
+      "height": 640,
+      "returned": [".tenaz/private/media/2026-10-26T13-10-11-799149Z-0005/image-1.png"],
+      "used_as": "assets/background.png"
+    }
+  ]
+}

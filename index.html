@@ -43,7 +43,7 @@
         <a class="wordmark" href="./"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="./runs/">Runs</a><a href="./challenges/">Challenges</a><a href="./demos/">Builds</a><a href="./prompts/">Prompts</a><a href="./method/">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 26 October 2026</span><span>30 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 26 October 2026</span><span>31 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <section class="intro" aria-labelledby="home-title">
@@ -51,15 +51,15 @@
           <h1 class="display" id="home-title">Local models, tested beyond tokens.</h1>
           <p>Hands-on experiments on an Apple M5 Pro with 64 GB of memory. See what local models build, which checks pass, and how the model and runtime perform during the work.</p>
           <p class="note">Most tasks use one prompt, without manual fixes. Exceptions are recorded on the run sheet; cloud baselines are labelled separately.</p>
-          <div class="actions"><a href="./challenges/">Explore the tasks →</a><a class="action--quiet" href="./runs/">All 30 runs →</a></div>
+          <div class="actions"><a href="./challenges/">Explore the tasks →</a><a class="action--quiet" href="./runs/">All 31 runs →</a></div>
         </div>
         <div class="intro__artifact">
-          <figure class="capture capture--inline"><a href="./challenges/image-landing/" aria-label="Image Landing · TensorFold native 1.1.4 + Tenaz · hero with a generated image"><img src="./assets/screenshots/image-landing-tensorfold-native-hero.jpg" width="1600" height="1000" fetchpriority="high" decoding="async" alt="Fernwell landing page hero at 1600 px: a generated photograph of a pale ceramic herb planter under an oak lamp arm on a kitchen counter, with the headline Fresh herbs, three steps from your stove. and a Pre-order €129 button"></a></figure>
+          <figure class="capture capture--inline"><a href="./challenges/image-landing/" aria-label="Image Landing · MLX-Serve 26.10.3 + Qwen Image 2.1 · hero with a generated image"><img src="./assets/screenshots/image-landing-mlx-serve-hero.jpg" width="1600" height="1000" fetchpriority="high" decoding="async" alt="Fernwell landing page hero at 1600 px: a generated photograph of a sage ceramic planter with five potted herbs under an oak arch on a kitchen counter, darkened behind the headline Fresh herbs, right where you cook. and a Pre-order €129 button"></a></figure>
           <p class="label">Latest run · 26 October 2026</p>
-          <h2><a href="./runs/image-landing-tensorfold-native/">Image Landing</a></h2>
-          <p class="catalogue__meta">Qwen 3.8 27B · TensorFold native (Zig) 1.1.4 · fx coding agent over ACP, driven by the Tenaz runner</p>
-          <p>Tenaz reached COMPLETE in 3 h 49 min with no operator action: a one-page landing site for a fictional herb garden whose six images Qwen 3.8 27B prompted and FLUX 3 Image Klein drew on the same machine, with the LLM unloaded for each image. 7 tasks over 23 sessions, none failed; 9 image calls made 8 images within the cap of 8, and the page uses 6. Verify passes 16 checks. The page is coherent and readable, but the product looks different from card to card and two images show soil the copy says it does without.</p>
-          <div class="actions"><a href="./demos/image-landing-tensorfold-native/">Play build ↗</a><a class="action--quiet" href="./challenges/image-landing/">Compare attempts →</a></div>
+          <h2><a href="./runs/image-landing-mlx-serve/">Image Landing</a></h2>
+          <p class="catalogue__meta">Qwen 3.8 27B · MLX-Serve 26.10.3 · fx coding agent over ACP, driven by the Tenaz runner</p>
+          <p>Tenaz reached COMPLETE_WITH_GAPS in 3 h 22 min with no operator action: the Fernwell landing page with five photographs that Qwen 3.8 27B prompted and Qwen Image 2.1 drew, both served by one MLX-Serve process that swapped the two models in memory. 10 of 11 tasks over 29 sessions, none failed; 6 image calls made 5 images, and verify passes 16 checks. The one open task only reorders the image manifest. The page works at both widths, but the product changes from image to image and the reviewers rarely looked at the photographs.</p>
+          <div class="actions"><a href="./demos/image-landing-mlx-serve/">Play build ↗</a><a class="action--quiet" href="./challenges/image-landing/">Compare attempts →</a></div>
         </div>
       </section>
       <section class="band" id="run-archive" aria-labelledby="tasks-title">
@@ -128,7 +128,7 @@
         <h2 class="h-section" id="reading-title">Read the result, then the numbers.</h2>
         <div class="guide">
           <div><h3>What did the model produce?</h3><p>Captures and playable builds show the output. Each run sheet lists the checks and limitations recorded for that execution.</p><div class="actions"><a href="./demos/">Browse the builds →</a></div></div>
-          <div><h3>What did the runtime measure?</h3><p>Decode, prefill, latency and session totals answer different questions. Every measurement keeps its statistic, unit and sample count.</p><div class="actions"><a id="inference" href="./runs/image-landing-tensorfold-native/#inference">Inference example →</a><a id="session" href="./runs/image-landing-tensorfold-native/#session">Session example →</a><a href="./method/">Read the method →</a></div></div>
+          <div><h3>What did the runtime measure?</h3><p>Decode, prefill, latency and session totals answer different questions. Every measurement keeps its statistic, unit and sample count.</p><div class="actions"><a id="inference" href="./runs/image-landing-mlx-serve/#inference">Inference example →</a><a id="session" href="./runs/image-landing-mlx-serve/#session">Session example →</a><a href="./method/">Read the method →</a></div></div>
         </div>
       </section>
       <aside class="reading-note" id="measurement-scope"><p>This is an evidence archive, with single executions and uneven test coverage. It is not a leaderboard. Local and provider-hosted speeds are not directly comparable.</p></aside>
