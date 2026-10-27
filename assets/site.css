@@ -311,6 +311,7 @@ main { padding-block-end: var(--space-3xl); }
 
 .masthead nav a:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.3em; text-decoration-thickness: 2px; }
 .masthead nav a[aria-current="page"] { color: var(--color-accent); }
+.masthead nav a.nav-external { padding-inline-start: var(--space-md); border-inline-start: 1px solid var(--color-rule-strong); }
 
 /* The dateline: hardware + run window stated once, on every page */
 .dateline {
@@ -464,6 +465,7 @@ main:focus { outline: none; }
 @media (max-width: 40rem) {
   .spec { table-layout: auto; }
   .masthead nav { gap: 0 var(--space-2xs); }
+  .masthead nav a.nav-external { padding-inline-start: 0; border-inline-start: 0; }
   .spec tbody th, .spec .spec__value, .spec .spec__def { width: 100%; }
   .band__head, .section-head { flex-direction: column; align-items: start; gap: 0; }
   .run-list .capture { max-width: 100%; }
