@@ -1,0 +1,179 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tenaz Explainer: configuration, result, recorded checks and measurements.">
+    <title>Tenaz Explainer run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/tenaz-explainer-sushi-v130/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/tenaz-explainer-sushi-v130/">
+    <meta property="og:title" content="Tenaz Explainer run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Tenaz Explainer: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Tenaz Explainer run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Tenaz Explainer: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 27 October 2026</span><span>32 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro">
+          <header class="sheet__head">
+            <p class="label">27 October 2026 · Agentic task loop · video with generated images</p>
+            <h1 class="display sheet__title" id="page-title">Tenaz Explainer</h1>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="lede">Tenaz reached COMPLETE in 12 h 24 min with no operator action: a 45-second silent HyperFrames video explaining Tenaz, scripted, designed and edited by Qwen 3.8 Flash Next, with five pictures it prompted and FLUX 3 Image Klein drew. 15 tasks over 54 sessions; verify passes 38 checks and 15 of the workload&#x27;s 16 hidden acceptance cases pass. Slot image-5 is missing: four seed-105 renders were too dark, which spent all 10 calls. Every scene repeats one layout, a headline beside a small picture plate.</p>
+            <div class="actions"><a href="../../demos/tenaz-explainer-sushi-v130/">Play build <span aria-hidden="true">↗</span></a><a href="../../challenges/tenaz-explainer/">Compare attempts <span aria-hidden="true">→</span></a><a href="../../prompts/tenaz-explainer/">Task prompt <span aria-hidden="true">→</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+        <figure class="capture capture--wide">
+          <img src="../../assets/screenshots/tenaz-explainer-sushi-v130-loop.jpg" width="1600" height="900" fetchpriority="high" decoding="async" alt="Scene 3 of the explainer at 16.5 s: the label THE LOOP, the headline Every task runs the same loop., the caption A failed check sends it back to Build., and a ring of five steps, Bootstrap, Build, Verify, Review and Commit, with a dashed red return edge from Verify to Build">
+          <figcaption>Tenaz Explainer · Sushi 1.3.0 + Tenaz · rendered video, the loop at 16.5 s</figcaption>
+        </figure>
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>Bootstrap was accepted on its first pass: 72 requirements and 14 tasks; the first replan added T015 (the task card travelling the loop). Reviewers returned CHANGES 6 times. Three builder sessions stopped at the 60-turn limit (T005, T015, T007); the T005 one had already passed verify and was accepted. The final review accepted on its first cycle, with 12 requirements marked manual.</li>
+<li>generate_image was called 10 times, all in the T002 builder session, one at a time: every call returned an image. Five are used (slots 1, 2, 3, 4 and the optional 6). Slot 2 was retried once; slot 5 was tried four times and dropped because each render&#x27;s luminance SD (10.0, 10.0, 11.95, 7.19) was under the brief&#x27;s 12. The brief asked for one or two calls in reserve.</li>
+<li>Tenaz&#x27;s journal records, for each image, the LLM unloaded through Sushi&#x27;s API (0.3-1.1 s), the ComfyUI job (90.2-94.2 s) and the LLM loaded again (7.8-8.2 s); the Sushi log shows the model unloaded and ready again at 44.2 GB resident each time. No request failed across the swaps.</li>
+<li>The model opened a picture, still or contact sheet in 36 of 54 sessions. The T002 reviewer opened the contact sheet of the returned pictures, every task reviewer that reached a verdict opened stills of its scene, and the final reviewer opened 13 sheets and frames.</li>
+<li>Independent check after the run: ./verify --all passed 38/38 in 44.5 s. The workload&#x27;s hidden acceptance cases passed 15/16: format (1920x1080, 30 fps, 45.000 s, no audio), the five loop labels in order before the end card, the end card&#x27;s exact texts held still from 43.05 s to 44.95 s, at most 25 words per frame, reading time, safe area, five pictures byte-identical to the image tool&#x27;s output, 10 manifest calls matching 10 journal jobs with the right seeds and sizes, all pictures used by the composition, and unchanged vendored files. pictures.slots fails: image-5.png is missing. story.loop-in-order was corrected after the run, because it took a caption ending in &#x27;Build.&#x27; for the Build label; it then passed on all 34 diagram frames.</li>
+<li>Seen by eye: the seven beats are in order and every line traces to the fact sheet; the five pictures share one palette and lighting and show no letters. Every scene uses one layout, kicker, headline and caption on the left and a small framed picture or panel on the right, with most of the frame empty; pictures are never shown full frame. In scene 4 the check badge reads DONE in red, then turns amber, with no green. The travelling task card is 44x30 px and partly hidden behind the step plates. Not checked: whether a first-time viewer understands Tenaz from the video alone, and phone playback.</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>First run of Tenaz Explainer and the first Tenaz run that unloads and reloads the LLM through Sushi&#x27;s load API for each image. Sushi is 1.3.0 here, not the 1.2.4 of earlier Sushi runs, and the SSD prefix cache was not emptied before the run, so the cache share is not a cold-start figure. One hidden acceptance case (story.loop-in-order) was corrected after the run; the correction is described in the outcome.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">Qwen 3.8 Flash Next · primary · reasoning medium</td><td class="spec__def">EXL3 2.625 bpw (K=2.625; MCG codebook, window 15); n-gram embedding table bf16 (95.4 GB, read from the SSD)</td></tr>
+                <tr><th scope="row">Checkpoint · primary</th><td class="spec__value">Qwen3.8-Flash-Next-Sushi-2.6bpw, with the bf16 n-gram table of the Sushi-4bpw pack</td><td class="spec__def">primary model artifact</td></tr>
+                <tr><th scope="row">Model · image_generator</th><td class="spec__value">FLUX 3 Image Klein · image_generator</td><td class="spec__def">int8 (convrot) diffusion model and text encoder</td></tr>
+                <tr><th scope="row">Checkpoint · image_generator</th><td class="spec__value">flux3_image_klein_int8_convrot.safetensors with qwen3vl_4b_int8_convrot.safetensors (text encoder) and flux2-vae.safetensors</td><td class="spec__def">image_generator model artifact</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">Sushi 1.3.0 · MLX 0.32.3 · OpenAI-compatible server (PID 2369, started 26 October 17:25:18 UTC by its LaunchAgent), greedy sampling (--temp 0), MTP drafts with an MTP-head KV cache, 8-bit KV cache, 512-token prefill chunks, 20 GB SSD prefix cache holding 12 entries (19.1 GB) from earlier work at the start, vision on, /metrics enabled. Tenaz unloaded and reloaded the model through Sushi&#x27;s load API around each image (--engine load-api) and reached the server through its engine proxy, which adds reasoning_effort from the pinned thinking level mode</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">fx coding agent over ACP, driven by the Tenaz runner 0.0.14</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Tenaz Explainer · revision 1</td><td class="spec__def">First run of the workload. Tenaz 0.1.0 (build 93fd776) with fx 0.0.14 over ACP, the five pinned HyperFrames skills and --set verifyTimeoutSec=300; no operator action, pause or edit of the project, task cards or run state. fx also listed the workstation&#x27;s global skills (about 350; 120 descriptions shortened, 228 entries omitted); the model loaded only pinned HyperFrames skills.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">131,072 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Image engine time</th><td class="spec__value">918 s</td><td class="spec__def">Sum of the 10 image job durations recorded by Tenaz, from request to returned file. · n=10 · 90.2-94.2 s per 1536x864 image.</td></tr>
+                <tr><th scope="row">LLM unload and reload for images</th><td class="spec__value">83.1 s</td><td class="spec__def">Sum of LLM unload and reload times around the 10 image jobs, recorded by Tenaz. · n=10 · Unload through Sushi&#x27;s load API 0.3-1.1 s each (4.5 s in all); reload until ready 7.8-8.2 s each (78.6 s in all).</td></tr>
+                <tr><th scope="row">TTFT · median</th><td class="spec__value">2.25 s</td><td class="spec__def">Median engine-measured TTFT from Sushi /metrics deltas around each request (p90 7.21 s). · n=1636</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">43.83 tok/s</td><td class="spec__def">Output tokens / engine decode seconds over matched requests (output-weighted; per-request median 49.1 from the log). · n=1636</td></tr>
+                <tr><th scope="row">Draft acceptance</th><td class="spec__value">65.1 %</td><td class="spec__def">Accepted MTP draft tokens / drafted tokens from the Sushi spec-stats line of each matched request. · n=1636 · 719,003 accepted of 1,103,832 drafted.</td></tr>
+                <tr><th scope="row">Swapped in during the run</th><td class="spec__value">6.92 GiB</td><td class="spec__def">Pages swapped in during the run, from Tenaz&#x27;s memory samples (swapins deltas, 16 KiB pages). · n=1581 · Memory pressure reached warning; the Sushi process peaked at 51 GiB and swap in use at 6.6 GiB. Tenaz kept its context budget at 85,196 tokens throughout.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Run elapsed</th><td class="spec__value">744.1 min</td><td class="spec__def">From the preflight&#x27;s end (26 October 17:27:07 UTC) to the COMPLETE record (27 October 05:51:15 UTC); no pauses. · n=1 · Includes 918 s of image jobs and 83 s of LLM unloads and reloads.</td></tr>
+                <tr><th scope="row">Agent sessions</th><td class="spec__value">54 sessions</td><td class="spec__def">fx sessions started by Tenaz: 3 bootstrap, 25 builder, 22 reviewer, 3 replan, 1 final reviewer. · n=1</td></tr>
+                <tr><th scope="row">Sessions ended early</th><td class="spec__value">3 sessions</td><td class="spec__def">Sessions stopped by the turn watchdog at 60 turns (T005, T015, T007 builders); none at the context budget, on an engine error or on a harness exit. · n=1</td></tr>
+                <tr><th scope="row">Image tool calls</th><td class="spec__value">10 calls</td><td class="spec__def">generate_image calls made by the agent; all 10 returned an image. · n=1 · The brief allowed at most 10 calls, retries included, and asked for one or two in reserve.</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">1,636 responses</td><td class="spec__def">Engine requests recorded by Tenaz&#x27;s proxy: 1,573 ending in tool calls and 63 in stop; none in errors. · n=1</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">1,636 requests</td><td class="spec__def">Every proxy request matched in order and uniquely to the Sushi 1.3.0 log of PID 2369 by prompt total, output tokens and SSD-restored tokens. · n=1 · 7 engine summaries were left unassigned: the 6 preflight requests and one client disconnect with no tokens.</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">1,875 calls</td><td class="spec__def">fx tool calls across all sessions, each approved by the runner over ACP; 59 were repaired by Tenaz before reaching fx. · n=1</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">0 compactions</td><td class="spec__def">Compactions across all sessions. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">100,985 tokens</td><td class="spec__def">Largest engine-reported prompt among matched requests. · n=1636</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">3,775,208 tokens</td><td class="spec__def">Prompt tokens not restored from the cache, over matched requests. · n=1636</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">81,392,747 tokens</td><td class="spec__def">Sushi SSD-restored tokens over matched requests. · n=1636</td></tr>
+                <tr><th scope="row">Prompt-cache token share</th><td class="spec__value">95.57 %</td><td class="spec__def">Cached prompt tokens / prompt tokens over matched requests (81,392,747 / 85,167,955). · n=1636 · The SSD cache held 12 entries from earlier work at the start, and the log does not separate what they supplied. 7 requests restored nothing.</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">1,391,683 tokens</td><td class="spec__def">Output tokens across matched requests; includes reasoning tokens. · n=1636</td></tr>
+                <tr><th scope="row">of which reasoning output</th><td class="spec__value">887,274 tokens</td><td class="spec__def">Reasoning tokens reported by Sushi through the proxy (63.8% of output). · n=1636</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Tasks completed</th><td class="spec__value">15 tasks</td><td class="spec__def">Task cards with status done at the end: the 14 from bootstrap and T015 from the first replan; none split, dropped or blocked. · n=1</td></tr>
+                <tr><th scope="row">Build attempts</th><td class="spec__value">25 attempts</td><td class="spec__def">Builder sessions across all tasks. · n=1</td></tr>
+                <tr><th scope="row">Reviews returning changes</th><td class="spec__value">6 reviews</td><td class="spec__def">Task reviewer sessions that returned CHANGES (15 returned ACCEPT; one ended without a verdict and was repeated). · n=1</td></tr>
+                <tr><th scope="row">Project checks passing</th><td class="spec__value">38 checks</td><td class="spec__def">Checks passed by the project&#x27;s own ./verify --all at the end (44.5 s in the independent run). · n=1</td></tr>
+                <tr><th scope="row">Hidden acceptance cases passed</th><td class="spec__value">15 checks</td><td class="spec__def">Hidden acceptance cases passed, of 16: written from the brief before the run, never shown to the model, and read from the render, the pictures and Tenaz&#x27;s journal. pictures.slots fails (image-5.png missing). · n=1 · story.loop-in-order was corrected after the run (it read a caption as the Build label) and passes on the corrected version.</td></tr>
+                <tr><th scope="row">Images generated</th><td class="spec__value">10 images</td><td class="spec__def">Image jobs that returned an image (journal job records). · n=1</td></tr>
+                <tr><th scope="row">Generated images on the page</th><td class="spec__value">5 images</td><td class="spec__def">Generated images in the composition: slots 1, 2, 3, 4 and the optional 6; slot 5 dropped after four renders under the flatness threshold. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>Per-request numbers are not published. Tenaz&#x27;s engine proxy recorded every request with its usage and finish reason and attached Sushi /metrics timings; all 1,636 were also matched in order to the Sushi process log. Prompts, responses, task notes, the image prompts and logs stay on the workstation.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-10-26-qwen38-flash-next-sushi-v130-tenaz-explainer</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>

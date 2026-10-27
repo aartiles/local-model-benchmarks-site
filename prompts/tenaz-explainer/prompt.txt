@@ -1,0 +1,207 @@
+# Tenaz Explainer
+
+Make one 45-second silent explainer video about Tenaz with HyperFrames, and
+make every picture in it yourself with the `generate_image` tool. You write
+the script, the storyboard and the design; the facts are below. Use the
+HyperFrames skills: read-only copies are in `.tenaz/skills/`. Read
+`hyperframes-core/SKILL.md` before planning, `hyperframes-cli/SKILL.md`
+before running any command, and `hyperframes-creative/SKILL.md` before
+designing a scene. Read their `references/` files only for the step you are
+working on, and read large files by section, not whole.
+
+## Scope
+
+- **One composition, rendered to `renders/explainer.mp4`.** 1920×1080
+  landscape, 30 fps, exactly 45 s, with no audio track. The video is silent:
+  everything it says is text on screen.
+- **No questions and no approvals.** Nobody will answer. This brief is the
+  approved brief and the final render is approved in advance: render when the
+  checks pass. Every creative decision inside these rules is yours.
+- **Offline.** There is no network. The HyperFrames CLI is installed in the
+  project: run it as `./hf <command>` (for example `./hf lint`, `./hf check`,
+  `./hf render`), never `npx`. Do not use `usage`, `catalog`, `add`, `tts`,
+  `transcribe`, `auth`, `publish`, `cloud`, `lambda` or `cloudrun`: they need
+  the network or an account.
+- **Local files only.** GSAP is in `vendor/gsap.min.js`; load it with a
+  relative path. Space Grotesk and JetBrains Mono are in `vendor/fonts/` with
+  `@font-face` rules in `vendor/fonts/fonts.css`. Use no other fonts, no CDN
+  and no remote URL. Do not change `vendor/`, `package.json` or
+  `node_modules/`.
+- **Inspect your own output.** Use `ffprobe` and `ffmpeg` to read renders and
+  to extract stills into `.agent/private/`, and look at them. Read only PNG or
+  JPEG images, and combine several stills into one contact sheet rather than
+  reading many.
+
+## What Tenaz is (the facts)
+
+Every claim in the video must come from this list. Do not add numbers,
+features, benchmark results, customers, prices or comparisons that are not
+here, and show no web address.
+
+- Tenaz is a command-line tool. You give it a goal; it plans the work, splits
+  it into tasks and drives a coding agent session by session until the goal
+  is met, on a local model.
+- It is built for machines that fit one model at a time: a laptop or a
+  single GPU running a local LLM.
+- Long agent runs on that hardware fail in predictable ways: the context
+  fills up, the engine runs out of memory or restarts, the model loops on the
+  same tool call, and an image model cannot be loaded next to the LLM. Tenaz
+  handles those failures instead of counting them against the work.
+- **The loop.** The goal is a short brief. The bootstrap turns it into
+  numbered requirements, a `verify` script and a list of small tasks. Each
+  task gets its own session: the agent builds it, Tenaz runs `verify`, and a
+  fresh session of the same model reviews the change. A task that passes is
+  committed; one that fails is undone and retried, split into smaller tasks or
+  marked blocked. When every task is done, a final review checks the whole
+  goal against the brief.
+- **`verify` decides when the work is done.** The model saying it is done
+  counts for nothing; only `verify` passing does. Tenaz runs it itself.
+- **Fresh sessions, state on disk.** Every unit of work is a new agent
+  session with a short context. The plan, task cards, notes and progress live
+  in the project, and every step is a git commit.
+- **The runner decides, not the model:** whether to commit or revert, and
+  when to retry, split a task, block or replan.
+- **Engine failures are not task failures.** A crash or a refused connection
+  is retried with backoff without charging the task.
+- **Watchdogs.** Loops, repeated calls, idle turns and huge outputs get a
+  steering message first; then the session is stopped.
+- **One resident model.** When the agent asks for an image, Tenaz unloads the
+  LLM, runs the image model, frees it and reloads the LLM. The agent's
+  requests wait meanwhile instead of failing.
+- **Pause and resume.** Ctrl-C pauses after the current session; running it
+  again continues.
+- A frontier agent such as Claude Code or Codex can hand Tenaz a long goal
+  and check the result when it is done.
+- The commands: `tenaz init` creates a run from a brief, `tenaz run` works
+  until the goal is met, `tenaz status` shows where it is, and `tenaz demo`
+  shows a whole scripted run in about a minute with no model.
+- **This video** was planned, illustrated and edited by a local model driven
+  by Tenaz: Qwen 3.8 Flash Next on Sushi writing the code, and FLUX 3 Image
+  Klein in ComfyUI making the pictures, on one MacBook Pro with 64 GB, with
+  no one stepping in.
+
+## The story
+
+Six to eight scenes, in this order. The words are yours, except where a text
+is given in quotes, which is exact.
+
+1. **Hook:** what Tenaz is, in one line.
+2. **The problem:** one machine that fits one model, and how long runs on it
+   fail.
+3. **The loop:** an animated diagram whose steps are labelled exactly
+   "Bootstrap", "Build", "Verify", "Review" and "Commit", in that order, with
+   the path back for a retry. The steps light up one after another as a task
+   goes through them.
+4. **Verify decides:** the model's claim against the check that runs.
+5. **One resident model:** the LLM steps out, the image model makes a
+   picture, the LLM comes back. Show one of your own generated pictures being
+   made here.
+6. **What keeps it going:** at least two of fresh sessions with state on disk,
+   git commits, watchdogs, engine failures retried, pause and resume.
+7. **End card:** "Tenaz", the command "tenaz demo", and the line "Planned,
+   illustrated and edited by a local model with Tenaz." Everything still for
+   the last 2 s.
+
+A scene may also show a terminal with the real commands above, or a short
+`tenaz init` and `tenaz run` exchange you write from the facts.
+
+## Pictures
+
+- **Only `generate_image`** makes raster images. Every PNG or JPEG in the
+  video comes from a `generate_image` call and is copied, unchanged, from the
+  path the call returns into `assets/images/`. Nothing downloaded, no
+  placeholder files, no screenshots of the composition used as pictures.
+- **Diagrams, text, terminals, arrows and icons** are drawn in the
+  composition with HTML, CSS and inline SVG, not generated. They must not
+  imitate a photograph.
+- **At most 10 `generate_image` calls for the whole project**, retries
+  included. Plan the prompts before the first call. FLUX writes text badly:
+  ask for no letters, words, logos, screens with text or watermarks
+  (`negative_prompt` helps), and put all text in HTML.
+- **Fixed slots, size and seeds.** Five or six pictures, all 1536×864 (the
+  video scales them up), with these seeds. A retry keeps the slot's seed and
+  changes only the prompt.
+
+  | Slot | File | Seed |
+  |---|---|---|
+  | 1 | `assets/images/image-1.png` | 101 |
+  | 2 | `assets/images/image-2.png` | 102 |
+  | 3 | `assets/images/image-3.png` | 103 |
+  | 4 | `assets/images/image-4.png` | 104 |
+  | 5 | `assets/images/image-5.png` | 105 |
+  | 6 (optional) | `assets/images/image-6.png` | 106 |
+
+- **One visual family:** the pictures share one palette, lighting and style,
+  and that style matches the composition's design. Earlier runs with this
+  image model drifted from picture to picture, so write one style sentence
+  (medium, palette, light, lens) in `DESIGN.md` and use it word for word in
+  every prompt, and keep each subject simple: one object or scene, not a
+  story in one picture.
+- **Look at every picture before you use it.** Open each returned file and
+  compare it with the others in one contact sheet. Retry a picture that has
+  text, a logo, a screen with text, a garbled object, or a style that does
+  not match; record why in `DECISIONS.md`.
+- **Pictures are slow and swap the models.** Each call takes one to three
+  minutes, and the LLM is unloaded and reloaded around it. Make the pictures
+  together, early, in one task, and do not start the next call before the
+  last one has returned. A call that fails without making a picture still
+  counts against the budget; keep one or two calls in reserve for retries.
+- **Keep `assets/images/manifest.json`** current. It lists every
+  `generate_image` call in order, including those whose result you did not
+  use: `{"calls": [{"n", "slot", "prompt", "negative_prompt", "seed",
+  "width", "height", "returned": [paths], "used_as": "assets/images/<file>" |
+  null}]}`.
+
+## Design
+
+- **A short technical film, not a slide deck.** The explanation is carried by
+  motion: things move, connect, light up and transform. Each scene enters
+  with one clear move, never a plain cut, and its elements stagger in.
+  Earlier videos by local models read like animated slides: a picture, a
+  headline and a fade, scene after scene. Avoid that: show the system
+  working (a task card travelling through the loop, a check turning from red
+  to green, the LLM and the image model trading places in memory), let
+  elements carry over from one scene to the next, and keep something moving
+  in every second of the video except the final hold. Pictures move too:
+  slow pushes, pans or parallax, not still backdrops.
+- **One look, chosen by you** and written in `DESIGN.md` before the first
+  scene: at most five colours with their hex values, how the two fonts are
+  used, how pictures are framed, and the motion rules (eases and durations).
+- **Readable without sound.** Headlines 88 px or larger, other text 40 px or
+  larger, and labels in JetBrains Mono 32 px or larger. Every text stays on
+  screen for at least 2 s plus 0.25 s per word, and no frame shows more than
+  25 words. Text over a picture sits on a plate or a darkened area so it is
+  readable.
+- **Safe area:** all text inside the central 90% of the frame.
+
+## Checks `verify` must run
+
+Within 300 s:
+
+- `./hf lint` and `./hf check`, and require both to pass.
+- Every file in `assets/images/` other than `manifest.json` is a valid PNG of
+  1536×864, not flat (standard deviation of its luminance above 12 on 0–255),
+  and no two files have the same SHA-256.
+- Every picture's SHA-256 equals that of the `returned` path that
+  `manifest.json` names for it. When that path no longer exists (the project
+  was copied elsewhere), this one check reports skipped, not passed.
+- `manifest.json` has at most 10 calls, and each used call's seed and size
+  match its slot.
+- The composition uses every picture in `assets/images/`, and loads nothing
+  outside the project.
+- A draft render: size, frame rate, duration and no audio stream, checked
+  with `ffprobe`.
+- Stills at the middle of each scene into `.agent/private/frames/`, combined
+  into one contact sheet, with the stills and the sheet listed as artifacts,
+  so that a reviewer can compare the scenes with `DESIGN.md` and the story.
+
+The final task renders `renders/explainer.mp4` at normal quality (outside
+`verify`'s time limit if needed, with the CLI's detached render) and checks it
+the same way.
+
+## Done means
+
+`renders/explainer.mp4` tells the story above in 45 s, every picture in it was
+made by `generate_image`, every claim is in the facts, and `PLAN.md`,
+`STATE.md`, `DESIGN.md` and `DECISIONS.md` exist and reflect the finished
+project, including why each picture was kept or retried.
