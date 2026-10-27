@@ -42,22 +42,41 @@
         <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../runs/">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/">Builds</a><a href="../prompts/">Prompts</a><a href="../method/" aria-current="page">Method</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 12 October 2026</span><span>15 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 27 October 2026</span><span>32 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
 <article class="sheet-body"><header class="sheet__head">
 
         <h1 class="display sheet__title">Method &amp; measurements</h1>
         <p class="lede">Read the task result and runtime measurements as separate evidence. Every figure describes a recorded execution, with the definition and limits needed to interpret it.</p>
-      <nav class="archive-links" aria-label="Method sections"><a href="#protocol-title">Protocol ↓</a><a href="#metrics-title">Definitions ↓</a><a href="#compare-title">Comparisons ↓</a><a href="#limits-title">Limits ↓</a></nav></header>
+      <nav class="archive-links" aria-label="Method sections"><a href="#protocol-title">Protocol ↓</a><a href="#runner-title">Runner ↓</a><a href="#metrics-title">Definitions ↓</a><a href="#compare-title">Comparisons ↓</a><a href="#limits-title">Limits ↓</a></nav></header>
 
       <section class="band band--quiet" aria-labelledby="protocol-title">
         <h2 class="h-section" id="protocol-title">Run protocols</h2>
         <div class="prose">
           <p>Most runs here are one-shot. A single task prompt is submitted to the model through a coding agent, and I do not intervene, steer the session, or hand-edit the result. The published build is whatever the run produced.</p>
-          <p>The archive also includes staged, long-horizon challenges that ask the model to preserve plans and project state across fresh sessions. A deterministic runner can sequence roles without a permanent orchestrator model. Manual continuation, setup drift and incomplete review gates are recorded on the run sheet. Wild West Showdown 3D is the first such attempt here; its game was completed, but its runner stopped before the planned review phase.</p>
+          <p>The archive also includes long-horizon runs, in which a deterministic runner rather than a model takes one brief through many fresh agent sessions, with the plan and project state kept in files. <a href="#runner-title">The runner</a> below describes it. Manual continuation, setup drift and runner changes during a run are recorded on the run sheet.</p>
           <p>That protocol is what makes the builds comparable as <em>artifacts</em>: each one is an honest answer to the same prompt. It is not what makes their measurements comparable. Every workload in this archive records one repetition, so a figure such as a decode rate describes one session rather than a stable property of the model or engine.</p>
         </div>
+      </section>
+
+      <section class="band band--quiet" aria-labelledby="runner-title">
+        <h2 class="h-section" id="runner-title">The runner</h2>
+        <div class="prose">
+          <p>Since 20 October the long-horizon runs use <a href="https://github.com/aartiles/tenaz">Tenaz</a>, an open-source runner, public since 22 October and released as 0.1.0 on 27 October. It is a program, not a model. It has the local model plan the brief and write a <code>verify</code> script, splits the work into tasks, and builds each task in a fresh coding-agent session. A task is committed only when its checks pass and a new reviewer session agrees, and a final reviewer judges the result against the brief. The run&rsquo;s state lives in the project, so a run can pause and resume; on an existing repository it works on its own branch.</p>
+          <p>Tenaz grew out of the runs in this archive, in four steps. Each step followed a run that showed what the step before could not do.</p>
+        </div>
+        <table class="spec" style="margin-block-start: var(--space-md);">
+          <caption class="label">Runner &middot; Runs here &middot; What changed</caption>
+          <thead><tr><th scope="col">Runner</th><th scope="col">Runs here</th><th scope="col">What changed</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Challenge runner<br>10 October</th><td class="spec__value"><a href="../runs/wild-west-showdown-3d-tensorfold-native/">Wild West Showdown 3D</a> on TensorFold</td><td class="spec__def">Fixed roles (architect, builder, fixer, reviewer) over a milestone protocol written for one challenge, with Pi. It stopped at the third of twelve milestones after two failed sessions, and the game was finished in manual sessions.</td></tr>
+            <tr><th scope="row">Task loop<br>12&ndash;17 October</th><td class="spec__value">Seven runs, from <a href="../runs/pocket-ledger-tensorfold-native/">Pocket Ledger</a> to the three video promo runs</td><td class="spec__def">One protocol for any brief: the model plans its own tasks and writes the checks, and each task gets a fresh Pi session, a verify gate and a review. It later continued sessions that reached their context budget, paused on Ctrl-C and restarted a session when the engine refused an image. Its first run finished with no intervention.</td></tr>
+            <tr><th scope="row">smr 0.1.0<br>17&ndash;19 October</th><td class="spec__value"><a href="../runs/pocket-ledger-sushi-v124-smr/">Pocket Ledger</a> on Sushi</td><td class="spec__def">A port to Rust with the same phases, gates and journal. It drives fx over ACP as well as Pi, through its own engine proxy that records every request. Its run listed three runner defects: a harness crash charged to the task, fx&rsquo;s log overwritten by each session, and no draft counts.</td></tr>
+            <tr><th scope="row"><a href="https://github.com/aartiles/tenaz">Tenaz</a> 0.1.0<br>from 20 October</th><td class="spec__value"><a href="../runs/wild-west-showdown-3d-sushi-v124-tenaz/">Wild West Showdown 3D</a>, two <a href="../challenges/image-landing/">Image Landing</a> runs and <a href="../runs/tenaz-explainer-sushi-v130/">Tenaz Explainer</a></td><td class="spec__def">smr renamed on 19 October, with those defects fixed. It added a worktree and <code>tenaz finish</code> for existing repositories, <code>doctor</code>, <code>demo</code> and exit codes for unattended use, and a <code>generate_image</code> tool backed by ComfyUI or the engine that unloads the language model through the engine&rsquo;s API when it can. It was fixed four times during the Wild West run.</td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-block-start: var(--space-md);">Builds of the runner differ from run to run, and each run sheet names the one it used. The runner changed along with the model, engine and harness, so runs on different runners are described side by side, not as a controlled comparison of runners.</p>
       </section>
 
       <section class="band band--quiet" aria-labelledby="metrics-title">
@@ -105,7 +124,7 @@
             <li><strong>No repeatability.</strong> Every workload here records a single repetition. The LLMProbe suite measured each scenario once and is explicitly indicative.</li>
             <li><strong>No peak-memory comparison for the inference suite.</strong> Peak RAM was not sampled during the LLMProbe A/B, so the two engines cannot be compared on memory.</li>
             <li><strong>No general context ceiling.</strong> The MLX-Serve 64K prefill was rejected by its memory-admission policy. That describes the tested cold-prefill scenario, not a maximum context for either engine.</li>
-            <li><strong>No image or video workloads.</strong> These runs cover text-to-code agentic tasks and a text inference suite only.</li>
+            <li><strong>No image-model comparison.</strong> Four runs render a video and three make their own pictures with a local image model, one run per setup. They show what one setup produced, not which image model or engine is better.</li>
             <li><strong>No thermal, power or sustained-load data.</strong> Long-duration memory pressure and battery behaviour are not covered.</li>
             <li><strong>Checks were transcribed, not rerun.</strong> The verification bullets on each run sheet are transcribed from the session log during archiving. They were not re-executed against the published build.</li>
           </ul>
