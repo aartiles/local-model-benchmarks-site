@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="24 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta name="description" content="26 playable generated builds, with captures and separate local and cloud provenance.">
     <title>Playable builds · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/demos/">
     <meta property="og:title" content="Playable builds · Local Model Benchmarks">
-    <meta property="og:description" content="24 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta property="og:description" content="26 playable generated builds, with captures and separate local and cloud provenance.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -30,7 +30,7 @@
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
     <meta name="twitter:title" content="Playable builds · Local Model Benchmarks">
-    <meta name="twitter:description" content="24 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta name="twitter:description" content="26 playable generated builds, with captures and separate local and cloud provenance.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -42,12 +42,12 @@
         <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../runs/">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/" aria-current="page">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 28 October 2026</span><span>35 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 28 October 2026</span><span>39 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
 <header class="sheet__head">
         <h1 class="display sheet__title">Playable builds</h1>
-        <p class="lede">24 generated artifacts, grouped by task. Play the result as the model produced it, then check the run sheet for the recorded tests and limits.</p>
+        <p class="lede">26 generated artifacts, grouped by task. Play the result as the model produced it, then check the run sheet for the recorded tests and limits.</p>
         <nav class="archive-links" aria-label="Build groups"><a href="#whiteout-protocol">Whiteout Protocol ↓</a><a href="#digger-3d">Digger 3D ↓</a><a href="#hardball-3d">Hardball 3D ↓</a><a href="#obby-3d">Obby 3D ↓</a><a href="#wild-west-showdown-3d">Wild West Showdown 3D ↓</a><a href="#tenaz-explainer">Tenaz Explainer ↓</a><a href="#image-landing">Image Landing ↓</a><a href="#benchmarks-promo">Local Model Benchmarks Promo ↓</a><a href="#hyperframes-promo">Custom Characters Promo ↓</a><a href="#anatomy-microwave">Microwave Oven Anatomy ↓</a><a href="#anatomy-prefix-cache">Prefix Cache Anatomy ↓</a><a href="#digger-arcade">Digger Arcade ↓</a><a href="#pagoda-garden">Voxel Pagoda Garden ↓</a></nav>
       </header>
       <section class="band" id="whiteout-protocol" aria-labelledby="whiteout-protocol-title">
@@ -115,6 +115,26 @@
               <p class="compare__summary">Built a complete, playable Digger 3D under the same settings that stopped all three Splash Q2_0 attempts: TypeScript check, 28/28 self-tests, validation of all five levels and the production build pass, and the browser shows a bright isometric board where excavation is visible and enemies chase the player. In the operator&#x27;s hands-on review its presentation was judged more polished than the 2026-10-02 Sushi 1.1.0 build.</p>
               <div class="actions compare__actions"><a href="../demos/digger-3d-sushi-v124/">Play build ↗</a><a class="action--quiet" href="../runs/digger-3d-sushi-v124/">Run sheet →</a></div>
               <p class="asset-note"><a href="../demos/digger-3d-sushi-v124/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
+            </article><article class="compare__item">
+              <figure class="capture capture--inline"><a href="../demos/digger-3d-sushi-v140-stq275-run3/" aria-label="Digger 3D · Qwen 3.8 Flash Next STQ 2.75bpw + Sushi 1.4.0 (run 3) · gameplay capture"><img src="../assets/screenshots/digger-3d-sushi-v140-stq275-run3-gameplay.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="Digger 3D on level one with the STQ 2.75bpw pack: an isometric board full of dirt blocks with a few dug cells, green emeralds, gold bags, a pink Nobbin, the lit digger and the spawn portal"></a></figure>
+              <header class="compare__head">
+                <h3><a href="../runs/digger-3d-sushi-v140-stq275-run3/">Sushi 1.4.0 · STQ 2.75bpw · run 3</a></h3>
+                <p class="index__meta">Qwen 3.8 Flash Next · 28 October 2026</p>
+              </header>
+              <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+              <p class="compare__summary">Built a complete, playable Digger 3D with the STQ 2.75bpw pack on Sushi 1.4.0, without interruptions: TypeScript check, 28 self-tests and the production build pass, and the browser shows a title screen and a readable isometric board that starts full of dirt, with tunnels, emeralds, gold bags, Nobbins and the spawn portal. The operator judged this start more faithful to the original Digger than the 2.6bpw run&#x27;s mostly excavated level.</p>
+              <div class="actions compare__actions"><a href="../demos/digger-3d-sushi-v140-stq275-run3/">Play build ↗</a><a class="action--quiet" href="../runs/digger-3d-sushi-v140-stq275-run3/">Run sheet →</a></div>
+              <p class="asset-note"><a href="../demos/digger-3d-sushi-v140-stq275-run3/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
+            </article><article class="compare__item">
+              <figure class="capture capture--inline"><a href="../demos/digger-3d-sushi-v140-26bpw/" aria-label="Digger 3D · Qwen 3.8 Flash Next 2.6bpw + Sushi 1.4.0 · gameplay capture"><img src="../assets/screenshots/digger-3d-sushi-v140-26bpw-gameplay.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="Digger 3D on level one with the 2.6bpw pack: an isometric board with an outer dirt ring, raised dirt blocks, glowing emeralds, two gold bags, the red spawn gate and the digger, over a largely excavated floor"></a></figure>
+              <header class="compare__head">
+                <h3><a href="../runs/digger-3d-sushi-v140-26bpw/">Sushi 1.4.0 · 2.6bpw pack</a></h3>
+                <p class="index__meta">Qwen 3.8 Flash Next · 28 October 2026</p>
+              </header>
+              <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+              <p class="compare__summary">Built a complete, playable Digger 3D with the production 2.6bpw pack on Sushi 1.4.0: TypeScript check, 28/28 self-tests and the production build pass, and the browser shows a title screen, a readable isometric board with emeralds, gold bags and the spawn gate, digging, and the game-over overlay. The level starts mostly excavated, which the operator judged less faithful to the original Digger than STQ run 3&#x27;s board full of dirt.</p>
+              <div class="actions compare__actions"><a href="../demos/digger-3d-sushi-v140-26bpw/">Play build ↗</a><a class="action--quiet" href="../runs/digger-3d-sushi-v140-26bpw/">Run sheet →</a></div>
+              <p class="asset-note"><a href="../demos/digger-3d-sushi-v140-26bpw/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
             </article><article class="compare__item">
               <figure class="capture capture--inline"><a href="../demos/digger-3d-gpt-6-luna-codex/" aria-label="Digger 3D · GPT-6 Luna build · gameplay capture"><img src="../assets/screenshots/digger-3d-gpt-6-luna-codex-gameplay.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Luna Digger 3D gameplay showing the isometric grid and HUD"></a></figure>
               <header class="compare__head">

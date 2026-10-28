@@ -64,6 +64,12 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d-sushi-v124/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d-sushi-v140-26bpw/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d-sushi-v140-stq275-run3/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-arcade/</loc>
   </url>
   <url>
@@ -197,6 +203,18 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-sushi-v124/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-sushi-v140-26bpw/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-sushi-v140-stq275-run1/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-sushi-v140-stq275-run2/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-sushi-v140-stq275-run3/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-arcade/</loc>
