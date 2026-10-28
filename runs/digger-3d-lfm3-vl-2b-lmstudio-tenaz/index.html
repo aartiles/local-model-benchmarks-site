@@ -1,0 +1,164 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Digger 3D · LFM3-VL 2B · LM Studio 0.4.26 · Tenaz: configuration, result, recorded checks and measurements.">
+    <title>Digger 3D · LFM3-VL 2B · LM Studio 0.4.26 · Tenaz run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-lfm3-vl-2b-lmstudio-tenaz/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-lfm3-vl-2b-lmstudio-tenaz/">
+    <meta property="og:title" content="Digger 3D · LFM3-VL 2B · LM Studio 0.4.26 · Tenaz run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Digger 3D · LFM3-VL 2B · LM Studio 0.4.26 · Tenaz: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Digger 3D · LFM3-VL 2B · LM Studio 0.4.26 · Tenaz run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Digger 3D · LFM3-VL 2B · LM Studio 0.4.26 · Tenaz: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 28 October 2026</span><span>35 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro run-intro--text">
+          <header class="sheet__head">
+            <p class="label">28 October 2026 · Agentic game · isometric 3D</p>
+            <h1 class="display sheet__title" id="page-title">Digger 3D · LFM3-VL 2B · LM Studio 0.4.26 · Tenaz</h1>
+            <div class="record-tag"><span class="mark">Session failed</span> <span class="mark">Local run</span></div>
+            <p class="lede">Blocked at the first bootstrap step after 3 sessions and 3 min 24 s: no spec was accepted and no task card or code was written. LFM3-VL 2B never opened the project&#x27;s CHALLENGE.md; in every session it searched the disk by absolute paths and wrote spec.md and map.md outside the project, twice at the benchmark repository&#x27;s root and once in the home folder, so Tenaz found neither file in the project.</p>
+            <div class="actions"><a href="../../challenges/digger-3d/">Compare attempts <span aria-hidden="true">→</span></a><a href="../../prompts/digger-3d/">Task prompt <span aria-hidden="true">→</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>Preflight: tools, reasoning and vision worked (the model named both colours of the test image). Tenaz 0.2.0 reported the prefix cache as not reported and continued without --allow-weak-engine.</li>
+<li>65 of 68 tool calls (28 ls, 19 find, 8 read, 6 write, 4 bash) named paths outside the project; the other 3 were find calls without a path. The model read the benchmark repository&#x27;s AGENTS.md and design.md and tried a brief in the home folder that does not exist. It never read CHALLENGE.md or the project&#x27;s brief.</li>
+<li>When session 001 listed the repository root, a .tenaz folder with spec.md and map.md was already there, left by the LFM3 1.7B run 40 minutes earlier; this run overwrote both files in sessions 001 and 003, and wrote a second pair in the home folder in session 002. The operator moved both pairs out of those places after the run.</li>
+<li>Tenaz&#x27;s sandbox was off (sandbox false). With --set sandbox=true, Tenaz confines the agent&#x27;s writes to the project and the package caches, so these writes should have failed in front of the model instead of landing elsewhere.</li>
+<li>No project code exists, so nothing was built, run or played.</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>Three sessions are a small sample: this records a failure to find and use the project, not the model&#x27;s coding ability. The project lives in a folder inside the benchmark repository, so a model that searches upwards finds the repository and the previous run&#x27;s stray files; a project outside the repository and Tenaz&#x27;s sandbox would both have limited that. LM Studio does not report cached tokens or TTFT to the client, so cache figures and rates come from llama.cpp&#x27;s own timing lines and no TTFT is recorded. Tenaz&#x27;s memory samples followed the LM Studio app process, not the llama-server process that held the model, so no model memory figure is recorded. No build of this attempt exists.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">LFM3-VL 2B · primary · reasoning medium requested; LM Studio accepts only on or off and fell back to on</td><td class="spec__def">GGUF Q8_0 language model; F16 vision projector</td></tr>
+                <tr><th scope="row">Checkpoint · primary</th><td class="spec__value">LiquidAI/LFM3-VL-2B-GGUF, files LFM3-VL-2B-Q8_0.gguf and mmproj-LFM3-VL-2B-F16.gguf</td><td class="spec__def">primary model artifact</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">LM Studio 0.4.26+4 · llama.cpp runtime llama.cpp-mac-arm64-apple-metal-advsimd 2.65.1 · OpenAI-compatible local server with one llama.cpp slot of 128,000 tokens (the model&#x27;s maximum) and the vision projector loaded: all layers on the GPU, flash attention, unified KV cache, F16 K and V, one concurrent prediction, no speculative decoding, the model&#x27;s default sampling; other load settings as in the LFM3 1.7B run. LM Studio does not report cached prompt tokens to the client. Reached through Tenaz&#x27;s engine proxy mode</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">Pi coding agent over RPC, driven by the Tenaz runner 1.4.0</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Runner</th><td class="spec__value">Tenaz 0.2.0 · build 74bfd1a</td><td class="spec__def">open-source runner, <a href="https://github.com/aartiles/tenaz">github.com/aartiles/tenaz</a> · <a href="../../method/#runner-title">how the runner evolved</a></td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Digger 3D · revision 1</td><td class="spec__def">The byte-identical Digger 3D prompt, as CHALLENGE.md, behind the same Tenaz brief as the Ternary Bonsai and LFM3 1.7B attempts. Tenaz plans the work and runs one fresh Pi session per step; its per-session context budget was 83,200 tokens (0.65 of 128,000). Run with Tenaz 0.2.0 (74bfd1a) and vision on; Tenaz&#x27;s write sandbox was off.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">128,000 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">110.77 tok/s</td><td class="spec__def">Generated tokens / llama.cpp eval seconds over matched requests (output-weighted; per-request median 114.9). · n=40</td></tr>
+                <tr><th scope="row">Prefill · median</th><td class="spec__value">3983.6 tok/s</td><td class="spec__def">Median per-request llama.cpp prompt-eval rate, counting only the evaluated tokens; reused tokens are excluded. · n=40</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Run elapsed</th><td class="spec__value">3.4 min</td><td class="spec__def">From Tenaz&#x27;s run state creation (28 October 14:08:51 UTC) to the BLOCKED record (14:12:15 UTC). · n=1 · The 3 sessions took 188 s.</td></tr>
+                <tr><th scope="row">Agent sessions</th><td class="spec__value">3 sessions</td><td class="spec__def">Pi sessions started by Tenaz, all for the first bootstrap step (spec and map). · n=1</td></tr>
+                <tr><th scope="row">Sessions ended early</th><td class="spec__value">0 sessions</td><td class="spec__def">Sessions that ended before the agent finished its turn; all three ended normally and failed Tenaz&#x27;s check of the project&#x27;s spec and map. · n=1</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">40 responses</td><td class="spec__def">Engine requests recorded by Tenaz&#x27;s proxy: 37 ending in tool calls and 3 in stop. · n=1</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">40 requests</td><td class="spec__def">Every proxy request matched in order and uniquely to a llama.cpp timing record in LM Studio&#x27;s server log by prompt and output tokens. · n=1 · No timing record in the run&#x27;s span is left unassigned; the 6 before it are Tenaz&#x27;s preflight.</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">68 calls</td><td class="spec__def">Pi tool calls across all sessions. · n=1</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">0 compactions</td><td class="spec__def">Pi context compactions across all sessions. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">19,396 tokens</td><td class="spec__def">Largest prompt among matched requests. · n=40</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">44,280 tokens</td><td class="spec__def">Prompt tokens llama.cpp evaluated, that is not reused from its slot, over matched requests (LM Studio&#x27;s server log). · n=40</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">281,258 tokens</td><td class="spec__def">Prompt tokens llama.cpp reused from its slot (prompt total less evaluated tokens), over matched requests. · n=40 · LM Studio reports none of this to the client, so Tenaz and Pi recorded 0 cached tokens.</td></tr>
+                <tr><th scope="row">Prompt-cache token share</th><td class="spec__value">86.4 %</td><td class="spec__def">Reused prompt tokens / prompt tokens over matched requests (281,258 / 325,538), from LM Studio&#x27;s server log. · n=40</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">19,011 tokens</td><td class="spec__def">Output tokens across matched requests, including reasoning. · n=40</td></tr>
+                <tr><th scope="row">of which reasoning output</th><td class="spec__value">14,830 tokens</td><td class="spec__def">Reasoning tokens reported by LM Studio in the usage of the same requests. · n=40</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Tasks completed</th><td class="spec__value">0 tasks</td><td class="spec__def">Task cards done; bootstrap never reached the task cards. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>Per-request numbers are not published. Tenaz&#x27;s proxy recorded every request with its usage and finish reason but no engine timings, because LM Studio returns none; all 40 were matched in order to llama.cpp&#x27;s per-request timing lines in LM Studio&#x27;s server log. Prompts, responses, task notes and logs stay on the workstation; the stray files are kept with them.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-10-28-lfm3-vl-2b-q8_0-lmstudio-0426-128k-tenaz-digger-3d</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <p class="colophon__tag">The long-horizon runs are driven by <a href="https://github.com/aartiles/tenaz">Tenaz</a>, an open-source runner that takes a local model through a goal for hours, session by session, until its checks pass.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>

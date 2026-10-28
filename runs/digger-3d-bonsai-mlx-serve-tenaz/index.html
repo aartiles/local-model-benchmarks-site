@@ -1,0 +1,172 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Digger 3D · Ternary Bonsai 2 27B · MLX-Serve 26.10.3 · Tenaz: configuration, result, recorded checks and measurements.">
+    <title>Digger 3D · Ternary Bonsai 2 27B · MLX-Serve 26.10.3 · Tenaz run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-bonsai-mlx-serve-tenaz/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-bonsai-mlx-serve-tenaz/">
+    <meta property="og:title" content="Digger 3D · Ternary Bonsai 2 27B · MLX-Serve 26.10.3 · Tenaz run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Digger 3D · Ternary Bonsai 2 27B · MLX-Serve 26.10.3 · Tenaz: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Digger 3D · Ternary Bonsai 2 27B · MLX-Serve 26.10.3 · Tenaz run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Digger 3D · Ternary Bonsai 2 27B · MLX-Serve 26.10.3 · Tenaz: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 28 October 2026</span><span>35 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro run-intro--text">
+          <header class="sheet__head">
+            <p class="label">28 October 2026 · Agentic game · isometric 3D</p>
+            <h1 class="display sheet__title" id="page-title">Digger 3D · Ternary Bonsai 2 27B · MLX-Serve 26.10.3 · Tenaz</h1>
+            <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            <p class="lede">Stopped by the operator after 19 h 21 min with 12 of 28 task cards done and no playable game: the simulation core was built (grid, digging, movement, gold bags, pathfinding, enemies, firing, spawner, scoring, levels and the tick), but no rendering, input or screens. Every task was accepted on its first review. At a 42,598-token session budget, 23 of 52 sessions ended early and builders kept reaching a second context compaction, which Tenaz stops; the run used three Tenaz builds and one manual kill of a hung check.</p>
+            <div class="actions"><a href="../../challenges/digger-3d/">Compare attempts <span aria-hidden="true">→</span></a><a href="../../prompts/digger-3d/">Task prompt <span aria-hidden="true">→</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>Bootstrap: the spec step passed on its first session. In the verify step the model&#x27;s ./verify --all looped forever (an argument loop without shift); Tenaz build c5c7450 had no tool-call watchdog, and the operator killed the check at 17:44 UTC after 22 minutes. That session then stopped at its second compaction and the next one passed. The task-card step was interrupted once by the first binary switch and then accepted: 54 requirements, 24 tasks.</li>
+<li>Tasks: T001-T011 and T012a done, each accepted by a fresh reviewer on the first review; T012a took 3 attempts. T012 (the authoritative simulation) used all three context continuations and was split into T012a-d; T012b failed three attempts at the second compaction and was split into T012ba and T012bb. Two replans added nothing.</li>
+<li>At the stop T012ba was active: two attempts had stopped at the second compaction, its check passed after the second, and its reviewer session was interrupted by the stop. T012bb, T012c, T012d and T013-T024 (app lifecycle, input, audio, terrain and camera, models, effects, HUD, title and game-over screens, integration, the 28 self-tests, a browser walkthrough and the final report) were never started.</li>
+<li>Of 52 sessions, 23 ended early: 14 at a second compaction, 6 above the context budget (prompt plus an over-limit reply, 56,857-60,118 tokens; Tenaz continued them in fresh sessions) and 3 at operator pauses. Three times (T005, T011, T012) the over-limit reply was a whole-file write that Tenaz cut off before Pi ran it, so the continuation started over; build 9b45a03 runs such tool calls before ending the session.</li>
+<li>Five of the second-compaction stops were retried as engine errors under builds c5c7450 and 7a7da2d, although the request had been cancelled by Tenaz itself; build 9b45a03 counts them as aborts. The engine served every request it was sent; the 12 error and 3 aborted requests were cancelled by Tenaz.</li>
+<li>The last committed checkpoint passes 13 project checks in Tenaz&#x27;s own verify (14 with T012ba&#x27;s uncommitted check). The checks were not rerun independently, and there is no game screen to play: the page is still T001&#x27;s skeleton scene.</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>The 24 GB setup is a simulation on the 64 GB machine: it reproduces MLX-Serve&#x27;s admission budget (16 GB of models, 3 GiB reserved for the OS, one resident model), a small prefix cache and the 64K context chosen for that budget. It does not reproduce a 24 GB Mac&#x27;s memory bandwidth, GPU wired-memory limit (53 GB here) or real memory pressure: the server process grew past 16 GB to 19-25 GiB, and swap stayed below 0.8 GiB with normal memory pressure until the last twenty minutes. The drafter was not chosen for this model: MLX-Serve&#x27;s automatic setting loaded the Qwen 3.8 27B pack&#x27;s DFlash2 drafter through a link in Bonsai&#x27;s folder (3.8 GB on disk; MLX-Serve&#x27;s preflight estimated 1.01 GB), and DFlash took priority over PLD on every request. Not a clean single-version run: three Tenaz builds were used, fixed during the run for defects it exposed (no tool-call watchdog, an over-limit write lost before it ran, and Tenaz&#x27;s own aborts counted as engine errors). No build of this attempt is published.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">Ternary Bonsai 2 27B · primary · reasoning medium</td><td class="spec__def">MLX affine 2-bit, group size 128, Hadamard-rotated weights (the ternary model packed in 2 bits) · 2 bpw</td></tr>
+                <tr><th scope="row">Checkpoint · primary</th><td class="spec__value">prism-ml/Ternary-Bonsai-2-27B-mlx-2bit</td><td class="spec__def">primary model artifact</td></tr>
+                <tr><th scope="row">Model · drafter</th><td class="spec__value">Qwen 3.8 27B DFlash2 · drafter</td><td class="spec__def">—</td></tr>
+                <tr><th scope="row">Checkpoint · drafter</th><td class="spec__value">The DFlash2 drafter of ddalcu/Qwen3.8-27B-MLX-Serve-4bit, reached through a drafter link in the Bonsai model folder</td><td class="spec__def">drafter model artifact</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">MLX-Serve 26.10.3 · MLX 0.32.3 · OpenAI-compatible server set up to approximate a 24 GB machine on the 64 GB host: --max-resident-mem 16GB, --os-reserve-gib 3, one resident model, a 4-entry in-memory prefix cache (5.4 GB cap), no disk cache, KV cache not quantized; --pld and --w8a8 on the command line; DFlash2 drafts from the automatic drafter setting. Requests ran at temperature 0.80, top-p 0.95, top-k 20 with an 8,192-token reasoning budget enforced by the server. Reached through Tenaz&#x27;s engine proxy mode</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">Pi coding agent over RPC, driven by the Tenaz runner 1.4.0</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Runner</th><td class="spec__value">Tenaz 0.1.1 · builds c5c7450 → 7a7da2d → 9b45a03</td><td class="spec__def">open-source runner, <a href="https://github.com/aartiles/tenaz">github.com/aartiles/tenaz</a> · <a href="../../method/#runner-title">how the runner evolved</a></td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Digger 3D · revision 1</td><td class="spec__def">The byte-identical Digger 3D prompt, as CHALLENGE.md, behind a Tenaz brief that adds a platform preamble (npm registry allowed, Node 24, playwright-core with system Chrome, checks under two minutes, test hooks only behind a URL parameter) and asks for REPORT.md; the same brief as the two LFM3 attempts. Unlike the earlier one-shot Pi attempts, Tenaz plans the work and runs one fresh Pi session per step. Tenaz&#x27;s per-session context budget was 42,598 tokens (0.65 of 65,536). Three Tenaz 0.1.1 builds were used in turn (c5c7450, 7a7da2d, 9b45a03), with the protocol templates refreshed at the first switch.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">65,536 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">TTFT · median</th><td class="spec__value">2.752 s</td><td class="spec__def">Median engine-measured TTFT from MLX-Serve&#x27;s server timings attached by Tenaz&#x27;s proxy (p90 20.0 s, maximum 83.9 s). · n=847 · 23 matched requests are excluded because the timings the proxy attached to them did not match their own token counts.</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">20.61 tok/s</td><td class="spec__def">Output tokens / engine decode seconds from the same server timings (output-weighted; per-request median 26.3). · n=847</td></tr>
+                <tr><th scope="row">Draft acceptance</th><td class="spec__value">33.2 %</td><td class="spec__def">Accepted DFlash2 tokens / (draft rounds × average block) from MLX-Serve&#x27;s spec-stats lines. · n=860 · 752,629 accepted of about 2,269,155 drafted; 10 matched requests logged no spec-stats line. The drafter was made for Qwen 3.8 27B, not Bonsai.</td></tr>
+                <tr><th scope="row">Server process memory · peak</th><td class="spec__value">25 GiB</td><td class="spec__def">Largest MLX-Serve process memory in Tenaz&#x27;s 30 s samples, in whole GiB (median 19, 95th percentile 21). · n=2372 · Above the 16 GB --max-resident-mem setting in 1,988 of 2,372 samples: that setting governs which models MLX-Serve admits, not the process&#x27;s cache and working memory.</td></tr>
+                <tr><th scope="row">Swapped in during the run</th><td class="spec__value">9.57 GiB</td><td class="spec__def">Pages swapped in during the run, from Tenaz&#x27;s memory samples (swapins deltas, 16 KiB pages). · n=2372 · 9.51 GiB of it came between 12:00 and 12:10 UTC on 28 October, when system swap use rose from 0.7 to 58.7 GiB and memory pressure reached warning while the MLX-Serve process held 18 GiB; the cause was not recorded. Before that, 0.06 GiB.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Run elapsed</th><td class="spec__value">1160.5 min</td><td class="spec__def">From Tenaz&#x27;s run state creation (27 October 16:57:48 UTC) to the pause that ended the run (28 October 12:18:21 UTC). · n=1 · Includes two binary switches of about 10 s each. The 52 sessions took 68,958 s.</td></tr>
+                <tr><th scope="row">Agent sessions</th><td class="spec__value">52 sessions</td><td class="spec__def">Pi sessions started by Tenaz: 5 bootstrap, 30 builder, 13 reviewer, 2 replan, 2 split. · n=1</td></tr>
+                <tr><th scope="row">Sessions ended early</th><td class="spec__value">23 sessions</td><td class="spec__def">Sessions that ended before the agent finished its turn: 14 at a second context compaction, 6 above the context budget (continued in a fresh session), 3 at operator pauses. · n=1</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">885 responses</td><td class="spec__def">Engine requests recorded by Tenaz&#x27;s proxy: 838 ending in tool calls, 32 in stop, 12 cancelled by Tenaz at a second compaction and 3 at operator pauses. · n=1</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">870 requests</td><td class="spec__def">Every proxy request that carried tokens, matched in order and uniquely to an MLX-Serve summary line by prompt, cached and output tokens. · n=1 · Inside the run&#x27;s span of the shared log, 51 further summaries are left unassigned: 30 uncached requests ending in stop and 21 client disconnects. The 6 summaries before it are Tenaz&#x27;s preflight.</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">1,178 calls</td><td class="spec__def">Pi tool calls across all sessions. · n=1</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">43 compactions</td><td class="spec__def">Pi context compactions across all sessions; Tenaz stops a session at its second. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">49,157 tokens</td><td class="spec__def">Largest engine-reported prompt among matched requests. · n=870 · Tenaz&#x27;s per-session context peak, which counts the reply in flight, reached 60,118 tokens.</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">2,344,196 tokens</td><td class="spec__def">Prompt tokens not served from MLX-Serve&#x27;s prefix cache, over matched requests. · n=870</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">22,658,725 tokens</td><td class="spec__def">Prompt tokens served from MLX-Serve&#x27;s in-memory prefix cache, over matched requests. · n=870</td></tr>
+                <tr><th scope="row">Prompt-cache token share</th><td class="spec__value">90.62 %</td><td class="spec__def">Cached prompt tokens / prompt tokens over matched requests (22,658,725 / 25,002,921). · n=870 · 74 matched requests found nothing cached: 51 at a session&#x27;s start and 23 mid-session, each the first request after a context compaction.</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">1,140,656 tokens</td><td class="spec__def">Output tokens across matched requests; includes reasoning tokens, which MLX-Serve does not count separately. · n=870</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Tasks completed</th><td class="spec__value">12 tasks</td><td class="spec__def">Task cards done at the stop (T001-T011, T012a), of 28 open or done cards: 24 planned plus 6 from two splits, less the 2 split cards. · n=1</td></tr>
+                <tr><th scope="row">Build attempts</th><td class="spec__value">30 attempts</td><td class="spec__def">Builder sessions across all tasks, including continuations after the context budget and retries after second-compaction stops. · n=1</td></tr>
+                <tr><th scope="row">Reviews returning changes</th><td class="spec__value">0 reviews</td><td class="spec__def">Task reviewer sessions that returned CHANGES; all 12 returned ACCEPT. One more review was interrupted by the stop. · n=1</td></tr>
+                <tr><th scope="row">Project checks passing</th><td class="spec__value">13 checks</td><td class="spec__def">Project checks passing at the last committed checkpoint, from Tenaz&#x27;s own verify run; not rerun independently. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>Per-request numbers are not published. Tenaz&#x27;s engine proxy recorded every request with its usage, finish reason and MLX-Serve&#x27;s server timings, and all 870 requests that carried tokens were matched in order to MLX-Serve&#x27;s per-request summaries in its shared log, between the startup banner of this configuration and the later 128K restarts. Prompts, responses, task notes and logs stay on the workstation.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-10-27-ternary-bonsai-2-27b-mlx-serve-26103-sim24gb-tenaz-digger-3d</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <p class="colophon__tag">The long-horizon runs are driven by <a href="https://github.com/aartiles/tenaz">Tenaz</a>, an open-source runner that takes a local model through a goal for hours, session by session, until its checks pass.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>
