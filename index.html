@@ -43,7 +43,7 @@
         <a class="wordmark" href="./"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="./runs/">Runs</a><a href="./challenges/">Challenges</a><a href="./demos/">Builds</a><a href="./prompts/">Prompts</a><a href="./method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 28 October 2026</span><span>39 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 29 October 2026</span><span>40 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <section class="intro" aria-labelledby="home-title">
@@ -51,15 +51,15 @@
           <h1 class="display" id="home-title">Local models, tested beyond tokens.</h1>
           <p>Hands-on experiments on an Apple M5 Pro with 64 GB of memory. See what local models build, which checks pass, and how the model and runtime perform during the work.</p>
           <p class="note">Most tasks use one prompt, without manual fixes. Exceptions are recorded on the run sheet; cloud baselines are labelled separately.</p>
-          <div class="actions"><a href="./challenges/">Explore the tasks →</a><a class="action--quiet" href="./runs/">All 39 runs →</a></div>
+          <div class="actions"><a href="./challenges/">Explore the tasks →</a><a class="action--quiet" href="./runs/">All 40 runs →</a></div>
         </div>
         <div class="intro__artifact">
-          <figure class="capture capture--inline"><a href="./challenges/digger-3d/" aria-label="Digger 3D · Qwen 3.8 Flash Next 2.6bpw + Sushi 1.4.0 · gameplay capture"><img src="./assets/screenshots/digger-3d-sushi-v140-26bpw-gameplay.jpg" width="1280" height="800" fetchpriority="high" decoding="async" alt="Digger 3D on level one with the 2.6bpw pack: an isometric board with an outer dirt ring, raised dirt blocks, glowing emeralds, two gold bags, the red spawn gate and the digger, over a largely excavated floor"></a></figure>
-          <p class="label">Latest run · 28 October 2026</p>
-          <h2><a href="./runs/digger-3d-sushi-v140-26bpw/">Digger 3D</a></h2>
-          <p class="catalogue__meta">Qwen 3.8 Flash Next · Sushi 1.4.0 · Pi coding agent</p>
-          <p>Built a complete, playable Digger 3D with the production 2.6bpw pack on Sushi 1.4.0: TypeScript check, 28/28 self-tests and the production build pass, and the browser shows a title screen, a readable isometric board with emeralds, gold bags and the spawn gate, digging, and the game-over overlay. The level starts mostly excavated, which the operator judged less faithful to the original Digger than STQ run 3&#x27;s board full of dirt.</p>
-          <div class="actions"><a href="./demos/digger-3d-sushi-v140-26bpw/">Play build ↗</a><a class="action--quiet" href="./challenges/digger-3d/">Compare attempts →</a></div>
+          <figure class="capture capture--inline"><a href="./challenges/blender-lotion-turntable/" aria-label="Lotion Pump Turntable · Sushi 1.4.0 + Tenaz · Cycles render, frame 1 of 180"><img src="./assets/screenshots/blender-lotion-turntable-sushi-v140-frame0.jpg" width="1080" height="1080" fetchpriority="high" decoding="async" alt="First frame of the turntable: a frosted light-cyan glass bottle with a blank white label, a silver pump head with a short curved spout, and a soft floor shadow, against a backdrop that darkens to mid-gray towards the top right"></a></figure>
+          <p class="label">Latest run · 29 October 2026</p>
+          <h2><a href="./runs/blender-lotion-turntable-sushi-v140/">Lotion Pump Turntable</a></h2>
+          <p class="catalogue__meta">Qwen 3.8 Flash Next · Sushi 1.4.0 · fx coding agent over ACP, driven by the Tenaz runner</p>
+          <p>Tenaz ended in COMPLETE_WITH_GAPS after 21 h 15 min: Qwen 3.8 Flash Next built BlenderWorld task bw_0103, a frosted-glass lotion pump bottle turning once in a 6-second Cycles render, entirely from Python scripts, and delivered final.blend and a 1080x1080 MP4. 20 tasks over 93 sessions; the project&#x27;s verify passes 32 checks, and 18 of the workload&#x27;s 19 hidden cases pass under revision 2 (16 under revision 1). The open gap is documentation: STATE.md and PLAN.md describe the project before its last task. The backdrop still darkens to mid-gray at the top, against the task&#x27;s light-gray-to-white. The final MP4 was rendered by the operator, with the model&#x27;s own script, while the run was blocked: every render the model started inside a session collided with the LLM for GPU memory.</p>
+          <div class="actions"><a href="./demos/blender-lotion-turntable-sushi-v140/">Play build ↗</a><a class="action--quiet" href="./challenges/blender-lotion-turntable/">Compare attempts →</a></div>
         </div>
       </section>
       <section class="band" id="run-archive" aria-labelledby="tasks-title">
@@ -128,7 +128,7 @@
         <h2 class="h-section" id="reading-title">Read the result, then the numbers.</h2>
         <div class="guide">
           <div><h3>What did the model produce?</h3><p>Captures and playable builds show the output. Each run sheet lists the checks and limitations recorded for that execution.</p><div class="actions"><a href="./demos/">Browse the builds →</a></div></div>
-          <div><h3>What did the runtime measure?</h3><p>Decode, prefill, latency and session totals answer different questions. Every measurement keeps its statistic, unit and sample count.</p><div class="actions"><a id="inference" href="./runs/digger-3d-sushi-v140-26bpw/#inference">Inference example →</a><a id="session" href="./runs/digger-3d-sushi-v140-26bpw/#session">Session example →</a><a href="./method/">Read the method →</a></div></div>
+          <div><h3>What did the runtime measure?</h3><p>Decode, prefill, latency and session totals answer different questions. Every measurement keeps its statistic, unit and sample count.</p><div class="actions"><a id="inference" href="./runs/blender-lotion-turntable-sushi-v140/#inference">Inference example →</a><a id="session" href="./runs/blender-lotion-turntable-sushi-v140/#session">Session example →</a><a href="./method/">Read the method →</a></div></div>
         </div>
       </section>
       <aside class="reading-note" id="measurement-scope"><p>This is an evidence archive, with single executions and uneven test coverage. It is not a leaderboard. Local and provider-hosted speeds are not directly comparable.</p></aside>

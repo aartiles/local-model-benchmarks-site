@@ -1,0 +1,71 @@
+# Lotion Pump Turntable
+
+Build the 3D scene below in Blender and render it. The task is quoted exactly;
+the sections after it say how to work on this machine and when the work is
+done.
+
+## The task
+
+> I'm taking an animation class and for this assignment I want to block out a shot first — a 360° turntable showcase of a cosmetic lotion pump bottle, mainly to check the camera and composition, since I'll probably reangle it later. The body is cylindrical frosted glass, 40mm across and 105mm tall, with a rounded shoulder tapering into the neck; the neck is 24mm outer diameter and takes a 24/410 threaded press-pump. Make the pump head bright-silver brushed metal with a downward-curved nozzle, so the closed bottle stands about 150mm, and leave a blank 50mm×40mm label area on the front. For materials, use semi-transparent light-cyan frosted glass on the body — light gets through but you can't see inside — and give the metal pump fine highlights and brushed reflections. Light it with soft three-point studio lighting (a softbox setup is fine), and put it against a neutral light-gray to white gradient seamless backdrop. Camera around 50mm equivalent at a slightly top-down 3/4 view, model at the origin spinning one full turn around Z at constant speed, as a 6-second 30fps looping turntable. The key is that the bottle reads clean and stands out — not washed out by reflections or the background — and that the 3/4 angle gives a real sense of depth. Anything I didn't spell out, just estimate sensibly. Render with Cycles, output a 1080×1080 square MP4, and keep the .blend so I can reangle it afterward.
+
+## Deliverables
+
+- **`final.blend`** at the project root: the editable project, with the
+  camera, lights, materials and the turntable animation in it.
+- **`outputs/turntable.mp4`**: the final render of that project, 1080×1080,
+  30 fps, 180 frames, H.264.
+- Nothing else is required. Keep textures, if any, inside the project with
+  relative paths or packed into the `.blend`.
+
+## Platform
+
+- **No questions and no approvals.** Nobody will answer. This task is the
+  approved brief; every choice it leaves open is yours.
+- **Offline.** There is no network: no add-ons, HDRIs, textures or models to
+  download. Model, shade and light everything yourself in Blender.
+- **Blender 5.2.1, headless, through `./blender`.** It runs Blender in the
+  background with factory settings and Cycles' Metal GPU selected, and passes
+  its arguments on: `./blender --python scene/build.py`,
+  `./blender final.blend --python checks/inspect.py`. There is no Blender
+  window and no MCP server. Do not change `blender` or `.blender/`.
+- **Build the scene from Python.** Write the scene as scripts under `scene/`
+  that create everything and save `final.blend`, so that running them again
+  rebuilds the same file. Edit the scripts, not the `.blend`. Set
+  `scene.cycles.device = 'GPU'` in the project.
+- **Rendering takes time.** The first GPU render compiles Cycles' kernels and
+  can take about three minutes; after that a 1080×1080 frame of a simple scene
+  at 256 samples with denoising takes about five seconds, and glass can take
+  longer. Render the 180 frames as PNG into `.agent/private/frames/` and
+  encode them with `ffmpeg` (H.264, `yuv420p`), or use Blender's own FFmpeg
+  output. A command that may outlast your tool's time limit runs in the
+  background with its log in `.agent/private/` (`nohup … > .agent/private/render.log 2>&1 &`);
+  check the log until it ends, and start no second render meanwhile.
+- **Look at your own output.** Render stills, open them and check them against
+  the task. Read only PNG or JPEG images, and combine several stills into one
+  contact sheet with `ffmpeg` rather than reading many.
+
+## Checks `verify` must run
+
+Within 600 s:
+
+- Rebuild `final.blend` from `scene/` and require no Python error.
+- Read `final.blend` with Blender's Python (`./blender final.blend --python …`)
+  and check every measurement and setting the task states, each with a
+  tolerance you write down, including the animation over its whole frame
+  range.
+- Render four stills spread over the turn, at reduced resolution or samples,
+  into `.agent/private/stills/`, combine them into one contact sheet, and
+  list the stills and the sheet as artifacts so that a reviewer can compare
+  them with the task.
+- When `outputs/turntable.mp4` exists: its size, frame rate and frame count,
+  read with `ffprobe`.
+
+The final task renders `outputs/turntable.mp4` at full quality (outside
+`verify`'s time limit) and checks it the same way.
+
+## Done means
+
+`outputs/turntable.mp4` is a Cycles render of the turntable the task
+describes, `final.blend` is the project it was rendered from, and `PLAN.md`,
+`STATE.md` and `DECISIONS.md` exist and reflect the finished project,
+including the sizes and choices the task left to you.
