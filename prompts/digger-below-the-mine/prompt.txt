@@ -1,0 +1,93 @@
+# Digger: Below the Mine
+
+Build a complete, polished browser mining adventure called **Digger: Below the
+Mine**. You own the design, implementation, tests AND production of the game
+art through the `generate_image` tool backed by local ComfyUI / FLUX 3 Image
+Klein. No art pack is supplied. This is a new challenge, not a modification of
+an earlier Digger build. All player-facing text and documentation are English.
+
+## Experience
+
+- A side-view 2.5D mine with a coherent, realistic prerendered appearance:
+  textured rock, timber supports, machinery, atmospheric depth, dust, a moving
+  lantern and warm/cold lighting. No voxel/block-art look, emoji characters,
+  flat geometric stand-ins or placeholder art in the finished game. A logical
+  tile grid is fine; the rendered scene must look like an illustrated mine.
+- One controllable miner, two visually and behaviorally distinct enemy types,
+  collectible minerals, destructible rock, an extraction lift and at least one
+  machine the player repairs or activates. Animate the miner's locomotion and
+  mining action and enemy movement; articulated image parts and code-driven
+  animation are acceptable. A video model is not available or required.
+- A connected map with three visually distinct areas: timbered entrance,
+  crystal caverns and flooded machinery. The player mines routes, gathers ore,
+  manages lantern battery and health, avoids or defeats enemies, activates a
+  drainage pump, retrieves a deep rare crystal and returns to the entrance lift
+  for an explicit victory. Target a first successful playthrough of 5–10 minutes.
+- Movement and mining feel responsive. Explain keyboard controls on the title
+  screen and provide readable HUD, contextual interaction prompts, pause,
+  mute, defeat and restart. Restart must reset the whole mission. No unwinnable
+  softlocks: essential items cannot be destroyed or permanently lost. Provide
+  battery replenishment and fair warning before danger.
+- Design for desktop keyboard/mouse at 1440x900 and 1280x720. Smaller windows
+  should keep essential UI visible. Touch controls are optional. Sound may be
+  synthesized with Web Audio after user interaction; silence is valid when muted.
+
+## Art production is part of the task
+
+- Use `generate_image` with workflow `default` to produce the actual backgrounds,
+  miner, both enemy types and object/prop artwork used during gameplay. At least
+  six successful generations must contribute visible assets to the finished game.
+  You choose prompts, seeds, dimensions, art direction and reuse. Maximum 20
+  calls for the entire run, including retries; plan your asset budget carefully.
+  Keep requests at or below 1536x1024 or 1024x1536, dimensions multiples of 16.
+- This workflow is text-to-image: do not assume reference-image editing,
+  transparent output, reliable sprite-sheet layouts or a useful negative prompt
+  (CFG is 1). Ask for isolated subjects on a plain contrasting background when
+  appropriate; implement deterministic background removal, cropping and atlas
+  assembly locally. Inspect the result and the game screenshots. Avoid visible
+  rectangular backgrounds, colored halos, clipped limbs and inconsistent scale.
+- Keep original returned images unchanged in `assets/generated/`. Keep processed
+  assets separately. `assets/manifest.json` must record every call, including
+  discarded attempts: prompt, seed, size, returned path(s), source SHA-256,
+  selected outputs and derived files with processing commands/parameters. All
+  visible generated artwork must be traceable to those sources. Do not invent
+  provenance. Generated art must be integrated into the game, not just a gallery
+  or title screen. HTML/CSS HUD, canvas lighting, particles and geometry are fine.
+- Only use the supplied image tool for generation. No downloads, external art,
+  additional models or direct calls to ComfyUI/Sushi. Tenaz manages memory and
+  service access; do not start, stop or reconfigure engines. Do not read earlier
+  challenge implementations or use their assets.
+
+## Platform and verification
+
+- Static `index.html`, JavaScript/CSS under `src/`, assets under `assets/`.
+  Use Canvas 2D/WebGL as needed without external dependencies or CDN. Start with
+  `python3 -m http.server 8080 --bind 127.0.0.1` at the project root.
+- Node 24 and pinned `playwright-core` are installed. For real browser checks:
+  `import { chromium } from 'playwright-core'`, then
+  `chromium.launch({channel: 'chrome', headless: true})`. Browser canvas APIs are
+  available for deterministic image processing. No Python image library is
+  promised. Do not modify dependency files, `node_modules/` or `CHALLENGE.md`.
+- Write an executable `verify` that runs meaningful checks, starts/stops any
+  local server it needs and exits nonzero on failure. Test movement, collision,
+  mining/ore collection, battery/health, both enemies, pump progression, crystal
+  retrieval, victory, defeat, pause and complete restart. Use deterministic seeds
+  or a test API for state setup where needed, but also exercise actual player
+  input. A test-only victory button is not proof of a playable mission.
+- Exercise an end-to-end route through the real game rules, including mining,
+  pump, deep crystal and return to lift. Save browser screenshots of actual
+  gameplay in each area, victory and defeat under `evidence/`, and a short
+  `evidence/playthrough.md` with controls, route and results. Check both target
+  viewport sizes for clean console, no failed/remote requests and visible UI.
+- Verify asset decoding, manifest/source hashes, derived-file existence and
+  transparent sprite edges. If an original returned path no longer exists,
+  report that comparison as skipped, never passed; the preserved original must
+  still match its recorded hash. Visual quality requires screenshot inspection
+  in addition to automated assertions.
+- Keep `PLAN.md`, `STATE.md` and `DECISIONS.md` current so fresh sessions can
+  continue. Document how to play, serve and verify in `README.md`. Work only in
+  this project. Do not publish, deploy, push or send content to any public service.
+
+Done means a person can launch, understand and finish the complete mission with
+coherent generated art, responsive gameplay, clean browser checks and an honest
+record of the production process. You choose the implementation plan.
