@@ -193,6 +193,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-bonsai-mlx-serve-tenaz/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-bonsai-qwen38-mlx-serve-tenaz/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-gpt-6-luna-codex/</loc>
   </url>
   <url>
@@ -230,6 +233,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-arcade/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-below-the-mine/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/hardball-3d/</loc>
