@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "note": "Public runtime manifest: image prompts, local paths and generation logs omitted. Original retained privately.",
+  "records": [
+    {
+      "id": "g01",
+      "source_sha256": "50922b93b4cc37d763ca1fad64539551cabb1711dab2f660ba6be2bd58581158",
+      "selected": true,
+      "derived": [
+        {
+          "path": "assets/processed/backgrounds/entrance.png",
+          "out_sha256": "4a0da02cabc28822a8330137080d4877b73900b03c06f7b6b090666953bfe91e"
+        },
+        {
+          "path": "assets/processed/atlas.png",
+          "out_sha256": "17321ca8a548d751291182e522261bea9c1a47ad81435c71bc6fc15b45877dcf"
+        },
+        {
+          "path": "assets/processed/atlas.json",
+          "out_sha256": "2842f874c12a9517a0a0ddb400a1bb4a3ab4dc98228cb33979e34094dd592315"
+        }
+      ]
+    },
+    {
+      "id": "g02",
+      "source_sha256": "a73c45e5a9b21fd99f3e3d28a7009a1009a47267fe1e601e528ceb1d0494e7e8",
+      "selected": true,
+      "derived": [
+        {
+          "path": "assets/processed/backgrounds/caverns.png",
+          "out_sha256": "5b3e8d9dca7b3fc95984e8cb61df226c7aabdb378240393aec10f39f5ca3096e"
+        }
+      ]
+    },
+    {
+      "id": "g03",
+      "source_sha256": "3a6fb0e48a21bea4f4ef4fd4c5682b2de9e4be689f639217c59f9eb25b0b12ca",
+      "selected": true,
+      "derived": [
+        {
+          "path": "assets/processed/backgrounds/flooded.png",
+          "out_sha256": "04fa5547d63fec279d740180004f9540af8ced3a3592e663869bf47d256a829e"
+        }
+      ]
+    },
+    {
+      "id": "g04",
+      "source_sha256": "eb2f057b84e3cf2ec5923f7446217bee5771f25da3b71da0de5921f2e21a5ea8",
+      "selected": true,
+      "derived": [
+        {
+          "path": "assets/processed/sprites/g04-tenaz_00022_-1.png",
+          "out_sha256": "a32d9ea126ffb6093668c58519af8cad1d9197810a88d92b3560b37615e333b2"
+        }
+      ]
+    },
+    {
+      "id": "g05",
+      "source_sha256": "a728dd9e9535f5ec2de6139ed95320201ee7cf3882fd83e4688acb7cc1e4000f",
+      "selected": true,
+      "derived": [
+        {
+          "path": "assets/processed/sprites/g05-tenaz_00023_-1.png",
+          "out_sha256": "ab2444c59824ee1c6e8f4a911d5afdd5082c895d6e0fe58c556fb20edd573160"
+        }
+      ]
+    },
+    {
+      "id": "g06",
+      "source_sha256": "4f40770b196f7e6dfd83e794049d60069062c44b1ca55a1126d73de4ac324c68",
+      "selected": true,
+      "derived": [
+        {
+          "path": "assets/processed/sprites/g06-tenaz_00024_-1.png",
+          "out_sha256": "c61dd884ae95797c2afd6dd0a7f659f7e58c2bdb5e4a206896d4c03354104c3f"
+        }
+      ]
+    },
+    {
+      "id": "g07",
+      "source_sha256": "c4c5770c1e32366cad713dd312fbbaff080cff75760deca118b61bace3637190",
+      "selected": true,
+      "derived": [
+        {
+          "path": "assets/processed/sprites/g07-tenaz_00025_-1-00.png",
+          "out_sha256": "223da36e290b8fbb69330eee36202d79a15b58ba0384465ed7aac12f5190fb91"
+        },
+        {
+          "path": "assets/processed/sprites/g07-tenaz_00025_-1-01.png",
+          "out_sha256": "3bf426042f6dcafb43e8feadf75184be9c11c71eb04649fa954afab211356bee"
+        },
+        {
+          "path": "assets/processed/sprites/g07-tenaz_00025_-1-02.png",
+          "out_sha256": "1f7c0983349bea85f81a2680e92e833bcabc5c2617600607eb04b01981e8ecd8"
+        },
+        {
+          "path": "assets/processed/sprites/g07-tenaz_00025_-1-03.png",
+          "out_sha256": "a70f1af351ec2224ba1e07abb2f72b4c4324520d380939760dc6e00f43c4836f"
+        },
+        {
+          "path": "assets/processed/sprites/g07-tenaz_00025_-1-04.png",
+          "out_sha256": "8f8b9e2fdfceefde3f873b18a44df52d819606216f11b241b262cce6176118ce"
+        }
+      ]
+    },
+    {
+      "id": "g08",
+      "source_sha256": "1867d8e357e1995a50c7901446e80071d2a96802d219361fdced28cfb3804512",
+      "selected": true,
+      "derived": [
+        {
+          "path": "assets/processed/sprites/g08-tenaz_00026_-1-00.png",
+          "out_sha256": "7a455dc5a3d8b018becb745ac8b1709d8db8a7ee16ce681270eb0b254437ec1d"
+        },
+        {
+          "path": "assets/processed/sprites/g08-tenaz_00026_-1-01.png",
+          "out_sha256": "386e77c742d5c02c6acd8b8d0c62192697e821eb16508ae3fc399d7848b3bc36"
+        },
+        {
+          "path": "assets/processed/sprites/g08-tenaz_00026_-1-02.png",
+          "out_sha256": "7dcdf116910fb1733901a337a741c2fc40a1bcedee917f1c72f293ee01530c45"
+        }
+      ]
+    },
+    {
+      "id": "g10",
+      "source_sha256": "240d5ede2ef888b0d4234cc271fb61a74494fe9d4386235160463868928a732c",
+      "selected": true,
+      "derived": [
+        {
+          "path": "assets/processed/sprites/g10-tenaz_00028_-1.png",
+          "out_sha256": "67c55dcaffd6a74f279856f2e4784594ef5282fba4866c6607c441afec25ad59"
+        }
+      ]
+    }
+  ]
+}

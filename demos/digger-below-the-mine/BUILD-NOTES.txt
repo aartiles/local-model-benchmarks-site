@@ -1,0 +1,8 @@
+Digger: Below the Mine
+Archived final game from the 30 October 2026 Qwen 3.8 Flash Next / Sushi / Tenaz run.
+Runtime source and rendered images are unchanged. The asset manifest is reduced
+to public runtime provenance; original prompts and local generation metadata are omitted.
+Art generated locally with FLUX 3 Image Klein via ComfyUI. Audio synthesized by game code.
+No third-party browser libraries, fonts, music or external services are required.
+The runtime imports testapi.js as part of its original startup; separate checks,
+asset-processing tools, logs and task notes are excluded.

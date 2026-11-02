@@ -1,0 +1,135 @@
+{
+  "format": "digger-atlas-v1",
+  "width": 1024,
+  "height": 4096,
+  "padding": 2,
+  "used": {
+    "width": 918,
+    "height": 2186
+  },
+  "png": "atlas.png",
+  "png_sha256": "17321ca8a548d751291182e522261bea9c1a47ad81435c71bc6fc15b45877dcf",
+  "frameCount": 12,
+  "frames": [
+    {
+      "name": "battery_cell",
+      "record": "g07",
+      "x": 785,
+      "y": 1598,
+      "w": 117,
+      "h": 272,
+      "source": "sprites/g07-tenaz_00025_-1-03.png",
+      "source_sha256": "a70f1af351ec2224ba1e07abb2f72b4c4324520d380939760dc6e00f43c4836f"
+    },
+    {
+      "name": "crawler",
+      "record": "g05",
+      "x": 2,
+      "y": 1598,
+      "w": 781,
+      "h": 341,
+      "source": "sprites/g05-tenaz_00023_-1.png",
+      "source_sha256": "ab2444c59824ee1c6e8f4a911d5afdd5082c895d6e0fe58c556fb20edd573160"
+    },
+    {
+      "name": "crystal",
+      "record": "g07",
+      "x": 598,
+      "y": 1941,
+      "w": 131,
+      "h": 237,
+      "source": "sprites/g07-tenaz_00025_-1-01.png",
+      "source_sha256": "3bf426042f6dcafb43e8feadf75184be9c11c71eb04649fa954afab211356bee"
+    },
+    {
+      "name": "deep_crystal",
+      "record": "g07",
+      "x": 227,
+      "y": 1941,
+      "w": 178,
+      "h": 238,
+      "source": "sprites/g07-tenaz_00025_-1-02.png",
+      "source_sha256": "1f7c0983349bea85f81a2680e92e833bcabc5c2617600607eb04b01981e8ecd8"
+    },
+    {
+      "name": "lift",
+      "record": "g08",
+      "x": 384,
+      "y": 936,
+      "w": 418,
+      "h": 614,
+      "source": "sprites/g08-tenaz_00026_-1-01.png",
+      "source_sha256": "386e77c742d5c02c6acd8b8d0c62192697e821eb16508ae3fc399d7848b3bc36"
+    },
+    {
+      "name": "miner",
+      "record": "g04",
+      "x": 2,
+      "y": 2,
+      "w": 421,
+      "h": 932,
+      "source": "sprites/g04-tenaz_00022_-1.png",
+      "source_sha256": "a32d9ea126ffb6093668c58519af8cad1d9197810a88d92b3560b37615e333b2"
+    },
+    {
+      "name": "ore",
+      "record": "g07",
+      "x": 407,
+      "y": 1941,
+      "w": 189,
+      "h": 237,
+      "source": "sprites/g07-tenaz_00025_-1-00.png",
+      "source_sha256": "223da36e290b8fbb69330eee36202d79a15b58ba0384465ed7aac12f5190fb91"
+    },
+    {
+      "name": "pump",
+      "record": "g08",
+      "x": 2,
+      "y": 936,
+      "w": 380,
+      "h": 660,
+      "source": "sprites/g08-tenaz_00026_-1-00.png",
+      "source_sha256": "7a455dc5a3d8b018becb745ac8b1709d8db8a7ee16ce681270eb0b254437ec1d"
+    },
+    {
+      "name": "pump_part",
+      "record": "g08",
+      "x": 2,
+      "y": 1941,
+      "w": 223,
+      "h": 243,
+      "source": "sprites/g08-tenaz_00026_-1-02.png",
+      "source_sha256": "7dcdf116910fb1733901a337a741c2fc40a1bcedee917f1c72f293ee01530c45"
+    },
+    {
+      "name": "rare_ore",
+      "record": "g10",
+      "x": 731,
+      "y": 1941,
+      "w": 187,
+      "h": 163,
+      "source": "sprites/g10-tenaz_00028_-1.png",
+      "source_sha256": "67c55dcaffd6a74f279856f2e4784594ef5282fba4866c6607c441afec25ad59"
+    },
+    {
+      "name": "timber",
+      "record": "g07",
+      "x": 804,
+      "y": 936,
+      "w": 160,
+      "h": 369,
+      "source": "sprites/g07-tenaz_00025_-1-04.png",
+      "source_sha256": "8f8b9e2fdfceefde3f873b18a44df52d819606216f11b241b262cce6176118ce"
+    },
+    {
+      "name": "wraith",
+      "record": "g06",
+      "x": 425,
+      "y": 2,
+      "w": 329,
+      "h": 722,
+      "source": "sprites/g06-tenaz_00024_-1.png",
+      "source_sha256": "c61dd884ae95797c2afd6dd0a7f659f7e58c2bdb5e4a206896d4c03354104c3f"
+    }
+  ]
+}

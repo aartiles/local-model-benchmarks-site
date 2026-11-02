@@ -1,0 +1,356 @@
+/* Digger: Below the Mine — shell layout.
+   The canvas fills the stage; the DOM HUD (T014) sits on top of it along the
+   bottom edge, so it never covers the canvas area label (top-left) or the
+   centred state banner. Title/pause/defeat/victory overlays (T032) go in
+   #hud-overlays. Scaling rules for smaller windows are tightened by T025. */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #07080c;
+  color: #e8e2d4;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+#stage {
+  position: relative;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+#game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  background: #07080c;
+}
+
+/* The HUD is an overlay, not a layout box: it must never push the canvas or
+   steal a click from it (mouse mining is bound to the canvas). */
+#hud {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  font-size: 13px;
+  line-height: 1.35;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+#hud *,
+#hud *::before,
+#hud *::after {
+  box-sizing: border-box;
+}
+
+#hud-prompt {
+  margin: 0;
+  max-width: 100%;
+  padding: 4px 10px;
+  border: 1px solid rgba(232, 226, 212, 0.35);
+  border-radius: 4px;
+  background: rgba(7, 8, 12, 0.78);
+  color: #ffe9a8;
+  font-weight: 600;
+}
+
+#hud-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  width: 100%;
+  max-width: 100%;
+  padding: 6px 10px;
+  border: 1px solid rgba(232, 226, 212, 0.22);
+  border-radius: 5px;
+  background: rgba(7, 8, 12, 0.72);
+}
+
+.hud-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.hud-label {
+  color: #9ea3ad;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+}
+
+.hud-value {
+  color: #f2ecdd;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+#hud-objective {
+  flex: 1 1 260px;
+}
+
+#hud-objective-value {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.hud-progress {
+  color: #8fd7c1;
+  font-variant-numeric: tabular-nums;
+}
+
+.hud-bar {
+  display: inline-block;
+  position: relative;
+  width: 72px;
+  height: 7px;
+  border: 1px solid rgba(232, 226, 212, 0.3);
+  border-radius: 3px;
+  background: rgba(232, 226, 212, 0.08);
+  overflow: hidden;
+}
+
+.hud-bar > i {
+  display: block;
+  height: 100%;
+  width: var(--fill, 100%);
+  background: #6fcf97;
+  transition: width 120ms linear;
+}
+
+.hud-bar[data-low='true'] > i {
+  background: #e0574f;
+}
+
+.hud-bar[data-low='true'] {
+  border-color: rgba(224, 87, 79, 0.8);
+}
+
+#hud-warnings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-left: auto;
+}
+
+.hud-warn {
+  padding: 2px 8px;
+  border: 1px solid rgba(224, 87, 79, 0.75);
+  border-radius: 4px;
+  background: rgba(224, 87, 79, 0.18);
+  color: #ffb3ac;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+#warn-enemy {
+  border-color: rgba(154, 120, 255, 0.75);
+  background: rgba(122, 90, 220, 0.22);
+  color: #d3c4ff;
+}
+
+/* The slot T032 fills; empty today, so it must not affect layout. */
+#hud-overlays {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* T032: the four game screens (R28, R31, R33). They are painted ON TOP of the
+   canvas veil src/render.js keeps drawing, never instead of it, and they are
+   absolutely positioned inside #hud so they can never resize the canvas or add
+   page scroll. A visible screen takes clicks (so a click cannot dig through the
+   pause overlay); a hidden one is out of the layout entirely. */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(4, 6, 10, 0.4);
+  pointer-events: auto;
+}
+
+.screen[hidden] {
+  display: none;
+}
+
+.screen-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: min(560px, 100%);
+  max-height: 100%;
+  overflow: hidden;
+  padding: 16px 22px;
+  border: 1px solid rgba(232, 226, 212, 0.28);
+  border-radius: 8px;
+  background: rgba(10, 12, 18, 0.95);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.screen-panel-small {
+  width: min(440px, 100%);
+}
+
+.screen-heading {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f2ecdd;
+}
+
+.screen-heading-good {
+  color: #8fe3c0;
+}
+
+.screen-heading-bad {
+  color: #e0736a;
+}
+
+.screen-sub {
+  margin: 4px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8fd7c1;
+}
+
+.screen-line,
+.screen-detail,
+.screen-hint,
+.screen-note {
+  margin: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.screen-line {
+  color: #cfc9bb;
+}
+
+.screen-detail {
+  color: #8fd7c1;
+  font-variant-numeric: tabular-nums;
+}
+
+.screen-hint {
+  font-size: 12px;
+  color: #9ea3ad;
+}
+
+.screen-note {
+  font-size: 11px;
+  color: #7c8290;
+}
+
+.screen-keys {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+}
+
+.key-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.key-what {
+  color: #9ea3ad;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.key-keys {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.key-or {
+  font-size: 11px;
+  color: #7c8290;
+}
+
+kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid rgba(232, 226, 212, 0.45);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: rgba(232, 226, 212, 0.1);
+  color: #f2ecdd;
+  font: inherit;
+  font-size: 11px;
+}
+
+.screen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.screen-button {
+  pointer-events: auto;
+  padding: 7px 18px;
+  border: 1px solid rgba(143, 227, 192, 0.7);
+  border-radius: 6px;
+  background: rgba(20, 44, 38, 0.92);
+  color: #cdeee2;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.screen-button:hover {
+  background: rgba(30, 62, 54, 0.96);
+}
+
+.screen-button:focus-visible {
+  outline: 2px solid #ffe9a8;
+  outline-offset: 2px;
+}
+
+.screen-button-quiet {
+  border-color: rgba(232, 226, 212, 0.4);
+  background: rgba(232, 226, 212, 0.08);
+  color: #e8e2d4;
+  font-weight: 400;
+}
