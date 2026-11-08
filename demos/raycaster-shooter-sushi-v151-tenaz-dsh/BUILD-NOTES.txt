@@ -4,4 +4,5 @@ Built from the run's final project commit with `vite build --base ./`; the sourc
 All textures, sprites and sounds are drawn or synthesized by game code. No third-party browser
 libraries, fonts, images or external services are required. The bundle keeps the window.__game
 debug hook the model wrote for its own checks; checks, tools, screenshots and task notes are excluded.
-Prompt by @ddalcu; the prompt itself is not included here.
+Prompt by @ddalcu, as posted by @Beamsters1 (https://x.com/Beamsters1/status/2118232278950396148);
+the prompt itself is not included here.
