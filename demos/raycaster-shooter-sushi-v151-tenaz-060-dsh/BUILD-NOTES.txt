@@ -1,0 +1,8 @@
+Raycaster Shooter
+Archived final game from the 9 November 2026 Qwen 3.8 Flash Next / Sushi 1.5.1 / Tenaz 0.6.0 + DeepSeek Harness run.
+Built from the run's final project commit with `vite build --base ./`; the source is unchanged.
+All textures and sprites are drawn by game code. No third-party browser libraries, fonts, images or
+external services are required. The bundle keeps the window.__game debug hook the model wrote for its
+own checks; checks, tools, screenshots and task notes are excluded.
+Prompt by @ddalcu, as posted by @Beamsters1 (https://x.com/Beamsters1/status/2118232278950396148);
+the prompt itself is not included here.

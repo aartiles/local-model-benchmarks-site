@@ -112,6 +112,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pagoda-garden/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-sushi-v151-tenaz-060-dsh/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-sushi-v151-tenaz-dsh/</loc>
   </url>
   <url>
@@ -290,6 +293,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-ledger-tensorfold-native/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-sushi-v151-tenaz-060-dsh/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-sushi-v151-tenaz-dsh/</loc>
