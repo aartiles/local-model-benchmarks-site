@@ -1,0 +1,192 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Raycaster Shooter · TensorFold native 1.2.5, 32k output · Tenaz 36f2131 + 32k: configuration, result, recorded checks and measurements.">
+    <title>Raycaster Shooter · TensorFold native 1.2.5, 32k output · Tenaz 36f2131 + 32k run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-tensorfold-125-out32k-tenaz-main-dsh/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-tensorfold-125-out32k-tenaz-main-dsh/">
+    <meta property="og:title" content="Raycaster Shooter · TensorFold native 1.2.5, 32k output · Tenaz 36f2131 + 32k run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Raycaster Shooter · TensorFold native 1.2.5, 32k output · Tenaz 36f2131 + 32k: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Raycaster Shooter · TensorFold native 1.2.5, 32k output · Tenaz 36f2131 + 32k run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Raycaster Shooter · TensorFold native 1.2.5, 32k output · Tenaz 36f2131 + 32k: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 10 November 2026</span><span>49 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro run-intro--text">
+          <header class="sheet__head">
+            <p class="label">10 November 2026 · Agentic task loop · first-person raycaster</p>
+            <h1 class="display sheet__title" id="page-title">Raycaster Shooter · TensorFold native 1.2.5, 32k output · Tenaz 36f2131 + 32k</h1>
+            <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            <p class="lede">Stopped by the operator after 4 h 0 min with 2 of 14 tasks done and no playable game, at the user&#x27;s instruction to stop if the run would not finish within about 12 hours. With a 32,768-token output limit the bootstrap passed on the first try (30 requirements, 14 task cards), where the two starts before it with a 16,384-token limit blocked at the task-card step. T001 and T002 (scaffold and map; DDA walls and game loop) were done, T002 on verify alone because both its reviews stopped at the output limit without a verdict. T003 (wall textures and shading) failed twice: its own checks passed, but it broke T002&#x27;s fisheye check both times; the third attempt was cut by the stop.</p>
+            <div class="actions"><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>Runner state at the stop: phase LOOP, paused at 10 November 03:37:51.640 UTC after the operator sent SIGINT; session 012 (T003 attempt 3) was cut after 4 turns. Tasks: 2 done, T003 active with 2 failed attempts, 11 todo. Then TensorFold got SIGTERM. Figures match tenaz status for the paused project (12 sessions, 1 stopped; 199 engine requests, all with engine timings).</li>
+<li>Runner: an experimental local build of Tenaz main 36f2131 with one uncommitted, unreviewed change, HARNESS_MAX_OUTPUT_TOKENS 16384 -&gt; 32768, so dsh asked for up to 32,768 output tokens. It reports &#x27;tenaz 0.6.0 (36f2131)&#x27; like the unmodified build; SHA-256 of the binary e7b797d31317029224f41f841ce6f267cc14eb865d1146814d417372e63d393e. Every proxy record shows max_tokens of at most 32,768. Tenaz parameters at their defaults (65% context budget, 85,196 tokens; 40-turn budget; three attempts; review on); vision on, thinking medium.</li>
+<li>Bootstrap: three sessions, each step accepted on its first attempt. Step 3 (task cards, session 003) ran 41 min 33 s and 50 turns, was steered on context pace and on turns, and ended on stop: 85,515 output tokens (63,112 reasoning), no reply at the limit, two replies longer than 16,384 tokens (20,558 and 23,457). In the two earlier TensorFold starts on this brief, with a 16,384-token limit, the runner blocked after three failed attempts at this step with no task cards written. An earlier run that day with the unmodified build, a 2 GiB prompt cache and the 16,384-token limit passed this step on its second try.</li>
+<li>T001: attempt 1 (004) wrote no T001 check, and one of its replies used all 32,768 tokens in reasoning; attempt 2 (005) wrote two checks and passed verify (3 checks); review (006) returned ACCEPT. T002: one builder session (007) passed verify (5 checks). It had one reply at 32,768 tokens and ended on a reply cut at a 1-token limit (dsh had lowered max_tokens across that turn), so Tenaz ran the next sessions (008-011) at low reasoning effort. Both reviews (008, 009) ended on a 32,768-token reasoning reply with no verdict, and Tenaz accepted T002 on verify alone.</li>
+<li>T003: attempt 1 (010) ended on a reply at the 32,768-token limit after 101,821 output tokens (87,969 reasoning). After it and after attempt 2 (011), T003&#x27;s three checks passed but verify --all failed T002&#x27;s fisheye check (&#x27;wall top edge bulges: spans rows 36..52 (16px variation, need &lt; 3)&#x27;), word for word the same both times. No conflict note was written. Attempt 3 (012) was cut by the stop.</li>
+<li>Why it was stopped (operator&#x27;s notes): the loop averaged about 65-70 min per task; finishing the 12 tasks left within 12 hours would have needed about 40 min each, and they were the harder ones (sprites, enemies, weapons, HUD).</li>
+<li>Engine metrics: all 199 proxy responses match TensorFold &#x27;done&#x27; summaries one-to-one by (prompt, cached, output) in the single server log; matching from the start and from the end agrees, and the engine TTFT, decode time and draft counts in the proxy records equal the log&#x27;s. 6 &#x27;done&#x27; summaries are unassigned: the preflight requests. The request in flight at the stop has no proxy record; TensorFold logged it as ended by the client after 18,083 tokens.</li>
+<li>Memory: Tenaz&#x27;s 30-second samples during sessions show pressure normal in 500 samples and warning in 1, swap in use 1.47-1.53 GiB, 2,848 pages (about 0.04 GiB) swapped in across the run, TensorFold&#x27;s footprint at 49 GiB and free memory down to 0.11 GiB. TensorFold logged three memory-pressure warnings, each followed by a return to normal.</li>
+<li>No public artifact: the run did not finish, so no build is archived. The prompt is the author&#x27;s and is not republished; the project, raw logs, journal and sessions stay in the ignored local archive.</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>Third TensorFold start of the night on this brief and the first of the three to get past bootstrap. The start just before it used the same Tenaz commit unmodified, the same 6 GiB prompt cache and a 16,384-token limit, and blocked at the task-card step. This run raised the output limit on both sides: TensorFold&#x27;s --max-tokens and, through a local uncommitted Tenaz change, the max_tokens dsh asks for. Bootstrap then passed on the first try, with two replies longer than 16,384 tokens. The larger limit was not always enough later: five replies used all 32,768 tokens in reasoning, and both T002 reviews ended that way without a verdict. The Tenaz build is not a release and cannot be rebuilt from a public commit; its binary is identified by SHA-256. One execution, stopped unfinished, so its pace is no measure of what a full run would take.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">Qwen 3.8 27B · primary · reasoning medium</td><td class="spec__def">MLX affine 4-bit, group size 64 · 4 bpw</td></tr>
+                <tr><th scope="row">Checkpoint · primary</th><td class="spec__value">TensorFold/Qwen3.8-27B-MLX-4bit</td><td class="spec__def">primary model artifact · revision 22d8d538154e0e5b6f8dcb1fcc74a60a0798104c</td></tr>
+                <tr><th scope="row">Model · drafter</th><td class="spec__value">Qwen 3.8 27B DFlash2 · drafter</td><td class="spec__def">Loaded with --drafter-bits 4</td></tr>
+                <tr><th scope="row">Checkpoint · drafter</th><td class="spec__value">z-lab/Qwen3.8-27B-DFlash2</td><td class="spec__def">drafter model artifact · revision 50307d4c4cde6860d4eee73e2547cd786fe8e8a4</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">TensorFold native (Zig) 1.2.5 · One OpenAI-compatible server process for the whole run, started by a script for this run: 131,072-token context, 32,768 maximum output tokens (16,384 in the two earlier starts), greedy sampling (--temperature 0), DFlash2 drafts at 4 bits, 6 GiB prompt cache with --prompt-cache-over-cap, one stream, thinking on, vision and Recall on, update check off. Registered with Tenaz as a generic engine with no stop or start scripts and reached through Tenaz&#x27;s engine proxy. Tenaz sent reasoning effort medium, and low in sessions 008-011 after an output-limit stop. The operator stopped it with SIGTERM at the end of the run. mode</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">DeepSeek Harness over ACP driven by an experimental local Tenaz build: main 36f2131 plus one uncommitted, unreviewed change that raises dsh&#x27;s output limit from 16,384 to 32,768 tokens; it reports 0.6.0 (36f2131) like the unmodified build 0.2.2-rc.1</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Runner</th><td class="spec__value">Tenaz main · build 36f2131 with a local 32k output-limit change (unreleased, uncommitted)</td><td class="spec__def">open-source runner, <a href="https://github.com/aartiles/tenaz">github.com/aartiles/tenaz</a> · <a href="../../method/#runner-title">how the runner evolved</a></td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Raycaster Shooter · revision 1</td><td class="spec__def">One-shot raycaster brief by @ddalcu, as posted by @Beamsters1, used verbatim as the Tenaz brief; its SHA-256 matches the earlier raycaster runs. Tenaz wrote its own verify and task plan. No operator action until the stop. A single execution, stopped by the operator before it finished.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">131,072 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">TTFT · median</th><td class="spec__value">3.38043 s</td><td class="spec__def">Median engine-reported TTFT across matched responses, from engine timing fields retained by the proxy. · n=199 · Mean 17.70 s.</td></tr>
+                <tr><th scope="row">Decode · per-request median</th><td class="spec__value">58.508 tok/s</td><td class="spec__def">Median of per-request output_tokens / engine decode_s across matched responses. · n=199</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">57.6208 tok/s</td><td class="spec__def">Total matched output tokens divided by the sum of engine decode_s (output-weighted). · n=199</td></tr>
+                <tr><th scope="row">Draft acceptance</th><td class="spec__value">37.8484 %</td><td class="spec__def">Accepted DFlash2 draft tokens divided by drafted tokens from the matched TensorFold &#x27;done&#x27; summaries. · n=199 · 513,027 accepted / 1,355,478 drafted.</td></tr>
+                <tr><th scope="row">Swapped in during the run</th><td class="spec__value">0.043 GiB</td><td class="spec__def">Sum of swapins deltas (16 KiB pages) in Tenaz&#x27;s 30-second host memory samples, taken during sessions; host-wide swap I/O, not resident memory. · n=501 · 2,848 pages; tenaz status rounds it to 0.0 GiB. Pressure normal in 500 samples and warning in 1; swap in use 1.47-1.53 GiB; free memory down to 0.11 GiB.</td></tr>
+                <tr><th scope="row">Server process memory · peak</th><td class="spec__value">49 GiB</td><td class="spec__def">Maximum sampled TensorFold process footprint across Tenaz&#x27;s 30-second memory samples, taken during sessions, rounded by the sampler. · n=501 · Wired memory up to 51.47 GiB.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Run elapsed</th><td class="spec__value">240.8 min</td><td class="spec__def">Session 001 start after the preflight (9 November 23:37:02.455 UTC) to the operator&#x27;s stop, when Tenaz recorded the pause (10 November 03:37:51.640 UTC); includes tools, checks and retries. · n=1 · 4 h 0 min 49.2 s. Stopped unfinished; not a time to completion. The operator&#x27;s notes round it to about 3 h 55 min.</td></tr>
+                <tr><th scope="row">Bootstrap elapsed</th><td class="spec__value">3103.16 s</td><td class="spec__def">Session 001 start to Tenaz accepting the bootstrap (10 November 00:28:45.619 UTC): three sessions, one per step. · n=1 · 51 min 43.2 s; step 3 (task cards) alone took 41 min 33 s in session 003.</td></tr>
+                <tr><th scope="row">T001 elapsed</th><td class="spec__value">3198.51 s</td><td class="spec__def">Start of the first T001 builder session to T001 done, including its review. · n=1 · 53 min 18.5 s; two builder sessions (the first wrote no T001 check) and one review, ACCEPT.</td></tr>
+                <tr><th scope="row">T002 elapsed</th><td class="spec__value">3864.91 s</td><td class="spec__def">Start of the T002 builder session to T002 done. · n=1 · 1 h 4 min 24.9 s; one builder session and two reviews, both stopped at the output limit with no verdict, so Tenaz accepted T002 on verify alone.</td></tr>
+                <tr><th scope="row">Time on T003, unfinished</th><td class="spec__value">4280.51 s</td><td class="spec__def">Start of the first T003 builder session to the operator&#x27;s stop; T003 was not finished. · n=1 · 1 h 11 min 20.5 s; two failed attempts and a third interrupted by the stop.</td></tr>
+                <tr><th scope="row">Agent sessions</th><td class="spec__value">12 sessions</td><td class="spec__def">All harness sessions: 3 bootstrap, 6 builder and 3 reviewer. · n=1</td></tr>
+                <tr><th scope="row">Sessions ended early</th><td class="spec__value">1 sessions</td><td class="spec__def">Sessions with ok=false: session 012 (T003 attempt 3), stopped by the operator&#x27;s stop. · n=12 · Four more sessions (007-010) ended with their last reply at the output limit but are recorded ok.</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">199 responses</td><td class="spec__def">Proxy request records that completed with engine timings, as in tenaz status (&#x27;Engine: 199 requests (199 with engine timings)&#x27;). · n=1 · The request in flight at the stop has no proxy record; TensorFold logged it as ended with the client gone after 18,083 tokens.</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">199 requests</td><td class="spec__def">Proxy responses matched one-to-one, in order and uniquely, to TensorFold &#x27;done&#x27; summaries by prompt, cached and output tokens; engine TTFT, decode time and draft counts agree with the log for every match. · n=1 · Matching from the start and from the end gives the same result. 6 &#x27;done&#x27; summaries unassigned and excluded: the preflight requests. One engine process served the whole run.</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">247 calls</td><td class="spec__def">Sum of harness tool_calls across all 12 session records; zero repaired tool calls. · n=12</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">0 compactions</td><td class="spec__def">Tenaz compaction count across all session records. · n=12</td></tr>
+                <tr><th scope="row">Replies cut at the output limit</th><td class="spec__value">5 replies</td><td class="spec__def">Matched replies that stopped at 32,768 output tokens, all reasoning: one each in sessions 004, 007, 008, 009 and 010. · n=199 · A sixth reply, the last of session 007, stopped at a 1-token limit: dsh had lowered max_tokens on each later request of that turn. TensorFold logged six &#x27;reached max_tokens while still thinking&#x27; warnings.</td></tr>
+                <tr><th scope="row">Session 001 output tokens</th><td class="spec__value">11,847 tokens</td><td class="spec__def">Output tokens across the 9 requests of session 001-bootstrap (bootstrap step 1), including reasoning; the session ended on stop reason &#x27;stop&#x27;. · n=9 · Largest single reply 7,787 tokens; 9 turns.</td></tr>
+                <tr><th scope="row">Session 001 reasoning tokens</th><td class="spec__value">8,137 tokens</td><td class="spec__def">Reasoning tokens reported by the proxy for session 001-bootstrap; a subset of its output tokens. · n=9</td></tr>
+                <tr><th scope="row">Session 002 output tokens</th><td class="spec__value">15,829 tokens</td><td class="spec__def">Output tokens across the 13 requests of session 002-bootstrap (bootstrap step 2), including reasoning; the session ended on stop reason &#x27;stop&#x27;. · n=13 · Largest single reply 12,492 tokens; 13 turns.</td></tr>
+                <tr><th scope="row">Session 002 reasoning tokens</th><td class="spec__value">11,211 tokens</td><td class="spec__def">Reasoning tokens reported by the proxy for session 002-bootstrap; a subset of its output tokens. · n=13</td></tr>
+                <tr><th scope="row">Session 003 output tokens</th><td class="spec__value">85,515 tokens</td><td class="spec__def">Output tokens across the 50 requests of session 003-bootstrap (bootstrap step 3), including reasoning; the session ended on stop reason &#x27;stop&#x27;. · n=50 · Largest single reply 23,457 tokens; 50 turns.</td></tr>
+                <tr><th scope="row">Session 003 reasoning tokens</th><td class="spec__value">63,112 tokens</td><td class="spec__def">Reasoning tokens reported by the proxy for session 003-bootstrap; a subset of its output tokens. · n=50</td></tr>
+                <tr><th scope="row">Bootstrap replies over 16,384 tokens</th><td class="spec__value">2 replies</td><td class="spec__def">Bootstrap replies longer than 16,384 output tokens, the limit of the two earlier starts; both in session 003 (20,558 and 23,457 tokens), both ending in a tool call. · n=72</td></tr>
+                <tr><th scope="row">Session 010 output tokens</th><td class="spec__value">101,821 tokens</td><td class="spec__def">Output tokens across the 27 requests of session 010 (T003 attempt 1), including reasoning; its last reply stopped at the 32,768-token limit. · n=27</td></tr>
+                <tr><th scope="row">Session 010 reasoning tokens</th><td class="spec__value">87,969 tokens</td><td class="spec__def">Reasoning tokens reported by the proxy for session 010; a subset of its output tokens. · n=27</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">58,114 tokens</td><td class="spec__def">Maximum prompt input across the matched responses; not the configured server window. · n=199</td></tr>
+                <tr><th scope="row">Cumulative input</th><td class="spec__value">6,270,186 tokens</td><td class="spec__def">Sum of total prompt tokens across matched responses, including repeatedly reused context; not unique input. · n=199</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">5,345,091 tokens</td><td class="spec__def">Sum of prompt tokens served from TensorFold&#x27;s prompt cache for matched responses. · n=199</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">925,095 tokens</td><td class="spec__def">Total prompt input minus cached input for matched responses. · n=199</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">603,383 tokens</td><td class="spec__def">Sum of output tokens across matched responses, including reasoning output. · n=199</td></tr>
+                <tr><th scope="row">of which reasoning output</th><td class="spec__value">528,007 tokens</td><td class="spec__def">Sum of reasoning tokens reported by the proxy for matched responses; a subset of output tokens. · n=199 · 87.5% of output.</td></tr>
+                <tr><th scope="row">Prompt-cache token share</th><td class="spec__value">85.2461 %</td><td class="spec__def">Cached prompt tokens divided by total prompt tokens over matched responses (5,345,091 / 6,270,186). · n=199 · In-memory 6 GiB prompt cache, empty at the start; not a cold-prefill measurement.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Tasks completed</th><td class="spec__value">2 tasks</td><td class="spec__def">Task cards marked done at the stop: T001 and T002. T003 was active and T004-T014 todo. · n=14</td></tr>
+                <tr><th scope="row">Failed task attempts</th><td class="spec__value">2 attempts</td><td class="spec__def">Failed builder attempts on T003: both passed T003&#x27;s own checks but failed T002&#x27;s fisheye check in verify --all, the second with the same message word for word. · n=3</td></tr>
+                <tr><th scope="row">Project checks passing</th><td class="spec__value">5 checks</td><td class="spec__def">Checks passing in verify --all at the last committed checkpoint (T002 done). Both T003 attempts reached 7 passing with 1 failing. · n=1 · Model-written checks, not an independent acceptance suite; not rerun after the stop.</td></tr>
+                <tr><th scope="row">Requirements in the spec</th><td class="spec__value">30 requirements</td><td class="spec__def">Requirements written in bootstrap and accepted with the 14 task cards. · n=1</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>199 numeric request records, numbered in proxy order across all 12 sessions, each uniquely matched to a TensorFold &#x27;done&#x27; summary by prompt, cached and output tokens in the one server log. TTFT and decode use engine timing retained by the proxy. DFlash2 draft counts appear only as the run total (draft_acceptance), because the per-request draft fields are named for MTP. The 6 preflight requests and the request cut by the stop are excluded. No prompts, tool results, session identifiers or local paths are included.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-11-10-qwen38-27b-tensorfold-native-125-cache6-max32k-tenaz-36f2131-out32k-dsh-raycaster-shooter</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <p class="colophon__tag">The long-horizon runs are driven by <a href="https://github.com/aartiles/tenaz">Tenaz</a>, an open-source runner that takes a local model through a goal for hours, session by session, until its checks pass.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>

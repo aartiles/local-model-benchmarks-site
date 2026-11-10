@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="All 45 recorded runs, with captures, model, runtime and recorded outcome.">
+    <meta name="description" content="All 49 recorded runs, with captures, model, runtime and recorded outcome.">
     <title>Run archive · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/">
     <meta property="og:title" content="Run archive · Local Model Benchmarks">
-    <meta property="og:description" content="All 45 recorded runs, with captures, model, runtime and recorded outcome.">
+    <meta property="og:description" content="All 49 recorded runs, with captures, model, runtime and recorded outcome.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -30,7 +30,7 @@
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
     <meta name="twitter:title" content="Run archive · Local Model Benchmarks">
-    <meta name="twitter:description" content="All 45 recorded runs, with captures, model, runtime and recorded outcome.">
+    <meta name="twitter:description" content="All 49 recorded runs, with captures, model, runtime and recorded outcome.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -42,16 +42,56 @@
         <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../runs/" aria-current="page">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 9 November 2026</span><span>45 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 10 November 2026</span><span>49 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
         <h1 class="display sheet__title">Run archive</h1>
-        <p class="lede">42 local executions and 3 cloud baselines, newest first. Open a run for its configuration, recorded checks and measurements.</p>
+        <p class="lede">46 local executions and 3 cloud baselines, newest first. Open a run for its configuration, recorded checks and measurements.</p>
         <nav class="archive-links" aria-label="Archive views"><a href="../challenges/">Group by task →</a><a href="../demos/">Browse playable builds →</a></nav>
       </header>
       <section class="run-list" aria-label="Recorded runs"><ul class="index">          <li class="index__row">
-            <figure class="capture capture--inline"><a href="./raycaster-shooter-sushi-v151-tenaz-main-dsh/" aria-label="Raycaster Shooter · Qwen 3.8 Flash Next + Sushi 1.5.1 + Tenaz main 8d01939 · a shot hits the enemy coming down the corridor, archived build at 1280×720"><img src="../assets/screenshots/raycaster-shooter-sushi-v151-tenaz-main-dsh-gameplay.jpg" width="1280" height="720" fetchpriority="high" decoding="async" alt="First-person view from the spawn room down the corridor after the door opens: brick walls, the enemy flashing orange as a shot hits it, the muzzle flash above the gun, a barrel partly hidden behind the right wall edge, a tiled floor, a ceiling, a minimap and the health and ammo HUD"></a></figure>
+            <div class="capture-placeholder" role="img" aria-label="Gameplay capture not yet available"><strong>Gameplay capture pending</strong><p>A screenshot has not been added for this run yet.</p></div>
+            <div>
+              <p class="label">10 November 2026</p>
+              <h3 class="index__title"><a href="./raycaster-shooter-tensorfold-125-out32k-tenaz-main-dsh/">Raycaster Shooter · TensorFold native 1.2.5, 32k output · Tenaz 36f2131 + 32k</a></h3>
+              <p class="index__meta"><span>Qwen 3.8 27B + Qwen 3.8 27B DFlash2</span><span>TensorFold native (Zig) 1.2.5</span><span>DeepSeek Harness over ACP driven by an experimental local Tenaz build: main 36f2131 plus one uncommitted, unreviewed change that raises dsh&#x27;s output limit from 16,384 to 32,768 tokens; it reports 0.6.0 (36f2131) like the unmodified build</span></p>
+              <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            </div>
+            <div class="index__summary"><p>Stopped by the operator after 4 h 0 min with 2 of 14 tasks done and no playable game, at the user&#x27;s instruction to stop if the run would not finish within about 12 hours. With a 32,768-token output limit the bootstrap passed on the first try (30 requirements, 14 task cards), where the two starts before it with a 16,384-token limit blocked at the task-card step. T001 and T002 (scaffold and map; DDA walls and game loop) were done, T002 on verify alone because both its reviews stopped at the output limit without a verdict. T003 (wall textures and shading) failed twice: its own checks passed, but it broke T002&#x27;s fisheye check both times; the third attempt was cut by the stop.</p><div class="actions"><a href="./raycaster-shooter-tensorfold-125-out32k-tenaz-main-dsh/">Run sheet →</a></div></div>
+          </li>
+          <li class="index__row">
+            <div class="capture-placeholder" role="img" aria-label="Gameplay capture not yet available"><strong>Gameplay capture pending</strong><p>A screenshot has not been added for this run yet.</p></div>
+            <div>
+              <p class="label">9 November 2026</p>
+              <h3 class="index__title"><a href="./raycaster-shooter-tensorfold-125-cache6-tenaz-main-dsh/">Raycaster Shooter · TensorFold native 1.2.5, 6 GiB cache · Tenaz main 36f2131</a></h3>
+              <p class="index__meta"><span>Qwen 3.8 27B + Qwen 3.8 27B DFlash2</span><span>TensorFold native (Zig) 1.2.5</span><span>DeepSeek Harness over ACP driven by Tenaz main 36f2131 (reports 0.6.0), an unreleased build</span></p>
+              <div class="record-tag"><span class="mark">Session failed</span> <span class="mark">Local run</span></div>
+            </div>
+            <div class="index__summary"><p>BLOCKED in Tenaz&#x27;s bootstrap after 32 min and 5 sessions: no task card was written, no task started and no game code exists. The spec (31 requirements) and verify were accepted on their first attempts; the task-card step failed three times. Each of its three sessions ended on one reply that used up the 16,384-token output limit on reasoning alone (16,384 reasoning tokens each, at medium, low and low effort), with no file written.</p><div class="actions"><a href="./raycaster-shooter-tensorfold-125-cache6-tenaz-main-dsh/">Run sheet →</a></div></div>
+          </li>
+          <li class="index__row">
+            <div class="capture-placeholder" role="img" aria-label="Gameplay capture not yet available"><strong>Gameplay capture pending</strong><p>A screenshot has not been added for this run yet.</p></div>
+            <div>
+              <p class="label">9 November 2026</p>
+              <h3 class="index__title"><a href="./raycaster-shooter-tensorfold-125-cache6-tenaz-f616c0c-dsh/">Raycaster Shooter · TensorFold native 1.2.5, 6 GiB cache · Tenaz f616c0c</a></h3>
+              <p class="index__meta"><span>Qwen 3.8 27B + Qwen 3.8 27B DFlash2</span><span>TensorFold native (Zig) 1.2.5</span><span>DeepSeek Harness over ACP driven by Tenaz 0.6.0 (f616c0c), a local unreleased build on main 36f2131</span></p>
+              <div class="record-tag"><span class="mark">Session failed</span> <span class="mark">Local run</span></div>
+            </div>
+            <div class="index__summary"><p>Blocked in Tenaz&#x27;s bootstrap after 33 min and 5 sessions: no task card was written, no task started and no game code exists. Spec (39 requirements) and verify were accepted on the first try. The task-card step failed three times: sessions 003 (medium effort) and 004 (low effort) each ended on one reply that spent the whole 16,384-token output limit on reasoning; Tenaz then turned thinking off for 005, which reasoned no more but lost its plan, probing npm in a scratch folder for 38 turns until the watchdog aborted it. The 6 GiB prompt cache worked: 92.8% of prompt tokens cached, TTFT median 0.76 s.</p><div class="actions"><a href="./raycaster-shooter-tensorfold-125-cache6-tenaz-f616c0c-dsh/">Run sheet →</a></div></div>
+          </li>
+          <li class="index__row">
+            <div class="capture-placeholder" role="img" aria-label="Gameplay capture not yet available"><strong>Gameplay capture pending</strong><p>A screenshot has not been added for this run yet.</p></div>
+            <div>
+              <p class="label">9 November 2026</p>
+              <h3 class="index__title"><a href="./raycaster-shooter-tensorfold-125-cache2-tenaz-main-dsh/">Raycaster Shooter · TensorFold native 1.2.5, 2 GiB cache · Tenaz main 36f2131</a></h3>
+              <p class="index__meta"><span>Qwen 3.8 27B + Qwen 3.8 27B DFlash2</span><span>TensorFold native (Zig) 1.2.5</span><span>DeepSeek Harness over ACP driven by Tenaz main 36f2131 (reports 0.6.0), an unreleased build</span></p>
+              <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            </div>
+            <div class="index__summary"><p>Stopped by the operator at the user&#x27;s request after 3 h 56 min, in the task loop, with no playable game: 2 of 14 task cards done (T001 and T002a, each accepted at first review); of the 12 planned tasks, T002 was split into T002a and T002b, T002b blocked after three attempts, T003 interrupted and 9 to do. 17 sessions. The run stalled on replies that reasoned up to the 16,384-token output limit and wrote nothing: 16 of 182 replies were cut there, all reasoning with no content or tool call, and 7 of 9 builder sessions ended on one. A 2 GiB prompt cache, too small for this model, kept the cache share at 56% and the median time to first token at 27 s.</p><div class="actions"><a href="./raycaster-shooter-tensorfold-125-cache2-tenaz-main-dsh/">Run sheet →</a></div></div>
+          </li>
+          <li class="index__row">
+            <figure class="capture capture--inline"><a href="./raycaster-shooter-sushi-v151-tenaz-main-dsh/" aria-label="Raycaster Shooter · Qwen 3.8 Flash Next + Sushi 1.5.1 + Tenaz main 8d01939 · a shot hits the enemy coming down the corridor, archived build at 1280×720"><img src="../assets/screenshots/raycaster-shooter-sushi-v151-tenaz-main-dsh-gameplay.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="First-person view from the spawn room down the corridor after the door opens: brick walls, the enemy flashing orange as a shot hits it, the muzzle flash above the gun, a barrel partly hidden behind the right wall edge, a tiled floor, a ceiling, a minimap and the health and ammo HUD"></a></figure>
             <div>
               <p class="label">9 November 2026</p>
               <h3 class="index__title"><a href="./raycaster-shooter-sushi-v151-tenaz-main-dsh/">Raycaster Shooter · Sushi 1.5.1 · Tenaz main 8d01939</a></h3>
