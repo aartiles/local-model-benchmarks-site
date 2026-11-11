@@ -13,6 +13,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/blender-lotion-turntable/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/blender-mcp-pagoda/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/digger-3d/</loc>
   </url>
   <url>
@@ -56,6 +59,12 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/blender-lotion-turntable-sushi-v140/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/blender-mcp-pagoda-sushi-v160/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/blender-mcp-pagoda-sushi-v160/viewer/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d/</loc>
@@ -157,6 +166,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/blender-lotion-turntable/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/blender-mcp-pagoda/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/prompts/digger-3d/</loc>
   </url>
   <url>
@@ -200,6 +212,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/blender-lotion-turntable-sushi-v140/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/blender-mcp-pagoda-sushi-v160/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d/</loc>

@@ -1,0 +1,87 @@
+# Animated Pagoda over MCP
+
+Build the scene below in the Blender that is running on this machine, through
+its MCP server, and render its animation. The task is quoted exactly; the
+sections after it say how to work on this machine and when the work is done.
+
+## The task
+
+> Create and ultra detailed Pagoda in Blender using its MCP and animate it. Here a line with an immensely complex scenario I want you to replicate. You can do it!
+
+The task comes with nothing else: no image, file or link. Every choice it
+leaves open is yours.
+
+## Deliverables
+
+- **`final.blend`** at the project root: the animated scene, saved from the
+  running Blender.
+- **`outputs/pagoda.mp4`**: a render of the whole animation from that file,
+  H.264, at least 1280×720, at the scene's frame rate.
+- Keep every object of the pagoda itself in a collection named `Pagoda`
+  (collections inside it are fine) and the rest of the scene outside it, so
+  the pagoda can be told apart from its surroundings.
+- Nothing else is required. Keep textures, if any, inside the project with
+  relative paths or packed into the `.blend`.
+
+## Platform
+
+- **No questions and no approvals.** Nobody will answer. This task is the
+  approved brief.
+- **Offline.** There is no network: no add-ons, HDRIs, textures or models to
+  download. Model, shade and light everything yourself in Blender.
+- **Build in the running Blender, through the `blender` MCP server.**
+  Blender 5.2.1 runs in the background with Blender Lab's MCP add-on.
+  Build with `execute_blender_code`, which runs Python with `bpy` in that
+  Blender; other tools summarise the file and its objects, search Blender's
+  API docs, or render a thumbnail or the viewport to a file.
+  `execute_blender_code_for_cli` runs code in a separate Blender on a file
+  instead, so it does not change the scene you are building. That Blender has
+  no window, so the screenshot tools do not work there.
+- **One call at a time, each within 300 s.** The add-on runs one call after
+  another and gives up on a call after 300 seconds, so split long work into
+  several calls. That Blender's working directory is not the project: give
+  every path absolute.
+- **That Blender keeps its scene between sessions, and nobody resets it.** At
+  the start of a session, open `final.blend` in it when the file exists
+  (`bpy.ops.wm.open_mainfile`). Save it back with
+  `bpy.ops.wm.save_as_mainfile(filepath=<absolute path of final.blend>)`
+  whenever the scene changed: what is not saved is lost to `verify` and to the
+  next session. Do not quit or restart that Blender.
+- **`./blender` is a separate Blender for checks and renders,** headless with
+  factory settings and Cycles' Metal GPU selected; it passes its arguments on:
+  `./blender final.blend --python checks/inspect.py`. Do not build the scene
+  with it, and do not change `blender` or `.blender/`.
+- **Rendering takes time, and memory is shared.** The model that does this
+  work runs on the same machine, so keep renders within what it can spare. A
+  command that may outlast your tool's time limit runs in the background with
+  its log in `.agent/private/` (`nohup … > .agent/private/render.log 2>&1 &`);
+  check the log until it ends, and start no second render meanwhile.
+- **Look at your own output.** Render stills with `./blender`, open them and
+  check them against the task. Read only PNG or JPEG images, and combine
+  several stills into one contact sheet with `ffmpeg` rather than reading
+  many.
+
+## Checks `verify` must run
+
+Within 600 s:
+
+- Open `final.blend` with `./blender` and require no Python error.
+- Read it with Blender's Python and check the scene and the animation that
+  the project's own plan describes, each with a threshold you write down,
+  including over the animation's whole frame range.
+- Render four stills spread over the animation, at reduced resolution or
+  samples, into `.agent/private/stills/`, combine them into one contact
+  sheet, and list the stills and the sheet as artifacts so that a reviewer
+  can compare them with the task.
+- When `outputs/pagoda.mp4` exists: its size, frame rate and duration, read
+  with `ffprobe`, against the scene's.
+
+The final task renders `outputs/pagoda.mp4` at full quality (outside
+`verify`'s time limit) and checks it the same way.
+
+## Done means
+
+`outputs/pagoda.mp4` is a render of the animated pagoda scene, `final.blend`
+is the project it was rendered from, saved from the running Blender, and
+`PLAN.md`, `STATE.md` and `DECISIONS.md` exist and reflect the finished
+project, including the choices the task left to you.
