@@ -42,7 +42,7 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 10 November 2026</span><span>50 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 15 November 2026</span><span>51 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <article class="sheet">
@@ -113,7 +113,7 @@
                 <tr><th scope="row">Swapped in during the run</th><td class="spec__value">198.768 GiB</td><td class="spec__def">Sum of sampled swapins_delta * page_bytes / 2^30 across the run; host-wide cumulative swap I/O, not resident memory or maximum swap occupancy. · n=7929 · 30-second session monitoring; 7929 samples, normal or warning pressure. Maximum swap occupancy 12.89 GiB; minimum sampled free memory 0.04 GiB.</td></tr>
                 <tr><th scope="row">Server process memory · peak</th><td class="spec__value">50 GiB</td><td class="spec__def">Maximum sampled Sushi process footprint, rounded by the monitor; not total wired memory or a sum with it. · n=7929</td></tr>
                 <tr><th scope="row">Image engine time</th><td class="spec__value">751.812 s</td><td class="spec__def">Sum of ten media:comfyui lease job durations; excludes LLM unload/reload and is not a controlled image-model speed benchmark. · n=10</td></tr>
-                <tr><th scope="row">LLM unload and reload for images</th><td class="spec__value">96.766 s</td><td class="spec__def">Sum of LLM-holder unload and load lease durations for the ten image jobs; excludes ComfyUI submission and job time. · n=10</td></tr>
+                <tr><th scope="row">LLM unload and reload for media</th><td class="spec__value">96.766 s</td><td class="spec__def">Sum of LLM-holder unload and load lease durations for the ten image jobs; excludes ComfyUI submission and job time. · n=10</td></tr>
                 </tbody>
               </table>
             </section>

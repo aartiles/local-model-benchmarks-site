@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "player-mesh-render",
+      "path": "public/assets/models/player.render.glb",
+      "kind": "derived-trellis-mesh",
+      "geometry": {
+        "vertices": 10383,
+        "triangles": 37674,
+        "bytes": 6466444,
+        "bounds": {
+          "min": [
+            -0.199775,
+            -0.499927,
+            -0.134824
+          ],
+          "max": [
+            0.200692,
+            0.49867,
+            0.133
+          ]
+        },
+        "baseColorTextureBytes": 5723888,
+        "metallicRoughnessTextureBytes": 182815,
+        "sourceVertices": 219578,
+        "sourceTriangles": 300000,
+        "sourceBytes": 16534576
+      },
+      "sha256": "d6adeb938d577182ee103ad8e93f94963ba9de7bd33dec7f02fbdc4417426d4f",
+      "orientation": {
+        "upAxis": "Y",
+        "facingAxis": "+Z",
+        "height": 0.998597,
+        "largestExtent": 0.998597,
+        "feetY": -0.499927,
+        "targetHeightMeters": 1.75,
+        "scaleForHeight": 1.752459,
+        "yawToFaceHome": 3.141593,
+        "yawToFacePitcher": 0
+      }
+    },
+    {
+      "id": "glove-mesh-render",
+      "path": "public/assets/models/glove.render.glb",
+      "kind": "derived-trellis-mesh",
+      "geometry": {
+        "vertices": 1101,
+        "triangles": 9970,
+        "bytes": 7574280,
+        "bounds": {
+          "min": [
+            -0.467722,
+            -0.439138,
+            -0.437681
+          ],
+          "max": [
+            0.492178,
+            0.433128,
+            0.459835
+          ]
+        },
+        "baseColorTextureBytes": 7092668,
+        "metallicRoughnessTextureBytes": 385128,
+        "sourceVertices": 249509,
+        "sourceTriangles": 299928,
+        "sourceBytes": 19062600
+      },
+      "sha256": "38257bf1f0c70f2bb8b76429a654f5d15a5a88ea04bbe4f8d8557de862bbd081",
+      "orientation": {
+        "upAxis": "Y",
+        "facingAxis": "+Z",
+        "height": 0.872266,
+        "largestExtent": 0.9599,
+        "feetY": -0.439138,
+        "targetSizeMeters": 0.35,
+        "scaleForTarget": 0.364621,
+        "yawToFaceHome": 3.141593,
+        "yawToFacePitcher": 0
+      }
+    }
+  ]
+}

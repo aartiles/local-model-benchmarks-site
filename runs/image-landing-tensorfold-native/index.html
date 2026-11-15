@@ -42,7 +42,7 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 10 November 2026</span><span>50 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 15 November 2026</span><span>51 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <article class="sheet">
@@ -104,7 +104,7 @@
                 <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
                 <tbody>
                 <tr><th scope="row">Image engine time</th><td class="spec__value">499 s</td><td class="spec__def">Sum of the 8 ComfyUI job durations recorded by Tenaz. · n=8 · 52.1–56.1 s for each 768×768 image, 76.2 s for the 1536×640 background, 104.2 s for the 1536×864 hero (the run&#x27;s first job).</td></tr>
-                <tr><th scope="row">LLM unload and reload for images</th><td class="spec__value">71.8 s</td><td class="spec__def">Sum of LLM unload and reload times around the 8 image jobs, recorded by Tenaz. · n=8 · Unload 1.3 s each (10.2 s in all); reload until the model answered 7.2–9.5 s each (61.7 s in all).</td></tr>
+                <tr><th scope="row">LLM unload and reload for media</th><td class="spec__value">71.8 s</td><td class="spec__def">Sum of LLM unload and reload times around the 8 image jobs, recorded by Tenaz. · n=8 · Unload 1.3 s each (10.2 s in all); reload until the model answered 7.2–9.5 s each (61.7 s in all).</td></tr>
                 <tr><th scope="row">TTFT · median</th><td class="spec__value">5.593 s</td><td class="spec__def">Median engine-measured TTFT from the TensorFold &#x27;done&#x27; summaries (p90 55.5 s). · n=313</td></tr>
                 <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">48.45 tok/s</td><td class="spec__def">Output tokens / engine decode seconds over matched requests (output-weighted). · n=313</td></tr>
                 <tr><th scope="row">Draft acceptance</th><td class="spec__value">28.72 %</td><td class="spec__def">Accepted DFlash2 draft tokens / drafted tokens from the TensorFold &#x27;done&#x27; summaries. · n=313 · 277,141 accepted of 964,934 drafted.</td></tr>

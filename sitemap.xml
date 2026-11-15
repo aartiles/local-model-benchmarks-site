@@ -22,6 +22,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/hardball-3d/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/hardball-3d-generated-assets/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/hyperframes-promo/</loc>
   </url>
   <url>
@@ -98,6 +101,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/hardball-3d-qwen38-27b-tensorfold-pi/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/hardball-3d-sushi-v160-tenaz-trellis/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/hyperframes-promo-sushi-v124/</loc>
@@ -275,6 +281,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/hardball-3d-qwen38-27b-tensorfold-pi/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/hardball-3d-sushi-v160-tenaz-trellis/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/hyperframes-promo-sushi-v124/</loc>

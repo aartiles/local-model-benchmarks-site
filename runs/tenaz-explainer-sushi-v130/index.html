@@ -42,7 +42,7 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 10 November 2026</span><span>50 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 15 November 2026</span><span>51 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <article class="sheet">
@@ -102,7 +102,7 @@
                 <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
                 <tbody>
                 <tr><th scope="row">Image engine time</th><td class="spec__value">918 s</td><td class="spec__def">Sum of the 10 image job durations recorded by Tenaz, from request to returned file. · n=10 · 90.2-94.2 s per 1536x864 image.</td></tr>
-                <tr><th scope="row">LLM unload and reload for images</th><td class="spec__value">83.1 s</td><td class="spec__def">Sum of LLM unload and reload times around the 10 image jobs, recorded by Tenaz. · n=10 · Unload through Sushi&#x27;s load API 0.3-1.1 s each (4.5 s in all); reload until ready 7.8-8.2 s each (78.6 s in all).</td></tr>
+                <tr><th scope="row">LLM unload and reload for media</th><td class="spec__value">83.1 s</td><td class="spec__def">Sum of LLM unload and reload times around the 10 image jobs, recorded by Tenaz. · n=10 · Unload through Sushi&#x27;s load API 0.3-1.1 s each (4.5 s in all); reload until ready 7.8-8.2 s each (78.6 s in all).</td></tr>
                 <tr><th scope="row">TTFT · median</th><td class="spec__value">2.25 s</td><td class="spec__def">Median engine-measured TTFT from Sushi /metrics deltas around each request (p90 7.21 s). · n=1636</td></tr>
                 <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">43.83 tok/s</td><td class="spec__def">Output tokens / engine decode seconds over matched requests (output-weighted; per-request median 49.1 from the log). · n=1636</td></tr>
                 <tr><th scope="row">Draft acceptance</th><td class="spec__value">65.1 %</td><td class="spec__def">Accepted MTP draft tokens / drafted tokens from the Sushi spec-stats line of each matched request. · n=1636 · 719,003 accepted of 1,103,832 drafted.</td></tr>

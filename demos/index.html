@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="32 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta name="description" content="33 playable generated builds, with captures and separate local and cloud provenance.">
     <title>Playable builds · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/demos/">
     <meta property="og:title" content="Playable builds · Local Model Benchmarks">
-    <meta property="og:description" content="32 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta property="og:description" content="33 playable generated builds, with captures and separate local and cloud provenance.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -30,7 +30,7 @@
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
     <meta name="twitter:title" content="Playable builds · Local Model Benchmarks">
-    <meta name="twitter:description" content="32 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta name="twitter:description" content="33 playable generated builds, with captures and separate local and cloud provenance.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -42,13 +42,13 @@
         <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../runs/">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/" aria-current="page">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 10 November 2026</span><span>50 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 15 November 2026</span><span>51 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
 <header class="sheet__head">
         <h1 class="display sheet__title">Playable builds</h1>
-        <p class="lede">32 generated artifacts, grouped by task. Play the result as the model produced it, then check the run sheet for the recorded tests and limits.</p>
-        <nav class="archive-links" aria-label="Build groups"><a href="#whiteout-protocol">Whiteout Protocol ↓</a><a href="#digger-3d">Digger 3D ↓</a><a href="#hardball-3d">Hardball 3D ↓</a><a href="#obby-3d">Obby 3D ↓</a><a href="#wild-west-showdown-3d">Wild West Showdown 3D ↓</a><a href="#raycaster-shooter">Raycaster Shooter ↓</a><a href="#blender-lotion-turntable">Lotion Pump Turntable ↓</a><a href="#blender-mcp-pagoda">Animated Pagoda over MCP ↓</a><a href="#tenaz-explainer">Tenaz Explainer ↓</a><a href="#image-landing">Image Landing ↓</a><a href="#benchmarks-promo">Local Model Benchmarks Promo ↓</a><a href="#hyperframes-promo">Custom Characters Promo ↓</a><a href="#anatomy-microwave">Microwave Oven Anatomy ↓</a><a href="#anatomy-prefix-cache">Prefix Cache Anatomy ↓</a><a href="#digger-arcade">Digger Arcade ↓</a><a href="#pagoda-garden">Voxel Pagoda Garden ↓</a></nav>
+        <p class="lede">33 generated artifacts, grouped by task. Play the result as the model produced it, then check the run sheet for the recorded tests and limits.</p>
+        <nav class="archive-links" aria-label="Build groups"><a href="#whiteout-protocol">Whiteout Protocol ↓</a><a href="#digger-3d">Digger 3D ↓</a><a href="#hardball-3d">Hardball 3D ↓</a><a href="#hardball-3d-generated-assets">Hardball 3D · generated-asset remake ↓</a><a href="#obby-3d">Obby 3D ↓</a><a href="#wild-west-showdown-3d">Wild West Showdown 3D ↓</a><a href="#raycaster-shooter">Raycaster Shooter ↓</a><a href="#blender-lotion-turntable">Lotion Pump Turntable ↓</a><a href="#blender-mcp-pagoda">Animated Pagoda over MCP ↓</a><a href="#tenaz-explainer">Tenaz Explainer ↓</a><a href="#image-landing">Image Landing ↓</a><a href="#benchmarks-promo">Local Model Benchmarks Promo ↓</a><a href="#hyperframes-promo">Custom Characters Promo ↓</a><a href="#anatomy-microwave">Microwave Oven Anatomy ↓</a><a href="#anatomy-prefix-cache">Prefix Cache Anatomy ↓</a><a href="#digger-arcade">Digger Arcade ↓</a><a href="#pagoda-garden">Voxel Pagoda Garden ↓</a></nav>
       </header>
       <section class="band" id="whiteout-protocol" aria-labelledby="whiteout-protocol-title">
           <div class="section-head"><h2 class="h-section" id="whiteout-protocol-title">Whiteout Protocol</h2><a href="../challenges/whiteout-protocol/">Compare attempts →</a></div>
@@ -178,6 +178,19 @@
               <p class="compare__summary">Codex completed the one-shot task and produced a static one-inning 3D arcade baseball build. No independent gameplay test report was retained with the turn metrics.</p>
               <div class="actions compare__actions"><a href="../demos/hardball-3d-gpt-6-luna-codex/">Play build ↗</a><a class="action--quiet" href="../runs/hardball-3d-gpt-6-luna-codex/">Run sheet →</a></div>
               <p class="asset-note"><a href="../demos/hardball-3d-gpt-6-luna-codex/LICENSE-THREEJS.txt">Three.js licence notice</a></p>
+            </article></div>
+        </section><section class="band" id="hardball-3d-generated-assets" aria-labelledby="hardball-3d-generated-assets-title">
+          <div class="section-head"><h2 class="h-section" id="hardball-3d-generated-assets-title">Hardball 3D · generated-asset remake</h2><a href="../challenges/hardball-3d-generated-assets/">Compare attempts →</a></div>
+          <div class="compare compare--thumbs"><article class="compare__item">
+              <figure class="capture capture--inline"><a href="../demos/hardball-3d-sushi-v160-tenaz-trellis/" aria-label="Hardball 3D generated-asset remake · retained final-review keyboard session, 15 November 2026, top half before the AI pitch; original game viewport and HUD, without retouching"><img src="../assets/screenshots/hardball-3d-sushi-v160-tenaz-trellis-gameplay.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Hardball 3D in the top half of the inning: the generated blue batter and coral catcher stand near home plate, with fielders, the stadium and the score and controls HUD visible"></a></figure>
+              <header class="compare__head">
+                <h3><a href="../runs/hardball-3d-sushi-v160-tenaz-trellis/">Sushi 1.6.0</a></h3>
+                <p class="index__meta">Qwen 3.8 Flash Next + Qwen Image 2.1 + TRELLIS.2 4B · 15 November 2026</p>
+              </header>
+              <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+              <p class="compare__summary">Unsatisfactory playable prototype. Tenaz ended COMPLETE_WITH_GAPS, exit 3, after 76 h 46 min 35 s of active execution and 284 sessions; 62 tasks done, four dropped and four todo. Final review CHANGES despite 66 passing model-written checks. Operator play found skating rigid players and unconvincing bat/glove grips; source confirms hidden animated procedural limbs and separate prop anchors. Operator bootstrap allowed static-body/root-motion acceptance; implementation and review also failed. Four final cards concern hard-to-hit batting, endless walks, mottled kits and stale HUD. R23 side mapping was fixed. Several runner changes were needed, so this is not a clean capability or engine comparison.</p>
+              <div class="actions compare__actions"><a href="../demos/hardball-3d-sushi-v160-tenaz-trellis/">Play build ↗</a><a class="action--quiet" href="../runs/hardball-3d-sushi-v160-tenaz-trellis/">Run sheet →</a></div>
+              <p class="asset-note"><a href="../demos/hardball-3d-sushi-v160-tenaz-trellis/LICENSE-THREEJS.txt">Three.js licence notice</a> · <a href="../demos/hardball-3d-sushi-v160-tenaz-trellis/CREDITS.txt">Credits and licences</a></p>
             </article></div>
         </section><section class="band" id="obby-3d" aria-labelledby="obby-3d-title">
           <div class="section-head"><h2 class="h-section" id="obby-3d-title">Obby 3D</h2><a href="../challenges/obby-3d/">Compare attempts →</a></div>
@@ -331,7 +344,7 @@
               <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
               <p class="compare__summary">The orchestrator reached COMPLETE after 6 h 45 min with no operator action and no failed session, and the final reviewer accepted all 36 requirements on its first cycle. The render follows the storyboard and the site&#x27;s design system and passes all 23 hidden acceptance cases. Artistically it is modest: it reads like an animated slide deck. Its opening photograph, a generated image from the supplied pack, is visibly AI-made.</p>
               <div class="actions compare__actions"><a href="../demos/benchmarks-promo-sushi-v124/">Play build ↗</a><a class="action--quiet" href="../runs/benchmarks-promo-sushi-v124/">Run sheet →</a></div>
-              <p class="asset-note"><a href="../demos/benchmarks-promo-sushi-v124/LICENSE-ANATOMY.txt">anatomy skill licence notice (MIT)</a> · <a href="../demos/benchmarks-promo-sushi-v124/CREDITS.txt">Credits and licences · narration Built with Fish Audio</a></p>
+              <p class="asset-note"><a href="../demos/benchmarks-promo-sushi-v124/LICENSE-ANATOMY.txt">anatomy skill licence notice (MIT)</a> · <a href="../demos/benchmarks-promo-sushi-v124/CREDITS.txt">Credits and licences</a></p>
             </article></div>
         </section><section class="band" id="hyperframes-promo" aria-labelledby="hyperframes-promo-title">
           <div class="section-head"><h2 class="h-section" id="hyperframes-promo-title">Custom Characters Promo</h2><a href="../challenges/hyperframes-promo/">Compare attempts →</a></div>
@@ -344,7 +357,7 @@
               <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
               <p class="compare__summary">The orchestrator reached COMPLETE after 3 h 55 min with no operator action and no failed session, and the final reviewer accepted all 27 requirements on its first cycle. The render passes 19 of 20 hidden acceptance cases: every caption in sync, both exclusions, the full call to action and a still final hold. It hides captions in the pauses between sentences. Visually it is clean but plainer than the Opus 5.5 render of the Spanish brief.</p>
               <div class="actions compare__actions"><a href="../demos/hyperframes-promo-sushi-v124/">Play build ↗</a><a class="action--quiet" href="../runs/hyperframes-promo-sushi-v124/">Run sheet →</a></div>
-              <p class="asset-note"><a href="../demos/hyperframes-promo-sushi-v124/CREDITS.txt">Credits and licences · narration Built with Fish Audio</a></p>
+              <p class="asset-note"><a href="../demos/hyperframes-promo-sushi-v124/CREDITS.txt">Credits and licences</a></p>
             </article></div>
         </section><section class="band" id="anatomy-microwave" aria-labelledby="anatomy-microwave-title">
           <div class="section-head"><h2 class="h-section" id="anatomy-microwave-title">Microwave Oven Anatomy</h2><a href="../challenges/anatomy-microwave/">Compare attempts →</a></div>

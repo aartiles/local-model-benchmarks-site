@@ -1,0 +1,35 @@
+Hardball 3D — generated-asset remake
+
+Archived result of the 11–15 November 2026 local benchmark.
+Runner outcome: COMPLETE_WITH_GAPS (exit 3); operator quality assessment: unsatisfactory.
+The original gameplay code and its known defects are preserved.
+
+Codex supplied the initial brief, specification, verification scaffold and task cards.
+Qwen 3.8 Flash Next implemented the game through fx 0.0.16 and Tenaz 0.7.0,
+using Sushi 1.6.0. Tenaz orchestrated the art generation as part of this run.
+
+Player and glove concept images: Qwen Image 2.1, served locally by MLX-Serve.
+Textured player and glove: TRELLIS.2 4B, served locally by MLX-Serve.
+The agent made cutouts and reduced/recolored the generated meshes for rendering.
+No downloaded game art, external audio or model weights are distributed here.
+The two rendered GLBs are unchanged from the retained final build.
+
+Three.js 0.170.0 is bundled; its MIT notice is LICENSE-THREEJS.txt.
+The retained TRELLIS model package notice is LICENSE-TRELLIS.txt (MIT).
+The actual retained Qwen Image package notice is LICENSE-QWEN-IMAGE.txt
+(Qwen RESEARCH LICENSE AGREEMENT); these model-package notices are reproduced
+for provenance and do not claim that every game/asset file uses that licence.
+Qwen is licensed under the Qwen RESEARCH LICENSE AGREEMENT,
+Copyright (c) 2026 Hangzhou Tongyi Laboratory Technology Co., Ltd. All Rights Reserved.
+
+Publication packaging: only runtime files are shipped. The manifest contains the
+two rendered assets' public metadata; private generation prompts, absolute paths,
+tool receipts and unused concept/original-mesh files have been omitted.
+The JavaScript, CSS, HTML body and rendered GLB bytes are unchanged. The site
+generator adds the page title and sharing/canonical metadata in the HTML head.
+
+The accompanying gameplay capture was retained by the final model reviewer on
+15 November 2026, from normal keyboard input on the production page and RAF clock
+without the deterministic test bridge. It shows the top half before the AI pitch.
+The full game viewport/HUD is preserved, with JPEG conversion only.
+A single frame is not evidence of a completed inning or acceptable animation.
