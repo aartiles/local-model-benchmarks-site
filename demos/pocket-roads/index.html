@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#161619">
+<title>Pocket Roads — Midnight Pass</title>
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="assets/midnight-pass.webp">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-state="ready">
+<svg class="symbols" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="sound" viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3zM16 8q4 4 0 8m3-11q7 7 0 14"/></symbol>
+<symbol id="muted" viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3zM16 9l6 6m0-6-6 6"/></symbol>
+<symbol id="cross" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v6m0 10v6M1 12h6m10 0h6"/></symbol>
+<symbol id="help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4 2c-1.5 1-1.5 1.5-1.5 2.6M12 16v.2"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0z"/><circle cx="12" cy="10" r="2.1"/></symbol>
+<symbol id="flag" viewBox="0 0 24 24"><path d="M4 21V4m1 1c5-5 9 4 15-1v10c-6 5-10-4-15 1"/><path d="M9 4v8m5-6v8M5 9c5-5 9 4 15-1"/></symbol>
+<symbol id="wheel" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M4.7 13c7-1 15.6-1 22.6 0M6 14l7 5 1 8m12-13-7 5-1 8"/><circle cx="16" cy="16" r="2"/></symbol>
+<symbol id="pedal" viewBox="0 0 32 32"><path d="M12 5h8a3 3 0 0 1 3 3l-2 16a4 4 0 0 1-4 4h-5a3 3 0 0 1-3-3l1-17a3 3 0 0 1 2-3z"/><path d="m14 10-1 12m6-12-2 12"/></symbol>
+<symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="14" r="8"/><path d="M9 2h6m-3 0v4m0 4v5l3 2"/></symbol>
+<symbol id="route" viewBox="0 0 24 24"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="5" r="2"/><path d="M7 18h6a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h6"/></symbol>
+<symbol id="speed" viewBox="0 0 24 24"><path d="M3 19a10 10 0 1 1 18 0zM12 15l5-7"/></symbol>
+<symbol id="pause" viewBox="0 0 24 24"><path d="M8 5v14m8-14v14" stroke-width="4"/></symbol>
+</defs></svg>
+<div id="console">
+<header>
+<div class="brand"><img src="assets/mark.svg" alt=""><span>POCKET ROADS</span></div>
+<span class="brand-detail">DRIVING SIMULATOR</span>
+<nav aria-label="Game settings">
+<button id="audio" aria-label="Mute sound" aria-pressed="true"><svg><use href="#sound"/></svg><span>Sound on</span></button>
+<button id="calibrate"><svg><use href="#cross"/></svg><span>Calibrate</span></button>
+<button id="guide" class="icon-only" aria-label="How to play"><svg><use href="#help"/></svg></button>
+</nav></header>
+<main id="stage" aria-label="Midnight Pass driving view">
+<div id="world"></div><div id="plate"></div><div class="shade"></div>
+<section class="stage-title"><div class="tags"><b><i></i> STAGE 01</b><span>TIME TRIAL</span></div><h1>Midnight Pass</h1><div class="place"><svg><use href="#pin"/></svg> SWISS ALPS <em></em> 1,840 M</div></section>
+<div class="minimap"><div class="map-head"><span class="map-sign">⌁</span> ROUTE TRACE <i></i></div><svg id="map" viewBox="0 0 170 80" aria-label="Route map"><g id="map-lines"></g><circle id="position-ring" r="6"/><circle id="position" r="2.4"/></svg><div class="map-foot"><span>START</span><span>FINISH</span></div></div>
+<div id="notice" role="status" aria-live="polite"></div>
+<div class="control steer"><div id="steer-pad" class="pad" role="group" aria-label="Drag horizontally to steer"><div class="ticks"></div><span class="dir left"></span><span class="dir right"></span><div class="knob"><svg><use href="#wheel"/></svg></div></div><div class="control-caption"><i></i> STEERING <i></i></div></div>
+<div class="control pedals"><div id="pedal-pad" class="pad" role="group" aria-label="Press upper half for gas, lower half for brake"><div class="ticks"></div><span class="dir up"></span><span class="dir down"></span><div class="knob"><svg><use href="#pedal"/></svg></div></div><div class="control-caption"><i></i> GAS / BRAKE <i></i></div></div>
+<div id="anchor" hidden><span></span></div>
+<div id="cal-panel" hidden><h2>Position your car</h2><p>Tap where the toy’s center will sit, then place it facing the pass.</p><div class="actions"><button id="virtual">Use virtual car</button><button id="save-anchor" class="primary">Save position</button><button id="cancel-cal" aria-label="Cancel calibration">×</button></div></div>
+<div id="flash"></div>
+</main>
+<section class="dash" aria-label="Driving instruments">
+<div class="instrument speed"><div class="label"><svg><use href="#speed"/></svg> SPEED</div><div class="speed-line"><span id="speed-num" aria-label="0 kilometers per hour"></span><small>KM/H</small></div></div>
+<div class="instrument distance"><div class="label"><svg><use href="#route"/></svg> DISTANCE</div><div class="reading"><span id="distance">0.00</span><small> / 3.20 KM</small></div><div class="track"><i id="progress"></i></div></div>
+<div class="instrument checkpoints"><div class="label"><svg><use href="#flag"/></svg> CHECKPOINTS</div><div class="reading"><span id="checkpoints">0</span><small> / 4</small></div><div id="gates"><i></i><i></i><i></i><i></i></div></div>
+<div class="instrument time"><div class="label"><svg><use href="#clock"/></svg> STAGE TIME</div><div class="reading" id="time">00:00<span>.00</span></div><div class="target">GOLD ≤ 01:55</div></div>
+<button id="drive" class="primary drive"><svg><use href="#flag"/></svg><span>Start run</span><svg class="drive-arrow"><use href="#arrow"/></svg></button>
+</section>
+<footer><span class="status"><i></i><span id="status">SYSTEM READY</span></span><div class="keys"><kbd>A</kbd><kbd>D</kbd> STEER <em></em><kbd>W</kbd><kbd>S</kbd> GAS / BRAKE <em></em><kbd>ESC</kbd> PAUSE</div><span class="mode"><i></i><span id="mode">VIRTUAL CAR</span></span></footer>
+</div>
+<dialog id="modal"><div class="modal-inner"><button id="close" aria-label="Close dialog">×</button><div class="tags"><b><i></i> STAGE 01</b><span>MIDNIGHT PASS</span></div><h2 id="modal-title"></h2><div id="modal-body"></div><div id="modal-actions" class="actions"></div></div></dialog>
+<script type="module" src="src/game.js"></script>
+</body></html>
