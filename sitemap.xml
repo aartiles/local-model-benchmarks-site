@@ -145,6 +145,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi-run2/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi-run3-temp0/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-sushi-v151-tenaz-060-dsh/</loc>
   </url>
   <url>
@@ -350,6 +353,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi-run2/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi-run3-temp0/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-sushi-v151-tenaz-060-dsh/</loc>
