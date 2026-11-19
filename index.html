@@ -43,7 +43,7 @@
         <a class="wordmark" href="./"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="./runs/">Runs</a><a href="./challenges/">Challenges</a><a href="./demos/">Builds</a><a href="./prompts/">Prompts</a><a href="./method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 15 November 2026</span><span>51 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 19 November 2026</span><span>53 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <section class="intro" aria-labelledby="home-title">
@@ -51,20 +51,27 @@
           <h1 class="display" id="home-title">Local models, tested beyond tokens.</h1>
           <p>Hands-on experiments on an Apple M5 Pro with 64 GB of memory. See what local models build, which checks pass, and how the model and runtime perform during the work.</p>
           <p class="note">Most tasks use one prompt, without manual fixes. Exceptions are recorded on the run sheet; cloud baselines are labelled separately.</p>
-          <div class="actions"><a href="./challenges/">Explore the tasks →</a><a class="action--quiet" href="./runs/">All 51 runs →</a></div>
+          <div class="actions"><a href="./challenges/">Explore the tasks →</a><a class="action--quiet" href="./runs/">All 53 runs →</a></div>
         </div>
         <div class="intro__artifact">
-          <figure class="capture capture--inline"><a href="./challenges/hardball-3d-generated-assets/" aria-label="Hardball 3D generated-asset remake · retained final-review keyboard session, 15 November 2026, top half before the AI pitch; original game viewport and HUD, without retouching"><img src="./assets/screenshots/hardball-3d-sushi-v160-tenaz-trellis-gameplay.jpg" width="1280" height="720" fetchpriority="high" decoding="async" alt="Hardball 3D in the top half of the inning: the generated blue batter and coral catcher stand near home plate, with fielders, the stadium and the score and controls HUD visible"></a></figure>
-          <p class="label">Latest run · 15 November 2026</p>
-          <h2><a href="./runs/hardball-3d-sushi-v160-tenaz-trellis/">Hardball 3D · generated-asset remake</a></h2>
-          <p class="catalogue__meta">Qwen 3.8 Flash Next · Sushi 1.6.0 · fx over ACP driven by Tenaz 0.7.0 (86dd7cb, d6d8aac, failed a4a7b7b restart, b3b2366)</p>
-          <p>Unsatisfactory playable prototype. Tenaz ended COMPLETE_WITH_GAPS, exit 3, after 76 h 46 min 35 s of active execution and 284 sessions; 62 tasks done, four dropped and four todo. Final review CHANGES despite 66 passing model-written checks. Operator play found skating rigid players and unconvincing bat/glove grips; source confirms hidden animated procedural limbs and separate prop anchors. Operator bootstrap allowed static-body/root-motion acceptance; implementation and review also failed. Four final cards concern hard-to-hit batting, endless walks, mottled kits and stale HUD. R23 side mapping was fixed. Several runner changes were needed, so this is not a clean capability or engine comparison.</p>
-          <div class="actions"><a href="./demos/hardball-3d-sushi-v160-tenaz-trellis/">Play build ↗</a><a class="action--quiet" href="./challenges/hardball-3d-generated-assets/">Compare attempts →</a></div>
+          <figure class="capture capture--inline"><a href="./challenges/pocket-roads/" aria-label="Local build, virtual chase view during the automated browser check."><img src="./assets/screenshots/pocket-roads-sushi-v160-tenaz-fx-gameplay.jpg" width="1180" height="820" fetchpriority="high" decoding="async" alt="Pocket Roads local build with a digital coupe on a forest road at dusk."></a></figure>
+          <p class="label">Latest run · 19 November 2026</p>
+          <h2><a href="./runs/pocket-roads-sushi-v160-tenaz-fx/">Pocket Roads</a></h2>
+          <p class="catalogue__meta">Qwen 3.8 Flash Next · Sushi 1.6.0 · fx over ACP driven by Tenaz 0.7.0 (64ae2d7)</p>
+          <p>Playable time trial. Tenaz stopped at COMPLETE_WITH_GAPS after two final review cycles. The off-road terrain looks flat at the finish and in a physical-mode braking view, and the chalets read as dark silhouettes.</p>
+          <div class="actions"><a href="./demos/pocket-roads-sushi-v160-tenaz-fx/">Play build ↗</a><a class="action--quiet" href="./challenges/pocket-roads/">Compare attempts →</a></div>
         </div>
       </section>
       <section class="band" id="run-archive" aria-labelledby="tasks-title">
         <div class="section-head"><h2 class="h-section" id="tasks-title">Same prompt. Different results.</h2><a href="./challenges/">All experiments →</a></div>
-        <div class="catalogue catalogue--home"><article class="catalogue__item" id="whiteout-protocol">
+        <div class="catalogue catalogue--home"><article class="catalogue__item" id="pocket-roads">
+          <figure class="capture capture--inline"><a href="./challenges/pocket-roads/" aria-label="Local build, virtual chase view during the automated browser check."><img src="./assets/screenshots/pocket-roads-sushi-v160-tenaz-fx-gameplay.jpg" width="1180" height="820" loading="lazy" decoding="async" alt="Pocket Roads local build with a digital coupe on a forest road at dusk."></a></figure>
+          <h3 class="index__title"><a href="./challenges/pocket-roads/">Pocket Roads</a></h3>
+          <p class="catalogue__meta">1 local run · 1 cloud baseline</p>
+          <p>An alpine tablet rally with a calibrated physical toy car mode. Two implementations share the same runtime assets.</p>
+          <div class="actions"><a href="./challenges/pocket-roads/">Compare attempts →</a></div>
+        </article>
+<article class="catalogue__item" id="whiteout-protocol">
           <figure class="capture capture--inline"><a href="./challenges/whiteout-protocol/" aria-label="Whiteout Protocol · TensorFold build · gameplay capture"><img src="./assets/screenshots/whiteout-protocol-tensorfold-gameplay.jpg" width="1600" height="826" loading="lazy" decoding="async" alt="Whiteout Protocol TensorFold scene with the weapon, snowy arena and pause prompt visible"></a></figure>
           <h3 class="index__title"><a href="./challenges/whiteout-protocol/">Whiteout Protocol</a></h3>
           <p class="catalogue__meta">2 local runs · 1 cloud baseline</p>
@@ -128,7 +135,7 @@
         <h2 class="h-section" id="reading-title">Read the result, then the numbers.</h2>
         <div class="guide">
           <div><h3>What did the model produce?</h3><p>Captures and playable builds show the output. Each run sheet lists the checks and limitations recorded for that execution.</p><div class="actions"><a href="./demos/">Browse the builds →</a></div></div>
-          <div><h3>What did the runtime measure?</h3><p>Decode, prefill, latency and session totals answer different questions. Every measurement keeps its statistic, unit and sample count.</p><div class="actions"><a id="inference" href="./runs/blender-mcp-pagoda-sushi-v160/#inference">Inference example →</a><a id="session" href="./runs/blender-mcp-pagoda-sushi-v160/#session">Session example →</a><a href="./method/">Read the method →</a></div></div>
+          <div><h3>What did the runtime measure?</h3><p>Decode, prefill, latency and session totals answer different questions. Every measurement keeps its statistic, unit and sample count.</p><div class="actions"><a id="inference" href="./runs/blender-mcp-pagoda-sushi-v160/#inference">Inference example →</a><a id="session" href="./runs/pocket-roads-gpt-6-2-astra-codex/#session">Session example →</a><a href="./method/">Read the method →</a></div></div>
         </div>
       </section>
       <aside class="reading-note" id="measurement-scope"><p>This is an evidence archive, with single executions and uneven test coverage. It is not a leaderboard. Local and provider-hosted speeds are not directly comparable.</p></aside>

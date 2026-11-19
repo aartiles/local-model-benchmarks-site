@@ -40,6 +40,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/pocket-ledger/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/pocket-roads/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/tenaz-explainer/</loc>
   </url>
   <url>
@@ -125,6 +128,12 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pagoda-garden/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads-sushi-v160-tenaz-fx/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-sushi-v151-tenaz-060-dsh/</loc>
@@ -320,6 +329,12 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-ledger-tensorfold-native/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-gpt-6-2-astra-codex/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-sushi-v160-tenaz-fx/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-sushi-v151-tenaz-060-dsh/</loc>

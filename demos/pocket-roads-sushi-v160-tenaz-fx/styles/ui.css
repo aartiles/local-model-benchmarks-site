@@ -1,0 +1,566 @@
+/* Pocket Roads: Midnight Pass — landscape-first UI shell.
+   The stage canvas fills the viewport; the HUD sits on top, the left half of the
+   screen is the steering zone and the right half is the pedal zone (R12). */
+
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("../assets/fonts/barlow-condensed-extrabold-italic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/ibm-plex-mono-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #eef3ff;
+  --ink-dim: #9fb0d0;
+  --panel: rgba(7, 11, 24, 0.62);
+  --panel-edge: rgba(159, 176, 208, 0.28);
+  --accent: #ffb347;
+  --hud-gap: clamp(6px, 1.4vmin, 14px);
+  --hud-pad: clamp(8px, 1.8vmin, 18px);
+  /* iPad / iPhone browser chrome and the notch: the controls and the HUD keep clear
+     of them, so a pedal is never under the home bar (R39). */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --font-display: "Barlow Condensed", "Avenir Next Condensed", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: #05070f;
+  color: var(--ink);
+  font-family: var(--font-display);
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#gl {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------------------------------------------------------ HUD ---- */
+/* --hud-strip is the bottom edge of this strip, measured from the live layout by
+   main.js every frame (it moves when a font lands or the viewport changes). The
+   control zones start below it, so the HUD is never under a thumb and never
+   overlapped by a control (R12, R23). */
+#hud {
+  position: fixed;
+  top: calc(var(--hud-pad) + var(--safe-top));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--hud-gap);
+  padding: calc(var(--hud-pad) * 0.6) var(--hud-pad);
+  background: var(--panel);
+  border: 1px solid var(--panel-edge);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.hud-cell {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: baseline;
+  gap: 0.4em;
+}
+
+.hud-label {
+  font-size: clamp(11px, 1.5vmin, 13px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.hud-value {
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 2.6vmin, 24px);
+  font-variant-numeric: tabular-nums;
+}
+
+.hud-unit {
+  font-size: clamp(11px, 1.5vmin, 13px);
+  color: var(--ink-dim);
+}
+
+/* ------------------------------------------------------- control zones ---- */
+/* R12: the left column is the steering zone, the right column the pedal zone.
+   Both take pointer events over their whole half (input.js maps a touch to the
+   pad under it, falling back to the half of the screen), and neither lets the
+   browser turn a thumb drag into a scroll or a pinch, which would cancel the
+   pointer and drop a held control. */
+#controls {
+  position: fixed;
+  /* Below the HUD strip (see #hud): the halves still cover the whole screen width,
+     and input.js maps a pointer by the half it is in, so a touch above the line is
+     still a control. */
+  inset: var(--hud-strip, 0px) 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* steering left, pedals right (R12) */
+  pointer-events: none;
+}
+
+.control-zone {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  /* The safe-area insets are added to the padding, not the box, so the halves still
+     cover the whole screen width and a thumb anywhere in a half drives it (R12). */
+  padding: var(--hud-pad) calc(var(--hud-pad) + var(--safe-right))
+    calc(var(--hud-pad) + var(--safe-bottom)) calc(var(--hud-pad) + var(--safe-left));
+  gap: var(--hud-gap);
+  pointer-events: auto;
+  touch-action: none;
+}
+
+#zone-steer {
+  --zone-side: left;
+}
+#zone-pedal {
+  --zone-side: right;
+}
+
+.steer-pad,
+.pedal {
+  /* vh is the LARGE viewport height: on an iPad with the browser bar showing, 22vh
+     can put the bottom of a pedal under that bar. dvh follows the visible height, and
+     browsers that do not know it keep the vh line above. */
+  min-height: clamp(56px, 22vh, 150px);
+  min-height: clamp(56px, 22dvh, 150px);
+  min-width: clamp(56px, 14vw, 120px);
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid var(--panel-edge);
+  background: var(--panel);
+  color: var(--ink-dim);
+  font-size: clamp(12px, 2vmin, 18px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.pedal-throttle {
+  color: var(--accent);
+  border-color: rgba(255, 179, 71, 0.45);
+}
+
+.steer-pad.active,
+.pedal.active {
+  background: rgba(255, 179, 71, 0.18);
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------- overlays ---- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.4em;
+  padding: var(--hud-pad);
+  background: rgba(5, 7, 15, 0.55);
+  text-align: center;
+}
+
+.overlay[hidden] {
+  display: none;
+}
+
+/* The ready banner keeps the stage visible and sits in the band between the HUD
+   strip and the pads, so its title never covers a pedal label (T025 review). It must
+   not sit between a thumb and the pads it is reaching for, so it never takes pointer
+   events (the result card's button re-enables them for itself). */
+.overlay-banner {
+  inset: var(--hud-strip, 0px) 0 auto 0;
+  place-content: center;
+  padding-block: calc(var(--hud-pad) * 0.9);
+  background: linear-gradient(to bottom, rgba(5, 7, 15, 0.72), rgba(5, 7, 15, 0));
+  pointer-events: none;
+}
+.overlay-banner .overlay-title {
+  font-size: clamp(22px, 4.6vmin, 44px);
+}
+
+/* R10: the stage preview card. The supplied opening artwork is painted into the
+   canvas by hud.js installStagePreview(); CSS only sizes it, off the banner's own
+   band (below --hud-strip, above the pads), so the card can never reach a control
+   (T020.panels-clear-of-pads, T026.stage-preview). Width drives the height through
+   the artwork's 1600x896 ratio, and the banner stays content-sized.
+   It takes no pointer events, like the banner it lives in: a thumb aimed at a pad
+   must land on the pad (R12, T013). */
+.stage-preview-card {
+  display: grid;
+  justify-items: center;
+  gap: 0.2em;
+  padding: calc(var(--hud-pad) * 0.45);
+  border: 1px solid var(--panel-edge);
+  border-radius: 14px;
+  background: var(--panel);
+  pointer-events: none;
+}
+
+.stage-preview {
+  display: block;
+  width: clamp(150px, 30vw, 420px);
+  height: auto;
+  aspect-ratio: 1600 / 896;
+  border-radius: 8px;
+  background: #05070f;
+  pointer-events: none;
+  touch-action: none;
+}
+
+.stage-preview-card .overlay-title {
+  font-size: clamp(20px, 3.8vmin, 40px);
+}
+
+/* A visible pause/result card may own the screen (that is correct), but it is sized
+   to its content and pinned just below the HUD strip, so its box stays clear of the
+   pads at the bottom of the screen (T020.panels-clear-of-pads) instead of hanging
+   down over them the way a vertically centred box does at 1024x640. */
+.overlay-card {
+  inset: calc(var(--hud-strip, 0px) + 2vh) 0 auto 0;
+  margin: 0 auto;
+  max-width: min(78vw, 460px);
+  max-height: 60vh;
+  max-height: 60dvh;
+  border: 1px solid var(--panel-edge);
+  border-radius: 16px;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  padding: calc(var(--hud-pad) * 1.2) var(--hud-pad);
+}
+
+.overlay-title {
+  margin: 0;
+  font-size: clamp(26px, 7vmin, 64px);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.overlay-note {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 2.2vmin, 18px);
+  color: var(--ink-dim);
+}
+
+.overlay-fine {
+  font-size: clamp(11px, 1.7vmin, 14px);
+  opacity: 0.85;
+}
+
+/* The buttons on the pause and result cards are real DOM controls (tappable), and
+   they obey the same layout gate as the pads: at least 44 px on a side, inside the
+   viewport, and touch-action:none so a tap is not turned into a scroll. */
+.overlay-actions {
+  display: flex;
+  gap: var(--hud-gap);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.6em;
+}
+
+.overlay-button {
+  justify-self: center;
+  margin-top: 0.6em;
+  min-height: 44px;
+  min-width: 88px;
+  padding: 0.5em 1.6em;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 179, 71, 0.5);
+  background: rgba(255, 179, 71, 0.16);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(14px, 2.6vmin, 22px);
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.overlay-actions .overlay-button {
+  margin-top: 0;
+}
+
+/* --------------------------------------------------------- breakpoints ---- */
+/* Compact landscape tablet (the 1024x640 size R39 names): the HUD strip tightens so
+   the readouts stay one row and the pedals keep their height, and the pads stay at
+   least 44 px on a side. Font sizes are NOT reduced here — the values must stay
+   legible at a glance (R23, R39).
+   ORDER MATTERS: this block comes BEFORE the phone block below, so that at
+   <= 430 px landscape — where both match — the phone rule is the later one and wins
+   instead of silently overriding the phone-specific pad sizing (T025 review). */
+@media (max-height: 700px) and (orientation: landscape) {
+  #hud {
+    gap: calc(var(--hud-gap) * 0.7);
+    padding: calc(var(--hud-pad) * 0.45) calc(var(--hud-pad) * 0.7);
+  }
+  .hud-cell {
+    gap: 0.3em;
+  }
+  .steer-pad,
+  .pedal {
+    /* vh first as the fallback for browsers that do not know dvh, then dvh — the
+       same pair the base rule and the phone rule use (T025 review). */
+    min-height: clamp(56px, 30vh, 150px);
+    min-height: clamp(56px, 30dvh, 150px);
+    min-width: clamp(56px, 13vw, 120px);
+  }
+}
+
+/* Compact landscape (phones): tighter HUD, pedals closer to the corners. */
+@media (max-height: 430px) {
+  #hud {
+    gap: calc(var(--hud-gap) * 0.6);
+    padding: 4px 10px;
+  }
+  .hud-label,
+  .hud-unit {
+    font-size: 11px;
+  }
+  .steer-pad,
+  .pedal {
+    min-height: 44vh;
+    min-height: 44dvh;
+    min-width: 12vw;
+  }
+  .overlay-card {
+    max-height: 52vh;
+    max-height: 52dvh;
+  }
+  .overlay-banner .overlay-title {
+    font-size: clamp(18px, 3.6vmin, 28px);
+  }
+}
+
+/* Desktop: show the keyboard affordance and keep the zones out of the way. */
+@media (min-width: 900px) {
+  #hud {
+    top: calc(var(--hud-pad) + var(--safe-top) + var(--hud-pad) * 0.2);
+  }
+  .overlay-banner .overlay-note::after {
+    content: " · WASD / arrows · Esc pauses";
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay-button {
+    transition: none;
+  }
+}
+
+/* ============ T022 — physical mode: the mode switch and the setup (R17–R19) ======
+   Both obey the T025 layout gate: every control is inside the viewport, at least
+   44 px on a side, pointer-events not none, touch-action: none, and clear of the
+   HUD and of every pad. Measured by T022.marker-and-anchor at 1024x640/1180x820. */
+
+/* The top-left band holds the mode switch and the sound toggle in one row. Both are
+   laid out by this flex container instead of by a hard-coded `left`, because the
+   buttons grow with the viewport font size (clamp(..., 1.9vmin, ...)): a fixed offset
+   for the second control overlapped the first at 1180x820, which the T025 gate fails.
+   pointer-events: none keeps the band itself from eating taps; the buttons re-enable
+   them. */
+.top-left {
+  position: fixed;
+  z-index: 7;
+  top: calc(var(--safe-top, 0px) + 6px);
+  left: calc(var(--safe-left, 0px) + 8px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+/* The switch lives in the band ABOVE the HUD strip, at the left, so it is visible in
+   both modes and never under a thumb or next to the centred readouts. Only the
+   buttons take touches. */
+.mode-switch {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.mode-button {
+  box-sizing: border-box;
+  pointer-events: auto;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 0.9em;
+  border: 1px solid var(--panel-edge);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--ink-dim);
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.9vmin, 15px);
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.mode-button[data-active="true"] {
+  color: var(--ink);
+  border-color: rgba(255, 179, 71, 0.55);
+  background: rgba(255, 179, 71, 0.18);
+}
+
+/* R33: the mute toggle sits in the same band, to the RIGHT of the mode switch, laid
+   out by .top-left's flex row (no hard-coded offset), so it is clear of the centred
+   HUD and of both mode buttons at 1024x640 and 1180x820, and never inside a hidden
+   panel. */
+.mute-button {
+  min-width: 44px;
+  padding: 0 0.6em;
+  white-space: nowrap;
+}
+.mute-button[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: rgba(255, 179, 71, 0.55);
+  background: rgba(255, 179, 71, 0.18);
+}
+
+/* The setup panel reuses .overlay-card's proven geometry (pinned under the HUD strip,
+   content-sized, never vertically centred), and only restacks it as a column. The
+   [hidden] rule outranks the class rule, so hiding always wins. */
+.setup-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5em;
+  text-align: center;
+}
+.setup-panel[hidden] {
+  display: none;
+}
+/* While the setup is open it owns the middle of the screen, so the ready banner is
+   put away rather than showing word fragments either side of the panel. */
+body[data-setup="open"] #overlay-ready {
+  display: none;
+}
+
+/* A mid-run switch into physical mode pauses the run AND opens this panel (main.js),
+   so both the pause card and the setup are visible together. The pause card must stay
+   REACHABLE — R31's pause/resume flow needs a distinct, usable visible state, and
+   Resume is the only way back into the run. So while the setup is open the pause card
+   is moved OUT of the panel's box and docked in the free band to its left, above the
+   pads: one panel owns the middle of the screen, the other sits beside it. Measured by
+   T022.marker-and-anchor at 1024x640 and 1180x820 (elementFromPoint on the Resume
+   centre, and the two boxes must not intersect). */
+body[data-setup="open"] #overlay-pause {
+  /* 58px floor: the mode switch occupies the top-left corner down to ~56px, and on a
+     short landscape phone the HUD strip alone would not clear it. */
+  inset: max(calc(var(--hud-strip, 0px) + 2vh), 58px) auto auto calc(var(--safe-left, 0px) + 8px);
+  box-sizing: border-box;
+  width: min(24vw, 230px);
+  max-width: 230px;
+  max-height: 46vh;
+  max-height: 46dvh;
+  margin: 0;
+  z-index: 9;
+  text-align: start;
+}
+body[data-setup="open"] #overlay-pause .overlay-title {
+  font-size: clamp(18px, 3.4vmin, 30px);
+}
+body[data-setup="open"] #overlay-pause .overlay-actions {
+  flex-direction: column;
+  align-items: stretch;
+}
+.setup-panel .overlay-title {
+  font-size: clamp(18px, 3.2vmin, 30px);
+}
+
+/* The play area (R18): the box a tap or drag inside of becomes the anchor. */
+.play-area {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 44px;
+  height: clamp(110px, 28vh, 230px);
+  border: 1px dashed rgba(255, 179, 71, 0.55);
+  border-radius: 12px;
+  background: linear-gradient(to bottom, rgba(12, 18, 40, 0.9), rgba(7, 11, 24, 0.9));
+  overflow: hidden;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+/* The placement marker (R19): mark.svg, positioned by calibration.js from the
+   viewport-normalized anchor. It is a control, so it gets the same 44 px minimum. */
+.marker {
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: clamp(44px, 11vmin, 68px);
+  height: clamp(44px, 11vmin, 68px);
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 179, 71, 0.7);
+  border-radius: 50%;
+  background: rgba(255, 179, 71, 0.16);
+  cursor: grab;
+  touch-action: none;
+}
+.marker img {
+  display: block;
+  width: 76%;
+  height: 76%;
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+.marker[data-placed="false"] {
+  opacity: 0.55;
+}
+
+@media (max-height: 430px) {
+  /* Phone landscape: the switch shrinks to the minimum tap, never below it. */
+  .mode-button {
+    padding: 0 0.6em;
+    font-size: 11px;
+  }
+  .play-area {
+    height: clamp(96px, 26vh, 150px);
+  }
+  /* The setup panel is 460px + padding wide here, which leaves ~180px of free band on
+     each side, so the docked pause card narrows instead of touching the panel. */
+  body[data-setup="open"] #overlay-pause {
+    width: min(19vw, 168px);
+    max-width: 168px;
+    max-height: 52vh;
+    max-height: 52dvh;
+  }
+}
