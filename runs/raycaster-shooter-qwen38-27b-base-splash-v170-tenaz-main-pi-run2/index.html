@@ -1,0 +1,183 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Raycaster Shooter · Qwen 3.8 27B base · Splash 1.7.0 · Tenaz main + Pi · base run 2: configuration, result, recorded checks and measurements.">
+    <title>Raycaster Shooter · Qwen 3.8 27B base · Splash 1.7.0 · Tenaz main + Pi · base run 2 run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run2/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run2/">
+    <meta property="og:title" content="Raycaster Shooter · Qwen 3.8 27B base · Splash 1.7.0 · Tenaz main + Pi · base run 2 run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Raycaster Shooter · Qwen 3.8 27B base · Splash 1.7.0 · Tenaz main + Pi · base run 2: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Raycaster Shooter · Qwen 3.8 27B base · Splash 1.7.0 · Tenaz main + Pi · base run 2 run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Raycaster Shooter · Qwen 3.8 27B base · Splash 1.7.0 · Tenaz main + Pi · base run 2: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 20 November 2026</span><span>58 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro">
+          <header class="sheet__head">
+            <p class="label">20 November 2026 · Agentic task loop · first-person raycaster</p>
+            <h1 class="display sheet__title" id="page-title">Raycaster Shooter · Qwen 3.8 27B base · Splash 1.7.0 · Tenaz main + Pi · base run 2</h1>
+            <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            <p class="lede">Tenaz ended COMPLETE_WITH_GAPS after 6 h 17 min, 78 sessions and 16 tasks done: both final reviews returned CHANGES, and T016 (flat walls still bow in the live game) was not built. 32 sessions ended early, 26 of them at the turn budget. Played by a person: practically unplayable. One pixel of mouse movement turns the view about 126 degrees, flat walls bow outward, and the player can reach only the spawn corridor: 46 of the map&#x27;s 183 floor cells.</p>
+            <div class="actions"><a href="../../demos/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run2/">Play build <span aria-hidden="true">↗</span></a><a href="../../challenges/raycaster-shooter/">Compare attempts <span aria-hidden="true">→</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+        <figure class="capture capture--wide">
+          <img src="../../assets/screenshots/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run2-gameplay.jpg" width="1280" height="720" fetchpriority="high" decoding="async" alt="First-person spawn view: a grey plank wall on the left with a barrel at its edge, a wooden crate floating ahead above the gun, a grey brick wall and tiled floor down the corridor on the right, a minimap, a controls hint and red health and yellow ammo numbers">
+          <figcaption>Raycaster Shooter · Qwen 3.8 27B base + Splash 1.7.0 + Tenaz main + Pi, base run 2 · spawn view of the archived build at 1280×720</figcaption>
+        </figure>
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>Runner final state COMPLETE_WITH_GAPS on 20 November 10:23:19.353 UTC: 16 tasks done, T015 split into T015a and T015b, T016 to do. The verify bootstrap step failed once (verify --all printed no JSON last line) and passed on its second attempt; spec and tasks passed on their first (29 requirements, none manual). Final review cycle 1 returned CHANGES and added T015; cycle 2 returned CHANGES and added T016, which Tenaz&#x27;s two-cycle limit left open. `verify --all` passed 17 of 17 model-written checks again after the run; not a hidden acceptance suite.</li>
+<li>Configuration: identical to base run 1 and to pi-adapted run 2 apart from the checkpoint (same brief by SHA-256, Tenaz main 2f1b04c binary, Pi 1.4.0, thinking off, temperature 0.8, vision, generic engine, Tenaz defaults, sandbox off). Launched with --allow-weak-engine; the preflight reported reasoning=false cache=true tools=true vision=true.</li>
+<li>Runner events: 32 of 78 sessions ended early: 26 at the turn budget, 3 after 20 turns without changing or reading anything new, 2 for repeated bash calls and 1 over its 85,196-token context budget. 24 turn-budget stops were continued in a fresh session. Three replans added no tasks. No response stopped at the output limit; 1 request ended in a provider error with no tokens.</li>
+<li>The agent left 386 of its own scratch files (probe scripts and screenshots, many measuring the wall bow) in the ignored .tenaz/private folder.</li>
+<li>Played on 20 November by the operator. The verdict: practically unplayable; the mouse turns far too fast to aim, and the walls are badly laid out.</li>
+<li>Causes, checked by Claude in the source: turnPlayer in src/player.js multiplies each pixel of mouse movement by TURN_SPEED = 2.2, a value src/config.js documents as radians per second, so one pixel turns the view about 126 degrees. A flood fill of the grid in src/map.js from the spawn, through open floor and doors, reaches only the spawn corridor (46 of 183 floor cells): the big room, the three side rooms and the second corridor have no door that leads to them. The spawn view shows flat walls bowing outward, the fault T016 was added for.</li>
+<li>Vision: no image refusals.</li>
+<li>Engine metrics: a fresh Splash process serving only this run. Its 2,996 summaries are 6 preflight requests and 2,990 run requests. 2,990 of the 3,022 proxy records match a Splash summary one-to-one and in order by (prompt, output, cached); the other 32 are empty records (31 aborted turns, 1 provider error). Per session, the totals equal the Pi usage Tenaz journaled.</li>
+<li>Memory: Tenaz&#x27;s 900 host samples run from start to end. Wired memory went from 26.0 GiB to about 43 GiB (median 42.5, maximum 46.0). Pressure was at warning in 431 samples from 05:45 UTC, with other work on the Mac, and never critical; 0.1 GiB was swapped in.</li>
+<li>Public artifact: the reviewed static build (vite build --base ./ from the final project commit 6539c0b, unchanged source) and its spawn view at 1280x720. The prompt is the author&#x27;s and is not republished; the project, raw logs, journal and sessions stay in the ignored local archive.</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>Completion is the runner outcome. A repeat of base run 1. It got further (no block) but did not finish clean, needed about 7 times the requests of pi-adapted run 2, and produced an unplayable game. With two executions per checkpoint, the pi-adapted model finished three of three runs cleanly and the base model none of two.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">Qwen 3.8 27B · primary · reasoning none (thinking off, as in the pi-adapted runs it is compared with)</td><td class="spec__def">OptiQ mixed precision: MLX affine 4-bit, group size 64, with 8-bit layers; vision tower in a bfloat16 sidecar</td></tr>
+                <tr><th scope="row">Checkpoint · primary</th><td class="spec__value">mlx-community/Qwen3.8-27B-OptiQ-4bit</td><td class="spec__def">primary model artifact · revision bf8b660b34d6b0f19d96339361e08de65b000a16</td></tr>
+                <tr><th scope="row">Model · drafter</th><td class="spec__value">Qwen 3.8 27B DFlash2 · drafter</td><td class="spec__def">—</td></tr>
+                <tr><th scope="row">Checkpoint · drafter</th><td class="spec__value">incoai/Qwen3.8-27B-DFlash2</td><td class="spec__def">drafter model artifact · revision 015e795645c74b1a0eeef3b570031fb62e769bc5</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">Splash 1.7.0 · One splash serve process per run, registered with Tenaz as a generic engine with the same start and stop scripts as pi-adapted run 2 except the model name and folder; started before the launch and never restarted. --model-dir on the local MLX folder, --max-context 128K, --reasoning-effort none (every request served with thinking off), --idle-release off, SSD prefix cache at its default quota, Neural Engine FFN split at share 0.32 from an earlier calibration, vision loaded. Temperature 0.8 pinned through the Tenaz proxy; top-p left to the engine. mode</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">Pi coding agent over RPC driven by Tenaz main 2f1b04c (0.8.0 plus the recovery fixes for a deleted .tenaz/private) 1.4.0</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Runner</th><td class="spec__value">Tenaz main · build 2f1b04c after 0.8.0 (unreleased)</td><td class="spec__def">open-source runner, <a href="https://github.com/aartiles/tenaz">github.com/aartiles/tenaz</a> · <a href="../../method/#runner-title">how the runner evolved</a></td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Raycaster Shooter · revision 1</td><td class="spec__def">One-shot raycaster brief by @ddalcu, as posted by @Beamsters1, used verbatim as the Tenaz brief (same SHA-256 as every earlier Raycaster run); the local model wrote its own spec, verify and task plan. Second execution of base run 1&#x27;s setup, launched right after it ended; no operator action after launch.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">131,072 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">TTFT · median</th><td class="spec__value">1.1 s</td><td class="spec__def">Median engine-reported TTFT across matched responses. · n=2990 · Mean 1.986 s. Includes the run&#x27;s cache mix; not a prefill rate.</td></tr>
+                <tr><th scope="row">Decode · per-request median</th><td class="spec__value">67.7 tok/s</td><td class="spec__def">Median of Splash&#x27;s per-request decode rate across matched responses. · n=2990</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">68.5822 tok/s</td><td class="spec__def">Total output tokens divided by the sum of each request&#x27;s output tokens over its decode rate. · n=2990</td></tr>
+                <tr><th scope="row">Tokens per decode cycle · drafter</th><td class="spec__value">8.7273 tokens/cycle</td><td class="spec__def">Output-token-weighted mean of Splash&#x27;s tokens per decode cycle with the DFlash2 drafter (median 7.0). · n=2990 · Splash logs tokens per cycle, not drafted and accepted counts, so this is not an acceptance percentage.</td></tr>
+                <tr><th scope="row">Host wired memory · median</th><td class="spec__value">42.48 GiB</td><td class="spec__def">Median host wired memory across Tenaz&#x27;s 30-second samples from start to end of the run. · n=900 · 26.03 GiB at the first sample, maximum 45.96 GiB. Host-wide, includes every process.</td></tr>
+                <tr><th scope="row">Swapped in during the run</th><td class="spec__value">0.127 GiB</td><td class="spec__def">Sum of swap-in deltas across Tenaz&#x27;s 30-second host memory samples; host-wide swap I/O, not resident memory. · n=900 · Memory pressure normal in 469 samples and at warning in 431, from 05:45 UTC to the end; never critical. Free memory fell to 0.09 GiB at its lowest.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Run elapsed</th><td class="spec__value">376.9 min</td><td class="spec__def">Session 001 start after the preflight (20 November 04:06:27.640 UTC) to COMPLETE_WITH_GAPS (10:23:19.353 UTC); includes tools, checks and retries. · n=1 · 6 h 16 min 51.7 s; no pauses.</td></tr>
+                <tr><th scope="row">Agent sessions</th><td class="spec__value">78 sessions</td><td class="spec__def">All harness sessions: 5 bootstrap, 48 builder, 19 reviewer, 3 replan, 1 split and 2 final reviewer. · n=1</td></tr>
+                <tr><th scope="row">Sessions ended early</th><td class="spec__value">32 sessions</td><td class="spec__def">Sessions with ok=false. · n=78 · 26 stopped at their turn budget, 3 after 20 turns without changing or reading anything new, 2 for repeating the same bash call and 1 over its context budget. Tenaz continued 24 of the turn-budget stops in a fresh session.</td></tr>
+                <tr><th scope="row">Operator interventions</th><td class="spec__value">0 actions</td><td class="spec__def">No pauses, relaunches, configuration changes or edits after the first session started. · n=1 · Launched automatically by a script that waited for base run 1 to end and stopped its Splash.</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">3,022 responses</td><td class="spec__def">All proxy request records; 31 are the empty records of turns Tenaz aborted and 1 ended in an error with no tokens. · n=1</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">2,990 requests</td><td class="spec__def">Proxy responses matched one-to-one, in order and uniquely to Splash summaries by total prompt, output and cached-token triple. · n=1 · 6 preflight summaries unassigned and excluded; the 32 empty records have no Splash summary, and every Splash summary in the run window is matched.</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">3,165 calls</td><td class="spec__def">Sum of harness tool_calls across all 78 session records. · n=78</td></tr>
+                <tr><th scope="row">Tool errors</th><td class="spec__value">258 errors</td><td class="spec__def">Pi tool executions that ended with isError, counted in the sessions&#x27; RPC logs. · n=3165 · 228 of them bash commands that exited with an error, such as a failing check; not a count of malformed tool calls.</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">0 compactions</td><td class="spec__def">Compaction count across all session records. · n=78</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">109,572 tokens</td><td class="spec__def">Maximum prompt input across matched responses; not the configured server window. · n=2990</td></tr>
+                <tr><th scope="row">Cumulative input</th><td class="spec__value">94,124,609 tokens</td><td class="spec__def">Sum of total prompt tokens across matched responses, including repeatedly reused context; not unique input. · n=2990</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">91,774,496 tokens</td><td class="spec__def">Sum of prompt tokens Splash reported cached for matched responses. · n=2990</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">2,350,113 tokens</td><td class="spec__def">Total prompt input minus cached input for matched responses. · n=2990</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">1,060,405 tokens</td><td class="spec__def">Sum of output tokens across matched responses; thinking was off, so no reasoning output. · n=2990</td></tr>
+                <tr><th scope="row">of which reasoning output</th><td class="spec__value">0 tokens</td><td class="spec__def">Reasoning tokens reported by the proxy; Splash served every request with thinking off. · n=2990</td></tr>
+                <tr><th scope="row">Prompt-cache token share</th><td class="spec__value">97.5032 %</td><td class="spec__def">Cached prompt tokens divided by total prompt tokens, weighted by tokens across matched responses. · n=2990</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Tasks completed</th><td class="spec__value">16 tasks</td><td class="spec__def">Final task cards marked done; T015 was split into T015a and T015b, and T016, added by the second final review, was left to do. · n=1</td></tr>
+                <tr><th scope="row">Reviews returning changes</th><td class="spec__value">2 reviews</td><td class="spec__def">Task review verdicts returning CHANGES (T004 and T015a, first attempts). One more T014 review stopped without a verdict and was rerun. Both final reviews returned CHANGES. · n=19</td></tr>
+                <tr><th scope="row">Project checks passing</th><td class="spec__value">17 checks</td><td class="spec__def">Checks passing in `verify --all` rerun after the run ended. · n=1 · Model-written checks, not an independent acceptance suite.</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>2990 numeric request records in proxy order, each matched one-to-one to a Splash summary by total prompt, output and cached tokens. TTFT and decode come from Splash&#x27;s own timing lines. Preflight summaries and the empty records of aborted turns are excluded. No prompts, tool results, session identifiers or local paths are included.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-11-20-qwen38-27b-base-optiq4-splash-v170-tenaz-main-2f1b04c-pi-raycaster-shooter-base-run2</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <p class="colophon__tag">The long-horizon runs are driven by <a href="https://github.com/aartiles/tenaz">Tenaz</a>, an open-source runner that takes a local model through a goal for hours, session by session, until its checks pass.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>

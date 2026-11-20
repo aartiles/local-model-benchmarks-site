@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="38 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta name="description" content="40 playable generated builds, with captures and separate local and cloud provenance.">
     <title>Playable builds · Local Model Benchmarks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/demos/">
     <meta property="og:title" content="Playable builds · Local Model Benchmarks">
-    <meta property="og:description" content="38 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta property="og:description" content="40 playable generated builds, with captures and separate local and cloud provenance.">
     <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -30,7 +30,7 @@
     <meta name="twitter:site" content="@aartiles24">
     <meta name="twitter:creator" content="@aartiles24">
     <meta name="twitter:title" content="Playable builds · Local Model Benchmarks">
-    <meta name="twitter:description" content="38 playable generated builds, with captures and separate local and cloud provenance.">
+    <meta name="twitter:description" content="40 playable generated builds, with captures and separate local and cloud provenance.">
     <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
     <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
     <!-- Site metadata:end -->
@@ -42,12 +42,12 @@
         <a class="wordmark" href="../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../runs/">Runs</a><a href="../challenges/">Challenges</a><a href="../demos/" aria-current="page">Builds</a><a href="../prompts/">Prompts</a><a href="../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 19 November 2026</span><span>56 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 20 November 2026</span><span>58 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
 <header class="sheet__head">
         <h1 class="display sheet__title">Playable builds</h1>
-        <p class="lede">38 generated artifacts, grouped by task. Play the result as the model produced it, then check the run sheet for the recorded tests and limits.</p>
+        <p class="lede">40 generated artifacts, grouped by task. Play the result as the model produced it, then check the run sheet for the recorded tests and limits.</p>
         <nav class="archive-links" aria-label="Build groups"><a href="#pocket-roads">Pocket Roads ↓</a><a href="#whiteout-protocol">Whiteout Protocol ↓</a><a href="#digger-3d">Digger 3D ↓</a><a href="#hardball-3d">Hardball 3D ↓</a><a href="#hardball-3d-generated-assets">Hardball 3D · generated-asset remake ↓</a><a href="#obby-3d">Obby 3D ↓</a><a href="#wild-west-showdown-3d">Wild West Showdown 3D ↓</a><a href="#raycaster-shooter">Raycaster Shooter ↓</a><a href="#blender-lotion-turntable">Lotion Pump Turntable ↓</a><a href="#blender-mcp-pagoda">Animated Pagoda over MCP ↓</a><a href="#tenaz-explainer">Tenaz Explainer ↓</a><a href="#image-landing">Image Landing ↓</a><a href="#benchmarks-promo">Local Model Benchmarks Promo ↓</a><a href="#hyperframes-promo">Custom Characters Promo ↓</a><a href="#anatomy-microwave">Microwave Oven Anatomy ↓</a><a href="#anatomy-prefix-cache">Prefix Cache Anatomy ↓</a><a href="#digger-arcade">Digger Arcade ↓</a><a href="#pagoda-garden">Voxel Pagoda Garden ↓</a></nav>
       </header>
       <section class="band" id="pocket-roads" aria-labelledby="pocket-roads-title">
@@ -322,6 +322,26 @@
               <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
               <p class="compare__summary">Tenaz ended in COMPLETE after 1 h 8 min, 36 sessions and 12 tasks, with one builder session stopped at its turn budget and continued, and no operator action once the first session started; the first final review accepted. Played by a person and checked by Claude: the spawn view and door work and the HUD shows numbers, but shots only land within about 4 cells because the line-of-sight test is wrong, each click spends two bullets, there is no reload or ammo pickup, enemies never attack and the controls hint drops the letters V and P. The 22 model-written checks pass because they only test at 2 cells.</p>
               <div class="actions compare__actions"><a href="../demos/raycaster-shooter-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi-run3-temp0/">Play build ↗</a><a class="action--quiet" href="../runs/raycaster-shooter-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi-run3-temp0/">Run sheet →</a></div>
+
+            </article><article class="compare__item">
+              <figure class="capture capture--inline"><a href="../demos/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run1/" aria-label="Raycaster Shooter · Qwen 3.8 27B base + Splash 1.7.0 + Tenaz main + Pi, base run 1 · spawn view of the archived build at 1280×720"><img src="../assets/screenshots/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run1-gameplay.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="First-person spawn view: a barrel one cell ahead fills most of the screen between brick walls, with the gun, a minimap, health and ammo numbers and a controls hint missing letters"></a></figure>
+              <header class="compare__head">
+                <h3><a href="../runs/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run1/">Qwen 3.8 27B base · Splash 1.7.0 · Tenaz main + Pi · base run 1</a></h3>
+                <p class="index__meta">Qwen 3.8 27B + Qwen 3.8 27B DFlash2 · 20 November 2026</p>
+              </header>
+              <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+              <p class="compare__summary">Tenaz ended BLOCKED after 9 h 32 min, 122 sessions and 22 tasks done: the final review returned CHANGES and added T019 (the spawn view), whose builder could not pass without changing a done task&#x27;s checks, and no replan freed it. 49 sessions ended early, 39 of them at the turn budget. The playable build has a working mouse and a minimap, but its spawn view shows a barrel one cell ahead filling the screen; no person played it.</p>
+              <div class="actions compare__actions"><a href="../demos/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run1/">Play build ↗</a><a class="action--quiet" href="../runs/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run1/">Run sheet →</a></div>
+
+            </article><article class="compare__item">
+              <figure class="capture capture--inline"><a href="../demos/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run2/" aria-label="Raycaster Shooter · Qwen 3.8 27B base + Splash 1.7.0 + Tenaz main + Pi, base run 2 · spawn view of the archived build at 1280×720"><img src="../assets/screenshots/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run2-gameplay.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="First-person spawn view: a grey plank wall on the left with a barrel at its edge, a wooden crate floating ahead above the gun, a grey brick wall and tiled floor down the corridor on the right, a minimap, a controls hint and red health and yellow ammo numbers"></a></figure>
+              <header class="compare__head">
+                <h3><a href="../runs/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run2/">Qwen 3.8 27B base · Splash 1.7.0 · Tenaz main + Pi · base run 2</a></h3>
+                <p class="index__meta">Qwen 3.8 27B + Qwen 3.8 27B DFlash2 · 20 November 2026</p>
+              </header>
+              <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+              <p class="compare__summary">Tenaz ended COMPLETE_WITH_GAPS after 6 h 17 min, 78 sessions and 16 tasks done: both final reviews returned CHANGES, and T016 (flat walls still bow in the live game) was not built. 32 sessions ended early, 26 of them at the turn budget. Played by a person: practically unplayable. One pixel of mouse movement turns the view about 126 degrees, flat walls bow outward, and the player can reach only the spawn corridor: 46 of the map&#x27;s 183 floor cells.</p>
+              <div class="actions compare__actions"><a href="../demos/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run2/">Play build ↗</a><a class="action--quiet" href="../runs/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run2/">Run sheet →</a></div>
 
             </article></div>
         </section><section class="band" id="blender-lotion-turntable" aria-labelledby="blender-lotion-turntable-title">
