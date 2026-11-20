@@ -1,0 +1,223 @@
+/* Pocket Roads — Midnight Pass
+ * Fonts: Barlow Condensed ExtraBold Italic and IBM Plex Mono Medium.
+ * Both are used under their SIL Open Font License 1.1; the license texts are
+ * kept next to the font files in assets/fonts/ (Barlow-LICENSE, Plex-LICENSE).
+ */
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('../assets/fonts/barlow-condensed-extrabold-italic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../assets/fonts/ibm-plex-mono-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #eef1ff;
+  --dim: #9aa3c0;
+  --accent: #ff7444;
+  --panel: rgba(13, 16, 30, 0.82);
+  --line: rgba(255, 255, 255, 0.14);
+  --gold: #ffd257;
+  --silver: #cfd6e4;
+  --bronze: #e09a5f;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: #10131f;
+  color: var(--ink);
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  -webkit-user-select: none; user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+#scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+
+.mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+.hidden { display: none !important; }
+
+/* ---------- HUD ---------- */
+#hud { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+#hudTop {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: max(8px, env(safe-area-inset-top)) 12px 0 12px;
+  gap: 8px;
+}
+#hudLeft, #hudCenter, #hudRight { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+#hudLeft { align-items: flex-start; }
+#hudRight { align-items: flex-end; }
+#hudTime {
+  font-size: clamp(20px, 3.4vw, 34px);
+  background: var(--panel); border: 1px solid var(--line);
+  padding: 2px 10px; border-radius: 10px; line-height: 1.15;
+}
+#hudPenalty { color: #ff9d7a; font-size: clamp(12px, 1.6vw, 18px); padding-left: 10px; text-shadow: 0 1px 4px #000; }
+#hudCp { font-size: clamp(13px, 1.9vw, 20px); background: var(--panel); border: 1px solid var(--line); padding: 1px 10px; border-radius: 8px; }
+#hudProgress { width: clamp(90px, 16vw, 200px); height: 6px; background: rgba(255,255,255,.14); border-radius: 3px; overflow: hidden; }
+#hudProgressFill { height: 100%; width: 0%; background: var(--accent); border-radius: 3px; }
+#hudDist { font-size: clamp(11px, 1.5vw, 16px); color: var(--dim); text-shadow: 0 1px 3px #000; }
+#hudSpeed { font-size: clamp(24px, 4vw, 42px); background: var(--panel); border: 1px solid var(--line); padding: 0 12px; border-radius: 10px; line-height: 1.1; }
+#hudSpeedUnit { font-size: clamp(10px, 1.4vw, 14px); color: var(--dim); letter-spacing: .12em; }
+#hudButtons { display: flex; gap: 6px; pointer-events: auto; }
+.hudBtn {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--panel); color: var(--ink);
+  border: 1px solid var(--line); font-size: 17px; cursor: pointer;
+}
+.hudBtn.off { color: var(--dim); text-decoration: line-through; }
+#hudMode { position: absolute; left: 12px; bottom: calc(max(8px, env(safe-area-inset-bottom)) + 118px); font-size: 12px; color: var(--dim); text-shadow: 0 1px 3px #000; }
+
+/* ---------- touch controls ---------- */
+#controls { position: fixed; inset: 0; z-index: 6; pointer-events: none; }
+#steerZone {
+  position: absolute; left: 3vw; bottom: max(10px, env(safe-area-inset-bottom));
+  width: 38vw; height: 108px; pointer-events: auto;
+}
+#steerTrack {
+  position: relative; width: 100%; height: 74px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 40px;
+}
+#steerTicks { position: absolute; inset: 0; display: flex; justify-content: space-evenly; align-items: center; opacity: .5; }
+#steerTicks span { width: 2px; height: 18px; background: var(--ink); border-radius: 1px; }
+#steerPuck {
+  position: absolute; top: 50%; left: 50%; width: 58px; height: 58px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 35% 30%, #ffb08a, var(--accent) 60%, #c94e22);
+  border: 2px solid rgba(255,255,255,.55); border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0,0,0,.5);
+}
+#steerLabel { text-align: center; margin-top: 4px; font-size: 12px; letter-spacing: .3em; color: var(--dim); }
+#pedalZone {
+  position: absolute; right: 3vw; bottom: max(10px, env(safe-area-inset-bottom));
+  width: 38vw; height: 108px; display: flex; gap: 4vw; pointer-events: auto;
+}
+.pedal {
+  flex: 1; height: 100%; border-radius: 16px;
+  background: var(--panel); border: 1px solid var(--line);
+  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px;
+  font-size: clamp(13px, 2vw, 19px); letter-spacing: .18em; color: var(--dim);
+}
+#throttlePedal.pressed { background: rgba(64, 160, 90, .55); color: #eaffef; border-color: #7be0a0; }
+#brakePedal.pressed { background: rgba(190, 60, 50, .55); color: #ffecea; border-color: #ff9d8a; }
+
+/* ---------- banner / toast ---------- */
+#banner {
+  position: fixed; top: 22%; left: 50%; transform: translateX(-50%);
+  z-index: 8; font-size: clamp(34px, 7vw, 76px); font-weight: 800; font-style: italic;
+  letter-spacing: .04em; color: var(--ink); text-shadow: 0 4px 24px rgba(0,0,0,.8), 0 0 8px rgba(255,116,68,.6);
+  pointer-events: none; text-align: center; white-space: nowrap;
+}
+#banner.penalty { color: #ff9d7a; }
+#banner.cp { color: #8fd8ff; }
+#toast {
+  position: fixed; bottom: 128px; left: 50%; transform: translateX(-50%);
+  z-index: 8; background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 6px 14px; font-size: clamp(13px, 2vw, 18px); pointer-events: none; white-space: nowrap;
+}
+
+/* ---------- placement marker ---------- */
+#marker {
+  position: fixed; z-index: 7; width: 54px; height: 40px; margin: -20px 0 0 -27px;
+  pointer-events: none; filter: drop-shadow(0 0 10px rgba(255,116,68,.9));
+  animation: markPulse 1.2s ease-in-out infinite;
+}
+#marker img { width: 100%; height: 100%; }
+@keyframes markPulse { 50% { transform: scale(1.18); opacity: .85; } }
+
+/* ---------- screens ---------- */
+.screen {
+  position: fixed; inset: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(120% 120% at 50% 10%, rgba(24,28,52,.55), rgba(8,10,20,.88));
+  padding: 16px;
+}
+#menuScreen { overflow: auto; }
+.menuInner { display: flex; gap: 22px; align-items: stretch; max-width: 980px; width: 100%; }
+.menuArt {
+  width: 46%; object-fit: cover; border-radius: 16px; border: 1px solid var(--line);
+  box-shadow: 0 12px 40px rgba(0,0,0,.55); min-height: 220px;
+}
+.menuPanel {
+  flex: 1; background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+  padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; backdrop-filter: blur(6px);
+}
+h1 { font-size: clamp(26px, 4.6vw, 44px); font-weight: 800; font-style: italic; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
+.brandMark { display: inline-flex; width: 34px; height: 26px; }
+.brandMark img { width: 100%; height: 100%; }
+h2 { font-size: clamp(14px, 2vw, 19px); color: var(--accent); letter-spacing: .14em; font-weight: 800; }
+.menuButtons { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.bigBtn {
+  font-family: inherit; font-weight: 800; font-style: italic; font-size: clamp(17px, 2.4vw, 24px);
+  letter-spacing: .06em; color: #fff; background: linear-gradient(180deg, #ff8a54, #e35a24);
+  border: 1px solid rgba(255,255,255,.35); border-radius: 12px; padding: 10px 16px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  box-shadow: 0 6px 18px rgba(227,90,36,.35);
+}
+.bigBtn .sub { font-size: .55em; font-style: normal; font-weight: 500; letter-spacing: .12em; color: #ffe3d6; }
+.bigBtn:active { transform: translateY(1px); }
+.bigBtn:disabled { filter: grayscale(.7) brightness(.6); }
+.smallBtn {
+  font-family: inherit; font-size: clamp(12px, 1.6vw, 15px); letter-spacing: .1em; font-weight: 500;
+  color: var(--ink); background: rgba(255,255,255,.08); border: 1px solid var(--line);
+  border-radius: 10px; padding: 8px 12px; cursor: pointer;
+}
+.menuRow { display: flex; gap: 8px; flex-wrap: wrap; }
+#bests { font-size: clamp(11px, 1.5vw, 14px); color: var(--dim); line-height: 1.5; }
+#bests b { color: var(--ink); }
+.help { font-size: clamp(11px, 1.5vw, 14px); color: var(--dim); line-height: 1.45; border-top: 1px solid var(--line); padding-top: 8px; }
+.help b { color: var(--ink); }
+.gold { color: var(--gold); } .silver { color: var(--silver); }
+
+/* setup */
+.setupPanel, .pausePanel, .resultPanel, .loadPanel {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+  padding: 22px 26px; max-width: 560px; width: 100%;
+  display: flex; flex-direction: column; gap: 12px; text-align: center;
+  backdrop-filter: blur(8px); box-shadow: 0 18px 60px rgba(0,0,0,.6);
+}
+.setupPanel { text-align: left; }
+.setupPanel h2 { text-align: center; }
+.setupPanel p { font-size: clamp(13px, 1.8vw, 16px); line-height: 1.45; color: var(--ink); }
+.setupPanel .dim { color: var(--dim); font-size: clamp(11px, 1.5vw, 13px); }
+.setupRow { display: flex; align-items: center; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.setupRow label { font-size: 13px; letter-spacing: .15em; color: var(--dim); }
+.setupRow input[type=range] { flex: 1; min-width: 160px; accent-color: var(--accent); }
+#btnAnchorSave { flex: 1; min-width: 220px; }
+
+/* pause / result */
+.pausePanel h2, .resultPanel h2 { text-align: center; font-size: clamp(24px, 4vw, 38px); font-style: italic; font-weight: 800; }
+#pauseStats, #resultStats { font-size: clamp(13px, 1.9vw, 17px); color: var(--dim); line-height: 1.6; text-align: center; white-space: pre-line; }
+#resultStats b { color: var(--ink); }
+.medal { font-size: clamp(40px, 8vw, 72px); text-align: center; font-weight: 800; font-style: italic; }
+.medal.gold { color: var(--gold); text-shadow: 0 0 26px rgba(255,210,87,.55); }
+.medal.silver { color: var(--silver); text-shadow: 0 0 22px rgba(207,214,228,.45); }
+.medal.bronze { color: var(--bronze); text-shadow: 0 0 20px rgba(224,154,95,.4); }
+
+#loadBar { height: 8px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }
+#loadFill { height: 100%; width: 5%; background: var(--accent); transition: width .15s; }
+
+/* compact landscape phones: shrink controls */
+@media (max-height: 480px) {
+  #steerZone, #pedalZone { height: 84px; }
+  #steerTrack { height: 56px; }
+  #steerPuck { width: 46px; height: 46px; }
+  #hudMode { display: none; }
+  .menuArt { display: none; }
+}
+@media (max-width: 700px) {
+  .menuInner { flex-direction: column; }
+  .menuArt { width: 100%; height: 120px; }
+}
