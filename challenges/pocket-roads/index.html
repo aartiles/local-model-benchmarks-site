@@ -42,24 +42,42 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 20 November 2026</span><span>59 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 20 November 2026</span><span>60 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
         <p class="label">Workload &middot; Agentic coding · 3D browser rally game &middot; Revision 1</p>
         <h1 class="display sheet__title">Pocket Roads</h1>
-        <p class="lede">Build a tablet rally game in which a physical toy car stays still while the road moves beneath it. GPT-6.2 Astra built the frontier version and generated its art locally. Qwen 3.8 Flash Next under Tenaz and Mistral Large 4 in Mistral Vibe each built their own version from the same supplied runtime assets.</p>
+        <p class="lede">Build a tablet rally game in which a physical toy car stays still while the road moves beneath it. GPT-6.2 Astra built the frontier version and generated its art locally. Qwen 3.8 Flash Next and Qwen 3.8 27B pi-adapted under Tenaz, and Mistral Large 4 in Mistral Vibe, each built their own version from the same supplied runtime assets.</p>
         <div class="actions">
-          <a href="#runs">Compare 3 attempts <span aria-hidden="true">&darr;</span></a>
+          <a href="#runs">Compare 4 attempts <span aria-hidden="true">&darr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">3 recorded attempts</p>
+          <p class="label">4 recorded attempts</p>
           <h2 class="h-section" id="runs-title">The builds, side by side</h2>
         </header>
-        <div class="compare compare--attempts compare--three">
+        <div class="compare compare--attempts">
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/pocket-roads-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi-gameplay.jpg" width="1180" height="820" loading="lazy" decoding="async" alt="Pocket Roads pi-adapted build: the textured coupe at 158 km/h on a road curving between a sunlit slope and a dark hillside, with a purple dusk sky, sparse spruces, the speed, time, distance and checkpoint HUD, and the steering pad and pedals in the corners.">
+              <figcaption>Pi-adapted build, virtual chase view 20 s into a drive with a real GPU.</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">20 November 2026</p>
+              <h3>Qwen 3.8 27B pi-adapted</h3>
+              <p class="note">Splash 1.7.0, thinking off · Pi 1.4.0 + Tenaz main 2f1b04c</p>
+            </header>
+            <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            <p class="compare__summary">COMPLETE_WITH_GAPS in 3 h 8 min with no session ended early. A thin game: the car runs on rails, so holding throttle wins gold, the physical-mode setup screen blocks Start, and the scene does not read as an alpine pass.</p>
+            <div class="actions compare__actions">
+              <a href="../../demos/pocket-roads-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/pocket-roads-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
           <article class="compare__item">
             <figure class="capture capture--inline">
               <img src="../../assets/screenshots/pocket-roads-sushi-v160-tenaz-fx-gameplay.jpg" width="1180" height="820" loading="lazy" decoding="async" alt="Pocket Roads local build with a digital coupe on a forest road at dusk.">
@@ -120,7 +138,7 @@
 
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
-        <div class="disclosure__body"><p>The attempts had different briefs and execution scopes. Astra used one Codex task and generated assets during that task. Tenaz received those exact assets and a revised brief, then planned, implemented and reviewed the game across separate fx sessions. Mistral Large 4 received the same assets and revised brief as Tenaz, in one Mistral Vibe session. The run sheets define each measurement. Physical iPad use remains unverified.</p><ul>            <li>Build a static 3D time trial through an alpine pass, with obstacles, split steering and pedal controls, and checkpoint timing.</li>
+        <div class="disclosure__body"><p>The attempts had different briefs and execution scopes. Astra used one Codex task and generated assets during that task. Tenaz received those exact assets and a revised brief, then planned, implemented and reviewed the game across separate fx sessions. Mistral Large 4 received the same assets and revised brief as Tenaz, in one Mistral Vibe session. Qwen 3.8 27B pi-adapted received them too, under Tenaz with Pi. The run sheets define each measurement. Physical iPad use remains unverified.</p><ul>            <li>Build a static 3D time trial through an alpine pass, with obstacles, split steering and pedal controls, and checkpoint timing.</li>
             <li>Calibrate a stationary toy car to a point on the tablet screen, or drive the textured digital coupe in chase view.</li>
             <li>Provide collision penalties, sound, pause, replay and persistent calibration. Check the game in a browser and report the devices tested.</li></ul></div>
       </details>

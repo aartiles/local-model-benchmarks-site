@@ -139,6 +139,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads-mistral-large-4-vibe/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads-sushi-v160-tenaz-fx/</loc>
   </url>
   <url>
@@ -356,6 +359,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-mistral-large-4-vibe/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-qwen38-27b-pi-adapted-splash-v170-tenaz-main-pi/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-sushi-v160-tenaz-fx/</loc>
