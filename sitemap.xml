@@ -151,6 +151,12 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-inkling-2-mini-mlx-serve-v26114pre1-tenaz-main-pi/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-inkling-2-mini-splash-v172-tenaz-main-pi-thinking-high/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-inkling-2-mini-splash-v172-tenaz-main-pi-thinking-low/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run1/</loc>
   </url>
   <url>
@@ -377,6 +383,12 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-inkling-2-mini-mlx-serve-v26114pre1-tenaz-main-pi/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-inkling-2-mini-splash-v172-tenaz-main-pi-thinking-high/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-inkling-2-mini-splash-v172-tenaz-main-pi-thinking-low/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-qwen38-27b-base-splash-v170-tenaz-main-pi-run1/</loc>
