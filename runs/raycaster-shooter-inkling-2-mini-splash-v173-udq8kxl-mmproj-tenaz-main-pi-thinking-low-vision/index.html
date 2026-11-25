@@ -1,0 +1,185 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Raycaster Shooter · Splash 1.7.3: configuration, result, recorded checks and measurements.">
+    <title>Raycaster Shooter · Splash 1.7.3 run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-inkling-2-mini-splash-v173-udq8kxl-mmproj-tenaz-main-pi-thinking-low-vision/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-inkling-2-mini-splash-v173-udq8kxl-mmproj-tenaz-main-pi-thinking-low-vision/">
+    <meta property="og:title" content="Raycaster Shooter · Splash 1.7.3 run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Raycaster Shooter · Splash 1.7.3: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Raycaster Shooter · Splash 1.7.3 run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Raycaster Shooter · Splash 1.7.3: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 24 November 2026</span><span>68 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro">
+          <header class="sheet__head">
+            <p class="label">25 November 2026 · Agentic task loop · first-person raycaster</p>
+            <h1 class="display sheet__title" id="page-title">Raycaster Shooter · Splash 1.7.3</h1>
+            <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            <p class="lede">Tenaz ended COMPLETE_WITH_GAPS after 45 min 35 s, 33 sessions and 14 task cards: 12 done, T011 dropped and T014 left to do. Every task review accepted first time; both final reviews, which looked at screenshots, asked for changes. Playable, and Inkling&#x27;s best Raycaster game so far: it fills the window, has brick, stone and wood walls and a textured floor and ceiling, two rooms joined by sliding doors that open and are drawn as doors, mouse look on the canvas, and an enemy that falls and stays down after three hits. But the minimap covers 128 by 128 of the 320 by 200 frame and hides the barrel at spawn (the open T014), the enemy never hurts the player and ends up standing inside them, out of sight, and a thin dark vertical line runs down the middle of every frame.</p>
+            <div class="actions"><a href="../../demos/raycaster-shooter-inkling-2-mini-splash-v173-udq8kxl-mmproj-tenaz-main-pi-thinking-low-vision/">Play build <span aria-hidden="true">↗</span></a><a href="../../challenges/raycaster-shooter/">Compare attempts <span aria-hidden="true">→</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+        <figure class="capture capture--wide">
+          <img src="../../assets/screenshots/raycaster-shooter-inkling-2-mini-splash-v173-udq8kxl-mmproj-tenaz-main-pi-thinking-low-vision-gameplay.jpg" width="960" height="600" fetchpriority="high" decoding="async" alt="First-person view just through the opened main door into a room of grey stone walls under a textured ceiling over a tiled floor, the enemy, a small red figure, ahead at the crosshair and a stone pillar to its right, the gun at the bottom, HP 100 and AMMO 30 at top right, a large minimap at top left showing both rooms, the doors and the view cone, and the controls hint at the bottom">
+          <figcaption>Raycaster Shooter · Inkling 2 Mini UD-Q8_K_XL with vision + Splash 1.7.3 + Tenaz main + Pi, thinking low · just through the main door; the minimap covers 128×128 of the 320×200 frame, headless capture of the published build at 960×600</figcaption>
+        </figure>
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>Runner final state COMPLETE_WITH_GAPS on 25 November 11:24:06.985 UTC. Bootstrap passed its three steps first time (18 requirements, none manual; 9 tasks). T001 to T010, T012 and T013 passed verify and review on their first attempt. T011 (make the spawn barrel partly visible) was blocked: it added no T011 check and its change broke the done task&#x27;s T005.sprites check, so Tenaz logged a conflict; a replan dropped it and added T013, which moved the barrel and re-aimed that check. Final review 1 asked for changes and added T010 (draw the door distinctly), T011 and T012 (use stone and wood walls across the map); final review 2 asked for changes again and added T014 (the barrel sliver is drawn behind the minimap), which was left to do. Three replans; two added nothing.</li>
+<li>Runner events: 33 sessions, none stopped or failed; no reverts, context compactions, provider errors, capacity limits or engine retries. The watchdog steered 006-builder-T002 to run its own checks and 024-builder-T010 after a large reply and on context pace. One reply, in 006-builder-T002, stopped at the 16,384-token output limit; the stop reasons are 298 tool use, 33 stop and that one.</li>
+<li>Configuration: the UD-Q8_K_XL thinking-low setup with vision. Pi 1.6.0 over RPC with the openai-completions provider splash, thinking low, text and image input, a 131,072-token context window and max_tokens 16,384; Tenaz main 3f43405 with defaults plus --vision, temperature 1.0, generic engine, sandbox off. Against the runs without vision, the go script adds only --vision, and the engine start script only --model-dir, --mmproj and --draft-model (plus comments and the two path variables they use); the stop and launch scripts, brief and Tenaz binary are byte-identical. Tenaz&#x27;s preflight reported reasoning, cache, tools and vision true; its image check answered &#x27;red blue&#x27;.</li>
+<li>Images: Pi&#x27;s read tool returned the pixels of PNG screenshots to the model 13 images in 4 sessions (021-builder-T009 3, 022-reviewer-T009 3, 023-final-reviewer 2, 033-final-reviewer 5); no tool result in the run&#x27;s logs carries imageUnsupportedByModel, which the runs without vision got. All are screenshots the model took of its own game with Playwright.</li>
+<li>Engine metrics: one Splash process wrote 789 Done summaries over both vision runs. Requests 1 and 2 are Claude&#x27;s own image check before this run&#x27;s init, 3 to 8 vision run 1&#x27;s preflight, 9 to 340 vision run 1, 341 to 346 vision run 2&#x27;s preflight and 347 to 789 vision run 2. This run&#x27;s 332 proxy records match summaries 9 to 340 one-to-one, in order, contiguously and uniquely by (prompt, output, cached). For all 33 sessions the matched summaries&#x27; fresh input, cached and output tokens equal the usage Tenaz journaled. TTFT comes from Splash&#x27;s &#x27;TTFT of request&#x27; lines.</li>
+<li>Memory: Tenaz&#x27;s 157 host samples report memory pressure level 1 (normal) throughout. Wired memory went from 24.2 GiB at the first sample to a maximum of 52.3 GiB, and free memory fell to 0.16 GiB at its lowest. Swap use ranged from 14.6 to 16.6 GiB, already about 14 GiB before the run. Tenaz sampled Splash&#x27;s Python parent, not its engine, so no engine footprint is recorded.</li>
+<li>`verify --all` on a clean clone of the final commit 638bb19 with the run&#x27;s node_modules: 12 of 13 passed; T009.docs failed because it wants 3 screenshots in shots/, which git ignores. After the project&#x27;s own `node tools/shot.mjs` wrote them, 13 of 13 passed, as Tenaz recorded. Model-written checks that test state, math and file presence, not playability.</li>
+<li>Played by Claude with Playwright in Chromium&#x27;s new headless mode, against the run&#x27;s build served by Vite, holding keys. Map: 32 by 32 cells. Spawn (16.5,28.5) faces north down a one-cell corridor at the closed main door (16,24), 4 cells ahead, drawn as a wooden door. W, then Space, opened it; it slid away and the player walked into the main room (columns 12 to 20, rows 2 to 23), with stone walls, a pillar and the enemy. From there a short corridor at row 7 leads through a second door (10,7) into the west room (columns 2 to 9, rows 2 to 12), with wood walls; it opened with Space and the player walked in. Both rooms can be reached.</li>
+<li>Mouse look: a click on the canvas calls canvas.requestPointerLock, and mousemove turns the player only while the canvas holds the lock, which is correct in a normal browser. Headless Chromium refuses pointer lock, so turning was tested with the lock faked: mouse moves turned the player. A/D strafe; no key turns.</li>
+<li>Combat: the enemy at (16.5,6.5) chases the player when it sees them. Shots at it: the third hit knocked it over and it stayed down on the floor. Health stayed 100 throughout: no code lowers it. The enemy walks to the player&#x27;s exact position, where it is no longer drawn, and the player can walk through it.</li>
+<li>Look: the canvas is drawn at 320 by 200 and scaled to fill the window with crisp pixels; walls carry brick, stone and wood textures, the floor and ceiling are textured per pixel. The minimap is 128 by 128 of the 320 by 200 frame and covers the barrel at spawn, which is the open T014. A thin dark vertical line runs down the middle of every frame.</li>
+<li>Public artifact: `vite build --base ./` of the final commit 638bb19 in the clean clone; its JavaScript bundle is byte-identical to the run&#x27;s own dist, and its index.html differs only in the script path (./assets in place of /assets). Plain canvas code; the capture fetched only from the local server. Screenshot: a fresh headless capture of the published build at 960x600, just through the opened main door, with the enemy and a pillar ahead.</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>Completion is the runner outcome. Inkling 2 Mini as Unsloth&#x27;s UD-Q8_K_XL GGUF on Splash 1.7.3 with its BF16 vision projector and the DFlash2 drafter at a 128K context, Pi thinking low with image input, temperature 1.0, Tenaz main 3f43405 with --vision: the UD-Q8_K_XL thinking-low setup with vision added (and Splash moved from 1.7.2 to 1.7.3, which is what serves the vision). The model looked at 13 screenshots, and both final reviews used them to send back visible defects: the door drawn like a wall, single-texture walls, the hidden barrel. The game is the most complete Inkling has built on this brief. The two UD-Q8_K_XL runs without vision differed more from each other than 8-bit from 4-bit, so one run at temperature 1.0 does not show how much of the gain is vision. Decode median 68.5 tok/s, against 71.6 and 66.1 for the two UD-Q8_K_XL runs without vision.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">Inkling 2 Mini · primary · reasoning low (Pi thinking level low; Splash started with --default-reasoning-effort low and logged every request as &#x27;effort low&#x27;). Pi counted 66,002 reasoning tokens.</td><td class="spec__def">Unsloth Dynamic UD-Q8_K_XL GGUF (Inkling-2-Mini-UD-Q8_K_XL.gguf, 22,867,452,896 bytes, sha256 2da51788d43a17e1f033bec420fa83ba9cb87ac1f0130dc9135a4d2ed2678b68), the same file as the two UD-Q8_K_XL runs without vision, passed to Splash with --model-dir. Vision projector mmproj-BF16.gguf from the same repository revision (641,805,760 bytes, sha256 2c165c78790e78a3f45a2d1e9e931083e52ee69d45ff2a0dc9c281fdf1a666e7), passed with --mmproj.</td></tr>
+                <tr><th scope="row">Checkpoint · primary</th><td class="spec__value">unsloth/Inkling-2-Mini-GGUF:UD-Q8_K_XL</td><td class="spec__def">primary model artifact · revision 8078d149286eec7193795413b9e0643da6d11fa1</td></tr>
+                <tr><th scope="row">Model · drafter</th><td class="spec__value">Inkling 2 Mini DFlash2 · drafter</td><td class="spec__def">—</td></tr>
+                <tr><th scope="row">Checkpoint · drafter</th><td class="spec__value">incoai/Inkling-2-Mini-DFlash2</td><td class="spec__def">drafter model artifact · revision 4f9088ea66c21f2b99ed657d1941c306b03e84d2</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">Splash 1.7.3 · Homebrew formula splash 1.7.3; the engine start script wrote `splash --version` (Splash 1.7.3) before starting it · One splash serve process, started at 10:37:35 UTC on 25 November by the run&#x27;s start script and serving both vision runs; registered with Tenaz as a generic engine with start and stop scripts and reached through Tenaz&#x27;s proxy. --model unsloth/Inkling-2-Mini-GGUF:UD-Q8_K_XL --model-dir &lt;the cached UD-Q8_K_XL GGUF&gt; --mmproj &lt;the cached mmproj-BF16.gguf&gt; --draft-model &lt;the cached DFlash2 snapshot&gt; --offline --no-webui --max-context 128K --default-reasoning-effort low --idle-release off. Startup log: &#x27;Ready · context 128K&#x27; (no &#x27;text only&#x27;), SSD prefix cache up to 32.0 GiB, routed experts held in memory (15,553 MiB), --verify-rows auto; /v1/models listed vision true with text, image and pdf input. Temperature 1.0 pinned through Tenaz&#x27;s proxy; top-p and top-k left to Splash. Pi&#x27;s max_tokens 16,384 (fixed in this Tenaz build). mode</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">Pi coding agent over RPC driven by Tenaz main 3f43405 (it reports 0.8.0 (3f43405)) 1.6.0</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Runner</th><td class="spec__value">Tenaz main · build 3f43405 after 0.8.0 (unreleased)</td><td class="spec__def">open-source runner, <a href="https://github.com/aartiles/tenaz">github.com/aartiles/tenaz</a> · <a href="../../method/#runner-title">how the runner evolved</a></td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Raycaster Shooter · revision 1</td><td class="spec__def">One-shot raycaster brief by @ddalcu, as posted by @Beamsters1, used verbatim as the Tenaz brief (sha256 5c3cf17c..., the same file as the other Raycaster runs); the local model wrote its own spec, verify and task plan. Per-session context budget 85,196 tokens (0.65 of 131,072). With vision: Tenaz init --vision declared text and image input to Pi, and Splash loaded the projector, so builders and reviewers could look at screenshots of the game. No operator action after launch. The first run of this setup.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">131,072 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">TTFT · median</th><td class="spec__value">0.294087 s</td><td class="spec__def">Median engine-reported TTFT (&#x27;TTFT of request&#x27; lines, millisecond precision) across matched requests. · n=332 · 90th percentile 1.99 s, mean 0.780 s, maximum 16.7 s; 2 requests over 10 s. Includes the run&#x27;s cache mix and image prefill; not a prefill rate.</td></tr>
+                <tr><th scope="row">Decode · per-request median</th><td class="spec__value">68.55 tok/s</td><td class="spec__def">Median of Splash&#x27;s per-request decode rate across matched requests. · n=332 · 10th percentile 51.7, 90th percentile 102.9 (linear interpolation). Median 66.9 below 16K prompt tokens (193 requests), 70.9 from 16K to 32K (129), 67.8 from 32K (10).</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">65.4647 tok/s</td><td class="spec__def">Total output tokens divided by the sum of each request&#x27;s output tokens over its decode rate. · n=332</td></tr>
+                <tr><th scope="row">Tokens per decode cycle · drafter</th><td class="spec__value">4.1623 tokens/cycle</td><td class="spec__def">Output-token-weighted mean of Splash&#x27;s tokens per decode cycle with the DFlash2 drafter (median 4.1). · n=332 · Splash logs tokens per cycle, not drafted and accepted counts, so this is not an acceptance percentage.</td></tr>
+                <tr><th scope="row">Host wired memory · median</th><td class="spec__value">36.78 GiB</td><td class="spec__def">Median host wired memory across Tenaz&#x27;s 30-second samples from start to end of the run. · n=157 · 24.2 GiB at the first sample, maximum 52.32 GiB. Host-wide, includes every process.</td></tr>
+                <tr><th scope="row">Swapped in during the run</th><td class="spec__value">0.464 GiB</td><td class="spec__def">Swap-in pages summed over Tenaz&#x27;s memory samples (30,420 pages of 16 KiB); host-wide swap I/O, not resident memory. · n=157 · Memory pressure level 1 (normal) in every sample.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Run elapsed</th><td class="spec__value">45.6 min</td><td class="spec__def">Session 001 start after the preflight (2026-11-25T10:38:32.065371Z) to COMPLETE_WITH_GAPS (2026-11-25T11:24:06.985Z); includes tools, checks and reviews. · n=1 · 45 min 34.9 s; no pauses.</td></tr>
+                <tr><th scope="row">Agent sessions</th><td class="spec__value">33 sessions</td><td class="spec__def">All harness sessions: 3 bootstrap, 13 builder, 12 reviewer, 3 replan and 2 final reviewer. · n=1</td></tr>
+                <tr><th scope="row">Sessions ended early</th><td class="spec__value">0 sessions</td><td class="spec__def">Sessions with ok=false. · n=33</td></tr>
+                <tr><th scope="row">Operator interventions</th><td class="spec__value">0 actions</td><td class="spec__def">No pauses, relaunches, configuration changes or edits after the first session started. · n=1</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">332 responses</td><td class="spec__def">All proxy request records of this run; none ended in error. · n=1</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">332 requests</td><td class="spec__def">Proxy records matched one-to-one, in order and uniquely to Splash Done summaries by (prompt, output, cached). · n=332 · Splash summaries 1 to 8 (Claude&#x27;s image check before init and this run&#x27;s preflight) and those of vision run 2 are excluded.</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">308 calls</td><td class="spec__def">Sum of harness tool_calls across all 33 session records. · n=33</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">0 compactions</td><td class="spec__def">Compaction count across all session records. · n=33</td></tr>
+                <tr><th scope="row">Responses stopped at the output limit</th><td class="spec__value">1 responses</td><td class="spec__def">Proxy records that stopped at the 16,384-token output limit. · n=332 · One reply in 006-builder-T002 hit the limit; the next largest was 6,890 tokens.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">38,722 tokens</td><td class="spec__def">Largest prompt across matched requests; not the configured server window. · n=332 · Tenaz&#x27;s per-session context peak, which adds the reply, reached 38,915 tokens of the 85,196 budget, in 024-builder-T010.</td></tr>
+                <tr><th scope="row">Cumulative input</th><td class="spec__value">5,563,878 tokens</td><td class="spec__def">Sum of total prompt tokens across matched requests, including repeatedly reused context; not unique input. · n=332</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">5,230,496 tokens</td><td class="spec__def">Sum of prompt tokens Splash reported cached across matched requests. · n=332</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">333,382 tokens</td><td class="spec__def">Total prompt minus cached prompt tokens across matched requests. · n=332</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">154,651 tokens</td><td class="spec__def">Sum of output tokens across matched requests, reasoning included. · n=332</td></tr>
+                <tr><th scope="row">of which reasoning output</th><td class="spec__value">66,002 tokens</td><td class="spec__def">Reasoning tokens in Pi&#x27;s usage, summed over the 33 journaled sessions. · n=33 · 42.7% of the output.</td></tr>
+                <tr><th scope="row">Prompt-cache token share</th><td class="spec__value">94.0081 %</td><td class="spec__def">Cached prompt tokens divided by total prompt tokens, weighted by tokens across matched requests. · n=332</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Tasks completed</th><td class="spec__value">12 tasks</td><td class="spec__def">Final task cards marked done; T011 dropped and T014 left to do. · n=14</td></tr>
+                <tr><th scope="row">Reviews returning changes</th><td class="spec__value">2 reviews</td><td class="spec__def">Review verdicts returning CHANGES: both final reviews. All 12 task reviews returned ACCEPT on the first attempt. · n=14</td></tr>
+                <tr><th scope="row">Project checks passing</th><td class="spec__value">13 checks</td><td class="spec__def">Checks passing in `verify --all` on a clean clone of the final commit, rerun after the run once the project&#x27;s screenshot tool had written shots/ (12 of 13 before, as T009.docs needs those git-ignored screenshots). · n=13 · Model-written checks, not an independent acceptance suite.</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>332 numeric request records in proxy order, each matched one-to-one to a Splash Done summary by total prompt, output and cached tokens. TTFT comes from Splash&#x27;s &#x27;TTFT of request&#x27; lines and decode from its Done lines. Preflight and other runs&#x27; summaries in the shared log are excluded. No prompts, images, tool results, session identifiers or local paths are included.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-11-25-inkling-2-mini-udq8kxl-mmproj-splash-v173-thinking-low-tenaz-main-3f43405-pi-raycaster-shooter-vision</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <p class="colophon__tag">The long-horizon runs are driven by <a href="https://github.com/aartiles/tenaz">Tenaz</a>, an open-source runner that takes a local model through a goal for hours, session by session, until its checks pass.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>
