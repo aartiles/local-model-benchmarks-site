@@ -37,6 +37,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/obby-3d/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/pagoda-garden/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/challenges/pocket-ledger/</loc>
   </url>
   <url>
@@ -134,6 +137,12 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pagoda-garden/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pagoda-garden-hy4-flash-sushi-v180-temp0/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pagoda-garden-hy4-flash-sushi-v180-temp09/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads/</loc>
@@ -377,6 +386,12 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pagoda-garden/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pagoda-garden-hy4-flash-sushi-v180-temp0/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pagoda-garden-hy4-flash-sushi-v180-temp09/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-ledger-sushi-v124-smr/</loc>
