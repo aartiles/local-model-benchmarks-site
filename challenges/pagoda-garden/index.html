@@ -42,24 +42,56 @@
         <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
         <nav aria-label="Main"><a href="../../runs/">Runs</a><a href="../../challenges/" aria-current="page">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
       </header>
-      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 24 November 2026</span><span>72 recorded runs</span></p>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 24 November 2026</span><span>74 recorded runs</span></p>
     </div>
     <main class="shell" id="main" tabindex="-1">
       <header class="sheet__head">
         <p class="label">Workload &middot; Agentic scene · voxel garden &middot; Revision 1</p>
         <h1 class="display sheet__title">Voxel Pagoda Garden</h1>
-        <p class="lede">One prompt to a coding agent: a creative, detailed voxel scene of a pagoda in a garden with cherry blossoms, in a single HTML file that opens in Chrome. One Pi session, no runner. Qwen 3.8 Flash Next set the first result; Hy4-Flash repeated the same prompt, once with Qwen&#x27;s settings where Hy4 allows and once with Hy4&#x27;s defaults.</p>
+        <p class="lede">One prompt to a coding agent: a creative, detailed voxel scene of a pagoda in a garden with cherry blossoms, in a single HTML file that opens in Chrome. One Pi session, no runner. Qwen 3.8 Flash Next set the first result; Hy4-Flash repeated the same prompt, once with Qwen&#x27;s settings where Hy4 allows and once with Hy4&#x27;s defaults; Ternary Bonsai 2.5 27B on Splash repeated it at temperature 0 and 0.9.</p>
         <div class="actions">
-          <a href="#runs">Compare 3 attempts <span aria-hidden="true">&darr;</span></a>
+          <a href="#runs">Compare 5 attempts <span aria-hidden="true">&darr;</span></a>
         </div>
       </header>
 
       <section class="band band--quiet" id="runs" aria-labelledby="runs-title">
         <header class="band__head">
-          <p class="label">3 recorded attempts</p>
+          <p class="label">5 recorded attempts</p>
           <h2 class="h-section" id="runs-title">The builds, side by side</h2>
         </header>
-        <div class="compare compare--attempts compare--three">
+        <div class="compare compare--attempts">
+          <article class="compare__item">
+            <figure class="capture capture--inline">
+              <img src="../../assets/screenshots/pagoda-garden-ternary-bonsai-2.5-splash-v173-temp0-gameplay.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="A four-tier red pagoda with dark roofs and a gold finial on a stone base, on a square grass plot with pink cherry trees, stepped green trees, bamboo, stone lanterns, a blue koi pond with stepping stones, a red torii at the end of a pale stone path, flowers, wooden fences, a cloud and falling petals, under a blue sky; a title card with the controls at top left">
+              <figcaption>Voxel Pagoda Garden · Ternary Bonsai 2.5 27B (PQ2_0) + Splash 1.7.3 + Pi · temperature 0 · headless capture of the published build at 1600×900</figcaption>
+            </figure>
+
+            <header class="compare__head">
+              <p class="label">27 November 2026</p>
+              <h3>Ternary Bonsai 2.5 27B (PQ2_0)</h3>
+              <p class="note">Splash 1.7.3, temperature 0, 131K context · Pi 1.6.0</p>
+            </header>
+            <div class="record-tag"><span class="mark">Session completed</span> <span class="mark">Local run</span></div>
+            <p class="compare__summary">The same prompt on a dense 27B ternary model. Completed in 128 s with 3 requests and 14,153 output tokens: the model wrote the whole page in one reply and checked only its syntax. A four-tier red pagoda with cherry trees, bamboo, a koi pond, stone lanterns and a torii, built on Three.js loaded from a CDN, so it needs an internet connection.</p>
+            <div class="actions compare__actions">
+              <a href="../../demos/pagoda-garden-ternary-bonsai-2.5-splash-v173-temp0/">Play the build <span aria-hidden="true">&#8599;</span></a>
+              <a class="action--quiet" href="../../runs/pagoda-garden-ternary-bonsai-2.5-splash-v173-temp0/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+          <article class="compare__item">
+
+            <header class="compare__head">
+              <p class="label">27 November 2026</p>
+              <h3>Ternary Bonsai 2.5 27B (PQ2_0)</h3>
+              <p class="note">Splash 1.7.3, temperature 0.9, 131K context · Pi 1.6.0</p>
+            </header>
+            <div class="record-tag"><span class="mark">Session failed</span> <span class="mark">Local run</span></div>
+            <p class="compare__summary">The same setup at temperature 0.9. Failed after 224 s: the only reply spent all 16,384 output tokens reasoning, drafting the code inside its thinking, and no page was written.</p>
+            <div class="actions compare__actions">
+
+              <a class="action--quiet" href="../../runs/pagoda-garden-ternary-bonsai-2.5-splash-v173-temp09/">Run sheet <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
           <article class="compare__item">
             <figure class="capture capture--inline">
               <img src="../../assets/screenshots/pagoda-garden-hy4-flash-sushi-v180-temp0-gameplay.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="A five-tier pagoda with jade roofs, gold trim and glowing lanterns on a square grass plot, with pink cherry trees, dark pines, bamboo, a red torii gate at the end of a stone path, a koi pond with an arched bridge, stone lanterns and falling petals, under a blue sky; a title card at top left, auto-orbit, night, petals and reset-view buttons at top right, the controls at bottom left and a counter of 34,977 voxels and 93 lights at bottom right">
@@ -120,7 +152,7 @@
 
       <details class="disclosure">
         <summary>Task requirements &amp; full brief</summary>
-        <div class="disclosure__body"><p>The same prompt, byte for byte, in each run; it is not published. The Hy4-Flash runs differ from the Qwen run in engine version (Sushi 1.8.0 against 1.0.5), Pi version, drafter (DFly2 against MTP), thinking level (Hy4 has no medium, so it ran at high with a 16,384-token budget) and working folder (empty against one with unrelated files). Throughput is compared in the temperature 0 report rather than in charts, because the Qwen record states its decode figure as a weighted mean of request rates. Each build is a single run.</p><ul>            <li>Design an elaborate, colourful voxel scene of a pagoda in a garden with trees, including cherry blossoms.</li>
+        <div class="disclosure__body"><p>The same prompt, byte for byte, in each run; it is not published. The Hy4-Flash runs differ from the Qwen run in engine version (Sushi 1.8.0 against 1.0.5), Pi version, drafter (DFly2 against MTP), thinking level (Hy4 has no medium, so it ran at high with a 16,384-token budget) and working folder (empty against one with unrelated files). The Bonsai runs use Splash 1.7.3, a DFlash2 draft made for Qwen 3.8 27B and Pi&#x27;s medium thinking as medium, with no thinking budget. Throughput is compared in the temperature 0 reports rather than in charts, because the Qwen record states its decode figure as a weighted mean of request rates. Each build is a single run.</p><ul>            <li>Design an elaborate, colourful voxel scene of a pagoda in a garden with trees, including cherry blossoms.</li>
             <li>Use any libraries, but deliver one HTML file that can be pasted and opened in Chrome.</li></ul></div>
       </details>
 

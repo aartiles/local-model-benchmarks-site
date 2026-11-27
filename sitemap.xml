@@ -145,6 +145,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pagoda-garden-hy4-flash-sushi-v180-temp09/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pagoda-garden-ternary-bonsai-2.5-splash-v173-temp0/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads/</loc>
   </url>
   <url>
@@ -395,6 +398,12 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pagoda-garden-hy4-flash-sushi-v180-temp09/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pagoda-garden-ternary-bonsai-2.5-splash-v173-temp0/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pagoda-garden-ternary-bonsai-2.5-splash-v173-temp09/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-ledger-sushi-v124-smr/</loc>
