@@ -211,6 +211,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-sushi-v151-tenaz-main-dsh/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-ternary-bonsai-2.5-splash-v173-pq2_0-tenaz-main-pi/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/tenaz-explainer-sushi-v130/</loc>
   </url>
   <url>
@@ -485,6 +488,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-tensorfold-125-out32k-tenaz-main-dsh/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-ternary-bonsai-2.5-splash-v173-pq2_0-tenaz-main-pi/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/tenaz-explainer-sushi-v130/</loc>
