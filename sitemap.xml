@@ -163,6 +163,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads-sushi-v160-tenaz-fx/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-hy4-flash-sushi-v181-tenaz-main-pi/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/raycaster-shooter-inkling-2-mini-mlx-serve-v26114pre1-tenaz-main-pi/</loc>
   </url>
   <url>
@@ -428,6 +431,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-sushi-v160-tenaz-fx/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-hy4-flash-sushi-v181-tenaz-main-pi/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/raycaster-shooter-inkling-2-mini-mlx-serve-v26114pre1-tenaz-main-pi/</loc>
