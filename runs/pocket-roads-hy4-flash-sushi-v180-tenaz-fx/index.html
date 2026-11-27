@@ -1,0 +1,188 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · macrostructure: Long Document · theme: Grid (amended) / ultramarine · design-system: design.md · designed-as-app -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pocket Roads · Sushi 1.8.0: configuration, result, recorded checks and measurements.">
+    <title>Pocket Roads · Sushi 1.8.0 run sheet · Local Model Benchmarks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <!-- Site metadata:start -->
+    <link rel="canonical" href="https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-hy4-flash-sushi-v180-tenaz-fx/">
+    <meta name="author" content="@aartiles24">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Local Model Benchmarks">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-hy4-flash-sushi-v180-tenaz-fx/">
+    <meta property="og:title" content="Pocket Roads · Sushi 1.8.0 run sheet · Local Model Benchmarks">
+    <meta property="og:description" content="Pocket Roads · Sushi 1.8.0: configuration, result, recorded checks and measurements.">
+    <meta property="og:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aartiles24">
+    <meta name="twitter:creator" content="@aartiles24">
+    <meta name="twitter:title" content="Pocket Roads · Sushi 1.8.0 run sheet · Local Model Benchmarks">
+    <meta name="twitter:description" content="Pocket Roads · Sushi 1.8.0: configuration, result, recorded checks and measurements.">
+    <meta name="twitter:image" content="https://aartiles.github.io/local-model-benchmarks-site/assets/social/local-model-benchmarks-card.jpg">
+    <meta name="twitter:image:alt" content="Local Model Benchmarks: Apple M5 Pro, 64 GB. Agentic coding tests, playable builds and recorded measurements. By @aartiles24.">
+    <!-- Site metadata:end -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="wordmark" href="../../"><span class="wordmark__mark" aria-hidden="true"></span>Local Model Benchmarks</a>
+        <nav aria-label="Main"><a href="../../runs/" aria-current="page">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a><a class="nav-external" href="https://github.com/aartiles/tenaz">Tenaz ↗</a></nav>
+      </header>
+      <p class="dateline label"><span>Local test machine: Apple M5 Pro · 64 GB unified memory</span><span>Run window 29 September — 24 November 2026</span><span>72 recorded runs</span></p>
+    </div>
+    <main class="shell" id="main" tabindex="-1">
+      <article class="sheet">
+        <div class="run-intro">
+          <header class="sheet__head">
+            <p class="label">27 November 2026 · 3D browser rally game</p>
+            <h1 class="display sheet__title" id="page-title">Pocket Roads · Sushi 1.8.0</h1>
+            <div class="record-tag"><span class="mark">Session partial</span> <span class="mark">Local run</span></div>
+            <p class="lede">Tenaz ended COMPLETE_WITH_GAPS after 10 h 56 min, 69 sessions and 22 tasks done, with three builder sessions stopped at the turn budget. The second final review left T023 (the toy calibration setup cannot be reached or finished) and T024 (the road reads as a dark unmarked ramp). Played: a worse game than the Qwen 3.8 Flash Next and Qwen 3.8 27B pi-adapted builds on the same brief. Holding throttle alone wins gold; the coupe is always drawn on the centre line while steering moves an unseen collision position, and the hazard posts lining both road edges punish steering (122 contacts, 244 s of penalties in one drive that held a direction).</p>
+            <div class="actions"><a href="../../demos/pocket-roads-hy4-flash-sushi-v180-tenaz-fx/">Play build <span aria-hidden="true">↗</span></a><a href="../../challenges/pocket-roads/">Compare attempts <span aria-hidden="true">→</span></a><a class="action--quiet" href="#inference">Measurements <span aria-hidden="true">↓</span></a></div>
+          </header>
+        <figure class="capture capture--wide">
+          <img src="../../assets/screenshots/pocket-roads-hy4-flash-sushi-v180-tenaz-fx-gameplay.jpg" width="1180" height="820" fetchpriority="high" decoding="async" alt="Pocket Roads Hy4-Flash build: the textured coupe at 122 km/h in the middle of a dark, unmarked road, an orange cone on the left, long grey guard-rail beams along both sides, low-poly ridges and sparse spruces in front of the pink dusk sky photo, the speed, time, distance and checkpoint HUD, and the steering slider and pedals in the corners.">
+          <figcaption>Hy4-Flash build, virtual chase view 20 s into a throttle-only drive, headless Chrome with the Mac&#x27;s GPU.</figcaption>
+        </figure>
+        </div>
+        <div class="sheet-body">
+          <section class="checks" id="verification" aria-labelledby="checks-title">
+            <h2 class="h-section" id="checks-title">What was checked</h2>
+            <ul><li>Runner final state COMPLETE_WITH_GAPS on 27 November 09:17:23.483 UTC: 22 tasks done, T023 and T024 to do. The three bootstrap steps passed on their first attempts (19 task cards, 79 requirements, 7 of them manual). Final review 1 returned CHANGES and added T020 (asphalt that reads as asphalt), T021 (a stage that reads as a dusk alpine rally) and T022 (the coupe sat below the road and nearly black); all three were done. Final review 2 returned CHANGES and added T023 and T024, which Tenaz&#x27;s two-cycle limit left open.</li>
+<li>Configuration: Hy4-Flash STQ 2.25 bpw on Sushi 1.8.0 (one process for the whole run), Tenaz 0.9.0 built from main 66025f6 (the commit of tag v0.9.0; run.json says only `tenaz 0.9.0` because the binary was built from `git archive`), fx 0.0.18, thinking medium, temperature unset (Sushi applied 0.9), Tenaz context window 131,072, vision on, sandbox on, Tenaz defaults otherwise (turnBudget 40, turn stop at 1.5 times). Brief and seed as the Sushi + Tenaz Pocket Roads run, checked by hash.</li>
+<li>Runner events: three builder sessions stopped at 60 turns (T001 twice, T021 once); each had written a file in its last two tool calls. No compactions, no provider errors, no capacity limits, no image refusals and no reply stopped at the output limit (the largest reply was 10,144 tokens). Four replans added no tasks. 111 of 2,181 tool calls (5.1%) ended in an error, 77 of them shell commands.</li>
+<li>Operator rerun of `verify --all` on a clean clone of the final commit d2d327a, in headless Chrome 158 with --use-mock-keychain: 23 of 23 passed. The checks drive steering, pedals, calibration across a reload, both camera modes, pause, collisions, two full races and replay in a real browser.</li>
+<li>Played by Claude in headless Chrome 158 over CDP with a real GPU (ANGLE Metal, Apple M5 Pro) at 1180x820. Virtual mode, holding W only: gold in 103.05 s (97.05 s plus three contacts at 2 s). Steering right and then left for 7 s each, then holding left to the finish: 122 contacts, 244 s of penalties, bronze after 165.39 s of driving. In the source, the coupe and the chase camera follow the road&#x27;s centre line; steering shifts and turns the camera and leans the car, while the collision position moves across the road unseen. The road is a dark ramp with no markings, and the guard rails show as long straight beams that cut across bends and hang over the road.</li>
+<li>Physical mode: the ready screen offers Drive, Toy camera, Virtual camera and Sound on, and no control opens the &#x27;Set the marker&#x27; panel (the second final review found its Done button is not wired). Tapping the ready screen&#x27;s background moves the anchor. During a race the marker is hidden and the road is drawn from the anchored camera.</li>
+<li>Vision: 125 read_file calls returned an image (screenshots of the game and the supplied art) in 44 of the 69 sessions.</li>
+<li>Engine metrics: one Sushi 1.8.0 process (started 26 November 22:17:10 UTC) served only this run. Its 1,620 summaries are 6 preflight requests and 1,614 run requests. All 1,614 proxy records match a Sushi summary one to one and in order by (prompt total, output, cached); no (prompt, output, cached) triple repeats in the log. Every request was logged with temp=0.90, thinking=true, max_tokens=16384 and a 16,384-token reasoning budget, and every one ended at end of sequence.</li>
+<li>Memory: Tenaz&#x27;s 1,436 host samples run from start to end. Sushi held 50 to 52 GiB. Pressure was normal in 1,409 samples, at warning in 26 from 04:45 UTC and critical once, at 06:36 UTC during the first final review; 147.3 GiB were swapped in. The operator reports that the checks&#x27; headless Chrome, launched without --use-mock-keychain, raised macOS keychain dialogs again and again.</li>
+<li>Public artifact: the runtime files of the final commit d2d327a (index.html, styles.css, src, assets, vendor; unchanged) and a virtual-mode frame at 1180x820 from Claude&#x27;s drive. The 16 supplied files match the seed by hash. The project, raw logs, journal and sessions stay in the ignored local archive.</li></ul>
+            <div class="limits"><h3>Limits of this evidence</h3><p>Completion is the runner outcome. The Sushi + Tenaz + fx Pocket Roads setup with Hy4-Flash in place of Qwen 3.8 Flash Next, on Sushi 1.8.0, Tenaz 0.9.0 and fx 0.0.18. Against the pi-adapted run on the same brief and seed: 3.5 times the time and 1.9 times the requests, and a worse game. The operator&#x27;s verdict is that the result is worse than both Qwen 3.8 Flash Next and Qwen 3.8 27B pi-adapted builds. Tenaz 0.9.0 is the release at tag v0.9.0; its binary reports no commit because it was built from `git archive`.</p></div>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="configuration">
+              <h2>Configuration</h2>
+              <p class="note">The model, serving engine and agent used for this execution.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded configuration and setup details</caption>
+                <thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Model · primary</th><td class="spec__value">Hy4-Flash · primary · reasoning Tenaz thinking medium; Sushi has no medium level for Hy4 and ran every request with thinking on and a 16,384-token reasoning budget (its effort table maps medium to high)</td><td class="spec__def">Sushi STQ 2.25 bpw (routed experts EXL3)</td></tr>
+                <tr><th scope="row">Checkpoint · primary</th><td class="spec__value">Hy4-Flash-Sushi-STQ-2.25bpw</td><td class="spec__def">primary model artifact · revision capture-cf5ac35088b7</td></tr>
+                <tr><th scope="row">Runtime</th><td class="spec__value">Sushi 1.8.0 · MLX 0.32.3 · One Sushi server process for the whole run, started before init by the workstation&#x27;s Raycast launcher through launchd: --ctx-size 262144, --ssd-budget-gb 48 with every routed expert resident, --max-tokens 16384, --metrics. Everything else Sushi&#x27;s default for Hy4: temperature 0.9, top-p 1.0 and no top-k from the pack&#x27;s generation_config.json (every request logged temp=0.90), 8-bit KV cache, 4096-token prefill chunks, prefix cache on SSD only (20 GB), DFly2 drafts at depth 1 to 6, vision on, one request at a time. Tenaz used it as a load-api engine through its proxy, with a 131,072-token context window of its own. mode</td><td class="spec__def">inference engine and exact build</td></tr>
+                <tr><th scope="row">Harness</th><td class="spec__value">fx over ACP driven by Tenaz 0.9.0 (main 66025f6, tag v0.9.0) 0.0.18</td><td class="spec__def">the agent or client that drove the run</td></tr>
+                <tr><th scope="row">Runner</th><td class="spec__value">Tenaz 0.9.0 · main 66025f6, tag v0.9.0</td><td class="spec__def">open-source runner, <a href="https://github.com/aartiles/tenaz">github.com/aartiles/tenaz</a> · <a href="../../method/#runner-title">how the runner evolved</a></td></tr>
+                <tr><th scope="row">Hardware</th><td class="spec__value">Apple MacBook Pro · 64 GB unified memory</td><td class="spec__def">hardware recorded for this execution</td></tr>
+                <tr><th scope="row">Workload</th><td class="spec__value">Pocket Roads · revision 1</td><td class="spec__def">Fresh implementation from the revised brief with the frontier build&#x27;s runtime assets and Three.js supplied before launch: the same brief (checked by hash) and the same 16 seed files as the Sushi + Tenaz and pi-adapted runs. The local model wrote the specification, task plan, checks and game. Asset generation is outside the run. prompt_tokens counts every request&#x27;s full prompt, cached or not.</td></tr>
+                <tr><th scope="row">Context window</th><td class="spec__value">262,144 tokens</td><td class="spec__def">maximum context configured for the serving runtime</td></tr>
+                <tr><th scope="row">Repetitions</th><td class="spec__value">1</td><td class="spec__def">executions recorded for this workload; one means an indicative result, not an estimate</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section class="band">
+            <section class="spec-group" id="inference">
+              <h2>Inference measurements</h2>
+              <p class="note">Engine-side rates for this run. Each figure states its own statistic; figures from different runs are not interchangeable.</p>
+              <table class="spec">
+                <caption class="sr-only">Inference measurements: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">TTFT · median</th><td class="spec__value">2 s</td><td class="spec__def">Median engine-reported TTFT across matched responses, from Sushi&#x27;s per-request metrics as Tenaz&#x27;s proxy recorded them. · n=1614 · Mean 5.259 s, 90th percentile 12.9 s. Includes the run&#x27;s cache mix; not a prefill rate.</td></tr>
+                <tr><th scope="row">Prefill · median</th><td class="spec__value">308.9 tok/s</td><td class="spec__def">Median of Sushi&#x27;s per-request prefill rate across matched responses, as Sushi reports it, cached input included. · n=1614</td></tr>
+                <tr><th scope="row">Decode · per-request median</th><td class="spec__value">34.4 tok/s</td><td class="spec__def">Median of Sushi&#x27;s per-request decode rate across matched responses. · n=1614 · Range 16.7 to 55.6.</td></tr>
+                <tr><th scope="row">Decode · output-weighted</th><td class="spec__value">31.6746 tok/s</td><td class="spec__def">Total output tokens divided by the sum of each request&#x27;s output tokens over its decode rate. · n=1614</td></tr>
+                <tr><th scope="row">Draft acceptance</th><td class="spec__value">74.9174 %</td><td class="spec__def">Accepted DFly2 draft tokens divided by drafted tokens, from the Sushi spec-stats line of each matched request. · n=1614 · 273,229 accepted of 364,707 drafted. DFly2, not MTP.</td></tr>
+                <tr><th scope="row">Host wired memory · median</th><td class="spec__value">52.175 GiB</td><td class="spec__def">Median host wired memory across Tenaz&#x27;s host samples from start to end of the run. · n=1436 · Maximum 55.02 GiB. Host-wide, includes every process.</td></tr>
+                <tr><th scope="row">Server process memory · peak</th><td class="spec__value">52 GiB</td><td class="spec__def">Largest Sushi process memory in Tenaz&#x27;s host samples. · n=1436 · 50.0 GiB at the first sample.</td></tr>
+                <tr><th scope="row">Swapped in during the run</th><td class="spec__value">147.262 GiB</td><td class="spec__def">Sum of swap-in deltas across Tenaz&#x27;s host memory samples; host-wide swap I/O, not resident memory. · n=1436 · Memory pressure normal in 1,409 samples, at warning in 26 from 04:45 UTC and critical once (06:36 UTC). Swap in use rose from 16.2 GiB to a maximum of 23.3 GiB.</td></tr>
+                <tr><th scope="row">Swapped out during the run</th><td class="spec__value">152.328 GiB</td><td class="spec__def">Sum of swap-out deltas across Tenaz&#x27;s host memory samples. · n=1436</td></tr>
+                <tr><th scope="row">Free memory · sampled minimum</th><td class="spec__value">0.07 GiB</td><td class="spec__def">Lowest free memory in Tenaz&#x27;s host samples. · n=1436</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="session">
+              <h2>Agent session counters</h2>
+              <p class="note">Agent-wide usage totals. These include reasoning, tool calls and waiting, and are not model decode speed.</p>
+              <table class="spec">
+                <caption class="sr-only">Agent session counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Run elapsed</th><td class="spec__value">656.2 min</td><td class="spec__def">Session 001 start after the preflight (26 November 22:21:13.521 UTC) to COMPLETE_WITH_GAPS (27 November 09:17:23.483 UTC); includes tools, checks and retries. · n=1 · 10 h 56 min 10 s; no pauses.</td></tr>
+                <tr><th scope="row">Agent sessions</th><td class="spec__value">69 sessions</td><td class="spec__def">All harness sessions: 3 bootstrap, 31 builder, 29 reviewer, 4 replan and 2 final reviewer. · n=1</td></tr>
+                <tr><th scope="row">Sessions ended early</th><td class="spec__value">3 sessions</td><td class="spec__def">Sessions with ok=false. · n=69 · All three stopped at the turn budget (60 of 40 turns): 004 and 005 on T001 and 062 on T021. A fresh session continued each; each had written a file in its last two tool calls.</td></tr>
+                <tr><th scope="row">Operator interventions</th><td class="spec__value">0 actions</td><td class="spec__def">No pauses, relaunches, configuration changes or edits in the runner log after the first session started. · n=1 · Whether the operator answered the keychain dialogs that the checks&#x27; headless Chrome raised is not recorded.</td></tr>
+                <tr><th scope="row">Model responses</th><td class="spec__value">1,614 responses</td><td class="spec__def">All proxy request records; none empty and none ended in an error. · n=1</td></tr>
+                <tr><th scope="row">Matched model requests</th><td class="spec__value">1,614 requests</td><td class="spec__def">Proxy responses matched one to one, in order and uniquely to Sushi summaries by total prompt, output and cached-token triple. · n=1 · 6 preflight summaries unassigned and excluded; every other Sushi summary of the process is matched.</td></tr>
+                <tr><th scope="row">Tool calls</th><td class="spec__value">2,181 calls</td><td class="spec__def">fx tool calls across all 69 sessions&#x27; RPC logs (equal to the journal&#x27;s sum). · n=69</td></tr>
+                <tr><th scope="row">Tool errors</th><td class="spec__value">111 errors</td><td class="spec__def">fx tool calls that ended with is_error, counted in the sessions&#x27; RPC logs. · n=2181 · 77 of them shell commands, 18 file reads, 10 edits, 5 searches and 1 subagent; not a count of malformed tool calls.</td></tr>
+                <tr><th scope="row">Image tool calls</th><td class="spec__value">125 calls</td><td class="spec__def">read_file calls that returned an image (screenshots of the game and the supplied art). · n=2181 · In 44 of the 69 sessions.</td></tr>
+                <tr><th scope="row">Context compactions</th><td class="spec__value">0 compactions</td><td class="spec__def">Compaction count across all session records. · n=69</td></tr>
+                <tr><th scope="row">Replies cut at the output limit</th><td class="spec__value">0 requests</td><td class="spec__def">Replies that stopped at the 16,384-token output limit. · n=1614 · Every reply ended at end of sequence in the Sushi log; the largest had 10,144 tokens.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="context">
+              <h2>Context and token counters</h2>
+              <p class="note">Token totals as reported by the harness or engine. Cached and cumulative figures are not additive with fresh input.</p>
+              <table class="spec">
+                <caption class="sr-only">Context and token counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Maximum prompt context</th><td class="spec__value">86,650 tokens</td><td class="spec__def">Maximum prompt input across matched responses; not the configured server window. · n=1614</td></tr>
+                <tr><th scope="row">Cumulative input</th><td class="spec__value">62,250,168 tokens</td><td class="spec__def">Sum of total prompt tokens across matched responses, including repeatedly reused context; not unique input. · n=1614</td></tr>
+                <tr><th scope="row">Cached input</th><td class="spec__value">58,978,291 tokens</td><td class="spec__def">Sum of prompt tokens Sushi restored from its SSD prefix cache for matched responses. · n=1614</td></tr>
+                <tr><th scope="row">Fresh input</th><td class="spec__value">3,271,877 tokens</td><td class="spec__def">Total prompt input minus cached input for matched responses. · n=1614</td></tr>
+                <tr><th scope="row">Output tokens</th><td class="spec__value">716,244 tokens</td><td class="spec__def">Sum of output tokens across matched responses, reasoning included. · n=1614</td></tr>
+                <tr><th scope="row">of which reasoning output</th><td class="spec__value">414,452 tokens</td><td class="spec__def">Reasoning tokens reported by the proxy, part of the output tokens. · n=1614 · The largest per request was 5,933, under the 16,384-token reasoning budget.</td></tr>
+                <tr><th scope="row">Prompt-cache token share</th><td class="spec__value">94.744 %</td><td class="spec__def">Cached prompt tokens divided by total prompt tokens, weighted by tokens across matched responses. · n=1614</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="spec-group" id="checks">
+              <h2>Recorded check counters</h2>
+              <p class="note">Counts from the checks recorded with this run.</p>
+              <table class="spec">
+                <caption class="sr-only">Recorded check counters: recorded value and measurement definition</caption>
+                <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Definition</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">Tasks completed</th><td class="spec__value">22 tasks</td><td class="spec__def">Final task cards marked done; T023 and T024, added by the second final review, were left to do. · n=24</td></tr>
+                <tr><th scope="row">Tasks still pending</th><td class="spec__value">2 tasks</td><td class="spec__def">Todo cards in the final backlog. · n=24</td></tr>
+                <tr><th scope="row">Reviews returning changes</th><td class="spec__value">6 reviews</td><td class="spec__def">Task review verdicts returning CHANGES: T003, T010, T012 and T021 once, T016 twice. Both final reviews returned CHANGES. · n=28 · One more T012 review recorded no verdict and was run again.</td></tr>
+                <tr><th scope="row">Project checks passing</th><td class="spec__value">23 checks</td><td class="spec__def">Checks passing in `verify --all`, rerun by the operator on a clean clone of the final commit in headless Chrome. · n=23 · Model-written checks, not an independent acceptance suite.</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <details class="disclosure"><summary>Request records &amp; provenance</summary><div class="disclosure__body"><p>1,614 numeric request records in proxy order, each matched one to one to a Sushi summary by total prompt, output and cached tokens. Prefill and decode rates and the DFly2 spec-stats (mtp_* fields: attempts, accepts, drafted and per_draft_pct) come from Sushi&#x27;s log; TTFT from Sushi&#x27;s per-request metrics as Tenaz&#x27;s proxy recorded them. Preflight summaries are excluded. No prompts, tool results, session identifiers or local paths are included.</p></div></details>
+          <section class="band band--quiet">
+            <p class="run-id">Run ID: 2026-11-27-hy4-flash-sushi-v180-225bpw-tenaz-090-fx-pocket-roads</p>
+            <p class="note">One execution, with checks transcribed from the retained record. A completed session is not a quality score. <a href="../../method/">Measurement method</a> · <a href="../../runs/">All runs</a></p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="shell colophon">
+      <p class="colophon__mark">Local Model Benchmarks</p>
+      <p class="colophon__tag">Agentic runs, playable results and recorded measurements. Evidence for choosing a local setup, with the limits kept visible.</p>
+      <p class="colophon__tag">Tests and archive by <a href="https://x.com/aartiles24" rel="me">@aartiles24 on Twitter</a>.</p>
+      <p class="colophon__tag">The long-horizon runs are driven by <a href="https://github.com/aartiles/tenaz">Tenaz</a>, an open-source runner that takes a local model through a goal for hours, session by session, until its checks pass.</p>
+      <nav class="colophon__links" aria-label="Footer"><a href="../../runs/">Runs</a><a href="../../challenges/">Challenges</a><a href="../../demos/">Builds</a><a href="../../prompts/">Prompts</a><a href="../../method/">Method</a></nav>
+    </footer>
+  </body>
+</html>

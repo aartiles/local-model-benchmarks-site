@@ -148,6 +148,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads-hy4-flash-sushi-v180-tenaz-fx/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/pocket-roads-mistral-large-4-vibe/</loc>
   </url>
   <url>
@@ -401,6 +404,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-gpt-6-2-astra-codex/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-hy4-flash-sushi-v180-tenaz-fx/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/pocket-roads-mistral-large-4-vibe/</loc>
