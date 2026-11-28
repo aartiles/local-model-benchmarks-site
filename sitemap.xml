@@ -85,6 +85,9 @@
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d-gpt-6-luna-codex/</loc>
   </url>
   <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d-hy4-flash-sushi-v181-tenaz-main-pi/</loc>
+  </url>
+  <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/demos/digger-3d-inkling-2-mini-mlx-serve-v26114pre1-tenaz-main-pi/</loc>
   </url>
   <url>
@@ -314,6 +317,9 @@
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-gpt-6-luna-codex/</loc>
+  </url>
+  <url>
+    <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-hy4-flash-sushi-v181-tenaz-main-pi/</loc>
   </url>
   <url>
     <loc>https://aartiles.github.io/local-model-benchmarks-site/runs/digger-3d-inkling-2-mini-mlx-serve-v26114pre1-tenaz-main-pi/</loc>
